@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RecommendationTabView: View {
+    
+    @EnvironmentObject var router: Router
+    
     var body: some View {
         Text("Recommendation")
     }

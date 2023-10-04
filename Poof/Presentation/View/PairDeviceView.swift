@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PairDeviceView: View {
+    
+    @EnvironmentObject var router: Router
+    
     var body: some View {
         Text("Pair Device")
     }

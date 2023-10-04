@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct InhalerTabView: View {
+    
+    @EnvironmentObject var router: Router
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -38,4 +41,6 @@ struct InhalerTabView: View {
 
 #Preview {
     InhalerTabView()
+        .environmentObject(Router())
+    
 }
