@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+// INI CONTOH MAKE VIEWMODEL
 struct SecondView: View {
     
     @EnvironmentObject var router: Router
