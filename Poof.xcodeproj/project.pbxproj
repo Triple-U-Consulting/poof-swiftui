@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FF77A5B2ACEC53A001F6CC2 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF77A5A2ACEC53A001F6CC2 /* Test.swift */; };
+		3FF77A5D2ACEC53F001F6CC2 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF77A5C2ACEC53F001F6CC2 /* Test.swift */; };
 		AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BED932ACD4B770071BF10 /* PoofApp.swift */; };
 		AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BED952ACD4B770071BF10 /* ContentView.swift */; };
 		AB7BED982ACD4B780071BF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7BED972ACD4B780071BF10 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FF77A5A2ACEC53A001F6CC2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		3FF77A5C2ACEC53F001F6CC2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		AB7BED902ACD4B770071BF10 /* Poof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7BED932ACD4B770071BF10 /* PoofApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoofApp.swift; sourceTree = "<group>"; };
 		AB7BED952ACD4B770071BF10 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 		AB7BEDCC2ACD52940071BF10 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3FF77A5A2ACEC53A001F6CC2 /* Test.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 		AB7BEDCD2ACD529E0071BF10 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3FF77A5C2ACEC53F001F6CC2 /* Test.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -337,6 +343,8 @@
 				AB7BEDD42ACD5ADD0071BF10 /* Font.swift in Sources */,
 				AB7BEDC22ACD4CC90071BF10 /* RecommendationTabView.swift in Sources */,
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
+				3FF77A5B2ACEC53A001F6CC2 /* Test.swift in Sources */,
+				3FF77A5D2ACEC53F001F6CC2 /* Test.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
 				AB7BEDC42ACD4D920071BF10 /* PageNavigator.swift in Sources */,
 				AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */,
