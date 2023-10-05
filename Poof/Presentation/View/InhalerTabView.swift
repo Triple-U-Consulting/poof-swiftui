@@ -8,13 +8,69 @@
 import SwiftUI
 
 struct InhalerTabView: View {
+    
+    @EnvironmentObject var router: Router
+    @State private var didSync = true
+    
     var body: some View {
         NavigationView {
             VStack {
                 ZStack {
-                    Component.RotatingCircle()
+                    Component.RotatingCircle(didSync: $didSync)
                     //                Component.RotatingGradientCircle()
-                    Component.CircleButton(text: "SYNC", diameter: 213)
+//                    Component.CircleButton(text: "", diameter: 247)
+                    Component.CircleButton(text: "SYNC", diameter: 213, didSync: $didSync)
+                }
+                .padding(.top, 64)
+                
+                if didSync {
+                    Text("Last sync on 8.39 am")
+                        .padding(.top, 8)
+                    
+                    HStack (alignment: .top){
+                        VStack (alignment: .center) {
+                            Text("Today Puff")
+                            Spacer()
+                            Text("2")
+                        }.frame(width: 90, height:80)
+                        VStack (alignment: .center) {
+                            Text("Average \nPuff")
+                                .multilineTextAlignment(.center)
+                            Spacer()
+                            Text("9")
+                        }.frame(width: 90, height:80)
+                        VStack (alignment: .center)  {
+                            Text("Remaining \nPuff")
+                                .multilineTextAlignment(.center)
+                            Spacer()
+                            Text("102")
+                        }.frame(width: 90, height:80)
+                    }
+                    .frame(width:342, height:101)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(color: Color("Shadow"), radius: 12, x: 0, y: 4)
+                    .padding(.top, 16)
+                    
+                    VStack {
+                        HStack{
+                            Text("Last Replaced Date")
+                            Spacer()
+                            Text("15-08-2023")
+                        }
+                        HStack {
+                            Text("Expected Replace Date")
+                            Spacer()
+                            Text("29-09-2023")
+                        }
+                    }
+                    .frame(width:302, height:40)
+                    .padding(.vertical, 32)
+                    
+                    Spacer()
+                    
+                    Component.DefaultButton(text: "Sync")
+                        .padding(.bottom, 16)
                 }
                 
             }
@@ -25,7 +81,7 @@ struct InhalerTabView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Component.ProfileButton(text: "")
-                        .padding(.top, 16)
+                        .padding(.top, 8)
                 }
             }
 //            .navigationTitle("Inhaler")
@@ -38,4 +94,6 @@ struct InhalerTabView: View {
 
 #Preview {
     InhalerTabView()
+        .environmentObject(Router())
+    
 }

@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct LoginView: View {
+    
+    @EnvironmentObject var router: Router
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Login")
+            Button(action: {
+                router.path.append(Page.PairDevice)
+            }) {
+                Text("Go to Pair")
+            }
+        }
     }
 }
 
 #Preview {
     LoginView()
+        .environmentObject(Router())
 }
