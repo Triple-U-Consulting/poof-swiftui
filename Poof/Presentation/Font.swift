@@ -15,27 +15,30 @@ import SwiftUI
 
 extension Font {
     
-    static var title: Font {
+    static var systemTitle: Font {
         return .system(size: 21, weight: .semibold)
     }
     
-    static var title2: Font {
+    static var systemTitle2: Font {
         return .system(size: 27, weight: .bold)
     }
     
-    static var subheader: Font {
+    static var systemSubheader: Font {
         return .system(size: 21, weight: .semibold)
     }
     
-    static var headline2: Font {
+    static var systemHeadline2: Font {
         return .system(size: 16, weight: .medium)
     }
     
-    static var bodyText: Font {
+    static var systemBodyText: Font {
         return .system(size: 16, weight: .regular)
     }
     
-    static var buttonText: Font {
+    static var systemButtonText: Font {
         return .system(size: 19, weight: .medium)
     }
 }
+
+
+
