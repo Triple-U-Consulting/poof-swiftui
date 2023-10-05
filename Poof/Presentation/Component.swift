@@ -25,12 +25,6 @@ struct Component {
                     .frame(width: 54, height: 54)
                     .foregroundColor(.primary) // Set a foreground color
             }
-//            .frame(width: 54, height: 54, alignment: .center)
-            //.padding(.all, 20)
-//            .background(Image(systemName: "person.crop.circle")
-//                .resizable()
-//                .frame(width: 54, height: 54)
-//            )
         }
     }
     
@@ -43,16 +37,11 @@ struct Component {
                 //logic
             } label : {
                 Text(text)
-                    .foregroundStyle(.black)
-                    .foregroundColor(.black)
+                    .foregroundStyle(.white)
                     .frame(width: 342, height: 47)
-                    .background(Color.blue)
+                    .background(Color("Primary"))
                     .cornerRadius(10)
             }
-//            .background(Image(systemName: "person.crop.circle")
-//                .resizable()
-//                .frame(width: 54, height: 54)
-//            )
         }
     }
     
@@ -69,10 +58,11 @@ struct Component {
         
         var text: String
         var diameter: CGFloat
+        @Binding var didSync : Bool
 
         var body: some View {
             Button {
-                //action
+                didSync = true
             } label : {
                 Text(text)
                     .font(.systemButtonText)
@@ -87,15 +77,13 @@ struct Component {
     
     struct RotatingCircle: View {
         @State var gradientAngle: Double = 0
-        let colors: [Color] = [
-            .white,
-            .red
-        ]
+        let colors: [Color] = [.white, .red]
+        @Binding var didSync: Bool
         
         var body: some View {
             ZStack {
                 Circle()
-                    .fill(AngularGradient(gradient: Gradient(colors: colors), center: .center, angle: .degrees(gradientAngle)))
+                    .fill(AngularGradient(gradient: Gradient(colors: didSync ? colors : [.red]), center: .center, angle: .degrees(gradientAngle)))
                     .brightness(0.1)
                     .saturation(0.9)
                     .blur(radius: 0)
@@ -106,7 +94,7 @@ struct Component {
             }
 //            .frame(width: 257, height: 257)
             .onAppear {
-                withAnimation(Animation.linear(duration: 12).repeatForever(autoreverses: false)) {
+                withAnimation(Animation.linear(duration: 4).repeatForever(autoreverses: false)) {
                     self.gradientAngle = 360
                 }
             }
@@ -128,7 +116,6 @@ struct Component {
                     Image(systemName: "chevron.backward")
                         .resizable()
                         .foregroundColor(.black)
-//                        .frame(width: 18, height: 29)
                     Text("\(self.text)")
                         .foregroundColor(.black)
                         .font(.systemBodyText)

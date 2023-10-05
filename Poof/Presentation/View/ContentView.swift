@@ -12,11 +12,13 @@ struct ContentView: View {
     @EnvironmentObject var router: Router
     @StateObject var vm = ViewModel(name: "jovan")
     
+    
     var body: some View {
         
         NavigationStack (path: $router.path) {
             
-            OnboardingView()
+//            OnboardingView()
+            TabBarView()
             .navigationDestination(for: Page.self){ destination in
                 switch destination {
 //                case Page.Onboarding:
