@@ -15,3 +15,10 @@ class Router: ObservableObject {
         self.path = NavigationPath()
     }
 }
+
+enum Page {
+    case Onboarding
+    case Login
+    case PairDevice
+    case TabBar
+}

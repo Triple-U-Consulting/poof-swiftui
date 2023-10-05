@@ -12,10 +12,18 @@ struct OnboardingView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        Text("Onboarding")
+        VStack {
+            Text("Onboarding")
+            Button(action: {
+                router.path.append(Page.Login)
+            }) {
+                Text("Go to login")
+            }
+        }
     }
 }
 
 #Preview {
     OnboardingView()
+        .environmentObject(Router())
 }

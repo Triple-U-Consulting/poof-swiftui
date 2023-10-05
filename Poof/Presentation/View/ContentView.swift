@@ -10,40 +10,42 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var router: Router
-//    @State private var currentPage = Page.InhalerTab
-//    @State private var selection = 0
     @StateObject var vm = ViewModel(name: "jovan")
-    
-    
     
     var body: some View {
         
         NavigationStack (path: $router.path) {
             
-            Button(action: {
-                router.path.append(3)
-            }) {
-                VStack {
-                    Text("Go to page 1")
-                    Text(vm.name)
-                }
-            }
-            .navigationDestination(for: Int.self){ destination in
+            OnboardingView()
+            .navigationDestination(for: Page.self){ destination in
                 switch destination {
-                case 1:
-                    SecondView()
+//                case Page.Onboarding:
+//                    OnboardingView()
+//                        .environmentObject(router)
+//                        .navigationBarBackButtonHidden(true)
+//                        .environmentObject(vm)
+                case Page.Login:
+                    LoginView()
                         .environmentObject(router)
-                        .environmentObject(vm)
-                case 2:
-                    ThirdView().environmentObject(router)
-                case 3:
-                    TabBarView().environmentObject(router)
+                case Page.PairDevice:
+                    PairDeviceView()
+                        .environmentObject(router)
                         .navigationBarHidden(true)
+                    
+                case Page.TabBar:
+                    TabBarView()
+                        .environmentObject(router)
+                        .navigationBarHidden(true)
+//                        .navigationBarBackButtonHidden(true)
                 default:
-                    EmptyView()
+                    VStack {
+                        Text("ada yang error gan")
+                    }
                 }
             }
-            
+            .onAppear(perform: {
+//                router.path.append(1) //somehow gabisa kek gini?
+            })
         }
     }
 }

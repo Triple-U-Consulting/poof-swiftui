@@ -17,7 +17,6 @@
 		AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDBD2ACD4C940071BF10 /* InhalerTabView.swift */; };
 		AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */; };
 		AB7BEDC22ACD4CC90071BF10 /* RecommendationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDC12ACD4CC90071BF10 /* RecommendationTabView.swift */; };
-		AB7BEDC42ACD4D920071BF10 /* PageNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDC32ACD4D920071BF10 /* PageNavigator.swift */; };
 		AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */; };
 		AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */; };
 		AB7BEDD22ACD56680071BF10 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDD12ACD56680071BF10 /* Component.swift */; };
@@ -25,7 +24,6 @@
 		AB7BEDD62ACD67720071BF10 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDD52ACD67720071BF10 /* LoginView.swift */; };
 		AB7BEDD82ACD6F8C0071BF10 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDD72ACD6F8C0071BF10 /* Router.swift */; };
 		AB7BEDDA2ACD71370071BF10 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDD92ACD71370071BF10 /* SecondView.swift */; };
-		AB7BEDDC2ACD71560071BF10 /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDDB2ACD71560071BF10 /* ThirdView.swift */; };
 		AB7BEDDF2ACD7A8A0071BF10 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */; };
 		AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +59,6 @@
 		AB7BEDBD2ACD4C940071BF10 /* InhalerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerTabView.swift; sourceTree = "<group>"; };
 		AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTabView.swift; sourceTree = "<group>"; };
 		AB7BEDC12ACD4CC90071BF10 /* RecommendationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationTabView.swift; sourceTree = "<group>"; };
-		AB7BEDC32ACD4D920071BF10 /* PageNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigator.swift; sourceTree = "<group>"; };
 		AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairDeviceView.swift; sourceTree = "<group>"; };
 		AB7BEDD12ACD56680071BF10 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
@@ -69,7 +66,6 @@
 		AB7BEDD52ACD67720071BF10 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AB7BEDD72ACD6F8C0071BF10 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AB7BEDD92ACD71370071BF10 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
-		AB7BEDDB2ACD71560071BF10 /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
 		AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,10 +149,10 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDDD2ACD7A800071BF10 /* ViewModel */,
-				AB7BEDC32ACD4D920071BF10 /* PageNavigator.swift */,
 				AB7BEDD12ACD56680071BF10 /* Component.swift */,
 				AB7BEDD32ACD5ADD0071BF10 /* Font.swift */,
 				AB7BEDD72ACD6F8C0071BF10 /* Router.swift */,
+				AB7BEDD92ACD71370071BF10 /* SecondView.swift */,
 				AB7BEDCA2ACD52500071BF10 /* View */,
 			);
 			path = Presentation;
@@ -166,15 +162,13 @@
 			isa = PBXGroup;
 			children = (
 				AB7BED952ACD4B770071BF10 /* ContentView.swift */,
-				AB7BEDD92ACD71370071BF10 /* SecondView.swift */,
-				AB7BEDDB2ACD71560071BF10 /* ThirdView.swift */,
-				AB7BEDD52ACD67720071BF10 /* LoginView.swift */,
 				AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */,
+				AB7BEDD52ACD67720071BF10 /* LoginView.swift */,
+				AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */,
+				AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */,
 				AB7BEDBD2ACD4C940071BF10 /* InhalerTabView.swift */,
 				AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */,
 				AB7BEDC12ACD4CC90071BF10 /* RecommendationTabView.swift */,
-				AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */,
-				AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,7 +350,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB7BEDDC2ACD71560071BF10 /* ThirdView.swift in Sources */,
 				AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */,
 				AB7BEDD22ACD56680071BF10 /* Component.swift in Sources */,
 				AB7BEDD42ACD5ADD0071BF10 /* Font.swift in Sources */,
@@ -364,7 +357,6 @@
 				AB7BEDD82ACD6F8C0071BF10 /* Router.swift in Sources */,
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
-				AB7BEDC42ACD4D920071BF10 /* PageNavigator.swift in Sources */,
 				AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */,
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
 				AB7BEDDF2ACD7A8A0071BF10 /* ViewModel.swift in Sources */,

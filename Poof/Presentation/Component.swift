@@ -34,12 +34,34 @@ struct Component {
         }
     }
     
+    struct DefaultButton: View {
+        
+        var text: String
+        
+        var body: some View {
+            Button {
+                //logic
+            } label : {
+                Text(text)
+                    .foregroundStyle(.black)
+                    .foregroundColor(.black)
+                    .frame(width: 342, height: 47)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+//            .background(Image(systemName: "person.crop.circle")
+//                .resizable()
+//                .frame(width: 54, height: 54)
+//            )
+        }
+    }
+    
     struct NavigationTitle: View {
         
         var text: String
         var body: some View {
             Text(text)
-                .font(.title2)
+                .font(.systemTitle2)
         }
     }
     
@@ -47,23 +69,19 @@ struct Component {
         
         var text: String
         var diameter: CGFloat
-        
-        @State private var rotationAngle: Double = 0
-
-        let gradientColors: [Color] = [Color.red, Color.blue]
 
         var body: some View {
             Button {
                 //action
             } label : {
                 Text(text)
-                    .font(.title2)
+                    .font(.systemButtonText)
                     .foregroundStyle(.black)
-
             }
             .frame(width: diameter, height: diameter)
             .background(Color.white)
             .clipShape(Circle())
+            .shadow(color: Color("Shadow"), radius: 12, x: 0, y: 10)
         }
     }
     
@@ -77,15 +95,43 @@ struct Component {
         var body: some View {
             ZStack {
                 Circle()
-                .fill(AngularGradient(gradient: Gradient(colors: colors), center: .center, angle: .degrees(gradientAngle)))
-                .brightness(0.1)
-                .saturation(0.9)
-                .blur(radius: 0)
+                    .fill(AngularGradient(gradient: Gradient(colors: colors), center: .center, angle: .degrees(gradientAngle)))
+                    .brightness(0.1)
+                    .saturation(0.9)
+                    .blur(radius: 0)
+                    .frame(width: 267, height: 267)
+                Circle()
+                    .fill(.white)
+                    .frame(width: 247, height:247)
             }
-            .frame(width: 240, height: 240)
+//            .frame(width: 257, height: 257)
             .onAppear {
                 withAnimation(Animation.linear(duration: 12).repeatForever(autoreverses: false)) {
                     self.gradientAngle = 360
+                }
+            }
+        }
+    }
+    
+    
+    struct NavigationBackButton: View {
+        
+//        var page: Page
+        var text: String
+        @EnvironmentObject var router: Router
+        
+        var body: some View {
+            Button {
+                router.path.removeLast()
+            } label: {
+                HStack {
+                    Image(systemName: "chevron.backward")
+                        .resizable()
+                        .foregroundColor(.black)
+//                        .frame(width: 18, height: 29)
+                    Text("\(self.text)")
+                        .foregroundColor(.black)
+                        .font(.systemBodyText)
                 }
             }
         }

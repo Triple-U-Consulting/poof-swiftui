@@ -12,6 +12,5 @@ class ViewModel: ObservableObject {
     
     init(name: String) {
         self.name = name
-        self
     }
 }

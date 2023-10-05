@@ -17,6 +17,7 @@ struct InhalerTabView: View {
                 ZStack {
                     Component.RotatingCircle()
                     //                Component.RotatingGradientCircle()
+//                    Component.CircleButton(text: "", diameter: 247)
                     Component.CircleButton(text: "SYNC", diameter: 213)
                 }
                 
