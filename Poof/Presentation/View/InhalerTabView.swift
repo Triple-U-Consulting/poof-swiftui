@@ -79,10 +79,10 @@ struct InhalerTabView: View {
                     Component.NavigationTitle(text: "Inhaler")
                         .padding(.top, 16)
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Component.ProfileButton(text: "")
-                        .padding(.top, 8)
-                }
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    Component.ProfileButton(text: "")
+//                        .padding(.top, 8)
+//                }
             }
 //            .navigationTitle("Inhaler")
 //            .navigationBarHidden(true)

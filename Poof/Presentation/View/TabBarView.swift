@@ -36,11 +36,11 @@ struct TabBarView: View {
                     }
                     .tag(2)
             }
-            .accentColor(.orange)
-            .onAppear() {
-                UITabBar.appearance().barTintColor = .red
-                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
-            }
+            .accentColor(Color.Main.primary)
+//            .onAppear() {
+//                UITabBar.appearance().barTintColor = .red
+//                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
+//            }
         }
     }
 }
