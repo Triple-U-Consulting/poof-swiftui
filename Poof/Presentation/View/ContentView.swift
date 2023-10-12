@@ -17,8 +17,8 @@ struct ContentView: View {
         
         NavigationStack (path: $router.path) {
             
-//            OnboardingView()
-            TabBarView()
+            OnboardingView()
+//            TabBarView()
             .navigationDestination(for: Page.self){ destination in
                 switch destination {
 //                case Page.Onboarding:

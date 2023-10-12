@@ -11,25 +11,28 @@ struct PairDeviceView: View {
     
     @EnvironmentObject var router: Router
     
+//    private var pairProgress = PairProgress.startPairing
+    
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
+                LottieViewComponent(name: "pairing-loading", loopMode: .loop)
+                    .frame(width:255, height:220)
+                Spacer()
                 Text("Pair Your Inhaler")
                     .font(.systemTitle)
-                //image
-                Text("Connecting your inhaler helps us collect valuable data about your daily puffs and improving our analysis.")
-                    .frame(width: 291, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("Connecting your inhaler helps us to \nimprove our analysis.")
+                    .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(.center)
+                    .padding(.top, 8)
                 
-                Component.DefaultButton(text: "Start Pairing")
-                Text("Pair Device")
-                Button(action: {
-                    // Button action goes here
-                    //  path = []
-                    router.path.append(Page.TabBar)
-                }) {
-                    Text("Go to App")
+                Component.DefaultButton(text: "Start Pairing") {
+                    //logic
                 }
+                .padding(.top, 40)
+                .padding(.bottom, 50)
+
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -48,3 +51,12 @@ struct PairDeviceView: View {
     PairDeviceView()
         .environmentObject(Router())
 }
+
+//enum PairProgress {
+//    case startPairing
+//    case connectToWiFi
+//    case failedPairing
+//    case loadingPairing
+//    case successPairing
+//}
+

@@ -69,7 +69,9 @@ struct InhalerTabView: View {
                     
                     Spacer()
                     
-                    Component.DefaultButton(text: "Sync")
+                    Component.DefaultButton(text: "Sync") {
+                        //logic
+                    }
                         .padding(.bottom, 16)
                 }
                 
