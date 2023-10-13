@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var router: Router
-    @StateObject var vm = ViewModel(name: "jovan")
+    @StateObject var vm = ViewModel()
     
     
     var body: some View {

@@ -21,18 +21,15 @@ struct SecondView: View {
                   router.path.append(2)
               }) {
                   VStack {
-                      Text(vm.name)
+//                      Text(vm.name)
                       Text("Go to page 3")
                   }             
             }
-              .onAppear(perform: {
-                  vm.name = "123"
-              })
         }
 }
 
 #Preview {
     SecondView()
         .environmentObject(Router())
-        .environmentObject(ViewModel(name: "test"))
+        .environmentObject(ViewModel())
 }
