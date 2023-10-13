@@ -36,7 +36,7 @@ struct TabBarView: View {
                     }
                     .tag(2)
             }
-            .accentColor(Color.Main.primary)
+            .accentColor(Color.Main.primary1)
 //            .onAppear() {
 //                UITabBar.appearance().barTintColor = .red
 //                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor

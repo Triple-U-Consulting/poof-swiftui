@@ -8,30 +8,98 @@
 import Foundation
 import SwiftUI
 
+enum DefaultButtonLevel {
+    case primary
+    case secondary
+}
+
+enum DefaultButtonState {
+    case active
+    case inactive
+}
+
+
+
+
 
 struct Component {
     
     // MARK: - BASIC DESIGN SYSTEM COMPONENT
     
     // DEFAULT BUTTON FOR THE APPS
-    // Usage Example: Component.DefaultButton(text: "text") {logic}
+    // Usage Example: Component.DefaultButton(text: "Text Label", buttonLevel: .primary, buttonState: .active) {logic}
+    // Optional parameter: buttonLevel, buttonState
     struct DefaultButton: View {
+        var text: String
+        var buttonLevel: DefaultButtonLevel = .primary
+        var buttonState: DefaultButtonState = .active
+        var action: () -> Void
+        
+        var body: some View {
+            Button(action: action) {
+                if (buttonLevel == .primary) {
+                    Primary(Text(text))
+                } else if (buttonLevel == .secondary)  {
+                    Secondary(Text(text))
+                }
+            }
+        }
+        
+        private func Primary(_ text: Text) -> some View {
+            text
+                .font(.systemButtonText)
+                .foregroundStyle(self.buttonState==DefaultButtonState.active ? .white : Color.Neutrals.gray2)
+                .frame(width: 342, height: 47)
+                .background(self.buttonState==DefaultButtonState.active ? Color.Main.primary1 : Color.Main.primary3)
+                .cornerRadius(10)
+                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
+        }
+        
+        private func Secondary(_ text: Text) -> some View {
+            text
+                .font(.systemButtonText)
+                .foregroundStyle(self.buttonState==DefaultButtonState.active ? Color.Main.primary1 : Color.Neutrals.gray2)
+                .frame(width: 342, height: 47)
+                .background(.white)
+                .cornerRadius(10)
+                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(self.buttonState==DefaultButtonState.active ? Color.Main.primary1 : Color.Neutrals.gray2, lineWidth: 2)
+                )
+        }
+    }
+    
+    
+    // NEXT BUTTON FOR PROFILE
+    // Usage Example: Component.NextButton(text: "Text Label") {logic}
+    struct NextButton: View {
         var text: String
         var action: () -> Void
         var body: some View {
             Button(action: action) {
-                Text(text)
+                HStack {
+                    Text(text)
+                        .padding(.leading, 33.5)
+                    Spacer()
+                    Text(Image(systemName: "chevron.right"))
+                        .padding(.trailing, 33.5)
+                }
                     .font(.systemButtonText)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
                     .frame(width: 342, height: 47)
-                    .background(Color.Main.primary)
+                    .background(.white)
                     .cornerRadius(10)
-                    .shadow(color: Color("Shadow"), radius: 12, x: 0, y: 10)
+                    .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke( Color.Main.primary1, lineWidth: 2)
+                    )
             }
         }
     }
     
-
+    
     // TODO: BLOM KELAR
     struct CircleButton: View {
         var text: String
@@ -48,7 +116,7 @@ struct Component {
             .frame(width: diameter, height: diameter)
             .background(Color.white)
             .clipShape(Circle())
-            .shadow(color: Color("Shadow"), radius: 12, x: 0, y: 10)
+            .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
         }
     }
     
@@ -109,7 +177,7 @@ struct Component {
             }
         }
     }
-
+    
     // USER PROFILE BUTTON AT NAVIGATION BAR
     // Usage Example: Component.ProfileButton() {logic}
     struct ProfileButton: View {
@@ -128,5 +196,22 @@ struct Component {
     
     
     
-    
+}
+
+
+// PREVIEW BUAT TEST COMPONENT
+#Preview {
+    VStack {
+        Component.DefaultButton(text: "Text Label") {
+            //logic
+        }
+        
+        Component.DefaultButton(text: "Text Label", buttonLevel: .secondary) {
+            //logic
+        }
+        
+        Component.NextButton(text: "Text Label") {
+            //logic
+        }
+    }
 }
