@@ -7,12 +7,44 @@
 
 import SwiftUI
 
-struct SuccessPairingVIew: View {
+struct SuccessPairingView: View {
+    
+    @Binding var pairProgress : PairDevicePage
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            VStack {
+                Spacer()
+                
+                LottieViewComponent(name: "pairing-success", loopMode: .loop)
+                    .frame(width:358, height:197.55)
+                Spacer()
+            }
+            .frame(height:512)
+            
+            VStack {
+                Text("Paired")
+                    .font(.systemTitle)
+                
+                Text("We have successfully paired your \ninhaler!")
+                    .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 8)
+                
+                Spacer()
+            }
+            .frame(height: 195)
+            .padding(.bottom, 83)
+            
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                pairProgress = .failedPairing
+            }
+        }
     }
 }
 
-#Preview {
-    SuccessPairingVIew()
-}
+//#Preview {
+//    SuccessPairingView()
+//}

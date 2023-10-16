@@ -8,11 +8,47 @@
 import SwiftUI
 
 struct ConnectToHomeWifiView: View {
+    
+    @EnvironmentObject var router: Router
+    @Binding var pairProgress : PairDevicePage
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            VStack {
+                Spacer()
+                
+                Button("Open Wi-Fi Settings") {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                }
+                Spacer()
+            }
+            .frame(height:512)
+            
+            VStack {
+                Text("Choose a Wi-Fi")
+                    .font(.systemTitle)
+                
+                Text("This will be the network source\nfor your inhaler to sync data")
+                    .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 8)
+                
+                Component.DefaultButton(text: "Done", buttonLevel: .primary, buttonState: .active) {
+                    pairProgress = .connectToDeviceWifi
+                    router.path.append(Page.TabBar)
+                }
+                
+                Spacer()
+            }
+            .frame(height: 195)
+            .padding(.bottom, 83)
+            
+        }
     }
 }
 
-#Preview {
-    ConnectToHomeWifiView()
-}
+//#Preview {
+//    ConnectToHomeWifiView()
+//}
