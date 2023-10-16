@@ -87,7 +87,7 @@
 		3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		3FF77A5A2ACEC53A001F6CC2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3FF77A5C2ACEC53F001F6CC2 /* Test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1.swift; sourceTree = "<group>"; };
-		AB01C3CA2AD809B7008C3160 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		AB01C3CA2AD809B7008C3160 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LottieView.swift; path = "../../Summary Tab/View/LottieView.swift"; sourceTree = "<group>"; };
 		AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPairingView.swift; sourceTree = "<group>"; };
 		AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToDeviceWifiView.swift; sourceTree = "<group>"; };
 		AB01C3D32ADD1FA3008C3160 /* LoadingPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPairingView.swift; sourceTree = "<group>"; };
@@ -210,7 +210,6 @@
 		0B8D60852AD94B480017445F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB01C3CA2AD809B7008C3160 /* LottieView.swift */,
 				AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */,
 			);
 			path = View;
@@ -219,6 +218,7 @@
 		0B8D60862AD94B540017445F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AB01C3CA2AD809B7008C3160 /* LottieView.swift */,
 				AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */,
 				AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */,
 				AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */,
