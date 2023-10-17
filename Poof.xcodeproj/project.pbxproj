@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B8D60A22ADD48620017445F /* RegisterInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A12ADD48620017445F /* RegisterInhaler.swift */; };
+		0B8D60A62ADD4A9C0017445F /* InhalerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A52ADD4A9C0017445F /* InhalerRepository.swift */; };
+		0B8D60A82ADD4C260017445F /* InhalerRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A72ADD4C260017445F /* InhalerRepositoryImpl.swift */; };
+		0B8D60AA2ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A92ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift */; };
+		0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60AB2ADE309F0017445F /* Inhaler.swift */; };
+		0B8D60AE2ADE331D0017445F /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60AD2ADE331D0017445F /* UserRepository.swift */; };
+		0B8D60B02ADE83880017445F /* ValidationResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60AF2ADE83880017445F /* ValidationResponseDTO+Mapping.swift */; };
+		0B8D60B22ADE873A0017445F /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60B12ADE873A0017445F /* UserRepositoryImpl.swift */; };
 		0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9576332AD93DFF0020F191 /* DateFormatUtil.swift */; };
 		0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C912ACFF496006A33AC /* Kambuh.swift */; };
 		0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */; };
@@ -62,6 +70,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B8D60A12ADD48620017445F /* RegisterInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInhaler.swift; sourceTree = "<group>"; };
+		0B8D60A52ADD4A9C0017445F /* InhalerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerRepository.swift; sourceTree = "<group>"; };
+		0B8D60A72ADD4C260017445F /* InhalerRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerRepositoryImpl.swift; sourceTree = "<group>"; };
+		0B8D60A92ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InhalerIdResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		0B8D60AB2ADE309F0017445F /* Inhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inhaler.swift; sourceTree = "<group>"; };
+		0B8D60AD2ADE331D0017445F /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		0B8D60AF2ADE83880017445F /* ValidationResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ValidationResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		0B8D60B12ADE873A0017445F /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		0B9576332AD93DFF0020F191 /* DateFormatUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatUtil.swift; sourceTree = "<group>"; };
 		0BE97C912ACFF496006A33AC /* Kambuh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kambuh.swift; sourceTree = "<group>"; };
 		0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhData.swift; sourceTree = "<group>"; };
@@ -283,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				0BE97C972ACFF4D0006A33AC /* KambuhRepository.swift */,
+				0B8D60A52ADD4A9C0017445F /* InhalerRepository.swift */,
+				0B8D60AD2ADE331D0017445F /* UserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -292,6 +310,7 @@
 			children = (
 				0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */,
 				0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */,
+				0B8D60A12ADD48620017445F /* RegisterInhaler.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -300,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				0BE97C912ACFF496006A33AC /* Kambuh.swift */,
+				0B8D60AB2ADE309F0017445F /* Inhaler.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -317,6 +337,8 @@
 			isa = PBXGroup;
 			children = (
 				0BE97C9F2ACFFB68006A33AC /* KambuhRepositoryImpl.swift */,
+				0B8D60A72ADD4C260017445F /* InhalerRepositoryImpl.swift */,
+				0B8D60B12ADE873A0017445F /* UserRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -334,6 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				0BE97CB02AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift */,
+				0B8D60A92ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift */,
+				0B8D60AF2ADE83880017445F /* ValidationResponseDTO+Mapping.swift */,
 			);
 			path = "Data Mapping";
 			sourceTree = "<group>";
@@ -611,14 +635,19 @@
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
 				0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */,
 				AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */,
+				0B8D60AE2ADE331D0017445F /* UserRepository.swift in Sources */,
 				3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */,
 				AB7BEDD22ACD56680071BF10 /* Component.swift in Sources */,
 				AB7BEDD42ACD5ADD0071BF10 /* Font.swift in Sources */,
 				0BE97CAD2AD00102006A33AC /* NetworkConfig.swift in Sources */,
 				0BE97CA02ACFFB68006A33AC /* KambuhRepositoryImpl.swift in Sources */,
+				0B8D60A82ADD4C260017445F /* InhalerRepositoryImpl.swift in Sources */,
 				0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */,
 				AB7BEDD82ACD6F8C0071BF10 /* Router.swift in Sources */,
+				0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */,
+				0B8D60B22ADE873A0017445F /* UserRepositoryImpl.swift in Sources */,
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
+				0B8D60A22ADD48620017445F /* RegisterInhaler.swift in Sources */,
 				0BE97CB12AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift in Sources */,
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
@@ -628,14 +657,17 @@
 				AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */,
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
 				AB7BEDDF2ACD7A8A0071BF10 /* ViewModel.swift in Sources */,
+				0B8D60A62ADD4A9C0017445F /* InhalerRepository.swift in Sources */,
 				AB7BEDD62ACD67720071BF10 /* LoginView.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
+				0B8D60AA2ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift in Sources */,
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,
 				0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */,
 				0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */,
+				0B8D60B02ADE83880017445F /* ValidationResponseDTO+Mapping.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -800,7 +832,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Poof/Preview Content\"";
-				DEVELOPMENT_TEAM = BQAX36FGV5;
+				DEVELOPMENT_TEAM = 897329R84L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Poof/Info.plist;
@@ -830,7 +862,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Poof/Preview Content\"";
-				DEVELOPMENT_TEAM = BQAX36FGV5;
+				DEVELOPMENT_TEAM = 897329R84L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Poof/Info.plist;

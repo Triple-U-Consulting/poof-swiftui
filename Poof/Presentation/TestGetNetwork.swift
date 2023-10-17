@@ -15,10 +15,11 @@ struct TestGetNetwork: View {
         switch pressed {
         case false:
             Button(action: {
-                vm.fetchKambuh()
-                pressed = true
+                vm.findInhaler()
+//                vm.fetchKambuh()
+//                pressed = true
             }, label: {
-                Text("Get Kambuh Data")
+                Text("Find inhaler")
             })
         case true:
             switch vm.status {

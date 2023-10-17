@@ -15,11 +15,19 @@ enum LoadingStatus {
     case failure(failure: Failure)
 }
 
+enum InhalerStatus {
+    case initial
+    case connecting
+    case success
+    case failure(failure: Failure)
+}
+
 class ViewModel: ObservableObject {
     // MARK: - Attributes
 //    @Published var name: String
     @Published private(set) var kambuhList: [Kambuh] = []
     @Published private(set) var status: LoadingStatus = .initial
+    @Published private(set) var inhalerStatus: InhalerStatus = .initial
     
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
@@ -27,14 +35,17 @@ class ViewModel: ObservableObject {
     // MARK: - Usecases
     private let getKambuh: GetKambuhDataUseCase
     private let getKambuhById: GetKambuhDataByIdUseCase
+    private let registerInhaler: RegisterInhalerUsecase
     
     init(
         getKambuh: GetKambuhDataUseCase = GetKambuhDataImpl.shared,
-        getKambuhById: GetKambuhDataByIdUseCase = GetKambuhDataByIdImpl.shared
+        getKambuhById: GetKambuhDataByIdUseCase = GetKambuhDataByIdImpl.shared,
+        registerInhaler: RegisterInhalerUsecase = RegisterInhalerImpl.shared
     ) {
 //        self.name = name
         self.getKambuh = getKambuh
         self.getKambuhById = getKambuhById
+        self.registerInhaler = registerInhaler
     }
     
     func fetchKambuh() {
@@ -51,6 +62,25 @@ class ViewModel: ObservableObject {
                     }
                 } receiveValue: { kambuhResults in
                     self.kambuhList = kambuhResults
+                }
+                .store(in: &cancellables)
+        }
+    }
+    
+    func findInhaler() {
+        Task {
+            await registerInhaler.execute()
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+//                        self?.status = .success
+                    case .failure(let failure):
+                        print(failure)
+//                        self?.status = .failure(failure: failure)
+                    }
+                } receiveValue: { _ in
+                    //
                 }
                 .store(in: &cancellables)
         }
