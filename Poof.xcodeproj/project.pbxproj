@@ -15,6 +15,7 @@
 		0B8D60AE2ADE331D0017445F /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60AD2ADE331D0017445F /* UserRepository.swift */; };
 		0B8D60B02ADE83880017445F /* ValidationResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60AF2ADE83880017445F /* ValidationResponseDTO+Mapping.swift */; };
 		0B8D60B22ADE873A0017445F /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60B12ADE873A0017445F /* UserRepositoryImpl.swift */; };
+		0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */; };
 		0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9576332AD93DFF0020F191 /* DateFormatUtil.swift */; };
 		0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C912ACFF496006A33AC /* Kambuh.swift */; };
 		0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */; };
@@ -78,6 +79,7 @@
 		0B8D60AD2ADE331D0017445F /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		0B8D60AF2ADE83880017445F /* ValidationResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ValidationResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8D60B12ADE873A0017445F /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
+		0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		0B9576332AD93DFF0020F191 /* DateFormatUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatUtil.swift; sourceTree = "<group>"; };
 		0BE97C912ACFF496006A33AC /* Kambuh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kambuh.swift; sourceTree = "<group>"; };
 		0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhData.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				0B9576332AD93DFF0020F191 /* DateFormatUtil.swift */,
+				0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
 				0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */,
 				AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */,

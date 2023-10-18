@@ -16,11 +16,11 @@ final class RegisterInhalerImpl {
     static let shared = RegisterInhalerImpl()
     
     private let inhalerRepository = InhalerRepositoryImpl.shared
-//    private let userRepository = UserRepositoryImpl.shared
+    private let userRepository = UserRepositoryImpl.shared
     
-//    private func updateUserInhaler(id: String) -> Result<Void, Failure> {
-//        
-//    }
+    private func updateUserInhaler(id: String) -> AnyPublisher<Void, Failure> {
+//        return await self.userRepository
+    }
 }
 
 extension RegisterInhalerImpl: RegisterInhalerUsecase {
@@ -39,11 +39,8 @@ extension RegisterInhalerImpl: RegisterInhalerUsecase {
                 requestedId = result
             }
         
-        if let id = requestedId {
-            print(id)
-            return Just(()).setFailureType(to: Failure.self).eraseToAnyPublisher()
-        } else {
-            return Fail(error: Failure.fetchInhalerIdFailure).eraseToAnyPublisher()
-        }
+        guard let id = requestedId else { return Fail(error: Failure.fetchInhalerIdFailure).eraseToAnyPublisher() }
+        
+        return updateUserInhaler(id: id)
     }
 }

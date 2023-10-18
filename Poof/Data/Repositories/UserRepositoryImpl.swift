@@ -14,8 +14,6 @@ final class UserRepositoryImpl {
     private let dataTransferService = DataTransferServiceImpl.shared
 }
 
-//extension UserRepositoryImpl: UserRepository {
-//    func updateInhalerId(userId: String, id: String) async -> AnyPublisher<Void, Failure> {
-//        <#code#>
-//    }
-//}
+extension UserRepositoryImpl: UserRepository {
+    
+}
