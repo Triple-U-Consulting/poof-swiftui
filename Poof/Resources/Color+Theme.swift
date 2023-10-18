@@ -1,0 +1,38 @@
+//
+//  Color+Theme.swift
+//  Poof
+//
+//  Created by Geraldy Kumara on 08/10/23.
+//
+
+import SwiftUI
+
+/// For folder Main
+extension Color {
+    struct Main {
+        static let primary1 = Color("primary1")
+        static let primary2 = Color("primary2")
+        static let primary3 = Color("primary3")
+    }
+}
+
+// For Semantic
+extension Color {
+    struct Secondary {
+        static let secondary1 = Color("secondary1")
+        static let secondary2 = Color("secondary2")
+        static let secondary3 = Color("secondary3")
+    }
+}
+
+// For Neutrals
+extension Color {
+    struct Neutrals {
+        static let white = Color("white")
+        static let black = Color("black")
+        static let gray1 = Color("gray1")
+        static let gray2 = Color("gray2")
+        static let gray3 = Color("gray3") //for shadow button
+    }
+}
+
