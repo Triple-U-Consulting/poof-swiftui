@@ -12,7 +12,7 @@ protocol NetworkService {
 //    typealias NetworkCompletionHandler = (Data?, URLResponse?, Error?) -> Void
 //    typealias RequestCompletionHandler = (Result<Data?, NetworkError>) -> Void
     
-    func request(endpoint: Requestable) async -> Data?
+    func request(endpoint: Requestable) async  -> Data?
 }
 
 final class NetworkServiceImpl {
