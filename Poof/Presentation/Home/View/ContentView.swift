@@ -30,26 +30,34 @@ struct ContentView: View {
 //                case Page.Login:
 //                    LoginView()
 //                        .environmentObject(router)
-//                case Page.PairDevice:
-//                    PairDeviceView()
-//                        .environmentObject(router)
-//                        .navigationBarHidden(true)
-//                    
-//                case Page.TabBar:
-//                    TabBarView()
-//                        .environmentObject(router)
-//                        .navigationBarHidden(true)
-////                        .navigationBarBackButtonHidden(true)
-//                default:
-//                    VStack {
-//                        Text("ada yang error gan")
-//                    }
-//                }
-//            }
-//            .onAppear(perform: {
-////                router.path.append(1) //somehow gabisa kek gini?
-//            })
-//        }
+//                        .navigationBarBackButtonHidden(true)
+//                        .environmentObject(vm)
+                case Page.Register:
+                    RegisterView()
+                        .environmentObject(router)
+                case Page.Login:
+                    LoginView()
+                        .environmentObject(router)
+                case Page.PairDevice:
+                    PairDeviceView()
+                        .environmentObject(router)
+                        .navigationBarHidden(true)
+                    
+                case Page.TabBar:
+                    TabBarView()
+                        .environmentObject(router)
+                        .navigationBarHidden(true)
+//                        .navigationBarBackButtonHidden(true)
+                default:
+                    VStack {
+                        Text("ada yang error gan")
+                    }
+                }
+            }
+            .onAppear(perform: {
+//                router.path.append(1) //somehow gabisa kek gini?
+            })
+        }
     }
 }
 

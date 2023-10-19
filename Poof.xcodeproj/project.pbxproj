@@ -37,9 +37,22 @@
 		0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */; };
 		0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */; };
 		0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */; };
+		3F9027AD2AE0F1C3005011B3 /* UserResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027AC2AE0F1C3005011B3 /* UserResponseDTO+Mapping.swift */; };
+		3F9027AF2AE0F605005011B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027AE2AE0F605005011B3 /* User.swift */; };
+		3F9027B12AE0F7C5005011B3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B02AE0F7C5005011B3 /* UserViewModel.swift */; };
+		3F9027B32AE0F866005011B3 /* PostRegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* PostRegisterData.swift */; };
+		3F9027B52AE1112E005011B3 /* UserRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B42AE1112E005011B3 /* UserRequestDTO+Mapping.swift */; };
 		3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */; };
+		3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */; };
+		3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */; };
 		AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3CA2AD809B7008C3160 /* LottieView.swift */; };
 		AB01C3CE2AD80A4D008C3160 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AB01C3CD2AD80A4D008C3160 /* Lottie */; };
+		AB01C3D02ADD1A72008C3160 /* StartPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */; };
+		AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */; };
+		AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D32ADD1FA3008C3160 /* LoadingPairingView.swift */; };
+		AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D52ADD21D0008C3160 /* SuccessPairingView.swift */; };
+		AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */; };
+		AB01C3E82ADD3A88008C3160 /* ConnectToHomeWifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3E72ADD3A88008C3160 /* ConnectToHomeWifiView.swift */; };
 		AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BED932ACD4B770071BF10 /* PoofApp.swift */; };
 		AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BED952ACD4B770071BF10 /* ContentView.swift */; };
 		AB7BED982ACD4B780071BF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7BED972ACD4B780071BF10 /* Assets.xcassets */; };
@@ -108,10 +121,23 @@
 		0BE97CB72AD7F6EB006A33AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGetNetwork.swift; sourceTree = "<group>"; };
 		0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		3F9027AC2AE0F1C3005011B3 /* UserResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		3F9027AE2AE0F605005011B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F9027B02AE0F7C5005011B3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		3F9027B22AE0F866005011B3 /* PostRegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegisterData.swift; sourceTree = "<group>"; };
+		3F9027B42AE1112E005011B3 /* UserRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignComponent.swift; sourceTree = "<group>"; };
+		3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		3FF77A5A2ACEC53A001F6CC2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3FF77A5C2ACEC53F001F6CC2 /* Test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1.swift; sourceTree = "<group>"; };
 		AB01C3CA2AD809B7008C3160 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPairingView.swift; sourceTree = "<group>"; };
+		AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToDeviceWifiView.swift; sourceTree = "<group>"; };
+		AB01C3D32ADD1FA3008C3160 /* LoadingPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPairingView.swift; sourceTree = "<group>"; };
+		AB01C3D52ADD21D0008C3160 /* SuccessPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPairingView.swift; sourceTree = "<group>"; };
+		AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedPairingView.swift; sourceTree = "<group>"; };
+		AB01C3E72ADD3A88008C3160 /* ConnectToHomeWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToHomeWifiView.swift; sourceTree = "<group>"; };
 		AB7BED902ACD4B770071BF10 /* Poof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7BED932ACD4B770071BF10 /* PoofApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoofApp.swift; sourceTree = "<group>"; };
 		AB7BED952ACD4B770071BF10 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -238,6 +264,12 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */,
+				AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */,
+				AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */,
+				AB01C3D32ADD1FA3008C3160 /* LoadingPairingView.swift */,
+				AB01C3D52ADD21D0008C3160 /* SuccessPairingView.swift */,
+				AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */,
+				AB01C3E72ADD3A88008C3160 /* ConnectToHomeWifiView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDD52ACD67720071BF10 /* LoginView.swift */,
+				3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,6 +306,7 @@
 			children = (
 				AB7BEDD12ACD56680071BF10 /* Component.swift */,
 				AB7BEDD72ACD6F8C0071BF10 /* Router.swift */,
+				3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -334,6 +368,8 @@
 			children = (
 				0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */,
 				0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */,
+				0B8D60A12ADD48620017445F /* RegisterInhaler.swift */,
+				3F9027B22AE0F866005011B3 /* PostRegisterData.swift */,
 				0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */,
 				0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */,
 				0BCD83BD2AE0F20300D111B0 /* LoginUser.swift */,
@@ -346,6 +382,7 @@
 			children = (
 				0BE97C912ACFF496006A33AC /* Kambuh.swift */,
 				0B8D60AB2ADE309F0017445F /* Inhaler.swift */,
+				3F9027AE2AE0F605005011B3 /* User.swift */,
 				0B8D60BA2AE0C0FC0017445F /* User.swift */,
 			);
 			path = Entities;
@@ -383,6 +420,10 @@
 			isa = PBXGroup;
 			children = (
 				0BE97CB02AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift */,
+				0B8D60A92ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift */,
+				0B8D60AF2ADE83880017445F /* ValidationResponseDTO+Mapping.swift */,
+				3F9027AC2AE0F1C3005011B3 /* UserResponseDTO+Mapping.swift */,
+				3F9027B42AE1112E005011B3 /* UserRequestDTO+Mapping.swift */,
 				0B8D60A92ADD4DE70017445F /* IoTResponseDTO+Mapping.swift */,
 				0BCD83BB2AE0E81D00D111B0 /* TokenResponseDTO+Mapping.swift */,
 				0BCD83BF2AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift */,
@@ -467,6 +508,7 @@
 		AB7BEDC92ACD524A0071BF10 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3F9027B02AE0F7C5005011B3 /* UserViewModel.swift */,
 				AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */,
 				0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */,
 				0B8D608B2AD94B9F0017445F /* Home */,
@@ -665,6 +707,9 @@
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
 				0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */,
+				3F9027AF2AE0F605005011B3 /* User.swift in Sources */,
+				AB01C3E82ADD3A88008C3160 /* ConnectToHomeWifiView.swift in Sources */,
+				AB01C3D02ADD1A72008C3160 /* StartPairingView.swift in Sources */,
 				AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */,
 				3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */,
 				AB7BEDD22ACD56680071BF10 /* Component.swift in Sources */,
@@ -675,8 +720,11 @@
 				0BCD83B62AE0E0D200D111B0 /* UpdateUserInhaler.swift in Sources */,
 				0BCD83B82AE0E26500D111B0 /* UserRepository.swift in Sources */,
 				0BE97CA02ACFFB68006A33AC /* KambuhRepositoryImpl.swift in Sources */,
+				0B8D60A82ADD4C260017445F /* InhalerRepositoryImpl.swift in Sources */,
+				AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */,
 				0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */,
 				0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */,
+				3F9027AD2AE0F1C3005011B3 /* UserResponseDTO+Mapping.swift in Sources */,
 				AB7BEDD82ACD6F8C0071BF10 /* Router.swift in Sources */,
 				0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */,
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
@@ -684,16 +732,23 @@
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
 				0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */,
+				3F9027B12AE0F7C5005011B3 /* UserViewModel.swift in Sources */,
 				0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */,
+				AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */,
 				AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */,
 				AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */,
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
 				AB7BEDDF2ACD7A8A0071BF10 /* ViewModel.swift in Sources */,
 				0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */,
 				AB7BEDD62ACD67720071BF10 /* LoginView.swift in Sources */,
+				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
+				0B8D60AA2ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift in Sources */,
+				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
+				AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */,
+				3F9027B52AE1112E005011B3 /* UserRequestDTO+Mapping.swift in Sources */,
 				0B8D60AA2ADD4DE70017445F /* IoTResponseDTO+Mapping.swift in Sources */,
 				0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */,
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
@@ -703,8 +758,11 @@
 				0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */,
 				0BCD83BA2AE0E29600D111B0 /* UserRepositoryImpl.swift in Sources */,
 				0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */,
+				0B8D60B02ADE83880017445F /* ValidationResponseDTO+Mapping.swift in Sources */,
+				3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */,
 				0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
+				3F9027B32AE0F866005011B3 /* PostRegisterData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

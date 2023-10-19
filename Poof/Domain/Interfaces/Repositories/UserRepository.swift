@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 protocol UserRepository {
+    //func updateInhalerId(userId: String, id: String) async -> AnyPublisher<Void, Failure>
+    func registerUser(email: String, password: String, dob: Date, confirmPassword: String) async -> AnyPublisher<String?, Failure>
     func login(email: String, password: String) async -> AnyPublisher<String?, Failure>
-//    func updateInhalerId(id: String, userToken: String) async -> AnyPublisher<User, Failure>
 }
