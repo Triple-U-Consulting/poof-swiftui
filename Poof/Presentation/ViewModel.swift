@@ -65,13 +65,12 @@ class ViewModel: ObservableObject {
 //                switch completion {
 //                case .finished:
 //                    break
-//                case .failure(let _):
+//                case .failure(let error):
+//                    print(error)
 //                    break
 //                }
 //            } receiveValue: { inhalerId in
-//                Task {
-//                    await self.updateUserInhaler.execute(requestValue: inhalerId, userToken: userDefaultsController.getString(key: "token")!)
-//                }
+//                self.updateUserInhalerId(id: inhalerId)
 //            }
 //            .store(in: &cancellables)
 
@@ -114,6 +113,12 @@ class ViewModel: ObservableObject {
                 .store(in: &cancellables)
         }
     }
+    
+//    func updateUserInhalerId(id: String) {
+//        Task {
+//            await self.updateUserInhaler.execute(requestValue: id, userToken: userDefaultsController.getString(key: "token")!)
+//        }
+//    }
     
     func loginUser(email: String, password: String) {
         Task {

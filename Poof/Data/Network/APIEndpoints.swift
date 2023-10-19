@@ -10,12 +10,9 @@ import Foundation
 struct APIEndpoints {
     // MARK: - Authentication
     static func login(email: String, password: String) -> Endpoint<TokenResponseDTO> {
-        let bodyParameters = [
-            "email": email,
-            "password": password
-        ]
+        let bodyParameters = UserLoginRequestDTO(email: email, password: password)
         
-        return Endpoint(path: "auth/login", method: .post, bodyParameters: bodyParameters)
+        return Endpoint(path: "auth/login", method: .post, bodyParametersEncodable: bodyParameters)
     }
     
     static func register() {
@@ -34,12 +31,12 @@ struct APIEndpoints {
     }
     
     // MARK: - Inhaler
-//    static func updateUserInhalerId(id: String, token: String) -> Endpoint<ValidationResponseDTO> {
-//        let queryParameters = ["id": id]
-//        let headerParameters = ["token": token]
-//        
-//        return Endpoint(path: "user/update/inhaler", method: .put, queryParameters: queryParameters, headerParameters: headerParameters)
-//    }
+    static func updateUserInhalerId(id: String, token: String) -> Endpoint<UserResponseDTO> {
+        let queryParameters = ["id": id]
+        let headerParameters = ["token": token]
+        
+        return Endpoint(path: "user/update/inhaler", method: .put, queryParameters: queryParameters, headerParameters: headerParameters)
+    }
     
     // MARK: - IOT
     static func getIoTInhalerId() -> Endpoint<IoTResponseDTO> {

@@ -22,6 +22,7 @@
 		0BCD83BC2AE0E81D00D111B0 /* TokenResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83BB2AE0E81D00D111B0 /* TokenResponseDTO+Mapping.swift */; };
 		0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83BD2AE0F20300D111B0 /* LoginUser.swift */; };
 		0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83BF2AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift */; };
+		0BCD83C22AE12C1900D111B0 /* UserResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83C12AE12C1900D111B0 /* UserResponseDTO+Mapping.swift */; };
 		0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C912ACFF496006A33AC /* Kambuh.swift */; };
 		0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */; };
 		0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C972ACFF4D0006A33AC /* KambuhRepository.swift */; };
@@ -91,6 +92,7 @@
 		0BCD83BB2AE0E81D00D111B0 /* TokenResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0BCD83BD2AE0F20300D111B0 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		0BCD83BF2AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserLoginRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		0BCD83C12AE12C1900D111B0 /* UserResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0BE97C912ACFF496006A33AC /* Kambuh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kambuh.swift; sourceTree = "<group>"; };
 		0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhData.swift; sourceTree = "<group>"; };
 		0BE97C972ACFF4D0006A33AC /* KambuhRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KambuhRepository.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				0B8D60A92ADD4DE70017445F /* IoTResponseDTO+Mapping.swift */,
 				0BCD83BB2AE0E81D00D111B0 /* TokenResponseDTO+Mapping.swift */,
 				0BCD83BF2AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift */,
+				0BCD83C12AE12C1900D111B0 /* UserResponseDTO+Mapping.swift */,
 			);
 			path = "Data Mapping";
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				0B8D60AA2ADD4DE70017445F /* IoTResponseDTO+Mapping.swift in Sources */,
 				0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */,
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
+				0BCD83C22AE12C1900D111B0 /* UserResponseDTO+Mapping.swift in Sources */,
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,
 				0B8D60BB2AE0C0FC0017445F /* User.swift in Sources */,
 				0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */,

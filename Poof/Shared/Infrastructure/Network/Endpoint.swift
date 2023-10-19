@@ -104,17 +104,15 @@ extension Requestable {
             allHeaders.updateValue($1, forKey: $0)
         }
 
-//        let bodyParameters = self.bodyParametersEncodable?.toDictionary()
+        let bodyParameters = try self.bodyParametersEncodable?.toDictionary() ?? self.bodyParameters
         if !bodyParameters.isEmpty {
             urlRequest.httpBody = encodeBody(bodyParameters: bodyParameters)
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
-        urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: bodyParameters)
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let nstr = NSString(data: urlRequest.httpBody!, encoding: String.Encoding.utf8.rawValue)
-        print(nstr)
+//        let nstr = NSString(data: urlRequest.httpBody!, encoding: String.Encoding.utf8.rawValue)
+//        print(nstr)
         
         urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = allHeaders
@@ -127,7 +125,9 @@ extension Requestable {
 }
 
 private extension Encodable {
-    func toDictionary() -> Data? {
-        return try? JSONEncoder().encode(self)
+    func toDictionary() throws -> [String: Any]? {
+        let data = try JSONEncoder().encode(self)
+        let jsonData = try JSONSerialization.jsonObject(with: data)
+        return jsonData as? [String : Any]
     }
 }

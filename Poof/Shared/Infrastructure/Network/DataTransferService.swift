@@ -58,8 +58,8 @@ class JSONResponseDecoder {
     private let jsonDecoder = JSONDecoder()
     init() { }
     func decode<T: Decodable>(_ data: Data) throws -> [T] {
-        let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-        print(nstr)
+//        let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+//        print(nstr)
         return try jsonDecoder.decode([T].self, from: data)
     }
 }
