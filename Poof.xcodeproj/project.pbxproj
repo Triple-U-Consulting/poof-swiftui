@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */; };
+		0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */; };
 		0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */; };
 		0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */; };
-		0B8D60AA2ADD4DE70017445F /* IoTResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A92ADD4DE70017445F /* IoTResponseDTO+Mapping.swift */; };
 		0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60AB2ADE309F0017445F /* Inhaler.swift */; };
 		0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */; };
 		0B8D60B92AE0BF5A0017445F /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60B82AE0BF5A0017445F /* StateManager.swift */; };
@@ -32,7 +33,6 @@
 		0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CAA2ACFFD16006A33AC /* Endpoint.swift */; };
 		0BE97CAD2AD00102006A33AC /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CAC2AD00102006A33AC /* NetworkConfig.swift */; };
 		0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CAE2AD00607006A33AC /* NetworkService.swift */; };
-		0BE97CB12AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB02AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift */; };
 		0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB32AD7DD03006A33AC /* APIEndpoints.swift */; };
 		0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */; };
 		0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */; };
@@ -95,9 +95,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KambuhResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IoTResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTRepository.swift; sourceTree = "<group>"; };
 		0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTRepositoryImpl.swift; sourceTree = "<group>"; };
-		0B8D60A92ADD4DE70017445F /* IoTResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IoTResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8D60AB2ADE309F0017445F /* Inhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inhaler.swift; sourceTree = "<group>"; };
 		0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		0B8D60B82AE0BF5A0017445F /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		0BE97CAA2ACFFD16006A33AC /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		0BE97CAC2AD00102006A33AC /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		0BE97CAE2AD00607006A33AC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		0BE97CB02AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KambuhResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0BE97CB32AD7DD03006A33AC /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhDataById.swift; sourceTree = "<group>"; };
 		0BE97CB72AD7F6EB006A33AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -358,10 +358,10 @@
 		0BCD83C52AE1392300D111B0 /* ResponseDTO */ = {
 			isa = PBXGroup;
 			children = (
-				0BE97CB02AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift */,
 				0BCD83C32AE138BA00D111B0 /* UserResponseDTO+Mapping.swift */,
-				0B8D60A92ADD4DE70017445F /* IoTResponseDTO+Mapping.swift */,
 				0BCD83BB2AE0E81D00D111B0 /* UserLoginResponseDTO+Mapping.swift */,
+				0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */,
+				0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -387,10 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				0BE97C972ACFF4D0006A33AC /* KambuhRepository.swift */,
-				0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */,
 				0BCD83B72AE0E26500D111B0 /* UserRepository.swift */,
-				0B8D60A52ADD4A9C0017445F /* InhalerRepository.swift */,
-				0B8D60AD2ADE331D0017445F /* UserRepository.swift */,
+				0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */,
 				D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */,
 			);
 			path = Repositories;
@@ -406,7 +404,6 @@
 				0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */,
 				0BCD83BD2AE0F20300D111B0 /* LoginUser.swift */,
 				D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */,
-				0B8D60A12ADD48620017445F /* RegisterInhaler.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -435,10 +432,8 @@
 			isa = PBXGroup;
 			children = (
 				0BE97C9F2ACFFB68006A33AC /* KambuhRepositoryImpl.swift */,
-				0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */,
 				0BCD83B92AE0E29600D111B0 /* UserRepositoryImpl.swift */,
-				0B8D60A72ADD4C260017445F /* InhalerRepositoryImpl.swift */,
-				0B8D60B12ADE873A0017445F /* UserRepositoryImpl.swift */,
+				0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */,
 				D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */,
 			);
 			path = Repositories;
@@ -458,9 +453,6 @@
 			children = (
 				0BCD83C62AE1393A00D111B0 /* RequestDTO */,
 				0BCD83C52AE1392300D111B0 /* ResponseDTO */,
-				0BE97CB02AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift */,
-				0B8D60A92ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift */,
-				0B8D60AF2ADE83880017445F /* ValidationResponseDTO+Mapping.swift */,
 				D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */,
 			);
 			path = "Data Mapping";
@@ -767,7 +759,7 @@
 				0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */,
 				D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */,
 				D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */,
-				0B8D60A82ADD4C260017445F /* InhalerRepositoryImpl.swift in Sources */,
+				0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */,
 				AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */,
 				0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */,
 				0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */,
@@ -775,8 +767,6 @@
 				0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */,
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
 				D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */,
-				0B8D60A22ADD48620017445F /* RegisterInhaler.swift in Sources */,
-				0BE97CB12AD3BC40006A33AC /* KambuhResponseDTO+Mapping.swift in Sources */,
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
 				0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */,
@@ -785,22 +775,21 @@
 				AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */,
 				D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */,
 				AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */,
+				0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */,
 				AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */,
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
 				AB7BEDDF2ACD7A8A0071BF10 /* ViewModel.swift in Sources */,
 				0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */,
 				AB7BEDD62ACD67720071BF10 /* LoginView.swift in Sources */,
+				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
-				0B8D60AA2ADD4DE70017445F /* IoTResponseDTO+Mapping.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
-				0B8D60AA2ADD4DE70017445F /* InhalerIdResponseDTO+Mapping.swift in Sources */,
 				AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */,
 				3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */,
-				0B8D60AA2ADD4DE70017445F /* IoTResponseDTO+Mapping.swift in Sources */,
 				0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */,
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
 				D65636FF2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift in Sources */,
@@ -977,7 +966,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Poof/Preview Content\"";
-				DEVELOPMENT_TEAM = 54NVAL2V88;
+				DEVELOPMENT_TEAM = WML2Q26MG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Poof/Info.plist;
@@ -991,7 +980,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = angelpatriciads.poog;
+				PRODUCT_BUNDLE_IDENTIFIER = angela.macro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1007,7 +996,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Poof/Preview Content\"";
-				DEVELOPMENT_TEAM = 54NVAL2V88;
+				DEVELOPMENT_TEAM = WML2Q26MG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Poof/Info.plist;
@@ -1021,7 +1010,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = angelpatriciads.poog;
+				PRODUCT_BUNDLE_IDENTIFIER = angela.macro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

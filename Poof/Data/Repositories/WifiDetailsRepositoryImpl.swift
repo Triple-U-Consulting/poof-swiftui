@@ -23,13 +23,20 @@ extension WiFiDetailsRepositoryImpl: WiFiDetailsRepository {
     func postWiFiDetails(ssid: String, password: String) async -> AnyPublisher<String?, Failure> {
         let endpoint = APIEndpoints.postWiFiDetails(ssid: ssid, password: password)
         let results = await self.dataTransferService.request(with: endpoint)
-        return results
-            .map {
-                $0.map {
-                    $0.toDomain()
+        
+        switch results {
+        case .success(let messageResponseDTOs):
+            return Just(messageResponseDTOs)
+                .setFailureType(to: Failure.self)
+                .map {
+                    $0.map {
+                        $0.toDomain()
+                    }
+                    .first
                 }
-                .first
-            }
-            .eraseToAnyPublisher()
+                .eraseToAnyPublisher()
+        case .failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
+        }
     }
 }
