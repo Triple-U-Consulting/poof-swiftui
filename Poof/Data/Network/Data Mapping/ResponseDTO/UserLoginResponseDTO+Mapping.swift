@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct TokenResponseDTO: Decodable {
+struct UserLoginResponseDTO: Decodable {
     let message: String
     let accessToken: String
 }
 
-extension TokenResponseDTO {
+extension UserLoginResponseDTO {
     func toDomain() -> String {
         return accessToken
     }

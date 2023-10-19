@@ -9,7 +9,7 @@ import Foundation
 
 struct APIEndpoints {
     // MARK: - Authentication
-    static func login(email: String, password: String) -> Endpoint<TokenResponseDTO> {
+    static func login(email: String, password: String) -> Endpoint<UserLoginResponseDTO> {
         let bodyParameters = UserLoginRequestDTO(email: email, password: password)
         
         return Endpoint(path: "auth/login", method: .post, bodyParametersEncodable: bodyParameters)

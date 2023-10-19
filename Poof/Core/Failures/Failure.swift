@@ -27,6 +27,7 @@ enum Failure: Error {
     // MARK: - User Failure
     case updateInhalerFailure
     case loginFailure
+    case registerFailure
     
     // MARK: - Data Transfer Error
     case noResponse
