@@ -36,11 +36,13 @@ class ViewModel: ObservableObject {
     private let getKambuh: GetKambuhDataUseCase
     private let getKambuhById: GetKambuhDataByIdUseCase
     private let registerInhaler: RegisterInhalerUsecase
+//    private let addWifi: AddWifiUseCase
     
     init(
         getKambuh: GetKambuhDataUseCase = GetKambuhDataImpl.shared,
         getKambuhById: GetKambuhDataByIdUseCase = GetKambuhDataByIdImpl.shared,
         registerInhaler: RegisterInhalerUsecase = RegisterInhalerImpl.shared
+//        addWifi: AddWifiUseCase = AddWifiImpl.shared
     ) {
 //        self.name = name
         self.getKambuh = getKambuh
