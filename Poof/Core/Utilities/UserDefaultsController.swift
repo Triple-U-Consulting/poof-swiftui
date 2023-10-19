@@ -7,35 +7,27 @@
 
 import Foundation
 
-protocol UserDefaultController {
-    func fetchIsNotFirstLaunch() -> Bool
-    func setIsNotFirstLaunch()
-    func isOnBoardingDisplayed() -> Bool
-    func setIsOnBoardingDisplayed()
+protocol UserDefaultsController {
+    func save(_ data: Any, asKey: String)
+    func getString(key: String) -> String?
 }
 
-class UserDefaultsControllerImpl: UserDefaultController {
+class UserDefaultsControllerImpl {
 
-    static let shared = UserDefaultsControllerImpl(userDefault: UserDefaults())
+    static let shared = UserDefaultsControllerImpl(userDefault: UserDefaults.standard)
     let userDefault: UserDefaults
     
     init(userDefault: UserDefaults) {
         self.userDefault = userDefault
     }
-    func fetchIsNotFirstLaunch() -> Bool {
-        return userDefault.bool(forKey: "isNotFirst")
-    }
+}
 
-    func setIsNotFirstLaunch() {
-        userDefault.setValue(true, forKey: "isNotFirst")
-    }
-
-    func isOnBoardingDisplayed() -> Bool {
-        return userDefault.bool(forKey: "isOnBoardingDisplayed")
+extension UserDefaultsControllerImpl: UserDefaultsController {
+    func save(_ data: Any, asKey: String) {
+        userDefault.set(data, forKey: asKey)
     }
     
-    func setIsOnBoardingDisplayed() {
-        userDefault.set(true, forKey: "isOnBoardingDisplayed")
+    func getString(key: String) -> String? {
+        return userDefault.string(forKey: key)
     }
-    
 }

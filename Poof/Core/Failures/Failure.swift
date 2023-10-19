@@ -24,6 +24,10 @@ enum Failure: Error {
     case fetchInhalerIdFailure
     case unknownId
     
+    // MARK: - User Failure
+    case updateInhalerFailure
+    case loginFailure
+    
     // MARK: - Data Transfer Error
     case noResponse
     case parsing(Error)

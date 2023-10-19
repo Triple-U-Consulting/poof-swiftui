@@ -21,6 +21,8 @@ protocol Requestable {
     var isFullPath: Bool { get }
     var method: HTTPMethodType { get }
     var queryParameters: [String: Any] { get }
+    var bodyParametersEncodable: Encodable? { get }
+    var bodyParameters: [String: Any] { get }
     var headerParameters: [String: String] { get }
 
     func urlRequest(with config: NetworkConfigurable) throws -> URLRequest
@@ -39,14 +41,27 @@ class Endpoint<R>: ResponseRequestable {
     let isFullPath: Bool
     let method: HTTPMethodType
     let queryParameters: [String: Any]
+    let bodyParametersEncodable: Encodable?
+    let bodyParameters: [String: Any]
     let headerParameters: [String: String]
     let responseDecoder: JSONResponseDecoder
     
-    init(path: String, isFullPath: Bool = false, method: HTTPMethodType, queryParameters: [String : Any] = [:], headerParameters: [String : String] = [:], responseDecoder: JSONResponseDecoder = JSONResponseDecoder()) {
+    init(
+        path: String,
+        isFullPath: Bool = false,
+        method: HTTPMethodType,
+        queryParameters: [String : Any] = [:],
+        bodyParametersEncodable: Encodable? = nil,
+        bodyParameters: [String : Any] = [:],
+        headerParameters: [String : String] = [:],
+        responseDecoder: JSONResponseDecoder = JSONResponseDecoder()
+    ) {
         self.path = path
         self.isFullPath = isFullPath
         self.method = method
         self.queryParameters = queryParameters
+        self.bodyParametersEncodable = bodyParametersEncodable
+        self.bodyParameters = bodyParameters
         self.headerParameters = headerParameters
         self.responseDecoder = responseDecoder
     }
@@ -89,12 +104,30 @@ extension Requestable {
             allHeaders.updateValue($1, forKey: $0)
         }
 
-//        let bodyParameters = try bodyParametersEncodable?.toDictionary() ?? self.bodyParameters
-//        if !bodyParameters.isEmpty {
-//            urlRequest.httpBody = encodeBody(bodyParameters: bodyParameters, bodyEncoding: bodyEncoding)
-//        }
+//        let bodyParameters = self.bodyParametersEncodable?.toDictionary()
+        if !bodyParameters.isEmpty {
+            urlRequest.httpBody = encodeBody(bodyParameters: bodyParameters)
+        }
+        
+        urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: bodyParameters)
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let nstr = NSString(data: urlRequest.httpBody!, encoding: String.Encoding.utf8.rawValue)
+        print(nstr)
+        
         urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = allHeaders
         return urlRequest
+    }
+    
+    private func encodeBody(bodyParameters: [String: Any]) -> Data? {
+        return try? JSONSerialization.data(withJSONObject: bodyParameters)
+    }
+}
+
+private extension Encodable {
+    func toDictionary() -> Data? {
+        return try? JSONEncoder().encode(self)
     }
 }
