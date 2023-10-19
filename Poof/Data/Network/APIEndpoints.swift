@@ -45,4 +45,14 @@ struct APIEndpoints {
     static func getIoTInhalerId() -> Endpoint<IoTResponseDTO> {
         return Endpoint(path: "http://192.168.4.1/device-id", isFullPath: true, method: .get)
     }
+    
+    static func postWiFiDetails(ssid: String, password: String) -> Endpoint<MessageResponseDTO> {
+            let bodyParameters = ["ssid": ssid, "password": password]
+            print(ssid, password)
+            return Endpoint(path: "http://192.168.4.1/config-wifi",
+                            isFullPath: true,
+                            method: .post,
+                            bodyParameters: bodyParameters)
+        }
+
 }

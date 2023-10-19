@@ -48,6 +48,7 @@ class ViewModel: ObservableObject {
         getInhalerId: PairInhalerUsecase = PairInhalerImpl.shared,
 //        updateUserInhaler: UpdateUserInhalerUsecase = UpdateUserInhalerImpl.shared,
         login: LoginUserUsecase = LoginUserImpl.shared,
+//        addWifi: AddWifiUseCase = AddWifiImpl.shared
         stateManager: StateManager = StateManager.shared,
         userDefaultsController: UserDefaultsController = UserDefaultsControllerImpl.shared
     ) {
