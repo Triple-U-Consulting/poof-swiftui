@@ -12,8 +12,11 @@ struct APIEndpoints {
         
     }
     
-    static func register() {
+    static func register(email: String, password: String, dob: Date, confirmPassword: String) -> Endpoint<UserResponseDTO> {
+        let newDob = DateFormatUtil.shared.dateToString(date: dob, to: "yyyy-MM-dd")
         
+        let requestDTO = UserRequestDTO(email: email, password: password, dob: newDob, confirmPassword: confirmPassword)
+        return Endpoint(path: "auth/register", method: .post, bodyParametersEncodable: requestDTO)
     }
     
     static func getKambuh() -> Endpoint<KambuhResponseDTO> {

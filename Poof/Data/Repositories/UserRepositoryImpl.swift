@@ -14,8 +14,17 @@ final class UserRepositoryImpl {
     private let dataTransferService = DataTransferServiceImpl.shared
 }
 
-//extension UserRepositoryImpl: UserRepository {
-//    func updateInhalerId(userId: String, id: String) async -> AnyPublisher<Void, Failure> {
-//        <#code#>
-//    }
-//}
+extension UserRepositoryImpl: UserRepository {
+    func registerUser(email: String, password: String, dob: Date, confirmPassword: String) async -> AnyPublisher<String?, Failure> {
+        let endpoint = APIEndpoints.register(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
+        let result = await self.dataTransferService.request(with: endpoint)
+        return result
+            .map{
+                $0.map{
+                    $0.toDomain()
+                }
+                .first
+            }
+            .eraseToAnyPublisher()
+    }
+}

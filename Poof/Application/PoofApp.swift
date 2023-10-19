@@ -12,7 +12,7 @@ struct PoofApp: App {
     @StateObject var router = Router()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RegisterView()
                 .environmentObject(router)
         }
     }
