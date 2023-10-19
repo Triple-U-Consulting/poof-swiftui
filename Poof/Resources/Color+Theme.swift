@@ -13,6 +13,7 @@ extension Color {
         static let primary1 = Color("primary1")
         static let primary2 = Color("primary2")
         static let primary3 = Color("primary3")
+        static let blueText = Color("blueText")
     }
 }
 
@@ -33,6 +34,8 @@ extension Color {
         static let gray1 = Color("gray1")
         static let gray2 = Color("gray2")
         static let gray3 = Color("gray3") //for shadow button
+        static let titleSignPage = Color("gray4")
+        static let grayBottomSignText = Color("gray5")
     }
 }
 
