@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import Combine
 
 protocol DataTransferService {
 //    typealias CompletionHandler<T> = (Result<[T], Failure>) -> Void
     
     func request<T: Decodable, E: ResponseRequestable>(
         with endpoint: E
-    ) async -> AnyPublisher<[T], Failure> where E.ResponseType == T
+    ) async -> Result<[T], Failure> where E.ResponseType == T
 }
 
 final class DataTransferServiceImpl {
@@ -29,18 +28,13 @@ final class DataTransferServiceImpl {
 extension DataTransferServiceImpl: DataTransferService {
     func request<T: Decodable, E: ResponseRequestable>(
         with endpoint: E
-    ) async -> AnyPublisher<[T], Failure> where E.ResponseType == T {
+    ) async -> Result<[T], Failure> where E.ResponseType == T {
         let data = await networkService.request(endpoint: endpoint)
         let decoded: Result<[T], Failure> = self.decode(
             data: data,
             decoder: endpoint.responseDecoder
         )
-        switch decoded {
-        case .success(let results):
-            return Just(results).setFailureType(to: Failure.self).eraseToAnyPublisher()
-        case .failure(let error):
-            return Fail(error: error).eraseToAnyPublisher()
-        }
+        return decoded
     }
     
     // MARK: - Private

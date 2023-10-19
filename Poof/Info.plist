@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>ApiBaseURL</key>
-	<string>http://localhost:3000</string>
+	<string>https://back-end-macro-production.up.railway.app</string>
 </dict>
 </plist>

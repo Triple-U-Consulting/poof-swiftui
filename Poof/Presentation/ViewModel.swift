@@ -35,17 +35,45 @@ class ViewModel: ObservableObject {
     // MARK: - Usecases
     private let getKambuh: GetKambuhDataUseCase
     private let getKambuhById: GetKambuhDataByIdUseCase
-    private let registerInhaler: RegisterInhalerUsecase
+    private let getInhalerId: PairInhalerUsecase
+//    private let updateUserInhaler: UpdateUserInhalerUsecase
+    private let login: LoginUserUsecase
+    
+    private let stateManager: StateManager
+    private let userDefaultsController: UserDefaultsController
     
     init(
         getKambuh: GetKambuhDataUseCase = GetKambuhDataImpl.shared,
         getKambuhById: GetKambuhDataByIdUseCase = GetKambuhDataByIdImpl.shared,
-        registerInhaler: RegisterInhalerUsecase = RegisterInhalerImpl.shared
+        getInhalerId: PairInhalerUsecase = PairInhalerImpl.shared,
+//        updateUserInhaler: UpdateUserInhalerUsecase = UpdateUserInhalerImpl.shared,
+        login: LoginUserUsecase = LoginUserImpl.shared,
+        stateManager: StateManager = StateManager.shared,
+        userDefaultsController: UserDefaultsController = UserDefaultsControllerImpl.shared
     ) {
 //        self.name = name
         self.getKambuh = getKambuh
         self.getKambuhById = getKambuhById
-        self.registerInhaler = registerInhaler
+        self.getInhalerId = getInhalerId
+//        self.updateUserInhaler = updateUserInhaler
+        self.login = login
+        self.stateManager = stateManager
+        self.userDefaultsController = userDefaultsController
+        
+//        stateManager.inhalerId.publisher
+//            .sink { completion in
+//                switch completion {
+//                case .finished:
+//                    break
+//                case .failure(let error):
+//                    print(error)
+//                    break
+//                }
+//            } receiveValue: { inhalerId in
+//                self.updateUserInhalerId(id: inhalerId)
+//            }
+//            .store(in: &cancellables)
+
     }
     
     func fetchKambuh() {
@@ -69,7 +97,7 @@ class ViewModel: ObservableObject {
     
     func findInhaler() {
         Task {
-            await registerInhaler.execute()
+            await getInhalerId.execute()
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -83,6 +111,31 @@ class ViewModel: ObservableObject {
                     //
                 }
                 .store(in: &cancellables)
+        }
+    }
+    
+//    func updateUserInhalerId(id: String) {
+//        Task {
+//            await self.updateUserInhaler.execute(requestValue: id, userToken: userDefaultsController.getString(key: "token")!)
+//        }
+//    }
+    
+    func loginUser(email: String, password: String) {
+        Task {
+            await login.execute(email: email, password: password)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { accessToken in
+                    if let accessToken = accessToken {
+                        self.userDefaultsController.save(accessToken, asKey: "token")
+                        print(accessToken)
+                    }
+                }
         }
     }
 }

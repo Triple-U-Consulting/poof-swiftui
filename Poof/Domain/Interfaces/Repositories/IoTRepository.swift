@@ -8,6 +8,6 @@
 import Foundation
 import Combine
 
-protocol InhalerRepository {
-    func getInhalerId() async -> AnyPublisher<String?, Failure>
+protocol IoTRepository {
+    func getIoTInhalerId() async -> AnyPublisher<String?, Failure>
 }
