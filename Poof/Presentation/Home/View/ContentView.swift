@@ -25,6 +25,9 @@ struct ContentView: View {
 //                        .environmentObject(router)
 //                        .navigationBarBackButtonHidden(true)
 //                        .environmentObject(vm)
+                case Page.Register:
+                    RegisterView()
+                        .environmentObject(router)
                 case Page.Login:
                     LoginView()
                         .environmentObject(router)

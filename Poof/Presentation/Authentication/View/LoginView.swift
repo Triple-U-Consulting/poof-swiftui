@@ -26,6 +26,7 @@ struct LoginView: View {
                 TextField(text: $email) {
                     Text(verbatim: "loremipsum@gmail.com")
                 }
+                .autocapitalization(.none)
                 .autocorrectionDisabled(true)
                 .padding(.leading, 30)
                 .textFieldStyle(.automatic)
@@ -37,6 +38,7 @@ struct LoginView: View {
                 SecureField(text: $password) {
                     Text(verbatim: "loremipsum@gmail.com")
                 }
+                .autocapitalization(.none)
                 .autocorrectionDisabled(true)
                 .padding(.leading, 30)
                 .textFieldStyle(.automatic)

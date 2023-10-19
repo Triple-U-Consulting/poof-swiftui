@@ -15,6 +15,7 @@ struct RegisterView: View {
     @State private var dob: Date?
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
+   // @State private var currentPage: SignPage = .register
 //var currentPage: Page
     
     var body: some View {
@@ -32,6 +33,7 @@ struct RegisterView: View {
                         .autocorrectionDisabled(true)
                         .padding(.leading, 30)
                         .textFieldStyle(.automatic)
+                        .autocapitalization(.none)
                         
                         Component.dividerSignPage()
                         
@@ -49,6 +51,7 @@ struct RegisterView: View {
                         SecureField(text: $password) {
                             Text(verbatim: "Create Password")
                         }
+                        .autocapitalization(.none)
                         .autocorrectionDisabled(true)
                         .padding(.leading, 30)
                         .textFieldStyle(.automatic)
@@ -60,6 +63,7 @@ struct RegisterView: View {
                         SecureField(text: $confirmPassword) {
                             Text(verbatim: "Confirm Password")
                         }
+                        .autocapitalization(.none)
                         .autocorrectionDisabled(true)
                         .padding(.leading, 30)
                         .textFieldStyle(.automatic)
@@ -78,15 +82,15 @@ struct RegisterView: View {
                         }
                         .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 730)
                         
-                        if let message = viewModel.message{
-                            Text(message)
-                                .foregroundStyle(.green)
-                        }
-                        
-                        if let error = viewModel.error{
-                            Text(error)
-                                .foregroundStyle(.red)
-                        }
+//                        if let message = viewModel.message{
+//                            Text(message)
+//                                .foregroundStyle(.green)
+//                        }
+//                        
+//                        if let error = viewModel.error{
+//                            Text(error)
+//                                .foregroundStyle(.red)
+//                        }
                         
                     }
                     .toolbar{
