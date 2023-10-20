@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol WiFiDetailsRepository {
-    func postWiFiDetails(ssid: String, password: String) async -> AnyPublisher<String?, Failure>
+    func postWiFiDetails(ssid: String, password: String) async -> AnyPublisher<String, Failure>
 }

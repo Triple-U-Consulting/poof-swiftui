@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol LoginUserUsecase {
-    func execute(email: String, password: String) async -> AnyPublisher<String?, Failure>
+    func execute(email: String, password: String) async -> AnyPublisher<String, Failure>
 }
 
 final class LoginUserImpl {
@@ -19,7 +19,7 @@ final class LoginUserImpl {
 }
 
 extension LoginUserImpl: LoginUserUsecase {
-    func execute(email: String, password: String) async -> AnyPublisher<String?, Failure> {
+    func execute(email: String, password: String) async -> AnyPublisher<String, Failure> {
         return await self.repository.login(email: email, password: password)
     }
 }

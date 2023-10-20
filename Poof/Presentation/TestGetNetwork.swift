@@ -15,7 +15,7 @@ struct TestGetNetwork: View {
         switch pressed {
         case false:
             Button(action: {
-                vm.loginUser(email: "geraldy.gk@gmail.com", password: "Ayung")
+                vm.loginUser(email: "djk.gk@gmail.com", password: "Ayung")
 //                vm.fetchKambuh()
 //                pressed = true
             }, label: {

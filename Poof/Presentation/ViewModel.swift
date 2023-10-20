@@ -132,10 +132,8 @@ class ViewModel: ObservableObject {
                         print(failure)
                     }
                 } receiveValue: { accessToken in
-                    if let accessToken = accessToken {
-                        self.userDefaultsController.save(accessToken, asKey: "token")
-                        print(accessToken)
-                    }
+                    self.userDefaultsController.save(accessToken, asKey: "token")
+                    print(accessToken)
                 }
         }
     }

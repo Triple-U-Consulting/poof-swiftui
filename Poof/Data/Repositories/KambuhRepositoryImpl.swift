@@ -29,10 +29,8 @@ extension KambuhRepositoryImpl: KambuhRepository {
             return Just(kambuhResponseDTOs)
                 .setFailureType(to: Failure.self)
                 .map {
-                    $0.map {
-                        $0.toDomain()
-                    }
-                    .first
+                    $0.toDomain()
+                        .first
                 }
                 .eraseToAnyPublisher()
             
@@ -51,9 +49,7 @@ extension KambuhRepositoryImpl: KambuhRepository {
             return Just(kambuhResponseDTOs)
                 .setFailureType(to: Failure.self)
                 .map {
-                    $0.map {
-                        $0.toDomain()
-                    }
+                    $0.toDomain()
                 }
                 .eraseToAnyPublisher()
             

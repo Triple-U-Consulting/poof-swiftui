@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol IoTRepository {
-    func getIoTInhalerId() async -> AnyPublisher<String?, Failure>
+    func getIoTInhalerId() async -> AnyPublisher<String, Failure>
 }

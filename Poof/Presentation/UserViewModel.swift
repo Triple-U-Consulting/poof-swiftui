@@ -19,16 +19,16 @@ class UserViewModel: ObservableObject{
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Use cases
-    private let postRegisterData: PostRegisterDataUseCase
+    private let registerUser: RegisterUserUsecase
     
-    init(postRegisterData: PostRegisterDataUseCase = PostRegisterDataImpl.shared){
-        self.postRegisterData = postRegisterData
+    init(registerUser: RegisterUserUsecase = RegisterUserImpl.shared){
+        self.registerUser = registerUser
     }
 
     func registerUser(email: String, password: String, dob: Date, confirmPassword: String){
         self.status = .loading
         Task {
-           await postRegisterData.execute(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
+           await registerUser.execute(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
                 .receive(on: DispatchQueue.main)
                 .sink{ [weak self] completion in
                     switch completion{
