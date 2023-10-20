@@ -10,85 +10,81 @@ import SwiftUI
 struct OnboardingView: View {
     
     @EnvironmentObject var router: Router
+    @EnvironmentObject var userDevice: UserDevice
     @State private var selectedPage = 0
     
     private var title : [String] = [
         "AiroPuff",
-        "Pair Your Smart Inhaler",
-        "Sync Your Smart Inhaler",
-        "Reminder Notification"
+        "Sambungkan Inhaler Pintar Anda",
+        "Notifikasi Pengingat"
     ]
     private var details : [String] = [
-        "AiroPuff is an application designed to assist parents in monitoring their child's asthma condition.",
-        "Our inhaler will monitor your daily puffs and provide you with room temperature information.",
-        "Remember to synchronize your smart inhaler daily to enable us to store your data.",
-        "We will send you daily reminders to remind you take your medication and synchronize your inhaler."
+        "Airopuff merupakan aplikasi yang dirancang untuk membantu orang tua memantau kondisi asma anak.",
+        "Inhaler kami akan memantau pemakaian harian dan menyediakan informasi mengenai suhu ruangan anda.",
+        "Kami akan mengingatkan anda untuk meminum obat dan melakukan singkronisasi setiap hari."
     ]
+    
+//    @State private var width1 : CGFloat
+//    @State private var width2 =
     
     
     var body: some View {
-        VStack {
-//            GeometryReader { geometry in
-//                Button {
-//                    print(geometry.size.width)
-//                    print(geometry.size.height)
-//                } label : {
-//                    Text("abc")
-//                }
-//            }
-            
+        VStack (spacing:0) {
             //IMAGE
             TabView(selection: $selectedPage) {
-                ForEach(0..<4) { index in
+                ForEach(0..<3) { index in
                     Image("onboardingArtwork-\(index+1)")
                         .resizable()
-                        .frame(width: 390, height: 402)
+                        .frame(width: userDevice.usableWidth, height: 402)
                         .tag(index)
                 }
             }
-            .padding(.top, 102)
-            .frame(height: 512)
+            .frame(height: 402)
+            .padding(.top, 102 - userDevice.topSafeArea)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .animation(.easeInOut)
+            .transition(.slide)
             
             //DETAILS
-            VStack {
-                Text("\(title[selectedPage])")
-                    .font(.systemTitle)
+            VStack (spacing:0) {
+                Component.DefaultText(text: title[selectedPage])
+                    .frame(width: 342, alignment: .center)
+                    .font(.systemTitle2)
+                    .foregroundStyle(.black)
                 
-                Text("\(details[selectedPage])")
-                    .frame(width: 342, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .frame(minHeight: 57)
+                Component.DefaultText(text: details[selectedPage])
+                    .frame(width: 342, alignment: .center)
+                    .frame(minHeight: 70)
                     .font(.systemBodyText)
                     .foregroundStyle(.gray1)
-                    .multilineTextAlignment(.center)
                     .padding(.top, 12)
-                
-                Spacer()
                 
                 //INDICATOR
                 HStack(spacing: 8) {
-                    ForEach(0..<4) { index in
+                    ForEach(0..<3) { index in
                         Circle()
                             .fill(selectedPage == index ? Color.black : Color.gray)
                             .frame(width: 8, height: 8)
                     }
                 }
-                .padding(.top, 16)
+                .padding(.top, 32)
                 
                 //BUTTON
-                Component.DefaultButton(text: (selectedPage != 3) ? "Next" : "Let's Get Started", buttonLevel: .primary) {
-                    if selectedPage < 3 {
+                Component.DefaultButton(text: (selectedPage != 2) ? "Berikutnya" : "Mulai", buttonLevel: .primary) {
+                    if selectedPage < 2 {
                         selectedPage += 1
                     } else {
                         router.path.append(Page.Login)
                     }
                 }
-                .padding(.top, 60)
+                .padding(.top, 68)
                 
                 Spacer()
             }
-            .frame(width: 342, height: 274)
-            .padding(.bottom, 61)
+            .frame(height: 254)
+            .padding(.top, 5)
+            
+            Spacer()
 
         }
     }
@@ -97,4 +93,5 @@ struct OnboardingView: View {
 #Preview {
     OnboardingView()
         .environmentObject(Router())
+        .environmentObject(UserDevice())
 }
