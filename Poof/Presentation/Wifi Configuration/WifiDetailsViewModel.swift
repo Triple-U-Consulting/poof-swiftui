@@ -8,18 +8,21 @@
 import Foundation
 import Combine
 
-enum PostingStatus {
+enum WiFiDetailsPopUpStatus {
     case initial
     case loading
     case success
-    case failure(failure: Failure)
+    case failure
 }
+
 
 class WiFiDetailsViewModel: ObservableObject {
     // MARK: - Attributes
-    @Published private(set) var message: String? = nil
-    @Published private(set) var error: String? = nil
-    @Published private(set) var status: PostingStatus = .initial
+    @Published var message: String? = nil
+    @Published var error: String? = nil
+    @Published var popUpStatus: WiFiDetailsPopUpStatus = .initial
+    @Published var isPopUpDisplayed = false
+    
     
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
@@ -33,23 +36,27 @@ class WiFiDetailsViewModel: ObservableObject {
     }
     
     func postWiFiDetails(ssid: String, password: String) {
-        self.status = .loading
+        self.popUpStatus = .loading
+        self.isPopUpDisplayed = true
         Task {
-            await postWiFiDetails.execute(ssid: ssid, password: password)
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] completion in
-                    switch completion {
-                    case .finished:
-                        self?.status = .success
-                    case .failure(let failure):
-                        self?.status = .failure(failure: failure)
-                        self?.error = failure.localizedDescription
+                await postWiFiDetails.execute(ssid: ssid, password: password)
+                    .sink { [weak self] completion in
+                        switch completion {
+                        case .finished:
+                            if self?.message != nil {
+                                self?.popUpStatus = .success
+                            } else {
+                                self?.popUpStatus = .failure
+                            }
+                        case .failure(let failure):
+                            self?.popUpStatus = .failure
+                            self?.error = failure.localizedDescription
+                        }
+                    } receiveValue: { message in
+                        self.message = message
                     }
-                } receiveValue: { message in
-                    self.message = message
-                }
-                .store(in: &cancellables)
-        }
+                    .store(in: &cancellables)
+            }
     }
-
+    
 }

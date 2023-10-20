@@ -8,7 +8,6 @@
 import Foundation
 
 protocol DataTransferService {
-//    typealias CompletionHandler<T> = (Result<[T], Failure>) -> Void
     
     func request<T: Decodable, E: ResponseRequestable>(
         with endpoint: E
@@ -47,7 +46,6 @@ extension DataTransferServiceImpl: DataTransferService {
             let result: [T] = try decoder.decode(data)
             return .success(result)
         } catch {
-//            self.errorLogger.log(error: error)
             return .failure(.parsing(error))
         }
     }
@@ -58,8 +56,6 @@ class JSONResponseDecoder {
     private let jsonDecoder = JSONDecoder()
     init() { }
     func decode<T: Decodable>(_ data: Data) throws -> [T] {
-//        let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-//        print(nstr)
         return try jsonDecoder.decode([T].self, from: data)
     }
 }

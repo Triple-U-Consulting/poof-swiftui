@@ -110,10 +110,7 @@ extension Requestable {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
-        
-//        let nstr = NSString(data: urlRequest.httpBody!, encoding: String.Encoding.utf8.rawValue)
-//        print(nstr)
-        
+
         urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = allHeaders
         return urlRequest

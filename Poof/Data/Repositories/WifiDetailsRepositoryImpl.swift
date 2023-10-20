@@ -25,18 +25,16 @@ extension WiFiDetailsRepositoryImpl: WiFiDetailsRepository {
         let results = await self.dataTransferService.request(with: endpoint)
         
         switch results {
-        case .success(let messageResponseDTOs):
-            return Just(messageResponseDTOs)
-                .setFailureType(to: Failure.self)
-                .map {
-                    $0.map {
-                        $0.toDomain()
-                    }
-                    .first
+            case .success(let messageResponseDTOs):
+                if let firstMessage = messageResponseDTOs.first {
+                    return Just(firstMessage.toDomain())
+                        .setFailureType(to: Failure.self)
+                        .eraseToAnyPublisher()
+                } else {
+                    return Fail(error: Failure.noResponse).eraseToAnyPublisher()
                 }
-                .eraseToAnyPublisher()
-        case .failure(let error):
-            return Fail(error: error).eraseToAnyPublisher()
-        }
+            case .failure(let error):
+                return Fail(error: error).eraseToAnyPublisher()
+            }
     }
 }

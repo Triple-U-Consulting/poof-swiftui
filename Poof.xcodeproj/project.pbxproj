@@ -72,6 +72,7 @@
 		D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */; };
 		D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */; };
 		D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */; };
+		D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */; };
 		D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */; };
 		D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */; };
 		D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */; };
@@ -165,6 +166,7 @@
 		D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsRepository.swift; sourceTree = "<group>"; };
 		D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsViewModel.swift; sourceTree = "<group>"; };
 		D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsView.swift; sourceTree = "<group>"; };
+		D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsPopUpView.swift; sourceTree = "<group>"; };
 		D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 			children = (
 				D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */,
 				D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */,
+				D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */,
 			);
 			path = "Wifi Configuration";
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */,
 				0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
+				D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */,
 				3F9027B32AE0F866005011B3 /* PostRegisterData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -966,7 +970,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Poof/Preview Content\"";
-				DEVELOPMENT_TEAM = WML2Q26MG6;
+				DEVELOPMENT_TEAM = 54NVAL2V88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Poof/Info.plist;
@@ -980,7 +984,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = angela.macro;
+				PRODUCT_BUNDLE_IDENTIFIER = angelica.macro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -996,7 +1000,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Poof/Preview Content\"";
-				DEVELOPMENT_TEAM = WML2Q26MG6;
+				DEVELOPMENT_TEAM = 54NVAL2V88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Poof/Info.plist;
@@ -1010,7 +1014,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = angela.macro;
+				PRODUCT_BUNDLE_IDENTIFIER = angelica.macro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
