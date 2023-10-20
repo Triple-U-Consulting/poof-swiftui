@@ -20,7 +20,7 @@ final class WiFiDetailsRepositoryImpl {
 }
 
 extension WiFiDetailsRepositoryImpl: WiFiDetailsRepository {
-    func postWiFiDetails(ssid: String, password: String) async -> AnyPublisher<String?, Failure> {
+    func postWiFiDetails(ssid: String, password: String) async -> AnyPublisher<String, Failure> {
         let endpoint = APIEndpoints.postWiFiDetails(ssid: ssid, password: password)
         let results = await self.dataTransferService.request(with: endpoint)
         
@@ -29,10 +29,7 @@ extension WiFiDetailsRepositoryImpl: WiFiDetailsRepository {
             return Just(messageResponseDTOs)
                 .setFailureType(to: Failure.self)
                 .map {
-                    $0.map {
-                        $0.toDomain()
-                    }
-                    .first
+                    $0.toDomain()
                 }
                 .eraseToAnyPublisher()
         case .failure(let error):
