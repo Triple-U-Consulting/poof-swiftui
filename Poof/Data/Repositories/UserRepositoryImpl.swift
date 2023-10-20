@@ -15,7 +15,7 @@ final class UserRepositoryImpl {
 }
 
 extension UserRepositoryImpl: UserRepository {
-    func registerUser(email: String, password: String, dob: Date, confirmPassword: String) async -> AnyPublisher<String?, Failure> {
+    func registerUser(email: String, password: String, dob: Date, confirmPassword: String) async -> AnyPublisher<String, Failure> {
         let endpoint = APIEndpoints.register(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
         let results = await self.dataTransferService.request(with: endpoint)
         
@@ -24,10 +24,7 @@ extension UserRepositoryImpl: UserRepository {
             return Just(tokenResponseDTOs)
                 .setFailureType(to: Failure.self)
                 .map {
-                    $0.map {
-                        $0.toDomain()
-                    }
-                    .first
+                    $0.toDomain()
                 }
                 .eraseToAnyPublisher()
             
@@ -36,7 +33,8 @@ extension UserRepositoryImpl: UserRepository {
             return Fail(error: Failure.loginFailure).eraseToAnyPublisher()
         }
     }
-    func login(email: String, password: String) async -> AnyPublisher<String?, Failure> {
+    
+    func login(email: String, password: String) async -> AnyPublisher<String, Failure> {
         let endpoint = APIEndpoints.login(email: email, password: password)
         let results = await self.dataTransferService.request(with: endpoint)
         
@@ -45,10 +43,7 @@ extension UserRepositoryImpl: UserRepository {
             return Just(tokenResponseDTOs)
                 .setFailureType(to: Failure.self)
                 .map {
-                    $0.map {
-                        $0.toDomain()
-                    }
-                    .first
+                    $0.toDomain()
                 }
                 .eraseToAnyPublisher()
             

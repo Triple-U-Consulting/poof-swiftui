@@ -15,7 +15,7 @@ final class IoTRepositoryImpl {
 }
 
 extension IoTRepositoryImpl: IoTRepository {
-    func getIoTInhalerId() async -> AnyPublisher<String?, Failure> {
+    func getIoTInhalerId() async -> AnyPublisher<String, Failure> {
         let endpoint = APIEndpoints.getIoTInhalerId()
         let results = await dataTransferService.request(with: endpoint)
         
@@ -24,10 +24,7 @@ extension IoTRepositoryImpl: IoTRepository {
             return Just(iotResponseDTO)
                 .setFailureType(to: Failure.self)
                 .map {
-                    $0.map {
-                        $0.toDomain()
-                    }
-                    .first
+                    $0.toDomain()
                 }
                 .eraseToAnyPublisher()
             

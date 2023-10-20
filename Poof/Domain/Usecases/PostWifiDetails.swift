@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol PostWiFiDetailsUseCase {
-    func execute(ssid: String, password: String) async -> AnyPublisher<String?, Failure>
+    func execute(ssid: String, password: String) async -> AnyPublisher<String, Failure>
 }
 
 class PostWiFiDetailsUseCaseImpl {
@@ -21,7 +21,7 @@ class PostWiFiDetailsUseCaseImpl {
 }
 
 extension PostWiFiDetailsUseCaseImpl: PostWiFiDetailsUseCase {
-    func execute(ssid: String, password: String) async -> AnyPublisher<String?, Failure> {
+    func execute(ssid: String, password: String) async -> AnyPublisher<String, Failure> {
         return await self.repository.postWiFiDetails(ssid: ssid, password: password)
     }
 }

@@ -38,7 +38,7 @@
 		0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */; };
 		0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */; };
 		3F9027B12AE0F7C5005011B3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B02AE0F7C5005011B3 /* UserViewModel.swift */; };
-		3F9027B32AE0F866005011B3 /* PostRegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* PostRegisterData.swift */; };
+		3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* RegisterUser.swift */; };
 		3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */; };
 		3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */; };
 		3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */; };
@@ -127,7 +127,7 @@
 		0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGetNetwork.swift; sourceTree = "<group>"; };
 		0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		3F9027B02AE0F7C5005011B3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		3F9027B22AE0F866005011B3 /* PostRegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegisterData.swift; sourceTree = "<group>"; };
+		3F9027B22AE0F866005011B3 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRegisterRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignComponent.swift; sourceTree = "<group>"; };
@@ -196,6 +196,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B8007092AE23AA100ACBD71 /* Persistent Storage */ = {
+			isa = PBXGroup;
+			children = (
+				0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */,
+			);
+			path = "Persistent Storage";
+			sourceTree = "<group>";
+		};
 		0B8D60792AD949140017445F /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				0B9576332AD93DFF0020F191 /* DateFormatUtil.swift */,
-				0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -358,10 +365,11 @@
 		0BCD83C52AE1392300D111B0 /* ResponseDTO */ = {
 			isa = PBXGroup;
 			children = (
+				0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */,
 				0BCD83C32AE138BA00D111B0 /* UserResponseDTO+Mapping.swift */,
 				0BCD83BB2AE0E81D00D111B0 /* UserLoginResponseDTO+Mapping.swift */,
-				0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */,
 				0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */,
+				D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -399,7 +407,7 @@
 			children = (
 				0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */,
 				0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */,
-				3F9027B22AE0F866005011B3 /* PostRegisterData.swift */,
+				3F9027B22AE0F866005011B3 /* RegisterUser.swift */,
 				0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */,
 				0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */,
 				0BCD83BD2AE0F20300D111B0 /* LoginUser.swift */,
@@ -453,7 +461,6 @@
 			children = (
 				0BCD83C62AE1393A00D111B0 /* RequestDTO */,
 				0BCD83C52AE1392300D111B0 /* ResponseDTO */,
-				D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */,
 			);
 			path = "Data Mapping";
 			sourceTree = "<group>";
@@ -551,6 +558,7 @@
 		AB7BEDCC2ACD52940071BF10 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0B8007092AE23AA100ACBD71 /* Persistent Storage */,
 				0BE97CA32ACFFB9D006A33AC /* Network */,
 				0BE97C9D2ACFFAFF006A33AC /* Repositories */,
 			);
@@ -802,7 +810,7 @@
 				3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */,
 				0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
-				3F9027B32AE0F866005011B3 /* PostRegisterData.swift in Sources */,
+				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol PairInhalerUsecase {
-    func execute() async -> AnyPublisher<String?, Failure>
+    func execute() async -> AnyPublisher<String, Failure>
 }
 
 final class PairInhalerImpl {
@@ -19,7 +19,7 @@ final class PairInhalerImpl {
 }
 
 extension PairInhalerImpl: PairInhalerUsecase {
-    func execute() async -> AnyPublisher<String?, Failure> {
+    func execute() async -> AnyPublisher<String, Failure> {
         return await repository.getIoTInhalerId()
     }
 }

@@ -8,16 +8,30 @@
 import Foundation
 
 struct KambuhResponseDTO: Decodable {
-    let kambuh_id: Int
-    let start_time: String
-    let end_time: String
-    let total_puff: Int
-    let kambuh_interval: String
+    let results: [KambuhDTO]
 }
 
 // MARK: - Mappings to Domain
 
 extension KambuhResponseDTO {
+    struct KambuhDTO: Decodable {
+        let kambuh_id: Int
+        let start_time: String
+        let end_time: String
+        let total_puff: Int
+        let kambuh_interval: String
+    }
+}
+
+extension KambuhResponseDTO {
+    func toDomain() -> [Kambuh] {
+        return results.map {
+            $0.toDomain()
+        }
+    }
+}
+
+extension KambuhResponseDTO.KambuhDTO {
     func toDomain() -> Kambuh {
         let formatter = DateFormatUtil()
         let startDate = formatter.stringToDate(string: start_time)
