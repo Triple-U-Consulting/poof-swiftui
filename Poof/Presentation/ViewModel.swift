@@ -15,11 +15,19 @@ enum LoadingStatus {
     case failure(failure: Failure)
 }
 
+enum InhalerStatus {
+    case initial
+    case connecting
+    case success
+    case failure(failure: Failure)
+}
+
 class ViewModel: ObservableObject {
     // MARK: - Attributes
 //    @Published var name: String
     @Published private(set) var kambuhList: [Kambuh] = []
     @Published private(set) var status: LoadingStatus = .initial
+    @Published private(set) var inhalerStatus: InhalerStatus = .initial
     
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
@@ -27,14 +35,46 @@ class ViewModel: ObservableObject {
     // MARK: - Usecases
     private let getKambuh: GetKambuhDataUseCase
     private let getKambuhById: GetKambuhDataByIdUseCase
+    private let getInhalerId: PairInhalerUsecase
+//    private let updateUserInhaler: UpdateUserInhalerUsecase
+    private let login: LoginUserUsecase
+    
+    private let stateManager: StateManager
+    private let userDefaultsController: UserDefaultsController
     
     init(
         getKambuh: GetKambuhDataUseCase = GetKambuhDataImpl.shared,
-        getKambuhById: GetKambuhDataByIdUseCase = GetKambuhDataByIdImpl.shared
+        getKambuhById: GetKambuhDataByIdUseCase = GetKambuhDataByIdImpl.shared,
+        getInhalerId: PairInhalerUsecase = PairInhalerImpl.shared,
+//        updateUserInhaler: UpdateUserInhalerUsecase = UpdateUserInhalerImpl.shared,
+        login: LoginUserUsecase = LoginUserImpl.shared,
+//        addWifi: AddWifiUseCase = AddWifiImpl.shared
+        stateManager: StateManager = StateManager.shared,
+        userDefaultsController: UserDefaultsController = UserDefaultsControllerImpl.shared
     ) {
 //        self.name = name
         self.getKambuh = getKambuh
         self.getKambuhById = getKambuhById
+        self.getInhalerId = getInhalerId
+//        self.updateUserInhaler = updateUserInhaler
+        self.login = login
+        self.stateManager = stateManager
+        self.userDefaultsController = userDefaultsController
+        
+//        stateManager.inhalerId.publisher
+//            .sink { completion in
+//                switch completion {
+//                case .finished:
+//                    break
+//                case .failure(let error):
+//                    print(error)
+//                    break
+//                }
+//            } receiveValue: { inhalerId in
+//                self.updateUserInhalerId(id: inhalerId)
+//            }
+//            .store(in: &cancellables)
+
     }
     
     func fetchKambuh() {
@@ -53,6 +93,48 @@ class ViewModel: ObservableObject {
                     self.kambuhList = kambuhResults
                 }
                 .store(in: &cancellables)
+        }
+    }
+    
+    func findInhaler() {
+        Task {
+            await getInhalerId.execute()
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+//                        self?.status = .success
+                    case .failure(let failure):
+                        print(failure)
+//                        self?.status = .failure(failure: failure)
+                    }
+                } receiveValue: { _ in
+                    //
+                }
+                .store(in: &cancellables)
+        }
+    }
+    
+//    func updateUserInhalerId(id: String) {
+//        Task {
+//            await self.updateUserInhaler.execute(requestValue: id, userToken: userDefaultsController.getString(key: "token")!)
+//        }
+//    }
+    
+    func loginUser(email: String, password: String) {
+        Task {
+            await login.execute(email: email, password: password)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { accessToken in
+                    self.userDefaultsController.save(accessToken, asKey: "token")
+                    print(accessToken)
+                }
         }
     }
 }

@@ -20,6 +20,15 @@ enum Failure: Error {
     // MARK: - Kambuh Failures
     case fetchKambuhFailure
     
+    // MARK: - Connect to IoT Error
+    case fetchInhalerIdFailure
+    case unknownId
+    
+    // MARK: - User Failure
+    case updateInhalerFailure
+    case loginFailure
+    case registerFailure
+    
     // MARK: - Data Transfer Error
     case noResponse
     case parsing(Error)

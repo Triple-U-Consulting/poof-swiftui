@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import Combine
 
 protocol DataTransferService {
 //    typealias CompletionHandler<T> = (Result<[T], Failure>) -> Void
     
     func request<T: Decodable, E: ResponseRequestable>(
         with endpoint: E
-    ) async -> AnyPublisher<[T], Failure> where E.ResponseType == T
+    ) async -> Result<T, Failure> where E.ResponseType == T
 }
 
 final class DataTransferServiceImpl {
@@ -29,28 +28,23 @@ final class DataTransferServiceImpl {
 extension DataTransferServiceImpl: DataTransferService {
     func request<T: Decodable, E: ResponseRequestable>(
         with endpoint: E
-    ) async -> AnyPublisher<[T], Failure> where E.ResponseType == T {
+    ) async -> Result<T, Failure> where E.ResponseType == T {
         let data = await networkService.request(endpoint: endpoint)
-        let decoded: Result<[T], Failure> = self.decode(
+        let decoded: Result<T, Failure> = self.decode(
             data: data,
             decoder: endpoint.responseDecoder
         )
-        switch decoded {
-        case .success(let results):
-            return Just(results).setFailureType(to: Failure.self).eraseToAnyPublisher()
-        case .failure(let error):
-            return Fail(error: error).eraseToAnyPublisher()
-        }
+        return decoded
     }
     
     // MARK: - Private
     private func decode<T: Decodable>(
         data: Data?,
         decoder: JSONResponseDecoder
-    ) -> Result<[T], Failure> {
+    ) -> Result<T, Failure> {
         do {
             guard let data = data else { return .failure(.noResponse) }
-            let result: [T] = try decoder.decode(data)
+            let result: T = try decoder.decode(data)
             return .success(result)
         } catch {
 //            self.errorLogger.log(error: error)
@@ -63,9 +57,9 @@ extension DataTransferServiceImpl: DataTransferService {
 class JSONResponseDecoder {
     private let jsonDecoder = JSONDecoder()
     init() { }
-    func decode<T: Decodable>(_ data: Data) throws -> [T] {
+    func decode<T: Decodable>(_ data: Data) throws -> T {
 //        let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
 //        print(nstr)
-        return try jsonDecoder.decode([T].self, from: data)
+        return try jsonDecoder.decode(T.self, from: data)
     }
 }

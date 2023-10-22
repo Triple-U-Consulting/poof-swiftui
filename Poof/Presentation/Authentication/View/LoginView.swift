@@ -11,34 +11,65 @@ struct LoginView: View {
     
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var wrongPassword: Int = 0
+    @State private var wrongEmail:Int = 0
+    
     
     var body: some View {
-        ZStack {
-            GeometryReader { geo in
-                Color.clear
-                    .position(CGPoint(x: 0, y: 0))
-                    .onAppear {
-                        DispatchQueue.main.async {
-                            userDevice.topSafeAreaWithNavigationBar = geo.safeAreaInsets.top
-                            userDevice.usableHeightWithNavigationBar = geo.size.height - userDevice.topSafeAreaWithNavigationBar - userDevice.bottomSafeArea
-                        }
-                    }
-            }
-            .environmentObject(userDevice)
-            
+        
+        
+        NavigationStack{
             VStack {
-                Text("Login")
-                Button(action: {
-                    print("Top NB: \(userDevice.topSafeAreaWithNavigationBar)")
-                    print("Height NB: \(userDevice.usableHeightWithNavigationBar)")
-                    router.path.append(Page.PairDevice)
-                }) {
-                    Text("Go to Pair")
+                Component.titleSignPage(text: "Email")
+                
+                TextField(text: $email) {
+                    Text(verbatim: "loremipsum@gmail.com")
+                }
+                .autocapitalization(.none)
+                .autocorrectionDisabled(true)
+                .padding(.leading, 30)
+                .textFieldStyle(.automatic)
+                
+                Component.dividerSignPage()
+                
+                Component.titleSignPage(text: "Password")
+                
+                SecureField(text: $password) {
+                    Text(verbatim: "loremipsum@gmail.com")
+                }
+                .autocapitalization(.none)
+                .autocorrectionDisabled(true)
+                .padding(.leading, 30)
+                .textFieldStyle(.automatic)
+                
+                Component.dividerSignPage()
+                
+                Spacer()
+                
+                Component.DefaultButton(text: "Sign In") {
+                    //
+                }
+                
+                Component.bottomSignText(text: "Do not have an account?", blueText: "Sign Up") {
+                    //
                 }
             }
+            .toolbar{
+                ToolbarItem(placement: .topBarLeading) {
+                    Component.NavigationTitle(text: "Sign In")
+                }
+            }
+            .navigationDestination(for: Page.self) { _ in
+                RegisterView().environmentObject(router)
+            }
         }
+        .padding(8)
     }
 }
+
+
 
 #Preview {
     LoginView()
