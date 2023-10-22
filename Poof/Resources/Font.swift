@@ -11,33 +11,42 @@ import SwiftUI
 
 // Usage example:
 //Text("Hello, SwiftUI!")
-//    .font(.title2)
+//    .font(.systemTitle)
 
 extension Font {
     
     static var systemTitle: Font {
-        return .system(size: 21, weight: .semibold)
+        return .system(size: 28, weight: .semibold)
     }
     
     static var systemTitle2: Font {
-        return .system(size: 27, weight: .bold)
+        return .system(size: 22, weight: .semibold)
     }
     
     static var systemSubheader: Font {
-        return .system(size: 21, weight: .semibold)
+        return .system(size: 22, weight: .semibold)
     }
     
     static var systemHeadline2: Font {
-        return .system(size: 16, weight: .medium)
+        return .system(size: 17, weight: .medium)
     }
     
     static var systemBodyText: Font {
-        return .system(size: 16, weight: .regular)
+        return .system(size: 17, weight: .regular)
     }
     
     static var systemButtonText: Font {
-        return .system(size: 19, weight: .medium)
+        return .system(size: 20, weight: .medium)
     }
+    
+    static var systemFootnote: Font {
+        return .system(size: 15, weight: .regular)
+    }
+    
+    static var test: Font {
+        return .custom("SFProText-Regular", size: 17, relativeTo: .body)
+    }
+    
 }
 
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var router: Router
+    @EnvironmentObject var userDevice: UserDevice
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var wrongPassword: Int = 0
@@ -73,4 +74,5 @@ struct LoginView: View {
 #Preview {
     LoginView()
         .environmentObject(Router())
+        .environmentObject(UserDevice())
 }

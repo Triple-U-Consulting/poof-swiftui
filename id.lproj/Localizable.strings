@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Poof
+
+  Created by Jonathan Evan Christian on 18/10/23.
+  
+*/
+
+// MARK: CONTOH CARA LOCALIZE
+//"Offers" = "Promo";
+//"Category" = "Kategori";
+//"Wishlist" = "Wishlist";
+//"Account" = "Akun";
+//"Special Coupons For you" = "Kupon Special Buat Kamu";
+//"Lebaran Sale" = "Promo Lebaran";
+//"Credit Card Offers" = "Promo Kartu Kredit";
+//"See All" = "Lihat";

@@ -29,8 +29,8 @@ extension Color {
 // For Neutrals
 extension Color {
     struct Neutrals {
-        static let white = Color("white")
-        static let black = Color("black")
+        static let systemWhite = Color("white")
+        static let systemBlack = Color("black")
         static let gray1 = Color("gray1")
         static let gray2 = Color("gray2")
         static let gray3 = Color("gray3") //for shadow button

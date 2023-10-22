@@ -51,6 +51,8 @@
 		AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D52ADD21D0008C3160 /* SuccessPairingView.swift */; };
 		AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */; };
 		AB01C3E82ADD3A88008C3160 /* ConnectToHomeWifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3E72ADD3A88008C3160 /* ConnectToHomeWifiView.swift */; };
+		AB5CB3822ADFC81800A4C291 /* UserDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5CB3812ADFC81800A4C291 /* UserDevice.swift */; };
+		AB5CB3872ADFE2BE00A4C291 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BED932ACD4B770071BF10 /* PoofApp.swift */; };
 		AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BED952ACD4B770071BF10 /* ContentView.swift */; };
 		AB7BED982ACD4B780071BF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7BED972ACD4B780071BF10 /* Assets.xcassets */; };
@@ -134,13 +136,16 @@
 		3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		3FF77A5A2ACEC53A001F6CC2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3FF77A5C2ACEC53F001F6CC2 /* Test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1.swift; sourceTree = "<group>"; };
-		AB01C3CA2AD809B7008C3160 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		AB01C3CA2AD809B7008C3160 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LottieView.swift; path = "../../Summary Tab/View/LottieView.swift"; sourceTree = "<group>"; };
 		AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPairingView.swift; sourceTree = "<group>"; };
 		AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToDeviceWifiView.swift; sourceTree = "<group>"; };
 		AB01C3D32ADD1FA3008C3160 /* LoadingPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPairingView.swift; sourceTree = "<group>"; };
 		AB01C3D52ADD21D0008C3160 /* SuccessPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPairingView.swift; sourceTree = "<group>"; };
 		AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedPairingView.swift; sourceTree = "<group>"; };
 		AB01C3E72ADD3A88008C3160 /* ConnectToHomeWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToHomeWifiView.swift; sourceTree = "<group>"; };
+		AB5CB3812ADFC81800A4C291 /* UserDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDevice.swift; sourceTree = "<group>"; };
+		AB5CB3882ADFE2BE00A4C291 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB5CB38A2ADFE2C200A4C291 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB7BED902ACD4B770071BF10 /* Poof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7BED932ACD4B770071BF10 /* PoofApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoofApp.swift; sourceTree = "<group>"; };
 		AB7BED952ACD4B770071BF10 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -272,7 +277,6 @@
 		0B8D60852AD94B480017445F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB01C3CA2AD809B7008C3160 /* LottieView.swift */,
 				AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */,
 			);
 			path = View;
@@ -281,6 +285,7 @@
 		0B8D60862AD94B540017445F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AB01C3CA2AD809B7008C3160 /* LottieView.swift */,
 				AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */,
 				AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */,
 				AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */,
@@ -325,6 +330,7 @@
 				AB7BEDD12ACD56680071BF10 /* Component.swift */,
 				AB7BEDD72ACD6F8C0071BF10 /* Router.swift */,
 				3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */,
+				AB5CB3812ADFC81800A4C291 /* UserDevice.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 		AB7BED872ACD4B770071BF10 = {
 			isa = PBXGroup;
 			children = (
+				AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */,
 				AB7BED922ACD4B770071BF10 /* Poof */,
 				AB7BEDA32ACD4B780071BF10 /* PoofTests */,
 				AB7BEDAD2ACD4B780071BF10 /* PoofUITests */,
@@ -547,10 +554,10 @@
 				0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */,
 				0B8D608B2AD94B9F0017445F /* Home */,
 				0B8D60832AD94AD80017445F /* Onboarding */,
-				0B8D60812AD94ABE0017445F /* Summary Tab */,
+				0B8D607E2AD94A7E0017445F /* Authentication */,
 				0B8D60802AD94AA70017445F /* Pair Device */,
 				0B8D607F2AD94A850017445F /* Inhaler Tab */,
-				0B8D607E2AD94A7E0017445F /* Authentication */,
+				0B8D60812AD94ABE0017445F /* Summary Tab */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -700,6 +707,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = AB7BED872ACD4B770071BF10;
 			packageReferences = (
@@ -722,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB7BED9B2ACD4B780071BF10 /* Preview Assets.xcassets in Resources */,
+				AB5CB3872ADFE2BE00A4C291 /* Localizable.strings in Resources */,
 				AB7BED982ACD4B780071BF10 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,6 +760,7 @@
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
 				0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */,
+				AB5CB3822ADFC81800A4C291 /* UserDevice.swift in Sources */,
 				AB01C3E82ADD3A88008C3160 /* ConnectToHomeWifiView.swift in Sources */,
 				0BCD83C42AE138BA00D111B0 /* UserResponseDTO+Mapping.swift in Sources */,
 				AB01C3D02ADD1A72008C3160 /* StartPairingView.swift in Sources */,
@@ -845,6 +855,18 @@
 			targetProxy = AB7BEDAB2ACD4B780071BF10 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB5CB3882ADFE2BE00A4C291 /* en */,
+				AB5CB38A2ADFE2C200A4C291 /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AB7BEDB22ACD4B780071BF10 /* Debug */ = {
