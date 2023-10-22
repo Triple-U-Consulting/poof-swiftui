@@ -9,7 +9,7 @@ import Foundation
 
 struct APIEndpoints {
     // MARK: - Authentication
-    static func login(email: String, password: String) -> Endpoint<UserLoginResponseDTO> {
+    static func login(email: String, password: String) -> Endpoint<MessageResponseDTO> {
         let bodyParameters = UserLoginRequestDTO(email: email, password: password)
         
         return Endpoint(path: "auth/login", method: .post, bodyParametersEncodable: bodyParameters)
@@ -34,7 +34,7 @@ struct APIEndpoints {
     }
     
     // MARK: - Inhaler
-    static func updateUserInhalerId(id: String, token: String) -> Endpoint<UserResponseDTO> {
+    static func updateUserInhalerId(id: String, token: String) -> Endpoint<MessageResponseDTO> {
         let queryParameters = ["id": id]
         let headerParameters = ["token": token]
         

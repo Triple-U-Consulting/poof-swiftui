@@ -29,8 +29,8 @@ extension UserRepositoryImpl: UserRepository {
                 .eraseToAnyPublisher()
             
         case .failure(let error):
-            print(error)
-            return Fail(error: Failure.loginFailure).eraseToAnyPublisher()
+//            print(error)
+            return Fail(error: error).eraseToAnyPublisher()
         }
     }
     
@@ -48,13 +48,26 @@ extension UserRepositoryImpl: UserRepository {
                 .eraseToAnyPublisher()
             
         case .failure(let error):
-            print(error)
-            return Fail(error: Failure.loginFailure).eraseToAnyPublisher()
+//            print(error)
+            return Fail(error: error).eraseToAnyPublisher()
         }
     }
     
-//    func updateInhalerId(id: String, userToken: String) async -> AnyPublisher<User, Failure> {
-//        let endpoint = APIEndpoints.updateUserInhalerId(id: id, token: userToken)
-//        let results = await self.dataTransferService.request(with: endpoint)
-//    }
+    func updateInhalerId(id: String, userToken: String) async -> AnyPublisher<String, Failure> {
+        let endpoint = APIEndpoints.updateUserInhalerId(id: id, token: userToken)
+        let results = await self.dataTransferService.request(with: endpoint)
+        
+        switch results {
+        case .success(let userResponseDTO):
+            return Just(userResponseDTO)
+                .setFailureType(to: Failure.self)
+                .map {
+                    $0.toDomain()
+                }
+                .eraseToAnyPublisher()
+        case .failure(let error):
+//            print(error)
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+    }
 }
