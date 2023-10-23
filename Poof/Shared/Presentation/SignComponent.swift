@@ -23,7 +23,7 @@ extension Component {
         
         var body: some View {
             HStack{
-                Text(text)
+                Text(NSLocalizedString(text, comment: ""))
                     .foregroundColor(Color.Neutrals.titleSignPage)
                     .font(.systemHeadline2)
                 
@@ -45,11 +45,11 @@ extension Component {
         
         var body: some View {
             HStack{
-                Text(text)
+                Text(NSLocalizedString(text, comment: ""))
                     .foregroundStyle(Color.Neutrals.grayBottomSignText)
                 
                 Button(action: action) {
-                    Text(blueText)
+                    Text(NSLocalizedString(blueText, comment: ""))
                         .foregroundStyle(Color.Main.blueText)
                 }
             }

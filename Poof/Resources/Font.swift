@@ -15,7 +15,7 @@ import SwiftUI
 
 extension Font {
     
-    static var systemTitle: Font {
+    static var systemTitle1: Font {
         return .system(size: 28, weight: .semibold)
     }
     

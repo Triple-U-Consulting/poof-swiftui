@@ -37,19 +37,19 @@ struct RegisterView: View {
                         
                         Component.dividerSignPage()
                         
-                        Component.titleSignPage(text: "Date of Birth")
+                        Component.titleSignPage(text: "Tanggal Lahir")
                             
-                        Component.DatePickerTextField(placeholder: "DD-MM-YYYY", date: $dob)
+                        Component.DatePickerTextField(placeholder: NSLocalizedString("HH.BB.TTTT", comment: ""), date: $dob)
                             .frame(height: 34)
                             //.background(Color.black)
                             .padding([.leading, .trailing], 30)
                         
                         Component.dividerSignPage()
                         
-                        Component.titleSignPage(text: "Password")
+                        Component.titleSignPage(text: "Kata Sandi")
                         
                         SecureField(text: $password) {
-                            Text(verbatim: "Create Password")
+                            Text(verbatim: NSLocalizedString("Buat Kata Sandi", comment: ""))
                         }
                         .autocapitalization(.none)
                         .autocorrectionDisabled(true)
@@ -58,10 +58,10 @@ struct RegisterView: View {
                         
                         Component.dividerSignPage()
                         
-                        Component.titleSignPage(text: "Confirm Password")
+                        Component.titleSignPage(text: "Konfirmasi Kata Sandi")
                         
                         SecureField(text: $confirmPassword) {
-                            Text(verbatim: "Confirm Password")
+                            Text(verbatim: NSLocalizedString("Ketik Ulang Kata Sandi Anda", comment: ""))
                         }
                         .autocapitalization(.none)
                         .autocorrectionDisabled(true)
@@ -72,14 +72,14 @@ struct RegisterView: View {
                         
                         Spacer()
                         
-                        Component.DefaultButton(text: "Sign Up") {
+                        Component.DefaultButton(text: "Daftar") {
 //                            viewModel.registerUser(email: email, password: password, dob: dob!, confirmPassword: confirmPassword)
                             router.path.removeLast()
                             // TODO: NOTIFIKASI AKUN BERHASIL DIBUAT
                         }
                         .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 650)
                         
-                        Component.bottomSignText(text: "Already have an account?", blueText: "Sign In") {
+                        Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
                             router.path.removeLast()
                         }
                         .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 730)
@@ -97,7 +97,7 @@ struct RegisterView: View {
                     }
                     .toolbar{
                         ToolbarItem(placement: .topBarLeading) {
-                            Component.NavigationTitle(text: "Sign Up")
+                            Component.NavigationTitle(text: "Daftar")
                                 .padding(.top, 16)
                         }
                     }

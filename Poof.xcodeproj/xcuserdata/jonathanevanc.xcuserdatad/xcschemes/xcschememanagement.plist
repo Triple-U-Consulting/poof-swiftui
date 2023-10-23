@@ -4,10 +4,38 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Poof.xcscheme_^#shared#^_</key>
+		<key>Poof-en.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>Poof-id.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Poof.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>AB7BED8F2ACD4B770071BF10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB7BED9F2ACD4B780071BF10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB7BEDA92ACD4B780071BF10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

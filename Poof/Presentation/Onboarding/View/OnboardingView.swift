@@ -20,10 +20,9 @@ struct OnboardingView: View {
     ]
     private var details : [String] = [
         "Airopuff merupakan aplikasi yang dirancang untuk membantu orang tua memantau kondisi asma anak.",
-        "Inhaler kami akan memantau pemakaian harian dan menyediakan informasi mengenai suhu ruangan anda.",
-        "Kami akan mengingatkan anda untuk meminum obat dan melakukan singkronisasi setiap hari."
+        "Inhaler pintar akan memantau pemakaian harian inhaler anda dan menyediakan informasi mengenai lingkungan sekitar anda.",
+        "Kami akan mengirimkan anda pengingat untuk obat harian dan notifikasi ketika inhaler pintar digunakan."
     ]
-    
     
     var body: some View {
         VStack (spacing:0) {
@@ -32,11 +31,11 @@ struct OnboardingView: View {
                 ForEach(0..<3) { index in
                     Image("onboardingArtwork-\(index+1)")
                         .resizable()
-                        .frame(width: userDevice.usableWidth, height: 402)
+                        .frame(width: userDevice.usableWidth, height: userDevice.height402)
                         .tag(index)
                 }
             }
-            .frame(height: 402)
+            .frame(height: userDevice.height402)
             .padding(.top, 102 - userDevice.topSafeArea)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .animation(.easeInOut)
@@ -44,16 +43,16 @@ struct OnboardingView: View {
             
             //DETAILS
             VStack (spacing:0) {
-                Text("\(userDevice.usableWidth)")
+//                Text("\(userDevice.usableWidth)")
                 Component.DefaultText(text: title[selectedPage])
-                    .frame(width: 342, alignment: .center)
+                    .frame(width: userDevice.width342, alignment: .center)
                     .font(.systemTitle2)
                     .foregroundStyle(.black)
                 
                 Component.DefaultText(text: details[selectedPage])
-                    .frame(width: 342, alignment: .center)
-                    .frame(minHeight: 70)
+                    .lineLimit(3, reservesSpace: true)
                     .font(.systemBodyText)
+                    .frame(width: userDevice.width342, alignment: .center)
                     .foregroundStyle(.gray1)
                     .padding(.top, 12)
                 
@@ -68,7 +67,7 @@ struct OnboardingView: View {
                 .padding(.top, 32)
                 
                 //BUTTON
-                Component.DefaultButton(text: (selectedPage != 2) ? "Berikutnya" : "Mulai", buttonLevel: .primary) {
+                Component.DefaultButton(text: (selectedPage != 2) ? NSLocalizedString("Berikutnya", comment:"") : NSLocalizedString("Mulai", comment:""), buttonLevel: .primary) {
                     if selectedPage < 2 {
                         selectedPage += 1
                     } else {
@@ -76,15 +75,13 @@ struct OnboardingView: View {
                     }
                 }
                 .padding(.top, 68)
-                
-                Spacer()
             }
-            .frame(height: 254)
+//            .frame(height: 254)
             .padding(.top, 5)
-            
-            Spacer()
+            .padding(.bottom, 81)
 
         }
+//        Spacer()
     }
 }
 
@@ -92,4 +89,5 @@ struct OnboardingView: View {
     OnboardingView()
         .environmentObject(Router())
         .environmentObject(UserDevice())
+        .environment(\.locale, .init(identifier: "en"))
 }

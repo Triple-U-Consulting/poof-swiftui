@@ -26,7 +26,7 @@ struct StartPairingView: View {
             
             VStack (spacing:0) {
                 Text("Pair Your Inhaler")
-                    .font(.systemTitle)
+                    .font(.systemTitle1)
                 
                 Text("Connecting your inhaler helps us to \nimprove our analysis.")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

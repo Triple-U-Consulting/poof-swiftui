@@ -18,8 +18,9 @@ class UserDevice: ObservableObject {
     @Published var topSafeAreaWithNavigationBar: CGFloat = 91
     @Published var usableHeightWithNavigationBar: CGFloat = 594
     
-//    @Published var buttonPadding: CGFloat = 24
-//    @Published var width342: CGFloat = 342
+    @Published var buttonPadding: CGFloat = 24
+    @Published var width342: CGFloat = 342
+    @Published var height402: CGFloat = 402
 }
 
 //extension UIScreen{
