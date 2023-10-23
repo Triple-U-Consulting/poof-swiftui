@@ -17,9 +17,9 @@ class Router: ObservableObject {
 }
 
 enum Page {
-    case Register
     case Onboarding
     case Login
+    case Register
     case PairDevice
     case TabBar
 }

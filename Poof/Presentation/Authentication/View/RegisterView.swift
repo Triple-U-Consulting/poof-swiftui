@@ -21,7 +21,7 @@ struct RegisterView: View {
     var body: some View {
         ZStack {
             Color(.white).ignoresSafeArea()
-            NavigationStack(path: $router.path) {
+            NavigationView {
                 ZStack {
                     Color(.white).ignoresSafeArea()
                     VStack{
@@ -73,12 +73,14 @@ struct RegisterView: View {
                         Spacer()
                         
                         Component.DefaultButton(text: "Sign Up") {
-                            viewModel.registerUser(email: email, password: password, dob: dob!, confirmPassword: confirmPassword)
+//                            viewModel.registerUser(email: email, password: password, dob: dob!, confirmPassword: confirmPassword)
+                            router.path.removeLast()
+                            // TODO: NOTIFIKASI AKUN BERHASIL DIBUAT
                         }
                         .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 650)
                         
                         Component.bottomSignText(text: "Already have an account?", blueText: "Sign In") {
-                            
+                            router.path.removeLast()
                         }
                         .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 730)
                         

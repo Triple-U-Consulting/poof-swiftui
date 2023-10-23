@@ -18,10 +18,15 @@ enum DefaultButtonState {
     case inactive
 }
 
-enum DefaultDesign: CGFloat {
-    case buttonPadding = 24
-    case deviceWidth = 390
-}
+//enum DefaultDesign: CGFloat {
+//    case buttonPadding = 24
+//    case deviceWidth = 390
+//    case width = 342
+//    
+////    func value() -> CGFloat {
+////        return self.rawValue
+////    }
+//}
 
 struct Component {
     
@@ -63,7 +68,7 @@ struct Component {
                     }
                 }
             }
-            .padding(.horizontal, 24*userDevice.usableWidth/DefaultDesign.deviceWidth.rawValue)
+            .padding(.horizontal, 24)
         }
         
         private func Primary(_ text: Text) -> some View {

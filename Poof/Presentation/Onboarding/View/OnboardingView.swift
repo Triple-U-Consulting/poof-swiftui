@@ -24,9 +24,6 @@ struct OnboardingView: View {
         "Kami akan mengingatkan anda untuk meminum obat dan melakukan singkronisasi setiap hari."
     ]
     
-//    @State private var width1 : CGFloat
-//    @State private var width2 =
-    
     
     var body: some View {
         VStack (spacing:0) {
@@ -47,6 +44,7 @@ struct OnboardingView: View {
             
             //DETAILS
             VStack (spacing:0) {
+                Text("\(userDevice.usableWidth)")
                 Component.DefaultText(text: title[selectedPage])
                     .frame(width: 342, alignment: .center)
                     .font(.systemTitle2)

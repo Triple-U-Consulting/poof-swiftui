@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 // MARK: Sign Component
-extension Component{
+extension Component {
     
     /// Title sign page
     struct titleSignPage: View {
@@ -47,9 +47,11 @@ extension Component{
             HStack{
                 Text(text)
                     .foregroundStyle(Color.Neutrals.grayBottomSignText)
-                    
-                Text(blueText)
-                    .foregroundStyle(Color.Main.blueText)
+                
+                Button(action: action) {
+                    Text(blueText)
+                        .foregroundStyle(Color.Main.blueText)
+                }
             }
             .padding(.top, 16)
             .padding(.bottom, 41)
