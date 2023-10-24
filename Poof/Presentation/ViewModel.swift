@@ -29,6 +29,8 @@ class ViewModel: ObservableObject {
     @Published private(set) var status: LoadingStatus = .initial
     @Published private(set) var inhalerStatus: InhalerStatus = .initial
     
+    private(set) var inhalerId: String?
+    
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
     
@@ -36,7 +38,7 @@ class ViewModel: ObservableObject {
     private let getKambuh: GetKambuhDataUseCase
     private let getKambuhById: GetKambuhDataByIdUseCase
     private let getInhalerId: PairInhalerUsecase
-//    private let updateUserInhaler: UpdateUserInhalerUsecase
+    private let updateUserInhaler: UpdateUserInhalerUsecase
     private let login: LoginUserUsecase
     
     private let stateManager: StateManager
@@ -46,7 +48,7 @@ class ViewModel: ObservableObject {
         getKambuh: GetKambuhDataUseCase = GetKambuhDataImpl.shared,
         getKambuhById: GetKambuhDataByIdUseCase = GetKambuhDataByIdImpl.shared,
         getInhalerId: PairInhalerUsecase = PairInhalerImpl.shared,
-//        updateUserInhaler: UpdateUserInhalerUsecase = UpdateUserInhalerImpl.shared,
+        updateUserInhaler: UpdateUserInhalerUsecase = UpdateUserInhalerImpl.shared,
         login: LoginUserUsecase = LoginUserImpl.shared,
 //        addWifi: AddWifiUseCase = AddWifiImpl.shared
         stateManager: StateManager = StateManager.shared,
@@ -56,7 +58,7 @@ class ViewModel: ObservableObject {
         self.getKambuh = getKambuh
         self.getKambuhById = getKambuhById
         self.getInhalerId = getInhalerId
-//        self.updateUserInhaler = updateUserInhaler
+        self.updateUserInhaler = updateUserInhaler
         self.login = login
         self.stateManager = stateManager
         self.userDefaultsController = userDefaultsController
@@ -78,27 +80,9 @@ class ViewModel: ObservableObject {
     }
     
     func fetchKambuh() {
-        self.status = .loading
+//        self.status = .loading
         Task {
             await getKambuh.execute()
-                .sink { [weak self] completion in
-                    switch completion {
-                    case .finished:
-                        self?.status = .success
-                    case .failure(let failure):
-                        print(failure)
-                        self?.status = .failure(failure: failure)
-                    }
-                } receiveValue: { kambuhResults in
-                    self.kambuhList = kambuhResults
-                }
-                .store(in: &cancellables)
-        }
-    }
-    
-    func findInhaler() {
-        Task {
-            await getInhalerId.execute()
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -108,22 +92,39 @@ class ViewModel: ObservableObject {
                         print(failure)
 //                        self?.status = .failure(failure: failure)
                     }
-                } receiveValue: { _ in
-                    //
+                } receiveValue: { kambuhResults in
+                    self.kambuhList = kambuhResults
                 }
                 .store(in: &cancellables)
         }
     }
     
-//    func updateUserInhalerId(id: String) {
-//        Task {
-//            await self.updateUserInhaler.execute(requestValue: id, userToken: userDefaultsController.getString(key: "token")!)
-//        }
-//    }
-    
-    func loginUser(email: String, password: String) {
+    func findInhaler() {
+        self.status = .loading
         Task {
-            await login.execute(email: email, password: password)
+            await getInhalerId.execute()
+                .sink { [weak self] completion in
+                    switch completion {
+                    case .finished:
+                        DispatchQueue.main.async {
+                            self?.status = .success
+                        }
+                    case .failure(let failure):
+                        print(failure)
+                        DispatchQueue.main.async {
+                            self?.status = .failure(failure: failure)
+                        }
+                    }
+                } receiveValue: { inhalerId in
+                    self.inhalerId = inhalerId
+                }
+                .store(in: &cancellables)
+        }
+    }
+    
+    func updateUserInhalerId() {
+        Task {
+            await self.updateUserInhaler.execute(requestValue: self.inhalerId ?? "", userToken: userDefaultsController.getString(key: "token") ?? "")
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -131,9 +132,8 @@ class ViewModel: ObservableObject {
                     case .failure(let failure):
                         print(failure)
                     }
-                } receiveValue: { accessToken in
-                    self.userDefaultsController.save(accessToken, asKey: "token")
-                    print(accessToken)
+                } receiveValue: { result in
+                    print(result)
                 }
         }
     }

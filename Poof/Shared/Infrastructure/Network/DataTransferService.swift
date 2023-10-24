@@ -28,12 +28,30 @@ extension DataTransferServiceImpl: DataTransferService {
     func request<T: Decodable, E: ResponseRequestable>(
         with endpoint: E
     ) async -> Result<T, Failure> where E.ResponseType == T {
-        let data = await networkService.request(endpoint: endpoint)
-        let decoded: Result<T, Failure> = self.decode(
-            data: data,
-            decoder: endpoint.responseDecoder
-        )
-        return decoded
+        let (data, response) = await networkService.request(endpoint: endpoint)
+        
+        // resolve url response
+        if let r = response as? HTTPURLResponse {
+            let code = r.statusCode
+            
+            if code == 200 || code == 201 {
+                let decoded: Result<T, Failure> = self.decode(
+                    data: data,
+                    decoder: endpoint.responseDecoder
+                )
+                return decoded
+            } else if code == 400 {
+                return .failure(.networkFailure(.badRequest))
+            } else if code == 401 {
+                return .failure(.networkFailure(.unauthenticated))
+            } else if code == 403 || code == 404 {
+                return .failure(.networkFailure(.unknownURL))
+            } else if code == 500 {
+                return .failure(.networkFailure(.serverError))
+            }
+        }
+        
+        return .failure(.noResponse)
     }
     
     // MARK: - Private
