@@ -9,10 +9,10 @@ import Foundation
 
 enum NetworkError: Error {
     // MARK: - Network Error
-    case error(statusCode: Int, data: Data?)
-    case notConnected
-    case cancelled
-    case generic(Error)
+    case badRequest
+    case unauthenticated
+    case unknownURL
+    case serverError
     case urlGeneration
 }
 
@@ -33,6 +33,5 @@ enum Failure: Error {
     case noResponse
     case parsing(Error)
     case networkFailure(NetworkError)
-    case resolvedNetworkFailure(Error)
     case parseDateFailure
 }

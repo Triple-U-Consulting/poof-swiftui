@@ -10,7 +10,7 @@ import SwiftUI
 struct RegisterView: View {
     
     @EnvironmentObject var router: Router
-    @StateObject var viewModel = UserViewModel()
+    @EnvironmentObject private var viewModel: AuthViewModel
     @State private var email: String = ""
     @State private var dob: Date?
     @State private var password: String = ""
@@ -28,7 +28,7 @@ struct RegisterView: View {
                         Component.titleSignPage(text: "Email")
                         
                         TextField(text: $email) {
-                            Text(verbatim: "loremipsum@gmail.com")
+                            Text(verbatim: "john.doe@gmail.com")
                         }
                         .autocorrectionDisabled(true)
                         .padding(.leading, 30)
@@ -72,10 +72,9 @@ struct RegisterView: View {
                         
                         Spacer()
                         
-                        Component.DefaultButton(text: "Daftar") {
-//                            viewModel.registerUser(email: email, password: password, dob: dob!, confirmPassword: confirmPassword)
+                        Component.DefaultButton(text: "Sign Up") {
+                            viewModel.register(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
                             router.path.removeLast()
-                            // TODO: NOTIFIKASI AKUN BERHASIL DIBUAT
                         }
                         .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 650)
                         
@@ -110,5 +109,6 @@ struct RegisterView: View {
 
 #Preview {
     RegisterView()
+        .environmentObject(AuthViewModel())
         .environmentObject(Router())
 }

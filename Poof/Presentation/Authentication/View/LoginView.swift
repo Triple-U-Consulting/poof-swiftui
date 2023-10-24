@@ -11,6 +11,7 @@ struct LoginView: View {
     
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
+    @EnvironmentObject private var viewModel: AuthViewModel
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var wrongPassword: Int = 0
@@ -23,7 +24,7 @@ struct LoginView: View {
                 Component.titleSignPage(text: "Email")
                 
                 TextField(text: $email) {
-                    Text(verbatim: "loremipsum@gmail.com")
+                    Text(verbatim: "john.doe@gmail.com")
                 }
                 .autocapitalization(.none)
                 .autocorrectionDisabled(true)
@@ -35,7 +36,7 @@ struct LoginView: View {
                 Component.titleSignPage(text: "Kata sandi")
                 
                 SecureField(text: $password) {
-                    Text(verbatim: "loremipsum@gmail.com")
+                    Text(verbatim: "********")
                 }
                 .autocapitalization(.none)
                 .autocorrectionDisabled(true)
@@ -46,11 +47,11 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                Component.DefaultButton(text: "Masuk") {
-                    router.path.append(Page.TabBar)
+                Component.DefaultButton(text: "Sign In") {
+                    viewModel.login(email: email, password: password)
                 }
                 
-                Component.bottomSignText(text: "Tidak memiliki akun?", blueText: "Daftar") {
+                Component.bottomSignText(text: "Do not have an account?", blueText: "Sign Up") {
                     router.path.append(Page.Register)
                 }
             }
@@ -71,6 +72,7 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environmentObject(AuthViewModel())
         .environmentObject(Router())
         .environmentObject(UserDevice())
         .environment(\.locale, .init(identifier: "id"))

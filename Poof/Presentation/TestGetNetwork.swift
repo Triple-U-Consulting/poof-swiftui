@@ -8,32 +8,36 @@
 import SwiftUI
 
 struct TestGetNetwork: View {
-    @EnvironmentObject var vm: ViewModel
+    @EnvironmentObject var vm: AuthViewModel
     @State var pressed: Bool = false
     
     var body: some View {
-        switch pressed {
-        case false:
-            Button(action: {
-                vm.loginUser(email: "djk.gk@gmail.com", password: "Ayung")
-//                vm.fetchKambuh()
-//                pressed = true
-            }, label: {
-                Text("Login")
-            })
-        case true:
+        VStack {
             switch vm.status {
+            case .initial:
+                Button(action: {
+                    vm.login(email: "angela@gmail.com", password: "angela")
+    //                vm.fetchKambuh()
+    //                pressed = true
+                }, label: {
+                    Text("Login")
+                })
+                
+                Button {
+//                    vm.findInhaler()
+                } label: {
+                    Text("Pair inhaler")
+                }
+            case .loading:
+                ProgressView()
             case .success:
-                List(vm.kambuhList) {
-                    Text("\($0.start)")
-                    Text("\($0.end)")
-                    Text("\($0.totalPuff)")
-                    Text("\($0.lamaKambuh)")
+                Button {
+//                    vm.updateUserInhalerId()
+                } label: {
+                    Text("Update user inhaler")
                 }
             case .failure:
                 Text("Failed")
-            default:
-                ProgressView()
             }
         }
     }
