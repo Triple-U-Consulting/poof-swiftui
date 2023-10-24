@@ -49,7 +49,7 @@ struct InhalerTabView: View {
                     .frame(width:342, height:101)
                     .background(Color.white)
                     .cornerRadius(10)
-                    .shadow(color: Color("Shadow"), radius: 12, x: 0, y: 4)
+                    .shadow(color: .gray3, radius: 12, x: 0, y: 4)
                     .padding(.top, 16)
                     
                     VStack {

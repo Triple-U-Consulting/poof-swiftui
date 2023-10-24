@@ -39,7 +39,7 @@ struct PairDeviceView: View {
                 }
                 ToolbarItem(placement: .principal) {
                     Text("Pair Your Device")
-                        .font(.systemTitle)
+                        .font(.systemTitle1)
                 }
             }
         }

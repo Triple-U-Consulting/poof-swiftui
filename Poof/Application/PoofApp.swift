@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct PoofApp: App {
     @StateObject var router = Router()
+    @StateObject var userDevice = UserDevice()
     var body: some Scene {
         WindowGroup {
             WiFiDetailsView()
                 .environmentObject(router)
+                .environmentObject(userDevice)
         }
     }
 }

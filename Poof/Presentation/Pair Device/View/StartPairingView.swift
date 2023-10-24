@@ -12,19 +12,21 @@ struct StartPairingView: View {
     @Binding var pairProgress : PairDevicePage
     
     var body: some View {
-        VStack {
-            VStack {
+        VStack (spacing:0){
+            VStack (spacing:0){
                 Spacer()
                 
                 LottieViewComponent(name: "pairing-start", loopMode: .loop)
                     .frame(width:255, height:220)
                 Spacer()
             }
-            .frame(height:512)
+            .frame(height:435)
             
-            VStack {
+            Spacer()
+            
+            VStack (spacing:0) {
                 Text("Pair Your Inhaler")
-                    .font(.systemTitle)
+                    .font(.systemTitle1)
                 
                 Text("Connecting your inhaler helps us to \nimprove our analysis.")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -39,13 +41,16 @@ struct StartPairingView: View {
                 Spacer()
             }
             .frame(height: 195)
-            .padding(.bottom, 83)
+            .padding(.bottom, 53)
             
         }
     }
 }
 
 //#Preview {
-//    StartPairingView(pairProgress: $pairProgress))
+//    
+//    @State var pairProgress = PairDevicePage.startPairing
+//    
+//    StartPairingView(pairProgress: $pairProgress)
 //        .environmentObject(Router())
 //}

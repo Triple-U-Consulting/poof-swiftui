@@ -28,13 +28,6 @@ struct TabBarView: View {
                         Text("Summary")
                     }
                     .tag(1)
-                
-//                RecommendationTabView()
-//                    .tabItem {
-//                        Image(systemName: "hand.thumbsup.fill")
-//                        Text("Reccomendation")
-//                    }
-//                    .tag(2)
             }
             .accentColor(Color.Main.primary1)
 //            .onAppear() {
