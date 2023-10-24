@@ -12,7 +12,7 @@ protocol NetworkService {
 //    typealias NetworkCompletionHandler = (Data?, URLResponse?, Error?) -> Void
 //    typealias RequestCompletionHandler = (Result<Data?, NetworkError>) -> Void
     
-    func request(endpoint: Requestable) async  -> Data?
+    func request(endpoint: Requestable) async  -> (Data?, URLResponse?)
 }
 
 final class NetworkServiceImpl {
@@ -32,42 +32,18 @@ final class NetworkServiceImpl {
         let (result, response) = try await URLSession.shared.data(for: request)
         return (result, response)
     }
-    
-//    private func resolve(error: Error) -> NetworkError {
-//        let code = URLError.Code(rawValue: (error as NSError).code)
-//        switch code {
-//        case .notConnectedToInternet: return .notConnected
-//        case .cancelled: return .cancelled
-//        default: return .generic(error)
-//        }
-//    }
 }
 
 extension NetworkServiceImpl: NetworkService {
-    func request(endpoint: Requestable) async -> Data? {
+    func request(endpoint: Requestable) async -> (Data?, URLResponse?) {
         do {
             let urlRequest = try endpoint.urlRequest(with: config)
-            let (data, _): (Data, URLResponse) = try await startSession(request: urlRequest)
-            return data
-//            { data, response, error in
-//                if let requestError = error {
-//                    var error: NetworkError
-//                    if let response = response as? HTTPURLResponse {
-//                        error = .error(statusCode: response.statusCode, data: data)
-//                    } else {
-//                        error = self.resolve(error: requestError)
-//                    }
-//                    self.logger.log(error: error)
-//                    completion(.failure(error))
-//                } else {
-//                    self.logger.log(responseData: data, response: response)
-//                    completion(.success(data))
-//                }
-//            }
+            let (data, response): (Data, URLResponse) = try await startSession(request: urlRequest)
+            
+            return (data, response)
         } catch {
             print(error)
         }
-        return nil
+        return (nil, nil)
     }
-    
 }

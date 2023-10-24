@@ -9,16 +9,16 @@ import Foundation
 
 struct APIEndpoints {
     // MARK: - Authentication
-    static func login(email: String, password: String) -> Endpoint<UserLoginResponseDTO> {
+    static func login(email: String, password: String) -> Endpoint<MessageResponseDTO> {
         let bodyParameters = UserLoginRequestDTO(email: email, password: password)
         
         return Endpoint(path: "auth/login", method: .post, bodyParametersEncodable: bodyParameters)
     }
     
-    static func register(email: String, password: String, dob: Date, confirmPassword: String) -> Endpoint<UserResponseDTO> {
+    static func register(email: String, password: String, dob: Date) -> Endpoint<UserResponseDTO> {
         let newDob = DateFormatUtil.shared.dateToString(date: dob, to: "yyyy-MM-dd")
         
-        let requestDTO = UserRequestDTO(email: email, password: password, dob: newDob, confirmPassword: confirmPassword)
+        let requestDTO = UserRequestDTO(email: email, password: password, dob: newDob)
         return Endpoint(path: "auth/register", method: .post, bodyParametersEncodable: requestDTO)
     }
     
@@ -34,11 +34,11 @@ struct APIEndpoints {
     }
     
     // MARK: - Inhaler
-    static func updateUserInhalerId(id: String, token: String) -> Endpoint<UserResponseDTO> {
-        let queryParameters = ["id": id]
-        let headerParameters = ["token": token]
+    static func updateUserInhalerId(id: String, token: String) -> Endpoint<MessageResponseDTO> {
+        let bodyParameters = ["inhaler_id": id]
+        let headerParameters = ["accesstoken": token]
         
-        return Endpoint(path: "user/update/inhaler", method: .put, queryParameters: queryParameters, headerParameters: headerParameters)
+        return Endpoint(path: "auth/update/inhaler", method: .put, bodyParameters: bodyParameters, headerParameters: headerParameters)
     }
     
     // MARK: - IOT

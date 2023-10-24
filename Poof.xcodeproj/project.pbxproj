@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13B6592AE686B700576845 /* AuthViewModel.swift */; };
 		0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */; };
 		0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */; };
 		0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */; };
@@ -37,7 +38,6 @@
 		0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */; };
 		0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */; };
 		0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */; };
-		3F9027B12AE0F7C5005011B3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B02AE0F7C5005011B3 /* UserViewModel.swift */; };
 		3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* RegisterUser.swift */; };
 		3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */; };
 		3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */; };
@@ -99,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B13B6592AE686B700576845 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KambuhResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IoTResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTRepository.swift; sourceTree = "<group>"; };
@@ -130,7 +131,6 @@
 		0BE97CB72AD7F6EB006A33AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGetNetwork.swift; sourceTree = "<group>"; };
 		0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
-		3F9027B02AE0F7C5005011B3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		3F9027B22AE0F866005011B3 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRegisterRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
@@ -203,6 +203,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B13B6582AE6869B00576845 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B13B6592AE686B700576845 /* AuthViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		0B8007092AE23AA100ACBD71 /* Persistent Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8D60882AD94B680017445F /* View */,
+				0B13B6582AE6869B00576845 /* View Model */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -550,7 +559,6 @@
 		AB7BEDC92ACD524A0071BF10 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				3F9027B02AE0F7C5005011B3 /* UserViewModel.swift */,
 				D6E6D6892ADFD84C000C1A94 /* Wifi Configuration */,
 				AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */,
 				0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */,
@@ -791,7 +799,6 @@
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
 				0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */,
-				3F9027B12AE0F7C5005011B3 /* UserViewModel.swift in Sources */,
 				0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */,
 				AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */,
 				D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */,
@@ -810,6 +817,7 @@
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
 				AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */,
+				0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */,
 				3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */,
 				0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */,
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
