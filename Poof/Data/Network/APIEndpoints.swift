@@ -8,8 +8,11 @@
 import Foundation
 
 struct APIEndpoints {
-    static func login() {
+    // MARK: - Authentication
+    static func login(email: String, password: String) -> Endpoint<UserLoginResponseDTO> {
+        let bodyParameters = UserLoginRequestDTO(email: email, password: password)
         
+        return Endpoint(path: "auth/login", method: .post, bodyParametersEncodable: bodyParameters)
     }
     
     static func register(email: String, password: String, dob: Date, confirmPassword: String) -> Endpoint<UserResponseDTO> {
@@ -19,6 +22,7 @@ struct APIEndpoints {
         return Endpoint(path: "auth/register", method: .post, bodyParametersEncodable: requestDTO)
     }
     
+    // MARK: - Kambuh
     static func getKambuh() -> Endpoint<KambuhResponseDTO> {
         return Endpoint(path: "kambuh", method: .get)
     }
@@ -29,14 +33,26 @@ struct APIEndpoints {
         return Endpoint(path: "kambuh", method: .get, queryParameters: queryParameters)
     }
     
-    static func getInhalerId() -> Endpoint<InhalerIdResponseDTO> {
-        return Endpoint(path: "http://192.168.4.1/device-id", isFullPath: true, method: .get)
-    }
-    
-    static func updateUserInhalerId(token: String, id: String) -> Endpoint<ValidationResponseDTO> {
+    // MARK: - Inhaler
+    static func updateUserInhalerId(id: String, token: String) -> Endpoint<UserResponseDTO> {
         let queryParameters = ["id": id]
         let headerParameters = ["token": token]
         
         return Endpoint(path: "user/update/inhaler", method: .put, queryParameters: queryParameters, headerParameters: headerParameters)
     }
+    
+    // MARK: - IOT
+    static func getIoTInhalerId() -> Endpoint<IoTResponseDTO> {
+        return Endpoint(path: "http://192.168.4.1/device-id", isFullPath: true, method: .get)
+    }
+    
+    static func postWiFiDetails(ssid: String, password: String) -> Endpoint<MessageResponseDTO> {
+            let bodyParameters = ["ssid": ssid, "password": password]
+            print(ssid, password)
+            return Endpoint(path: "http://192.168.4.1/config-wifi",
+                            isFullPath: true,
+                            method: .post,
+                            bodyParameters: bodyParameters)
+        }
+
 }

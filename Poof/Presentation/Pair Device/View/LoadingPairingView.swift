@@ -24,7 +24,7 @@ struct LoadingPairingView: View {
             
             VStack {
                 Text("Pairing")
-                    .font(.systemTitle)
+                    .font(.systemTitle1)
                 
                 Text("Please wait for a moment, we are \npairing it now")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

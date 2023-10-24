@@ -24,7 +24,7 @@ struct SuccessPairingView: View {
             
             VStack {
                 Text("Paired")
-                    .font(.systemTitle)
+                    .font(.systemTitle1)
                 
                 Text("We have successfully paired your \ninhaler!")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

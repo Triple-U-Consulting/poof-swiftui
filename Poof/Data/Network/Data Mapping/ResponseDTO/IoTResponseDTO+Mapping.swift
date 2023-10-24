@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct InhalerIdResponseDTO: Decodable {
+struct IoTResponseDTO: Decodable {
     let deviceid: String
 }
 
-extension InhalerIdResponseDTO {
+extension IoTResponseDTO {
     func toDomain() -> String {
         return self.deviceid
     }

@@ -25,7 +25,7 @@ struct ConnectToDeviceWifiView: View {
             
             VStack {
                 Text("Connect to Wifi")
-                    .font(.systemTitle)
+                    .font(.systemTitle1)
                 
                 Text("Connect your phone to inhaler's Wi-Fi \nand ensure it has sufficient battery.")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

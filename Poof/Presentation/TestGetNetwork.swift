@@ -15,11 +15,11 @@ struct TestGetNetwork: View {
         switch pressed {
         case false:
             Button(action: {
-                vm.findInhaler()
+                vm.loginUser(email: "djk.gk@gmail.com", password: "Ayung")
 //                vm.fetchKambuh()
 //                pressed = true
             }, label: {
-                Text("Find inhaler")
+                Text("Login")
             })
         case true:
             switch vm.status {
