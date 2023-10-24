@@ -24,7 +24,7 @@ struct LoginView: View {
                 Component.titleSignPage(text: "Email")
                 
                 TextField(text: $email) {
-                    Text(verbatim: "loremipsum@gmail.com")
+                    Text(verbatim: "john.doe@gmail.com")
                 }
                 .autocapitalization(.none)
                 .autocorrectionDisabled(true)
@@ -36,7 +36,7 @@ struct LoginView: View {
                 Component.titleSignPage(text: "Password")
                 
                 SecureField(text: $password) {
-                    Text(verbatim: "loremipsum@gmail.com")
+                    Text(verbatim: "********")
                 }
                 .autocapitalization(.none)
                 .autocorrectionDisabled(true)

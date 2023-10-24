@@ -35,10 +35,10 @@ struct APIEndpoints {
     
     // MARK: - Inhaler
     static func updateUserInhalerId(id: String, token: String) -> Endpoint<MessageResponseDTO> {
-        let queryParameters = ["id": id]
-        let headerParameters = ["token": token]
+        let bodyParameters = ["inhaler_id": id]
+        let headerParameters = ["accesstoken": token]
         
-        return Endpoint(path: "user/update/inhaler", method: .put, queryParameters: queryParameters, headerParameters: headerParameters)
+        return Endpoint(path: "auth/update/inhaler", method: .put, bodyParameters: bodyParameters, headerParameters: headerParameters)
     }
     
     // MARK: - IOT

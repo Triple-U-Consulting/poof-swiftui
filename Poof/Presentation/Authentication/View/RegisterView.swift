@@ -28,7 +28,7 @@ struct RegisterView: View {
                         Component.titleSignPage(text: "Email")
                         
                         TextField(text: $email) {
-                            Text(verbatim: "loremipsum@gmail.com")
+                            Text(verbatim: "john.doe@gmail.com")
                         }
                         .autocorrectionDisabled(true)
                         .padding(.leading, 30)

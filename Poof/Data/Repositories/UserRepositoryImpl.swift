@@ -54,6 +54,8 @@ extension UserRepositoryImpl: UserRepository {
     }
     
     func updateInhalerId(id: String, userToken: String) async -> AnyPublisher<String, Failure> {
+        print(id)
+        print(userToken)
         let endpoint = APIEndpoints.updateUserInhalerId(id: id, token: userToken)
         let results = await self.dataTransferService.request(with: endpoint)
         

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13B6592AE686B700576845 /* AuthViewModel.swift */; };
 		0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */; };
 		0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */; };
 		0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */; };
@@ -95,6 +96,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B13B6592AE686B700576845 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KambuhResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IoTResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTRepository.swift; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B13B6582AE6869B00576845 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B13B6592AE686B700576845 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0B8007092AE23AA100ACBD71 /* Persistent Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +234,7 @@
 		0B8D607E2AD94A7E0017445F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				0B13B6582AE6869B00576845 /* ViewModel */,
 				0B8D60882AD94B680017445F /* View */,
 			);
 			path = Authentication;
@@ -797,6 +808,7 @@
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
 				AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */,
+				0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */,
 				3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */,
 				0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */,
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,

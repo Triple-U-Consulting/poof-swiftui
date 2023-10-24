@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol UpdateUserInhalerUsecase {
-    func execute(requestValue: String, userToken: String) async -> AnyPublisher<User, Failure>
+    func execute(requestValue: String, userToken: String) async -> AnyPublisher<String, Failure>
 }
 
 final class UpdateUserInhalerImpl {
@@ -17,9 +17,9 @@ final class UpdateUserInhalerImpl {
     
     private let repository = UserRepositoryImpl.shared
 }
-//
-//extension UpdateUserInhalerImpl: UpdateUserInhalerUsecase {
-//    func execute(requestValue: String, userToken: String) async -> AnyPublisher<User, Failure> {
-//        return await self.repository.updateInhalerId(id: requestValue, userToken: userToken)
-//    }
-//}
+
+extension UpdateUserInhalerImpl: UpdateUserInhalerUsecase {
+    func execute(requestValue: String, userToken: String) async -> AnyPublisher<String, Failure> {
+        return await self.repository.updateInhalerId(id: requestValue, userToken: userToken)
+    }
+}
