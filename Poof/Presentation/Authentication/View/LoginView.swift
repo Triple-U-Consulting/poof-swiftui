@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var router: Router
+    @EnvironmentObject private var viewModel: AuthViewModel
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var wrongPassword: Int = 0
@@ -17,8 +18,6 @@ struct LoginView: View {
     
     
     var body: some View {
-        
-        
         NavigationStack{
             VStack {
                 Component.titleSignPage(text: "Email")
@@ -48,11 +47,11 @@ struct LoginView: View {
                 Spacer()
                 
                 Component.DefaultButton(text: "Sign In") {
-                    //
+                    viewModel.login(email: email, password: password)
                 }
                 
                 Component.bottomSignText(text: "Do not have an account?", blueText: "Sign Up") {
-                    //
+                    // TODO: Navigate to Sign Up
                 }
             }
             .toolbar{
@@ -72,5 +71,6 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environmentObject(AuthViewModel())
         .environmentObject(Router())
 }

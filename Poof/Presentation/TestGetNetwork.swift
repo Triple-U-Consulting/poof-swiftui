@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestGetNetwork: View {
-    @EnvironmentObject var vm: ViewModel
+    @EnvironmentObject var vm: AuthViewModel
     @State var pressed: Bool = false
     
     var body: some View {
@@ -16,7 +16,7 @@ struct TestGetNetwork: View {
             switch vm.status {
             case .initial:
                 Button(action: {
-                    vm.loginUser(email: "angela@gmail.com", password: "angela")
+                    vm.login(email: "angela@gmail.com", password: "angela")
     //                vm.fetchKambuh()
     //                pressed = true
                 }, label: {
@@ -24,7 +24,7 @@ struct TestGetNetwork: View {
                 })
                 
                 Button {
-                    vm.findInhaler()
+//                    vm.findInhaler()
                 } label: {
                     Text("Pair inhaler")
                 }
@@ -32,7 +32,7 @@ struct TestGetNetwork: View {
                 ProgressView()
             case .success:
                 Button {
-                    vm.updateUserInhalerId()
+//                    vm.updateUserInhalerId()
                 } label: {
                     Text("Update user inhaler")
                 }

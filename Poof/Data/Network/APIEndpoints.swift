@@ -15,10 +15,10 @@ struct APIEndpoints {
         return Endpoint(path: "auth/login", method: .post, bodyParametersEncodable: bodyParameters)
     }
     
-    static func register(email: String, password: String, dob: Date, confirmPassword: String) -> Endpoint<UserResponseDTO> {
+    static func register(email: String, password: String, dob: Date) -> Endpoint<UserResponseDTO> {
         let newDob = DateFormatUtil.shared.dateToString(date: dob, to: "yyyy-MM-dd")
         
-        let requestDTO = UserRequestDTO(email: email, password: password, dob: newDob, confirmPassword: confirmPassword)
+        let requestDTO = UserRequestDTO(email: email, password: password, dob: newDob)
         return Endpoint(path: "auth/register", method: .post, bodyParametersEncodable: requestDTO)
     }
     

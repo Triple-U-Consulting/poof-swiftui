@@ -10,7 +10,7 @@ import SwiftUI
 struct RegisterView: View {
     
     @EnvironmentObject var router: Router
-    @StateObject var viewModel = UserViewModel()
+    @EnvironmentObject private var viewModel: AuthViewModel
     @State private var email: String = ""
     @State private var dob: Date?
     @State private var password: String = ""
@@ -73,12 +73,12 @@ struct RegisterView: View {
                         Spacer()
                         
                         Component.DefaultButton(text: "Sign Up") {
-                            viewModel.registerUser(email: email, password: password, dob: dob!, confirmPassword: confirmPassword)
+                            viewModel.register(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
                         }
                         .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 650)
                         
                         Component.bottomSignText(text: "Already have an account?", blueText: "Sign In") {
-                            
+                            // TODO: navigate to Sign In
                         }
                         .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 730)
                         
@@ -108,5 +108,6 @@ struct RegisterView: View {
 
 #Preview {
     RegisterView()
+        .environmentObject(AuthViewModel())
         .environmentObject(Router())
 }

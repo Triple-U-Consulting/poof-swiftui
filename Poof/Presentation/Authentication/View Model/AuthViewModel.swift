@@ -15,11 +15,10 @@ enum LoginStatus {
     case failure(failure: Failure)
 }
 
-@Observable
-class AuthViewModel {
+class AuthViewModel: ObservableObject {
     // MARK: - Attributes
-    private(set) var status: LoginStatus = .initial
-    private(set) var errorMsg: String = ""
+    @Published private(set) var status: LoginStatus = .initial
+    @Published private(set) var errorMsg: String = ""
     
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
@@ -51,10 +50,22 @@ extension AuthViewModel {
         guard let d = dob else { return }
         guard password == confirmPassword else {
             self.errorMsg = "Passwords don't match!"
+            return
         }
         
         Task {
             await registUseCase.execute(email: email, password: password, dob: d)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("register done")
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { message in
+                    print(message)
+                }
+                .store(in: &cancellables)
         }
     }
     
@@ -73,6 +84,7 @@ extension AuthViewModel {
                     self.userDefaultsController.save(accessToken, asKey: "token")
                     print("accessToken: \(accessToken)")
                 }
+                .store(in: &cancellables)
         }
     }
 }

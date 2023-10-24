@@ -83,7 +83,7 @@ class ViewModel: ObservableObject {
 //        self.status = .loading
         Task {
             await getKambuh.execute()
-                .sink { [weak self] completion in
+                .sink { completion in
                     switch completion {
                     case .finished:
                         break
@@ -134,23 +134,6 @@ class ViewModel: ObservableObject {
                     }
                 } receiveValue: { result in
                     print(result)
-                }
-        }
-    }
-    
-    func loginUser(email: String, password: String) {
-        Task {
-            await login.execute(email: email, password: password)
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(let failure):
-                        print(failure)
-                    }
-                } receiveValue: { accessToken in
-                    self.userDefaultsController.save(accessToken, asKey: "token")
-                    print("accessToken: \(accessToken)")
                 }
         }
     }

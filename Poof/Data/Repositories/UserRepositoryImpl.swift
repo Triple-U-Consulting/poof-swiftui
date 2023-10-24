@@ -15,8 +15,8 @@ final class UserRepositoryImpl {
 }
 
 extension UserRepositoryImpl: UserRepository {
-    func registerUser(email: String, password: String, dob: Date, confirmPassword: String) async -> AnyPublisher<String, Failure> {
-        let endpoint = APIEndpoints.register(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
+    func registerUser(email: String, password: String, dob: Date) async -> AnyPublisher<String, Failure> {
+        let endpoint = APIEndpoints.register(email: email, password: password, dob: dob)
         let results = await self.dataTransferService.request(with: endpoint)
         
         switch results {
