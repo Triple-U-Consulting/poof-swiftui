@@ -23,7 +23,7 @@ struct FailedPairingView: View {
             
             VStack {
                 Text("Failed to Pair")
-                    .font(.systemTitle)
+                    .font(.systemTitle1)
                 
                 Text("Please make sure that you have your \ninhaler near you.")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
