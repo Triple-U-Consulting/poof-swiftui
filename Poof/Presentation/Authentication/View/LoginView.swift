@@ -16,11 +16,9 @@ struct LoginView: View {
     @State private var wrongPassword: Int = 0
     @State private var wrongEmail:Int = 0
     
-    
     var body: some View {
         
-        
-        NavigationStack{
+        NavigationView {
             VStack {
                 Component.titleSignPage(text: "Email")
                 
@@ -34,7 +32,7 @@ struct LoginView: View {
                 
                 Component.dividerSignPage()
                 
-                Component.titleSignPage(text: "Password")
+                Component.titleSignPage(text: "Kata sandi")
                 
                 SecureField(text: $password) {
                     Text(verbatim: "loremipsum@gmail.com")
@@ -48,22 +46,22 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                Component.DefaultButton(text: "Sign In") {
-                    //
+                Component.DefaultButton(text: "Masuk") {
+                    router.path.append(Page.TabBar)
                 }
                 
-                Component.bottomSignText(text: "Do not have an account?", blueText: "Sign Up") {
-                    //
+                Component.bottomSignText(text: "Tidak memiliki akun?", blueText: "Daftar") {
+                    router.path.append(Page.Register)
                 }
             }
             .toolbar{
                 ToolbarItem(placement: .topBarLeading) {
-                    Component.NavigationTitle(text: "Sign In")
+                    Component.NavigationTitle(text: "Masuk")
                 }
             }
-            .navigationDestination(for: Page.self) { _ in
-                RegisterView().environmentObject(router)
-            }
+//            .navigationDestination(for: Page.self) { _ in
+//                RegisterView().environmentObject(router)
+//            }
         }
         .padding(8)
     }
@@ -75,4 +73,5 @@ struct LoginView: View {
     LoginView()
         .environmentObject(Router())
         .environmentObject(UserDevice())
+        .environment(\.locale, .init(identifier: "id"))
 }

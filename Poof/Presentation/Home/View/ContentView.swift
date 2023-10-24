@@ -44,6 +44,11 @@ struct ContentView: View {
                         case Page.Login:
                             LoginView()
                                 .environmentObject(router)
+                                .navigationBarHidden(true)
+                        case Page.Register:
+                            RegisterView()
+                                .environmentObject(router)
+                                .navigationBarHidden(true)
                         case Page.PairDevice:
                             PairDeviceView()
                                 .environmentObject(router)
@@ -68,4 +73,6 @@ struct ContentView: View {
     ContentView()
         .environmentObject(Router())
         .environmentObject(UserDevice())
+//        .environment(\.locale, .init(identifier: "id"))
+        .environment(\.locale, .init(identifier: "en"))
 }

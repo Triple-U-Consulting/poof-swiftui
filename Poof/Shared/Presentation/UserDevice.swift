@@ -9,13 +9,18 @@ import Foundation
 import UIKit
 
 class UserDevice: ObservableObject {
-    @Published var topSafeArea: CGFloat = 0
-    @Published var bottomSafeArea: CGFloat = 0
-    @Published var usableHeight: CGFloat = 0
-    @Published var usableWidth: CGFloat = 0
+    //default iphone 14
+    @Published var topSafeArea: CGFloat = 47
+    @Published var bottomSafeArea: CGFloat = 34
+    @Published var usableHeight: CGFloat = 682
+    @Published var usableWidth: CGFloat = 390
     
-    @Published var topSafeAreaWithNavigationBar: CGFloat = 0
-    @Published var usableHeightWithNavigationBar: CGFloat = 0
+    @Published var topSafeAreaWithNavigationBar: CGFloat = 91
+    @Published var usableHeightWithNavigationBar: CGFloat = 594
+    
+    @Published var buttonPadding: CGFloat = 24
+    @Published var width342: CGFloat = 342
+    @Published var height402: CGFloat = 402
 }
 
 //extension UIScreen{

@@ -28,7 +28,7 @@ struct ConnectToHomeWifiView: View {
             
             VStack {
                 Text("Choose a Wi-Fi")
-                    .font(.systemTitle)
+                    .font(.systemTitle1)
                 
                 Text("This will be the network source\nfor your inhaler to sync data")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

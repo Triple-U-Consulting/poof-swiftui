@@ -70,6 +70,8 @@
 		AB7BEDD82ACD6F8C0071BF10 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDD72ACD6F8C0071BF10 /* Router.swift */; };
 		AB7BEDDF2ACD7A8A0071BF10 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */; };
 		AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */; };
+		ABB5FE6F2AE6812400227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
+		ABB5FE702AE6812500227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		D65636FF2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */; };
 		D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */; };
 		D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */; };
@@ -702,11 +704,10 @@
 			};
 			buildConfigurationList = AB7BED8B2ACD4B770071BF10 /* Build configuration list for PBXProject "Poof" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = id;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				id,
 			);
 			mainGroup = AB7BED872ACD4B770071BF10;
@@ -739,6 +740,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB5FE6F2AE6812400227E43 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +748,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB5FE702AE6812500227E43 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

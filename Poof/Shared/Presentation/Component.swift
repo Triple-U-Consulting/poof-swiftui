@@ -18,10 +18,15 @@ enum DefaultButtonState {
     case inactive
 }
 
-enum DefaultDesign: CGFloat {
-    case buttonPadding = 24
-    case deviceWidth = 390
-}
+//enum DefaultDesign: CGFloat {
+//    case buttonPadding = 24
+//    case deviceWidth = 390
+//    case width = 342
+//    
+////    func value() -> CGFloat {
+////        return self.rawValue
+////    }
+//}
 
 struct Component {
     
@@ -35,7 +40,7 @@ struct Component {
         var text: String
         
         var body: some View {
-            Text(text)
+            Text(NSLocalizedString(text, comment: ""))
                 .multilineTextAlignment(.center)
                 .lineSpacing(-2)
                 .tracking(0.4)
@@ -57,13 +62,13 @@ struct Component {
             VStack {
                 Button(action: action) {
                     if (buttonLevel == .primary) {
-                        Primary(Text(text))
+                        Primary(Text(NSLocalizedString(text, comment: "")))
                     } else if (buttonLevel == .secondary)  {
-                        Secondary(Text(text))
+                        Secondary(Text(NSLocalizedString(text, comment: "")))
                     }
                 }
             }
-            .padding(.horizontal, 24*userDevice.usableWidth/DefaultDesign.deviceWidth.rawValue)
+            .padding(.horizontal, 24)
         }
         
         private func Primary(_ text: Text) -> some View {
@@ -101,7 +106,7 @@ struct Component {
         var body: some View {
             Button(action: action) {
                 HStack {
-                    Text(text)
+                    Text(NSLocalizedString(text, comment: ""))
                         .padding(.leading, 33.5)
                     Spacer()
                     Text(Image(systemName: "chevron.right"))
@@ -131,7 +136,7 @@ struct Component {
             Button {
                 didSync = true
             } label : {
-                Text(text)
+                Text(NSLocalizedString(text, comment: ""))
                     .font(.systemButtonText)
                     .foregroundStyle(.black)
             }
@@ -174,8 +179,8 @@ struct Component {
     struct NavigationTitle: View {
         var text: String
         var body: some View {
-            Text(text)
-                .font(.systemTitle2)
+            Text(NSLocalizedString(text, comment: ""))
+                .font(.systemTitle1)
         }
     }
     
@@ -192,7 +197,7 @@ struct Component {
                     Image(systemName: "chevron.backward")
                         .resizable()
                         .foregroundColor(.black)
-                    Text("\(self.text)")
+                    Text(NSLocalizedString(self.text, comment: ""))
                         .foregroundColor(.black)
                         .font(.systemBodyText)
                 }
