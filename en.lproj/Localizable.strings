@@ -47,3 +47,28 @@
 "Buat Kata Sandi" = "Create Password";
 "Ketik Ulang Kata Sandi Anda" = "Retype Password";
 "HH.BB.TTTT" = "DD.MM.YYYY";
+
+// MARK: PAIRING
+"Sambungkan Perangkat Anda" = "Pair Your Device";
+"Sambungkan Inhaler Anda" = "Pair Your Inhaler";
+"Menyambungkan inhaler membantu kami untuk membuat analisis yang lebih baik." = "Connecting your inhaler helps us to improve our analysis.";
+"Mulai" = "Start Pairing";
+"Sambungkan ke Wi-Fi" = "Connect to Wi-Fi";
+"Buka setelan ponsel anda dan hubungkan ke Wi-Fi inhaler. Pastikan inhaler memiliki baterai yang cukup." = "Open your phone setting and connect to inhaler's Wi-Fi. Make sure it has sufficient battery.";
+"Memuat" = "Loading";
+"Pastikan inhaler anda berada dekat dengan anda." = "Please make sure that you have your inhaler near you.";
+"Coba Lagi" = "Try Again";
+"Menyambungkan" = "Pairing";
+"Mohon tunggu sebentar, kami sedang menyambungkan perangkat anda." = "Please wait for a moment, we are pairing it now.";
+"Tersambung" = "Paired";
+"Inhaler anda sudah tersambung dengan perangkat anda." = "We have successfully paired your inhaler!";
+"Pilih Wi-Fi untuk Inhaler" = "Choose a Wi-Fi for Inhaler";
+"SSID" = "SSID";
+"Kata Sandi" = "Password";
+"Nama Wi-Fi" = "Wi-Fi Name";
+"Kata Sandi Wi-Fi" = "Wi-Fi Password";
+"Bergabung" = "Join";
+"Tidak dapat terhubung ke Wi-Fi. Pastikan kembali SSID dan Kata Sandi anda" = "Unable to connect to Wi-Fi. Please recheck SSID and Password!";
+"Koneksi Hilang" = "Connection Lost";
+"Koneksi dengan inhaler terputus. Silahkan menghubungkan kembali." = "We can’t detect your inhaler. Please reconnect.";
+"Oke" = "Okay";
