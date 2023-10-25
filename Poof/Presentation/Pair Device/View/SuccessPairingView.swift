@@ -24,29 +24,25 @@ struct SuccessPairingView: View {
             .frame(height:512)
             
             VStack {
-                Text("Paired")
+                Text("Tersambung")
                     .font(.systemTitle1)
                 
-                Text("We have successfully paired your \ninhaler!")
+                Text("Inhaler anda sudah tersambung dengan perangkat anda.")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(.center)
                     .padding(.top, 8)
                 
-                Component.DefaultButton(text: "Set-Up Your Wifi") {
-                    router.path.append(Page.WifiConfig)
-                }
-                .padding(.top, 68)
                 
                 Spacer()
             }
             .frame(height: 195)
             .padding(.bottom, 83)
         }
-//        .onAppear {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                router.path.append(Page.WifiConfig)
-//            }
-//        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                router.path.append(Page.WifiConfig)
+            }
+        }
     }
 }
 

@@ -34,7 +34,6 @@ struct PairDeviceView: View {
             .toolbar {
                 if pairProgress == PairDevicePage.startPairing {
                     ToolbarItem(placement: .topBarLeading) {
-                        Component.NavigationBackButton(text: "")
                     }
                 }
                 ToolbarItem(placement: .principal) {

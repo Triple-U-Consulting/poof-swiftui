@@ -24,21 +24,21 @@ struct ConnectToDeviceWifiView: View {
             .frame(height:512)
             
             VStack {
-                Text("Connect to Wifi")
+                Text("Sambungkan ke Wi-Fi")
                     .font(.systemTitle1)
                 
-                Text("Connect your phone to inhaler's Wi-Fi \nand ensure it has sufficient battery.")
-                    .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("Buka setelan ponsel anda dan hubungkan ke Wi-Fi inhaler. Pastikan inhaler memiliki baterai yang cukup.")
+                    .frame(width: 291, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(.center)
                     .padding(.top, 8)
                 
-                Component.DefaultButton(text: "Start Pairing", buttonLevel: .primary) {
-                    pairProgress = .loadingPairing
-                }
-                .padding(.top, 40)
                 
                 Spacer()
-            }
+                Component.DefaultButton(text: "Berikutnya", buttonLevel: .primary) {
+                    pairProgress = .loadingPairing
+                }
+                .padding(.bottom, 40)
+                }
             .frame(height: 195)
             .padding(.bottom, 83)
             

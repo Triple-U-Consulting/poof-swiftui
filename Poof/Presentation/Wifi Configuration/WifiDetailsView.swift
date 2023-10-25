@@ -19,13 +19,8 @@ struct WiFiDetailsView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 30) {
-                VStack {
-                    Text("Choose a Wi-Fi")
-                        .font(.systemTitle2)
-                    Text("Wi-Fi akan menjadi sumber koneksi internet untuk inhaler melakukan singkronisasi.")
-                        .font(.systemBodyText)
-                        .multilineTextAlignment(.center)
-                }
+                Text("Pilih Wi-Fi untuk Inhaler")
+                    .font(.systemTitle2)
                 
                 VStack (spacing: 20) {
                     
@@ -35,7 +30,7 @@ struct WiFiDetailsView: View {
                             Text("*")
                                 .foregroundColor(Color.red)
                         }
-                        TextField("Wi-Fi Name", text: $ssid)
+                        TextField("Nama Wi-Fi", text: $ssid)
                             .padding()
                             .background(
                                 Rectangle()
@@ -47,11 +42,11 @@ struct WiFiDetailsView: View {
                     
                     VStack (alignment: .leading, spacing:0) {
                         HStack (spacing: 0){
-                            Text("Password")
+                            Text("Kata Sandi")
                             Text("*")
                                 .foregroundColor(Color.red)
                         }
-                        SecureField("Wi-Fi Password", text: $password)
+                        SecureField("Kata Sandi Wi-Fi", text: $password)
                             .padding()
                             .background(
                                 Rectangle()
@@ -71,7 +66,7 @@ struct WiFiDetailsView: View {
                     }
                 }
                 
-                Component.DefaultButton(text: "Post WiFi Details", buttonLevel: .primary) {
+                Component.DefaultButton(text: "Bergabung", buttonLevel: .primary) {
                     viewModel.postWiFiDetails(ssid: ssid, password: password)
                 }
                 
@@ -90,8 +85,8 @@ struct WiFiDetailsView: View {
         }
         .alert(isPresented: $viewModel.showAlert) {
             Alert(
-                title: Text("Connection Lost"),
-                message: Text("We can’t detect your inhaler. Please reconnect."),
+                title: Text("Koneksi Hilang"),
+                message: Text("Koneksi dengan inhaler terputus. Silahkan menghubungkan kembali."),
                 dismissButton: .default(Text("Oke"), action: {
                     viewModel.showAlert = false
                 })
