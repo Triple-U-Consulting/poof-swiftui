@@ -10,6 +10,8 @@ import SwiftUI
 struct LoadingPairingView: View {
     
     @Binding var pairProgress : PairDevicePage
+    @EnvironmentObject var vm: ViewModel
+
     
     var body: some View {
         VStack {
@@ -35,13 +37,24 @@ struct LoadingPairingView: View {
             }
             .frame(height: 195)
             .padding(.bottom, 83)
+            .onReceive(vm.$status, perform: { newStatus in
+                pairProgress = .successPairing
+                            switch newStatus {
+                            case .failure(_):
+                                print("failure")
+                                pairProgress = .failedPairing
+                            case .success:
+                                print("finished")
+                                pairProgress = .successPairing
+                            default:
+                                break
+                            }
+                        })
             
         }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                pairProgress = .successPairing
-            }
-        }
+        .onAppear(perform: {
+                    vm.findInhaler()
+                })
     }
 }
 

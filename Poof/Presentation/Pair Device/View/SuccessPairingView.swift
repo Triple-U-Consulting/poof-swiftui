@@ -10,6 +10,7 @@ import SwiftUI
 struct SuccessPairingView: View {
     
     @Binding var pairProgress : PairDevicePage
+    @EnvironmentObject var router: Router
     
     var body: some View {
         VStack {
@@ -31,17 +32,21 @@ struct SuccessPairingView: View {
                     .multilineTextAlignment(.center)
                     .padding(.top, 8)
                 
+                Component.DefaultButton(text: "Set-Up Your Wifi") {
+                    router.path.append(Page.WifiConfig)
+                }
+                .padding(.top, 68)
+                
                 Spacer()
             }
             .frame(height: 195)
             .padding(.bottom, 83)
-            
         }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                pairProgress = .failedPairing
-            }
-        }
+//        .onAppear {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                router.path.append(Page.WifiConfig)
+//            }
+//        }
     }
 }
 

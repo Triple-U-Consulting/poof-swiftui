@@ -13,7 +13,7 @@ struct PoofApp: App {
     @StateObject var userDevice = UserDevice()
     var body: some Scene {
         WindowGroup {
-            WiFiDetailsView()
+            ContentView()
                 .environmentObject(router)
                 .environmentObject(userDevice)
         }

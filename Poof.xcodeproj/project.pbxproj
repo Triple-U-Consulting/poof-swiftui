@@ -835,7 +835,7 @@
 				0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
 				D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */,
-				3F9027B32AE0F866005011B3 /* PostRegisterData.swift in Sources */,
+				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
 				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

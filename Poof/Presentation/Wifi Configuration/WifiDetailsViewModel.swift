@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-enum WiFiDetailsPopUpStatus {
+enum WiFiDetailsStatus {
     case initial
     case loading
     case success
@@ -20,8 +20,12 @@ class WiFiDetailsViewModel: ObservableObject {
     // MARK: - Attributes
     @Published var message: String? = nil
     @Published var error: String? = nil
-    @Published var popUpStatus: WiFiDetailsPopUpStatus = .initial
+    @Published var status: WiFiDetailsStatus = .initial
+    @Published var showAlert: Bool = false
     @Published var isPopUpDisplayed = false
+    @Published var showErrorText: Bool = false
+
+    
     
     
     // MARK: - Cancellables
@@ -36,27 +40,38 @@ class WiFiDetailsViewModel: ObservableObject {
     }
     
     func postWiFiDetails(ssid: String, password: String) {
-        self.popUpStatus = .loading
+//        self.status = .failure
+        self.status = .success
+        self.message = "WiFi Failed to Connect"
         self.isPopUpDisplayed = true
+        
         Task {
-                await postWiFiDetails.execute(ssid: ssid, password: password)
-                    .sink { [weak self] completion in
-                        switch completion {
-                        case .finished:
-                            if self?.message != nil {
-                                self?.popUpStatus = .success
-                            } else {
-                                self?.popUpStatus = .failure
-                            }
-                        case .failure(let failure):
-                            self?.popUpStatus = .failure
-                            self?.error = failure.localizedDescription
+            await postWiFiDetails.execute(ssid: ssid, password: password)
+                .sink { [weak self] completion in
+                    switch completion {
+                    case .finished:
+                        if self?.message != nil {
+                            self?.status = .success
+                        } else {
+                            self?.status = .failure
                         }
-                    } receiveValue: { message in
-                        self.message = message
+                    case .failure(let failure):
+                        self?.status = .failure
+                        self?.error = failure.localizedDescription
+                        
                     }
-                    .store(in: &cancellables)
-            }
+                } receiveValue: { message in
+                    self.message = message
+                }
+                .store(in: &cancellables)
+        }
+        
+        if self.status == .failure {
+            self.isPopUpDisplayed = false
+            self.showAlert = true
+        } else if self.status == .success {
+            self.isPopUpDisplayed = false
+        }
     }
     
 }

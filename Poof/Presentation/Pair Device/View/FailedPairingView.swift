@@ -38,7 +38,7 @@ struct FailedPairingView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                pairProgress = .connectToHomeWifi
+                pairProgress = .connectToDeviceWifi
             }
         }
     }
