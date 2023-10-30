@@ -10,92 +10,181 @@ import SwiftUI
 struct InhalerTabView: View {
     
     @EnvironmentObject var router: Router
-    @State private var didSync = true
+    @State private var syncStatus: SyncStatus = .Unsynced
+    @EnvironmentObject var userDevice: UserDevice
+    @State private var inhalerSegment = 0
     
     var body: some View {
         NavigationView {
-            VStack {
-                ZStack {
-                    Component.RotatingCircle(didSync: $didSync)
-                    //                Component.RotatingGradientCircle()
-//                    Component.CircleButton(text: "", diameter: 247)
-                    Component.CircleButton(text: "SYNC", diameter: 213, didSync: $didSync)
-                }
-                .padding(.top, 64)
+            VStack (spacing:0) {
                 
-                if didSync {
-                    Text("Last sync on 8.39 am")
-                        .padding(.top, 8)
+                Picker("What is your favorite color?", selection: $inhalerSegment) {
+                    Text("Kambuh").tag(0)
+                    Text("Harian").tag(1)
+                }
+                .pickerStyle(.segmented)
+                .frame(width: 342, height: 34)
+                .padding(.top, 16)
+            
+                ZStack (alignment: .center) {
+                    Component.RotatingCircle(syncStatus: $syncStatus)
+                    Component.CircleButton(text: "Sinkronisasi") {
+                        syncStatus = .Syncing
+                    }
+                }
+                .frame(width: 260, height: 260)
+                .padding(.top, 16)
+                
+//                VStack {
+//                    switch syncStatus {
+//                    case .Unsynced:
+//                        Text("Unsynced")
+//                        
+//                    case .Syncing:
+//                        Text("syncing")
+//                    case .Synced:
+//                        Text("synced")
+//                    }
+//                }
+                
+                Text("Last sync on 8.39 am")
+                    .padding(.top, 12)
+                
+                VStack (spacing:0) {
                     
-                    HStack (alignment: .top){
+                    //TODAY'S DATA
+                    HStack (alignment: .top, spacing: 0) {
+                        
+                        Spacer()
+                        Spacer()
+                        
                         VStack (alignment: .center) {
-                            Text("Today Puff")
-                            Spacer()
-                            Text("2")
-                        }.frame(width: 90, height:80)
+                            Component.DefaultText(text: "Pemakaian Hari Ini")
+                                .font(.systemFootnote)
+                                .lineLimit(2...)
+                            Component.DefaultText(text: "2")
+                                .font(.systemTitle2)
+                        }
+                        .frame(width: 90, height:65)
+                        
+                        Spacer()
+                        Divider()
+                            .frame(width: 2, height: 85)
+                            .background(.primary2)
+                        Spacer()
+                        
                         VStack (alignment: .center) {
-                            Text("Average \nPuff")
+                            Component.DefaultText(text: "Pemakaian Rata-Rata")
+                                .font(.systemFootnote)
                                 .multilineTextAlignment(.center)
-                            Spacer()
-                            Text("9")
-                        }.frame(width: 90, height:80)
+                                .lineLimit(2...)
+//                                .background(.yellow)
+                            Component.DefaultText(text: "9")
+                                .font(.systemTitle2)
+//                                .background(.red)
+                        }
+                        .frame(width: 90, height:65)
+                        
+                        Spacer()
+                        Divider()
+                            .frame(width: 2, height: 85)
+                            .background(.primary2)
+                        Spacer()
+                        
                         VStack (alignment: .center)  {
-                            Text("Remaining \nPuff")
+                            Component.DefaultText(text: "Sisa Obat")
+                                .font(.systemFootnote)
                                 .multilineTextAlignment(.center)
-                            Spacer()
-                            Text("102")
-                        }.frame(width: 90, height:80)
+                                .lineLimit(2...)
+                            Component.DefaultText(text: "102")
+                                .font(.systemTitle2)
+                        }
+                        .frame(width: 90, height:65)
+                        
+                        Spacer()
+                        Spacer()
+                        
                     }
                     .frame(width:342, height:101)
-                    .background(Color.white)
+                    .background(.primary3.opacity(0.5))
                     .cornerRadius(10)
-                    .shadow(color: .gray3, radius: 12, x: 0, y: 4)
+//                    .shadow(color: .gray3, radius: 12, x: 0, y: 4)
                     .padding(.top, 16)
                     
-                    VStack {
-                        HStack{
-                            Text("Last Replaced Date")
+                    //STATUS
+                    VStack (alignment: .leading, spacing:0) {
+                        Component.DefaultText(text: "Status")
+                            .font(.systemHeadline)
+                        
+                        HStack (spacing:0) {
+                            Component.DefaultText(text: "Last Replaced Date")
+                                .font(.systemFootnote)
                             Spacer()
-                            Text("15-08-2023")
+                            Component.DefaultText(text: "15/08/2023")
+                                .font(.systemFootnote)
                         }
-                        HStack {
-                            Text("Expected Replace Date")
+//                        .background(.yellow)
+                        .padding(.top, 8)
+                        
+                        
+                        HStack (spacing:0) {
+                            Component.DefaultText(text: "Expected Replace Date")
+                                .font(.systemFootnote)
                             Spacer()
-                            Text("29-09-2023")
+                            Component.DefaultText(text: "29/09/2023")
+                                .font(.systemFootnote)
                         }
+//                        .background(.yellow)
+                        .padding(.top, 8)
+                        
                     }
-                    .frame(width:302, height:40)
-                    .padding(.vertical, 32)
+                    .padding(.top, 16)
                     
-                    Spacer()
-                    
+                    //BUTTON
                     Component.DefaultButton(text: "Sync", buttonLevel: .primary) {
-                        //logic
+                        //logi
                     }
-                        .padding(.bottom, 16)
+                    .padding(.top, 16)
+                    
                 }
+                .frame(width: 342, height:249)
+                .padding(.top, 18)
+                
+                Spacer()
+                
                 
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Component.NavigationTitle(text: "Inhaler")
-                        .padding(.top, 16)
+//                        .padding(.top, 16)
                 }
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    Component.ProfileButton(text: "")
-//                        .padding(.top, 8)
-//                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Component.ProfileButton() {
+                        //logic
+                    }
+//                    .padding(.top, 8)
+                }
             }
-//            .navigationTitle("Inhaler")
-//            .navigationBarHidden(true)
-//            .navigationBarTitleDisplayMode(.inline)
+            //            .background(.red)
+            //            .navigationTitle("Inhaler")
+            //            .navigationBarHidden(true)
+            //            .navigationBarTitleDisplayMode(.inline)
         }
         .padding(8)
     }
 }
 
+
 #Preview {
     InhalerTabView()
         .environmentObject(Router())
-    
+        .environmentObject(UserDevice())
+}
+
+
+enum SyncStatus {
+    case Unsynced //have not been synced
+    case Syncing //loading to sync
+    case Synced
 }
