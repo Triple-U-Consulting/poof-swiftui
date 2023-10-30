@@ -79,7 +79,7 @@ struct Component {
                 .frame(maxWidth: .infinity)
                 .background(self.buttonState==DefaultButtonState.active ? Color.Main.primary1 : Color.Main.primary3)
                 .cornerRadius(10)
-                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
+                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 4)
         }
         
         private func Secondary(_ text: Text) -> some View {
@@ -89,7 +89,7 @@ struct Component {
                 .frame(height: 48)
                 .frame(maxWidth: .infinity)
                 .background(.white)
-                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
+                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 4)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(self.buttonState==DefaultButtonState.active ? Color.Main.primary1 : Color.Neutrals.gray2, lineWidth: 2)
@@ -130,39 +130,44 @@ struct Component {
     // TODO: BLOM KELAR
     struct CircleButton: View {
         var text: String
-        var diameter: CGFloat
-        @Binding var didSync : Bool
+        var action: () -> Void
         var body: some View {
-            Button {
-                didSync = true
-            } label : {
-                Text(NSLocalizedString(text, comment: ""))
-                    .font(.systemButtonText)
-                    .foregroundStyle(.black)
+            GeometryReader { geometry in
+                Button(action: action) {
+                    Text(NSLocalizedString(text, comment: ""))
+                        .font(.systemButtonText)
+                        .foregroundStyle(.black)
+                        .frame(width: geometry.size.width-80, height: geometry.size.height-80)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
+                        .padding(.all, 40)
+                }
+//                .frame(width: geometry.size.width-20, height: geometry.size.height-20)
+//                .padding(.all, 10)
+//                .background(Color.white)
+//                .clipShape(Circle())
+//                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
             }
-            .frame(width: diameter, height: diameter)
-            .background(Color.white)
-            .clipShape(Circle())
-            .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
         }
     }
     
     // TODO: BLOM KELAR
     struct RotatingCircle: View {
         @State var gradientAngle: Double = 0
-        let colors: [Color] = [.white, .red]
-        @Binding var didSync: Bool
+        let colors: [Color] = [.white, .red, .white]
+        @Binding var syncStatus: SyncStatus
         var body: some View {
-            ZStack {
-                Circle()
-                    .fill(AngularGradient(gradient: Gradient(colors: didSync ? colors : [.red]), center: .center, angle: .degrees(gradientAngle)))
-                    .brightness(0.1)
-                    .saturation(0.9)
-                    .blur(radius: 0)
-                    .frame(width: 267, height: 267)
-                Circle()
-                    .fill(.white)
-                    .frame(width: 247, height:247)
+            GeometryReader { geometry in
+                ZStack {
+//                    Circle()
+                    Circle()
+                        .trim(from: 0, to: syncStatus == SyncStatus.Syncing ? 0.25 : 1)
+                        .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.Syncing ? colors : syncStatus == SyncStatus.Synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+                        .rotationEffect(.degrees(gradientAngle))
+//                        .animation(.linear(duration: 3).repeatForever(autoreverses: false))
+                        .frame(width: geometry.size.width-20, height:geometry.size.height-20)
+                }
             }
             .onAppear {
                 withAnimation(Animation.linear(duration: 4).repeatForever(autoreverses: false)) {
@@ -214,7 +219,7 @@ struct Component {
                 Image(systemName: "person.crop.circle")
                     .resizable()
                     .renderingMode(.original) // Use original rendering mode
-                    .frame(width: 54, height: 54)
+                    .frame(width: 44, height: 44)
                     .foregroundColor(.primary) // Set a foreground color
             }
         }
@@ -228,6 +233,7 @@ struct Component {
 
 // PREVIEW BUAT TEST COMPONENT
 #Preview {
+    
     VStack {
         Component.DefaultButton(text: "Text Label") {
             //logic
@@ -240,5 +246,7 @@ struct Component {
         Component.NextButton(text: "Text Label") {
             //logic
         }
+        
+        Component.RotatingCircle(syncStatus: .constant(SyncStatus.Syncing))
     }
 }

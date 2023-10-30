@@ -18,22 +18,23 @@ struct TabBarView: View {
                 InhalerTabView()
                     .tabItem {
                         Image(systemName: "lungs.fill")
-                        Text("Inhaler")
+                        Text("Obat")
                     }
                     .tag(0)
                 
                 SummaryTabView()
                     .tabItem {
                         Image(systemName: "list.bullet.clipboard.fill")
-                        Text("Summary")
+                        Text("Ringkasan")
                     }
                     .tag(1)
             }
             .accentColor(Color.Main.primary1)
-//            .onAppear() {
-//                UITabBar.appearance().barTintColor = .red
-//                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
-//            }
+            .onAppear() {
+                UITabBar.appearance().tintColor = .yellow
+                UITabBar.appearance().barTintColor = .red
+                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
+            }
         }
     }
 }

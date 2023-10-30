@@ -25,7 +25,7 @@ extension Component {
             HStack{
                 Text(NSLocalizedString(text, comment: ""))
                     .foregroundColor(Color.Neutrals.titleSignPage)
-                    .font(.systemHeadline2)
+                    .font(.systemHeadline)
                 
                 Text("*")
                     .foregroundColor(.red)
