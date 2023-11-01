@@ -12,6 +12,7 @@ struct OnboardingView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
     @State private var selectedPage = 0
+    private var numberOfOnboardingSlides : Int = 2
     
     private var title : [String] = [
         "AiroPuff",
@@ -28,7 +29,7 @@ struct OnboardingView: View {
         VStack (spacing:0) {
             //IMAGE
             TabView(selection: $selectedPage) {
-                ForEach(0..<3) { index in
+                ForEach(0..<numberOfOnboardingSlides) { index in
                     Image("onboardingArtwork-\(index+1)")
                         .resizable()
                         .frame(width: userDevice.usableWidth, height: userDevice.height402)
@@ -43,7 +44,6 @@ struct OnboardingView: View {
             
             //DETAILS
             VStack (spacing:0) {
-//                Text("\(userDevice.usableWidth)")
                 Component.DefaultText(text: title[selectedPage])
                     .frame(width: userDevice.width342, alignment: .center)
                     .font(.systemTitle2)
@@ -57,31 +57,28 @@ struct OnboardingView: View {
                     .padding(.top, 12)
                 
                 //INDICATOR
-                HStack(spacing: 8) {
-                    ForEach(0..<3) { index in
-                        Circle()
-                            .fill(selectedPage == index ? Color.black : Color.gray)
-                            .frame(width: 8, height: 8)
-                    }
-                }
-                .padding(.top, 32)
+//                HStack(spacing: 8) {
+//                    ForEach(0..<numberOfOnboardingSlides) { index in
+//                        Circle()
+//                            .fill(selectedPage == index ? Color.black : Color.gray)
+//                            .frame(width: 8, height: 8)
+//                    }
+//                }
+//                .padding(.top, 32)
+                
+                Spacer()
                 
                 //BUTTON
-                Component.DefaultButton(text: (selectedPage != 2) ? NSLocalizedString("Berikutnya", comment:"") : NSLocalizedString("Mulai", comment:""), buttonLevel: .primary) {
+                Component.DefaultButton(text: (selectedPage != numberOfOnboardingSlides-1) ? NSLocalizedString("Berikutnya", comment:"") : NSLocalizedString("Mulai", comment:""), buttonLevel: .primary) {
                     if selectedPage < 2 {
                         selectedPage += 1
                     } else {
                         router.path.append(Page.Login)
                     }
                 }
-                .padding(.top, 68)
             }
-//            .frame(height: 254)
             .padding(.top, 5)
-            .padding(.bottom, 81)
-
         }
-//        Spacer()
     }
 }
 
