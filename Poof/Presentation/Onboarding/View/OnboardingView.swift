@@ -50,7 +50,7 @@ struct OnboardingView: View {
                     .foregroundStyle(.black)
                 
                 Component.DefaultText(text: details[selectedPage])
-                    .lineLimit(3, reservesSpace: true)
+                    .lineLimit(3...3)
                     .font(.systemBodyText)
                     .frame(width: userDevice.width342, alignment: .center)
                     .foregroundStyle(.gray1)

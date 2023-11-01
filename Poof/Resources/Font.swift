@@ -27,7 +27,7 @@ extension Font {
         return .system(size: 22, weight: .semibold)
     }
     
-    static var systemHeadline2: Font {
+    static var systemHeadline: Font {
         return .system(size: 17, weight: .medium)
     }
     
