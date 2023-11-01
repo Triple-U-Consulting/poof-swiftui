@@ -143,11 +143,6 @@ struct Component {
                         .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
                         .padding(.all, 40)
                 }
-//                .frame(width: geometry.size.width-20, height: geometry.size.height-20)
-//                .padding(.all, 10)
-//                .background(Color.white)
-//                .clipShape(Circle())
-//                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
             }
         }
     }
@@ -160,13 +155,12 @@ struct Component {
         var body: some View {
             GeometryReader { geometry in
                 ZStack {
-//                    Circle()
                     Circle()
                         .trim(from: 0, to: syncStatus == SyncStatus.Syncing ? 0.25 : 1)
-                        .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.Syncing ? colors : syncStatus == SyncStatus.Synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+                        .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.Syncing ? colors : syncStatus == SyncStatus.Synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(gradientAngle))
-//                        .animation(.linear(duration: 3).repeatForever(autoreverses: false))
                         .frame(width: geometry.size.width-20, height:geometry.size.height-20)
+                        .padding(.all, 10)
                 }
             }
             .onAppear {
@@ -247,6 +241,14 @@ struct Component {
             //logic
         }
         
-        Component.RotatingCircle(syncStatus: .constant(SyncStatus.Syncing))
+        ZStack (alignment: .center) {
+            Component.RotatingCircle(syncStatus: .constant(.Synced))
+                .background(.red)
+            Component.CircleButton(text: "Sinkronisasi") {
+            }
+//            .background(.gray)
+        }
+        .frame(width: 260, height: 260)
+        .padding(.top, 16)
     }
 }
