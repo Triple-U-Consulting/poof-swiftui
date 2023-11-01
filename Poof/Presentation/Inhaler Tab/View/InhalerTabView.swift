@@ -28,9 +28,7 @@ struct InhalerTabView: View {
             
                 ZStack (alignment: .center) {
                     Component.RotatingCircle(syncStatus: $syncStatus)
-                    Component.CircleButton(text: "Sinkronisasi") {
-                        syncStatus = .Syncing
-                    }
+                    Component.CircleView(text: "Sinkronisasi")
                 }
                 .frame(width: 260, height: 260)
                 .padding(.top, 16)
@@ -142,7 +140,7 @@ struct InhalerTabView: View {
                     
                     //BUTTON
                     Component.DefaultButton(text: "Sync", buttonLevel: .primary) {
-                        //logi
+                        syncStatus = .Syncing
                     }
                     .padding(.top, 16)
                     
