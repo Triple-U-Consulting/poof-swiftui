@@ -12,7 +12,15 @@ struct SummaryTabView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        Text("Summary")
+        VStack {
+            Text("Summary")
+            
+            Component.DefaultButton(text: "Pairing") {
+                router.path.append(Page.PairDevice)
+            }
+            .padding(.top, 68)
+        }
+        
     }
 }
 

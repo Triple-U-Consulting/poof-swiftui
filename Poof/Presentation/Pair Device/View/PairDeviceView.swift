@@ -10,7 +10,6 @@ import SwiftUI
 struct PairDeviceView: View {
     
     @EnvironmentObject var router: Router
-    
     @State private var pairProgress = PairDevicePage.startPairing
     
     var body: some View {
@@ -23,6 +22,7 @@ struct PairDeviceView: View {
                     ConnectToDeviceWifiView(pairProgress: $pairProgress)
                 case .loadingPairing:
                     LoadingPairingView(pairProgress: $pairProgress)
+                        .environmentObject(ViewModel())
                 case .failedPairing:
                     FailedPairingView(pairProgress: $pairProgress)
                 case .successPairing:
@@ -34,7 +34,6 @@ struct PairDeviceView: View {
             .toolbar {
                 if pairProgress == PairDevicePage.startPairing {
                     ToolbarItem(placement: .topBarLeading) {
-                        Component.NavigationBackButton(text: "")
                     }
                 }
                 ToolbarItem(placement: .principal) {

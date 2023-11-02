@@ -48,7 +48,8 @@ struct LoginView: View {
                 Spacer()
                 
                 Component.DefaultButton(text: "Sign In") {
-                    viewModel.login(email: email, password: password)
+//                    viewModel.login(email: email, password: password)
+                    router.path.append(Page.TabBar)
                 }
                 
                 Component.bottomSignText(text: "Do not have an account?", blueText: "Sign Up") {
