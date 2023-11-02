@@ -49,7 +49,7 @@ struct APIEndpoints {
     static func postWiFiDetails(ssid: String, password: String) -> Endpoint<MessageResponseDTO> {
             let bodyParameters = ["ssid": ssid, "password": password]
             print(ssid, password)
-            return Endpoint(path: "http://192.168.4.1/config-wifi",
+            return Endpoint(path: "http://192.168.4.1:80/config-wifi",
                             isFullPath: true,
                             method: .post,
                             bodyParameters: bodyParameters)

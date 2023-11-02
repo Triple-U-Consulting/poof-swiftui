@@ -63,7 +63,8 @@ struct LoginView: View {
                     .padding(.leading, 31)
                 
                 Component.DefaultButton(text: "Sign In") {
-                    viewModel.login(email: email, password: password)
+//                    viewModel.login(email: email, password: password)
+                    router.path.append(Page.TabBar)
                 }
                 .padding(.top, 16)
                 

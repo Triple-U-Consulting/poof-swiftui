@@ -8,18 +8,25 @@
 import Foundation
 import Combine
 
-enum PostingStatus {
+enum WiFiDetailsStatus {
     case initial
     case loading
     case success
-    case failure(failure: Failure)
+    case failure
 }
+
 
 class WiFiDetailsViewModel: ObservableObject {
     // MARK: - Attributes
-    @Published private(set) var message: String? = nil
-    @Published private(set) var error: String? = nil
-    @Published private(set) var status: PostingStatus = .initial
+    @Published var message: String? = nil
+    @Published var error: String? = nil
+    @Published var status: WiFiDetailsStatus = .initial
+    @Published var showAlert: Bool = false
+    @Published var isPopUpDisplayed = false
+    @Published var showErrorText: Bool = false
+
+    
+    
     
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
@@ -34,22 +41,35 @@ class WiFiDetailsViewModel: ObservableObject {
     
     func postWiFiDetails(ssid: String, password: String) {
         self.status = .loading
+        self.isPopUpDisplayed = true
+        
         Task {
             await postWiFiDetails.execute(ssid: ssid, password: password)
-                .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in
                     switch completion {
                     case .finished:
-                        self?.status = .success
+                        if self?.message != nil {
+                            self?.status = .success
+                        } else {
+                            self?.status = .failure
+                        }
                     case .failure(let failure):
-                        self?.status = .failure(failure: failure)
+                        self?.status = .failure
                         self?.error = failure.localizedDescription
+                        
                     }
                 } receiveValue: { message in
                     self.message = message
                 }
                 .store(in: &cancellables)
+            
+            if self.status == .failure {
+                self.isPopUpDisplayed = false
+                self.showAlert = true
+            } else if self.status == .success {
+                self.isPopUpDisplayed = false
+            }
         }
     }
-
+    
 }
