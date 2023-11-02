@@ -38,13 +38,12 @@ struct LoadingPairingView: View {
             .frame(height: 195)
             .padding(.bottom, 83)
             .onReceive(vm.$status, perform: { newStatus in
-                pairProgress = .failedPairing
+//                pairProgress = .failedPairing
                             switch newStatus {
                             case .failure(_):
                                 print("failure")
                                 pairProgress = .failedPairing
                             case .success:
-                                print("finished")
                                 pairProgress = .successPairing
                             default:
                                 break

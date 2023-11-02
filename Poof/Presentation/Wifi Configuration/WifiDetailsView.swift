@@ -14,7 +14,8 @@ struct WiFiDetailsView: View {
     @State private var ssid: String = ""
     @State private var password: String = ""
     @State private var showAlert: Bool = false
-
+    
+    
     
     var body: some View {
         ZStack {
@@ -58,12 +59,10 @@ struct WiFiDetailsView: View {
                     
                 }
                 
-                if viewModel.status == .success {
-                    if viewModel.message == "WiFi Failed to Connect" {
-                        Text("Tidak dapat terhubung ke Wi-Fi. Pastikan kembali SSID dan Kata Sandi anda")
-                            .foregroundColor(.red)
-                            .font(.systemBodyText)
-                    }
+                if viewModel.status == .success && viewModel.message == "WiFi Failed to Connect." {
+                    Text("Tidak dapat terhubung ke Wi-Fi. Pastikan kembali SSID dan Kata Sandi anda")
+                        .foregroundColor(.red)
+                        .font(.systemBodyText)
                 }
                 
                 Component.DefaultButton(text: "Bergabung", buttonLevel: .primary) {
@@ -76,11 +75,17 @@ struct WiFiDetailsView: View {
             .padding()
             
             if viewModel.isPopUpDisplayed {
-                    WiFiDetailsPopUpView(status: $viewModel.status, message: $viewModel.message, dismissAction: {
-                        viewModel.isPopUpDisplayed = false
-                    })
-                    .background(Color.black.opacity(0.4))
-                    .edgesIgnoringSafeArea(.all)
+                WiFiDetailsPopUpView(status: $viewModel.status, message: $viewModel.message, dismissAction: {
+                    viewModel.isPopUpDisplayed = false
+                })
+                .background(Color.black.opacity(0.4))
+                .edgesIgnoringSafeArea(.all)
+            }
+            
+            if viewModel.status == .success && viewModel.message != "WiFi Failed to Connect." {
+                TabBarView()
+                    .environmentObject(router)
+                    .navigationBarHidden(true)
             }
         }
         .alert(isPresented: $viewModel.showAlert) {
@@ -92,8 +97,6 @@ struct WiFiDetailsView: View {
                 })
             )
         }
-
-
     }
 }
 

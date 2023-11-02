@@ -40,9 +40,7 @@ class WiFiDetailsViewModel: ObservableObject {
     }
     
     func postWiFiDetails(ssid: String, password: String) {
-//        self.status = .failure
-        self.status = .success
-        self.message = "WiFi Failed to Connect"
+        self.status = .loading
         self.isPopUpDisplayed = true
         
         Task {
@@ -64,13 +62,13 @@ class WiFiDetailsViewModel: ObservableObject {
                     self.message = message
                 }
                 .store(in: &cancellables)
-        }
-        
-        if self.status == .failure {
-            self.isPopUpDisplayed = false
-            self.showAlert = true
-        } else if self.status == .success {
-            self.isPopUpDisplayed = false
+            
+            if self.status == .failure {
+                self.isPopUpDisplayed = false
+                self.showAlert = true
+            } else if self.status == .success {
+                self.isPopUpDisplayed = false
+            }
         }
     }
     
