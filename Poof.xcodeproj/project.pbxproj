@@ -38,6 +38,7 @@
 		0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */; };
 		0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */; };
 		0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */; };
+		0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */; };
 		3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* RegisterUser.swift */; };
 		3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */; };
 		3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */; };
@@ -131,6 +132,7 @@
 		0BE97CB72AD7F6EB006A33AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE97CB82AD7F894006A33AC /* TestGetNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGetNetwork.swift; sourceTree = "<group>"; };
 		0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerTabViewModel.swift; sourceTree = "<group>"; };
 		3F9027B22AE0F866005011B3 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRegisterRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		0B8D607F2AD94A850017445F /* Inhaler Tab */ = {
 			isa = PBXGroup;
 			children = (
+				0BEB44802AF1F08E00F4E614 /* View Model */,
 				0B8D60872AD94B600017445F /* View */,
 			);
 			path = "Inhaler Tab";
@@ -499,6 +502,14 @@
 				0BE97CAE2AD00607006A33AC /* NetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		0BEB44802AF1F08E00F4E614 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		AB7BED872ACD4B770071BF10 = {
@@ -809,6 +820,7 @@
 				AB7BEDDF2ACD7A8A0071BF10 /* ViewModel.swift in Sources */,
 				0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */,
 				AB7BEDD62ACD67720071BF10 /* LoginView.swift in Sources */,
+				0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */,
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,

@@ -12,6 +12,7 @@ struct InhalerTabView: View {
     @EnvironmentObject var router: Router
     @State private var syncStatus: SyncStatus = .Unsynced
     @EnvironmentObject var userDevice: UserDevice
+    @StateObject var vm = InhalerTabViewModel()
     @State private var inhalerSegment = 0
     
     var body: some View {
