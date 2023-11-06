@@ -72,11 +72,14 @@
 		AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */; };
 		ABB5FE6F2AE6812400227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		ABB5FE702AE6812500227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
+		D63CF52F2AF7BE5400CCE0FD /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */; };
 		D65636FF2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */; };
 		D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */; };
 		D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */; };
 		D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */; };
 		D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */; };
+		D68A345F2AF5FCFB00514A2B /* AnalyticDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A345E2AF5FCFB00514A2B /* AnalyticDetailView.swift */; };
+		D68A34652AF6011800514A2B /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A34642AF6011800514A2B /* Usage.swift */; };
 		D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */; };
 		D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */; };
 		D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */; };
@@ -169,11 +172,14 @@
 		AB7BEDD72ACD6F8C0071BF10 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsRepository.swift; sourceTree = "<group>"; };
 		D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsViewModel.swift; sourceTree = "<group>"; };
 		D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsView.swift; sourceTree = "<group>"; };
 		D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsPopUpView.swift; sourceTree = "<group>"; };
+		D68A345E2AF5FCFB00514A2B /* AnalyticDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticDetailView.swift; sourceTree = "<group>"; };
+		D68A34642AF6011800514A2B /* Usage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usage.swift; sourceTree = "<group>"; };
 		D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8D60852AD94B480017445F /* View */,
+				D68A345E2AF5FCFB00514A2B /* AnalyticDetailView.swift */,
 			);
 			path = "Summary Tab";
 			sourceTree = "<group>";
@@ -291,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */,
+				D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -442,6 +450,7 @@
 				0B8D60AB2ADE309F0017445F /* Inhaler.swift */,
 				0B8D60BA2AE0C0FC0017445F /* User.swift */,
 				D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */,
+				D68A34642AF6011800514A2B /* Usage.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -781,6 +790,7 @@
 				AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */,
 				3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */,
 				AB7BEDD22ACD56680071BF10 /* Component.swift in Sources */,
+				D68A34652AF6011800514A2B /* Usage.swift in Sources */,
 				AB7BEDD42ACD5ADD0071BF10 /* Font.swift in Sources */,
 				0BCD83BC2AE0E81D00D111B0 /* UserLoginResponseDTO+Mapping.swift in Sources */,
 				0BE97CAD2AD00102006A33AC /* NetworkConfig.swift in Sources */,
@@ -800,11 +810,13 @@
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
 				D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */,
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
+				D68A345F2AF5FCFB00514A2B /* AnalyticDetailView.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
 				0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */,
 				0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */,
 				AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */,
 				D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */,
+				D63CF52F2AF7BE5400CCE0FD /* ChartView.swift in Sources */,
 				AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */,
 				0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */,
 				AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */,
