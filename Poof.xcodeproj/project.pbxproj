@@ -17,6 +17,11 @@
 		0B8D60B92AE0BF5A0017445F /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60B82AE0BF5A0017445F /* StateManager.swift */; };
 		0B8D60BB2AE0C0FC0017445F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60BA2AE0C0FC0017445F /* User.swift */; };
 		0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9576332AD93DFF0020F191 /* DateFormatUtil.swift */; };
+		0BABE62B2AF8D71200FB8A28 /* GetHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE62A2AF8D71200FB8A28 /* GetHomeData.swift */; };
+		0BABE62D2AF8D73B00FB8A28 /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE62C2AF8D73B00FB8A28 /* HomeData.swift */; };
+		0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE62E2AF8D7CF00FB8A28 /* HomepageRepository.swift */; };
+		0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */; };
+		0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */; };
 		0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */; };
 		0BCD83B62AE0E0D200D111B0 /* UpdateUserInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */; };
 		0BCD83B82AE0E26500D111B0 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B72AE0E26500D111B0 /* UserRepository.swift */; };
@@ -111,6 +116,11 @@
 		0B8D60B82AE0BF5A0017445F /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		0B8D60BA2AE0C0FC0017445F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0B9576332AD93DFF0020F191 /* DateFormatUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatUtil.swift; sourceTree = "<group>"; };
+		0BABE62A2AF8D71200FB8A28 /* GetHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomeData.swift; sourceTree = "<group>"; };
+		0BABE62C2AF8D73B00FB8A28 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
+		0BABE62E2AF8D7CF00FB8A28 /* HomepageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageRepository.swift; sourceTree = "<group>"; };
+		0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageRepositoryImpl.swift; sourceTree = "<group>"; };
+		0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDataResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B72AE0E26500D111B0 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -392,6 +402,7 @@
 				0BCD83BB2AE0E81D00D111B0 /* UserLoginResponseDTO+Mapping.swift */,
 				0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */,
 				D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */,
+				0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -420,6 +431,7 @@
 				0BCD83B72AE0E26500D111B0 /* UserRepository.swift */,
 				0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */,
 				D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */,
+				0BABE62E2AF8D7CF00FB8A28 /* HomepageRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -434,6 +446,7 @@
 				0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */,
 				0BCD83BD2AE0F20300D111B0 /* LoginUser.swift */,
 				D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */,
+				0BABE62A2AF8D71200FB8A28 /* GetHomeData.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -445,6 +458,7 @@
 				0B8D60AB2ADE309F0017445F /* Inhaler.swift */,
 				0B8D60BA2AE0C0FC0017445F /* User.swift */,
 				D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */,
+				0BABE62C2AF8D73B00FB8A28 /* HomeData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -465,6 +479,7 @@
 				0BCD83B92AE0E29600D111B0 /* UserRepositoryImpl.swift */,
 				0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */,
 				D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */,
+				0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -785,6 +800,7 @@
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
 				0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */,
+				0BABE62D2AF8D73B00FB8A28 /* HomeData.swift in Sources */,
 				AB5CB3822ADFC81800A4C291 /* UserDevice.swift in Sources */,
 				AB01C3E82ADD3A88008C3160 /* ConnectToHomeWifiView.swift in Sources */,
 				0BCD83C42AE138BA00D111B0 /* UserResponseDTO+Mapping.swift in Sources */,
@@ -825,8 +841,12 @@
 				AB7BEDD62ACD67720071BF10 /* LoginView.swift in Sources */,
 				0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */,
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
+				0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */,
+				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
+				0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */,
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
+				0BABE62B2AF8D71200FB8A28 /* GetHomeData.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,

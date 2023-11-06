@@ -8,6 +8,11 @@
 import Foundation
 
 struct APIEndpoints {
+    // MARK: - Pages
+    static func getHomeData() -> Endpoint<HomeDataResponseDTO> {
+        return Endpoint(path: "page/home", method: .get)
+    }
+    
     // MARK: - Authentication
     static func login(email: String, password: String) -> Endpoint<MessageResponseDTO> {
         let bodyParameters = UserLoginRequestDTO(email: email, password: password)

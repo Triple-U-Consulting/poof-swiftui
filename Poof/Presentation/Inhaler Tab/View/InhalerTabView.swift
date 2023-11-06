@@ -46,7 +46,7 @@ struct InhalerTabView: View {
 //                    }
 //                }
                 
-                Text("Last sync on 8.39 am")
+                Text("Last sync on \(vm.syncDate)")
                     .padding(.top, 12)
                 
                 VStack (spacing:0) {
@@ -61,7 +61,7 @@ struct InhalerTabView: View {
                             Component.DefaultText(text: "Pemakaian Hari Ini")
                                 .font(.systemFootnote)
                                 .lineLimit(2...)
-                            Component.DefaultText(text: "2")
+                            Component.DefaultText(text: "\(vm.todayPuff)")
                                 .font(.systemTitle2)
                         }
                         .frame(width: 90, height:65)
@@ -78,7 +78,7 @@ struct InhalerTabView: View {
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2...)
 //                                .background(.yellow)
-                            Component.DefaultText(text: "9")
+                            Component.DefaultText(text: "\(vm.weekAvgPuff)")
                                 .font(.systemTitle2)
 //                                .background(.red)
                         }
@@ -95,7 +95,7 @@ struct InhalerTabView: View {
                                 .font(.systemFootnote)
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2...)
-                            Component.DefaultText(text: "102")
+                            Component.DefaultText(text: "\(vm.remaining)")
                                 .font(.systemTitle2)
                         }
                         .frame(width: 90, height:65)
@@ -111,33 +111,33 @@ struct InhalerTabView: View {
                     .padding(.top, 16)
                     
                     //STATUS
-                    VStack (alignment: .leading, spacing:0) {
-                        Component.DefaultText(text: "Status")
-                            .font(.systemHeadline)
-                        
-                        HStack (spacing:0) {
-                            Component.DefaultText(text: "Last Replaced Date")
-                                .font(.systemFootnote)
-                            Spacer()
-                            Component.DefaultText(text: "15/08/2023")
-                                .font(.systemFootnote)
-                        }
-//                        .background(.yellow)
-                        .padding(.top, 8)
-                        
-                        
-                        HStack (spacing:0) {
-                            Component.DefaultText(text: "Expected Replace Date")
-                                .font(.systemFootnote)
-                            Spacer()
-                            Component.DefaultText(text: "29/09/2023")
-                                .font(.systemFootnote)
-                        }
-//                        .background(.yellow)
-                        .padding(.top, 8)
-                        
-                    }
-                    .padding(.top, 16)
+//                    VStack (alignment: .leading, spacing:0) {
+//                        Component.DefaultText(text: "Status")
+//                            .font(.systemHeadline)
+//                        
+//                        HStack (spacing:0) {
+//                            Component.DefaultText(text: "Last Replaced Date")
+//                                .font(.systemFootnote)
+//                            Spacer()
+//                            Component.DefaultText(text: "15/08/2023")
+//                                .font(.systemFootnote)
+//                        }
+////                        .background(.yellow)
+//                        .padding(.top, 8)
+//                        
+//                        
+//                        HStack (spacing:0) {
+//                            Component.DefaultText(text: "Expected Replace Date")
+//                                .font(.systemFootnote)
+//                            Spacer()
+//                            Component.DefaultText(text: "29/09/2023")
+//                                .font(.systemFootnote)
+//                        }
+////                        .background(.yellow)
+//                        .padding(.top, 8)
+//                        
+//                    }
+//                    .padding(.top, 16)
                     
                     //BUTTON
                     Component.DefaultButton(text: "Sync", buttonLevel: .primary) {
