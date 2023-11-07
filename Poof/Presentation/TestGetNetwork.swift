@@ -43,7 +43,7 @@ struct TestGetNetwork: View {
     }
 }
 
-#Preview {
-    TestGetNetwork()
-        .environmentObject(ViewModel())
-}
+//#Preview {
+//    TestGetNetwork()
+//        .environmentObject(ViewModel())
+//}

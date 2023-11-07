@@ -24,8 +24,8 @@ struct APIEndpoints {
     
     static func register(email: String, password: String, dob: Date) -> Endpoint<UserResponseDTO> {
         let newDob = DateFormatUtil.shared.dateToString(date: dob, to: "yyyy-MM-dd")
-        
         let requestDTO = UserRequestDTO(email: email, password: password, dob: newDob)
+        
         return Endpoint(path: "auth/register", method: .post, bodyParametersEncodable: requestDTO)
     }
     
@@ -38,6 +38,29 @@ struct APIEndpoints {
         let queryParameters = ["id": id]
         
         return Endpoint(path: "kambuh", method: .get, queryParameters: queryParameters)
+    }
+    
+    static func getKambuhByDate(date: Date) -> Endpoint<KambuhResponseDTO>{
+        let requestDate = DateFormatUtil().dateToString(date: date, to: "yyyy-MM-dd")
+        let queryParam = ["date": requestDate]
+        //let requestDTO = DateRequestDTO(date: requestDate)
+        
+        return Endpoint(path: "data/kambuh/date", method: .get, queryParameters: queryParam)
+    }
+    
+    static func updateKambuhCondition(kambuh_id: [Int], scale: [Int], trigger: [Bool]) -> Endpoint<MessageResponseDTO> {
+        var bodyParameters: [ConditionRequestDTO.ConditionKambuh] = []
+        for i in 0..<kambuh_id.count {
+            let requestKambuh_id = kambuh_id[i]
+            let requestScale = scale[i]
+            let requestTrigger = trigger[i]
+            let req = ConditionRequestDTO.ConditionKambuh(kambuh_id: requestKambuh_id, scale: requestScale, trigger: requestTrigger)
+            bodyParameters.append(req)
+        }
+        let requestDTO = ConditionRequestDTO(allValuetoUpdate: bodyParameters)
+        print(requestDTO)
+        
+        return Endpoint(path: "data/update/condition", method: .put, bodyParametersEncodable: requestDTO)
     }
     
     // MARK: - Inhaler
