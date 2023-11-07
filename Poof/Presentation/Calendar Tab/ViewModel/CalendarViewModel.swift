@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class CalendarHelper {
-    static let shared = CalendarHelper()
+struct CalendarViewModel {
+    static let shared = CalendarViewModel()
     
     var calendar = Calendar.current
 //    let startDate = calendar.date(from: DateComponents(year: 2020, month: 1, day:1))!
 //    let endDate = calendar.date(from: DateComponents(year: 2022, month: 12, day: 31))!
     
-    func getItemDate(day: Int, currAppDate: Date) -> Date {
+    func getCellDate(day: Int, currAppDate: Date) -> Date {
         var dateComponents = DateComponents()
         dateComponents.day = day
         dateComponents.month = calendar.component(.month, from: currAppDate)

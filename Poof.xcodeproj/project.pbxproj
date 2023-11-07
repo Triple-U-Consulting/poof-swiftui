@@ -64,10 +64,12 @@
 		AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D52ADD21D0008C3160 /* SuccessPairingView.swift */; };
 		AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */; };
 		AB01C3E82ADD3A88008C3160 /* ConnectToHomeWifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3E72ADD3A88008C3160 /* ConnectToHomeWifiView.swift */; };
+		AB2E2C0A2AFA2ECB00F5F6FC /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2E2C092AFA2ECB00F5F6FC /* ProfileTabView.swift */; };
+		AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */; };
 		AB5CB3822ADFC81800A4C291 /* UserDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5CB3812ADFC81800A4C291 /* UserDevice.swift */; };
 		AB5CB3872ADFE2BE00A4C291 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
-		AB6883EB2AF8B804004A6E45 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6883EA2AF8B804004A6E45 /* CalendarHelper.swift */; };
-		AB6883ED2AF8B848004A6E45 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6883EC2AF8B848004A6E45 /* CalendarView.swift */; };
+		AB6883EB2AF8B804004A6E45 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6883EA2AF8B804004A6E45 /* CalendarViewModel.swift */; };
+		AB6883ED2AF8B848004A6E45 /* CalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6883EC2AF8B848004A6E45 /* CalendarMonthView.swift */; };
 		AB6883F52AF8F3B9004A6E45 /* CalendarSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6883F42AF8F3B9004A6E45 /* CalendarSheetView.swift */; };
 		AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BED932ACD4B770071BF10 /* PoofApp.swift */; };
 		AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BED952ACD4B770071BF10 /* ContentView.swift */; };
@@ -175,11 +177,13 @@
 		AB01C3D52ADD21D0008C3160 /* SuccessPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPairingView.swift; sourceTree = "<group>"; };
 		AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedPairingView.swift; sourceTree = "<group>"; };
 		AB01C3E72ADD3A88008C3160 /* ConnectToHomeWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToHomeWifiView.swift; sourceTree = "<group>"; };
+		AB2E2C092AFA2ECB00F5F6FC /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
+		AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTabView.swift; sourceTree = "<group>"; };
 		AB5CB3812ADFC81800A4C291 /* UserDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDevice.swift; sourceTree = "<group>"; };
 		AB5CB3882ADFE2BE00A4C291 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB5CB38A2ADFE2C200A4C291 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AB6883EA2AF8B804004A6E45 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
-		AB6883EC2AF8B848004A6E45 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		AB6883EA2AF8B804004A6E45 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		AB6883EC2AF8B848004A6E45 /* CalendarMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthView.swift; sourceTree = "<group>"; };
 		AB6883F42AF8F3B9004A6E45 /* CalendarSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetView.swift; sourceTree = "<group>"; };
 		AB7BED902ACD4B770071BF10 /* Poof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7BED932ACD4B770071BF10 /* PoofApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoofApp.swift; sourceTree = "<group>"; };
@@ -326,8 +330,6 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */,
-				AB6883EC2AF8B848004A6E45 /* CalendarView.swift */,
-				AB6883F42AF8F3B9004A6E45 /* CalendarSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -581,11 +583,51 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AB2E2C082AFA2EB500F5F6FC /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		AB6883F32AF8F350004A6E45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AB6883EA2AF8B804004A6E45 /* CalendarHelper.swift */,
-				0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AB6883F72AFA25B3004A6E45 /* Calendar Tab */ = {
+			isa = PBXGroup;
+			children = (
+				AB6883FA2AFA25F2004A6E45 /* View */,
+				AB6883FB2AFA25F8004A6E45 /* ViewModel */,
+			);
+			path = "Calendar Tab";
+			sourceTree = "<group>";
+		};
+		AB6883F92AFA25C4004A6E45 /* Profile Tab */ = {
+			isa = PBXGroup;
+			children = (
+				AB2E2C092AFA2ECB00F5F6FC /* ProfileTabView.swift */,
+			);
+			path = "Profile Tab";
+			sourceTree = "<group>";
+		};
+		AB6883FA2AFA25F2004A6E45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */,
+				AB6883EC2AF8B848004A6E45 /* CalendarMonthView.swift */,
+				AB6883F42AF8F3B9004A6E45 /* CalendarSheetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB6883FB2AFA25F8004A6E45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB6883EA2AF8B804004A6E45 /* CalendarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -648,6 +690,7 @@
 		AB7BEDC92ACD524A0071BF10 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				AB2E2C082AFA2EB500F5F6FC /* New Group */,
 				3FDAE08C2AF38BCB00E0C696 /* ConditionUpdate */,
 				D6E6D6892ADFD84C000C1A94 /* Wifi Configuration */,
 				AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */,
@@ -657,7 +700,9 @@
 				0B8D607E2AD94A7E0017445F /* Authentication */,
 				0B8D60802AD94AA70017445F /* Pair Device */,
 				0B8D607F2AD94A850017445F /* Inhaler Tab */,
+				AB6883F72AFA25B3004A6E45 /* Calendar Tab */,
 				0B8D60812AD94ABE0017445F /* Summary Tab */,
+				AB6883F92AFA25C4004A6E45 /* Profile Tab */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -862,7 +907,7 @@
 				0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */,
 				0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */,
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
-				AB6883ED2AF8B848004A6E45 /* CalendarView.swift in Sources */,
+				AB6883ED2AF8B848004A6E45 /* CalendarMonthView.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
 				0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */,
 				0BABE62D2AF8D73B00FB8A28 /* HomeData.swift in Sources */,
@@ -904,7 +949,7 @@
 				AB7BEDDF2ACD7A8A0071BF10 /* ViewModel.swift in Sources */,
 				0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */,
 				AB6883F52AF8F3B9004A6E45 /* CalendarSheetView.swift in Sources */,
-				AB6883EB2AF8B804004A6E45 /* CalendarHelper.swift in Sources */,
+				AB6883EB2AF8B804004A6E45 /* CalendarViewModel.swift in Sources */,
 				AB7BEDD62ACD67720071BF10 /* LoginView.swift in Sources */,
 				0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */,
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
@@ -925,7 +970,9 @@
 				0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */,
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
 				D65636FF2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift in Sources */,
+				AB2E2C0A2AFA2ECB00F5F6FC /* ProfileTabView.swift in Sources */,
 				D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */,
+				AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */,
 				3FDAE0962AF889F500E0C696 /* MockViewCondition.swift in Sources */,
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,
 				0B8D60BB2AE0C0FC0017445F /* User.swift in Sources */,

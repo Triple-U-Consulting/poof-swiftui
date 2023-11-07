@@ -1,26 +1,24 @@
 //
-//  SummaryTabView.swift
+//  ProfileTabView.swift
 //  Poof
 //
-//  Created by Jonathan Evan Christian on 04/10/23.
+//  Created by Jonathan Evan Christian on 07/11/23.
 //
 
 import SwiftUI
 
-struct SummaryTabView: View {
+struct ProfileTabView: View {
     
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
-
+    
     var body: some View {
-        Text("Ini Analytics")
-        
+        Text("Ini Profile")
     }
 }
 
 #Preview {
-    SummaryTabView()
+    ProfileTabView()
         .environmentObject(Router())
         .environmentObject(UserDevice())
 }
-
