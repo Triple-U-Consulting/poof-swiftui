@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13B6592AE686B700576845 /* AuthViewModel.swift */; };
+		0B55DFEA2AFA451A007BACCE /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */; };
 		0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */; };
 		0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */; };
 		0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */; };
@@ -116,6 +117,7 @@
 
 /* Begin PBXFileReference section */
 		0B13B6592AE686B700576845 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KambuhResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IoTResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTRepository.swift; sourceTree = "<group>"; };
@@ -583,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6883EA2AF8B804004A6E45 /* CalendarHelper.swift */,
+				0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				3F23D7BF2AF89BB200DF47AC /* GetKambuhByDate.swift in Sources */,
 				0BE97CA02ACFFB68006A33AC /* KambuhRepositoryImpl.swift in Sources */,
 				D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */,
+				0B55DFEA2AFA451A007BACCE /* CalendarViewModel.swift in Sources */,
 				D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */,
 				AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */,
 				3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */,
