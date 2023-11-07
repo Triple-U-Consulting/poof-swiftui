@@ -22,14 +22,27 @@ struct TabBarView: View {
                     }
                     .tag(0)
                 
-//                CalendarTabView()
+                CalendarTabView()
+                    .tabItem {
+                        Image(systemName: "calendar")
+                        Text("Kalender")
+                    }
+                    .tag(1)
                 
                 SummaryTabView()
                     .tabItem {
                         Image(systemName: "list.bullet.clipboard.fill")
                         Text("Ringkasan")
                     }
-                    .tag(1)
+                    .tag(2)
+                
+                ProfileTabView()
+                    .tabItem {
+                        Image(systemName: "person")
+                        Text("Profile")
+                    }
+                    .tag(3)
+                
             }
             .accentColor(Color.Main.primary1)
             .onAppear() {
