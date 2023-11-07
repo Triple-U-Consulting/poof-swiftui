@@ -12,10 +12,8 @@ struct SummaryTabView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
 
-    
     var body: some View {
-
-        CalendarView()
+        Text("Ini Analytics")
         
     }
 }

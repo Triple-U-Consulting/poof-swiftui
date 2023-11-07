@@ -1,5 +1,5 @@
 //
-//  CalendarView.swift
+//  CalendarTabView.swift
 //  Poof
 //
 //  Created by Jonathan Evan Christian on 06/11/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//struct CalendarView: UIViewRepresentable {
+//struct CalendarTabView: UIViewRepresentable {
 //    let interval: DateInterval
 //
 //    func makeUIView(context: Context) -> UICalendarView {
@@ -24,9 +24,9 @@ import SwiftUI
 //}
 
 
-struct CalendarView: View {
+struct CalendarTabView: View {
     let columns = Array(repeating: GridItem(spacing: 0), count:7)
-    let weekDaysData: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"]
+    let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
     let currProgressDate = Date()
     @State var daysData: [String] = []
     @State private var showSheet = false
@@ -52,10 +52,9 @@ struct CalendarView: View {
                     Text(CalendarHelper.shared
                         .getCalendarComponentString(date: CalendarHelper.shared.plusMonth(date: currProgressDate, value: index), format: "LLLL")
                     )
-                    Text(CalendarHelper.shared
-                        .getCalendarComponentString(date: CalendarHelper.shared.plusMonth(date: currProgressDate, value: index), format: "YYYY")
-                    )
-                    
+//                    Text(CalendarHelper.shared
+//                        .getCalendarComponentString(date: CalendarHelper.shared.plusMonth(date: currProgressDate, value: index), format: "YYYY")
+//                    )
                 }
                 .frame(width: 200)
                 
