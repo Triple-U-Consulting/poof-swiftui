@@ -41,20 +41,27 @@ final class InhalerTabViewModel: ObservableObject {
         syncStatus = .syncing
         Task {
             await getHomeData.execute(token: self.userDefaultsController.getString(key: "token") ?? "")
-                .sink { [weak self] completion in
+                .sink { completion in
                     switch completion {
                     case .finished:
-                        self?.syncStatus = .synced
-                        self?.syncDate = self?.dateFormat.dateToString(date: Date.now, to: "HH:mm") ?? ""
+                        DispatchQueue.main.async { [weak self] in
+                            self?.syncStatus = .synced
+                            self?.syncDate = self?.dateFormat.dateToString(date: Date.now, to: "HH:mm") ?? ""
+                        }
                     case .failure:
                         print(completion)
-                        self?.syncStatus = .unsynced
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            self?.syncStatus = .unsynced
+                        }
                         break
                     }
                 } receiveValue: { data in
-                    self.todayPuff = data.today
-                    self.weekAvgPuff = data.weekAvg
-                    self.remaining = data.remaining
+                    DispatchQueue.main.async {
+                        self.todayPuff = data.today
+                        self.weekAvgPuff = data.weekAvg
+                        self.remaining = data.remaining
+                    }
                 }
         }
     }

@@ -14,9 +14,7 @@ struct SummaryTabView: View {
 
     
     var body: some View {
-
         CalendarView()
-        
     }
 }
 

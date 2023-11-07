@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CalendarHelper {
+final class CalendarHelper {
     static let shared = CalendarHelper()
     
     var calendar = Calendar.current
