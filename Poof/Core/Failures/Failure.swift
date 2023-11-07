@@ -29,6 +29,9 @@ enum Failure: Error {
     case loginFailure
     case registerFailure
     
+    // MARK: - Analytics Failures
+    case fetchAnalyticsFailure
+    
     // MARK: - Data Transfer Error
     case noResponse
     case parsing(Error)

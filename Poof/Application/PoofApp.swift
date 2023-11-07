@@ -13,9 +13,10 @@ struct PoofApp: App {
     @StateObject var userDevice = UserDevice()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(router)
-                .environmentObject(userDevice)
+//            ContentView()
+//                .environmentObject(router)
+//                .environmentObject(userDevice)
+            ChartView()
         }
     }
 }

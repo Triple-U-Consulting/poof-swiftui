@@ -28,10 +28,9 @@ struct AnalyticDetailView: View {
                 Spacer()
             }
         
-            Text("Chart")
-                .frame(width: 350, height: 300)
-                .background(.primary1)
-                .padding()
+            ChartView()
+                .padding(.top,70)
+                .padding(.bottom)
             
             VStack (alignment: .leading) {
                 Text("Monthly Usage")
