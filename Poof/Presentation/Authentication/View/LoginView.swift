@@ -68,6 +68,7 @@ struct LoginView: View {
                     router.path.append(Page.TabBar)
                 }
                 .padding(.top, 16)
+                .padding(.horizontal, 24)
                 
                 Component.bottomSignText(text: "Do not have an account?", blueText: "Sign Up") {
                     router.path.append(Page.Register)

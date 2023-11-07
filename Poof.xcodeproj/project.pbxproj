@@ -11,7 +11,6 @@
 		0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */; };
 		0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */; };
 		0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */; };
-		0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */; };
 		0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60AB2ADE309F0017445F /* Inhaler.swift */; };
 		0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */; };
 		0B8D60B92AE0BF5A0017445F /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60B82AE0BF5A0017445F /* StateManager.swift */; };
@@ -30,6 +29,8 @@
 		0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83BD2AE0F20300D111B0 /* LoginUser.swift */; };
 		0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83BF2AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift */; };
 		0BCD83C42AE138BA00D111B0 /* UserResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83C32AE138BA00D111B0 /* UserResponseDTO+Mapping.swift */; };
+		0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* RegisterUser.swift */; };
+		0BD889442AFA28D200B70F39 /* IoTRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */; };
 		0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C912ACFF496006A33AC /* Kambuh.swift */; };
 		0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */; };
 		0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C972ACFF4D0006A33AC /* KambuhRepository.swift */; };
@@ -887,6 +888,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BD889442AFA28D200B70F39 /* IoTRepositoryImpl.swift in Sources */,
+				0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */,
 				0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */,
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
 				AB6883ED2AF8B848004A6E45 /* CalendarTabView.swift in Sources */,
@@ -908,13 +911,10 @@
 				0BCD83B82AE0E26500D111B0 /* UserRepository.swift in Sources */,
 				3F23D7BF2AF89BB200DF47AC /* GetKambuhByDate.swift in Sources */,
 				0BE97CA02ACFFB68006A33AC /* KambuhRepositoryImpl.swift in Sources */,
-				0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */,
 				D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */,
 				D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */,
-				0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */,
 				AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */,
 				3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */,
-				0B8D60A82ADD4C260017445F /* IoTRepositoryImpl.swift in Sources */,
 				0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */,
 				AB7BEDD82ACD6F8C0071BF10 /* Router.swift in Sources */,
 				0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */,
@@ -967,8 +967,6 @@
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
 				D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */,
 				3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */,
-				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
-				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
