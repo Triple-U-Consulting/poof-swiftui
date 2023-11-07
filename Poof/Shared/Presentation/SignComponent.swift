@@ -53,8 +53,6 @@ extension Component {
                         .foregroundStyle(Color.Main.blueText)
                 }
             }
-            .padding(.top, 16)
-            .padding(.bottom, 41)
         }
     }
     

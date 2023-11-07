@@ -128,26 +128,20 @@ struct Component {
     
     
     // TODO: BLOM KELAR
-    struct CircleButton: View {
+    struct CircleView: View {
         var text: String
-        var action: () -> Void
         var body: some View {
             GeometryReader { geometry in
-                Button(action: action) {
-                    Text(NSLocalizedString(text, comment: ""))
-                        .font(.systemButtonText)
-                        .foregroundStyle(.black)
+                ZStack {
+                    Circle()
+                        .foregroundStyle(.white)
                         .frame(width: geometry.size.width-80, height: geometry.size.height-80)
-                        .background(Color.white)
-                        .clipShape(Circle())
                         .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
                         .padding(.all, 40)
+                    Text(text)
+                        .font(.systemButtonText)
+                        .foregroundStyle(.black)
                 }
-//                .frame(width: geometry.size.width-20, height: geometry.size.height-20)
-//                .padding(.all, 10)
-//                .background(Color.white)
-//                .clipShape(Circle())
-//                .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
             }
         }
     }
@@ -160,13 +154,12 @@ struct Component {
         var body: some View {
             GeometryReader { geometry in
                 ZStack {
-//                    Circle()
                     Circle()
-                        .trim(from: 0, to: syncStatus == SyncStatus.Syncing ? 0.25 : 1)
-                        .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.Syncing ? colors : syncStatus == SyncStatus.Synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+                        .trim(from: 0, to: syncStatus == SyncStatus.syncing ? 0.25 : 1)
+                        .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.syncing ? colors : syncStatus == SyncStatus.synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(gradientAngle))
-//                        .animation(.linear(duration: 3).repeatForever(autoreverses: false))
                         .frame(width: geometry.size.width-20, height:geometry.size.height-20)
+                        .padding(.all, 10)
                 }
             }
             .onAppear {
@@ -216,7 +209,7 @@ struct Component {
         var action: () -> Void
         var body: some View {
             Button(action: action) {
-                Image(systemName: "person.crop.circle")
+                Image("profileIcon")
                     .resizable()
                     .renderingMode(.original) // Use original rendering mode
                     .frame(width: 44, height: 44)
@@ -247,6 +240,14 @@ struct Component {
             //logic
         }
         
-        Component.RotatingCircle(syncStatus: .constant(SyncStatus.Syncing))
+        ZStack (alignment: .center) {
+            Component.RotatingCircle(syncStatus: .constant(.synced))
+                .background(.red)
+            Component.CircleView(text: "Sinkronisasi")
+        }
+        .frame(width: 260, height: 260)
+        .padding(.top, 16)
+        
+        Component.ProfileButton() {}
     }
 }
