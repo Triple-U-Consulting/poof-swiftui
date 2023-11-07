@@ -11,7 +11,7 @@ struct LoginView: View {
     
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
-    @EnvironmentObject private var viewModel: AuthViewModel
+    @ObservedObject private var viewModel = AuthViewModel()
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var wrongPassword: Bool = false //untuk nunjukkin alert
@@ -63,7 +63,8 @@ struct LoginView: View {
                     .padding(.leading, 31)
                 
                 Component.DefaultButton(text: "Sign In") {
-//                    viewModel.login(email: email, password: password)
+                    viewModel.login(email: "angela@gmail.com", password: "angela")
+                    
                     router.path.append(Page.TabBar)
                 }
                 .padding(.top, 16)

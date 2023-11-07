@@ -9,12 +9,12 @@ import Foundation
 
 struct HomeDataResponseDTO: Decodable {
     let today: Int
-    let weekAvg: Double
+    let week_avg: Double
     let remaining: Int
 }
 
 extension HomeDataResponseDTO {
     func toDomain() -> HomeData {
-        return .init(today: today, weekAvg: weekAvg, remaining: remaining)
+        return .init(today: today, weekAvg: week_avg, remaining: remaining)
     }
 }

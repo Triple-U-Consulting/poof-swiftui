@@ -155,8 +155,8 @@ struct Component {
             GeometryReader { geometry in
                 ZStack {
                     Circle()
-                        .trim(from: 0, to: syncStatus == SyncStatus.Syncing ? 0.25 : 1)
-                        .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.Syncing ? colors : syncStatus == SyncStatus.Synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                        .trim(from: 0, to: syncStatus == SyncStatus.syncing ? 0.25 : 1)
+                        .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.syncing ? colors : syncStatus == SyncStatus.synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(gradientAngle))
                         .frame(width: geometry.size.width-20, height:geometry.size.height-20)
                         .padding(.all, 10)
@@ -241,7 +241,7 @@ struct Component {
         }
         
         ZStack (alignment: .center) {
-            Component.RotatingCircle(syncStatus: .constant(.Synced))
+            Component.RotatingCircle(syncStatus: .constant(.synced))
                 .background(.red)
             Component.CircleView(text: "Sinkronisasi")
         }

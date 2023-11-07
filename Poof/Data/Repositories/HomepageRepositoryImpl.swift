@@ -15,8 +15,8 @@ final class HomepageRepositoryImpl {
 }
 
 extension HomepageRepositoryImpl: HomepageRepository {
-    func fetchHomeData() async -> AnyPublisher<HomeData, Failure> {
-        let endpoint = APIEndpoints.getHomeData()
+    func fetchHomeData(token: String) async -> AnyPublisher<HomeData, Failure> {
+        let endpoint = APIEndpoints.getHomeData(token: token)
         let results = await dataTransferService.request(with: endpoint)
         
         switch results {

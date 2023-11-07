@@ -9,8 +9,10 @@ import Foundation
 
 struct APIEndpoints {
     // MARK: - Pages
-    static func getHomeData() -> Endpoint<HomeDataResponseDTO> {
-        return Endpoint(path: "page/home", method: .get)
+    static func getHomeData(token: String) -> Endpoint<HomeDataResponseDTO> {
+        let headerParameters = ["accesstoken": token]
+        
+        return Endpoint(path: "page/home", method: .get, headerParameters: headerParameters)
     }
     
     // MARK: - Authentication

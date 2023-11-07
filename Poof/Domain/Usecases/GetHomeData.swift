@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GetHomeDataUsecase {
-    func execute() async -> AnyPublisher<HomeData, Failure>
+    func execute(token: String) async -> AnyPublisher<HomeData, Failure>
 }
 
 
@@ -20,7 +20,7 @@ class GetHomeDataImpl {
 }
 
 extension GetHomeDataImpl: GetHomeDataUsecase {
-    func execute() async -> AnyPublisher<HomeData, Failure> {
-        return await self.repository.fetchHomeData()
+    func execute(token: String) async -> AnyPublisher<HomeData, Failure> {
+        return await self.repository.fetchHomeData(token: token)
     }
 }

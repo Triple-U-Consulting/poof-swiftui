@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol HomepageRepository {
-    func fetchHomeData() async -> AnyPublisher<HomeData, Failure>
+    func fetchHomeData(token: String) async -> AnyPublisher<HomeData, Failure>
 }
