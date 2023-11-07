@@ -16,15 +16,15 @@ struct InhalerTabView: View {
     
     var body: some View {
         NavigationView {
-            VStack (spacing:0) {
+            VStack (spacing: 0) {
                 
-                Picker("What is your favorite color?", selection: $inhalerSegment) {
-                    Text("Kambuh").tag(0)
-                    Text("Harian").tag(1)
-                }
-                .pickerStyle(.segmented)
-                .frame(width: 342, height: 34)
-                .padding(.top, 16)
+//                Picker("What is your favorite color?", selection: $inhalerSegment) {
+//                    Text("Kambuh").tag(0)
+//                    Text("Harian").tag(1)
+//                }
+//                .pickerStyle(.segmented)
+//                .frame(width: 342, height: 34)
+//                .padding(.top, 16)
             
                 ZStack (alignment: .center) {
                     Component.RotatingCircle(syncStatus: $vm.syncStatus)
@@ -33,13 +33,13 @@ struct InhalerTabView: View {
                 .frame(width: 260, height: 260)
                 .padding(.top, 16)
                 
-                Text("Last sync on \(vm.syncDate)")
+                Text("Terakhir disinkronisasi pada \(vm.syncDate)")
                     .padding(.top, 12)
                 
                 VStack (spacing:0) {
                     
                     //TODAY'S DATA
-                    HStack (alignment: .top, spacing: 0) {
+                    HStack (alignment: .center, spacing: 0) {
                         
                         Spacer()
                         Spacer()
@@ -132,6 +132,11 @@ struct InhalerTabView: View {
                     }
                     .padding(.top, 16)
                     
+                    Component.DefaultButton(text: "Change Inhaler", buttonLevel: .secondary) {
+                        //
+                    }
+                    .padding(.top, 16)
+                    
                 }
                 .frame(width: 342, height:249)
                 .padding(.top, 18)
@@ -140,22 +145,27 @@ struct InhalerTabView: View {
                 
                 
             }
+//            .toolbar {
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Component.NavigationTitle(text: "Inhaler")
+////                        .padding(.top, 16)
+//                }
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    Component.ProfileButton() {
+//                        //logic
+//                    }
+////                    .padding(.top, 8)
+//                }
+//            }
+//            .background(.red)
+//            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Component.NavigationTitle(text: "Inhaler")
-//                        .padding(.top, 16)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Component.ProfileButton() {
-                        //logic
-                    }
-//                    .padding(.top, 8)
+                ToolbarItem(placement: .principal) {
+                    Text("Medication")
+                        .font(.largeTitle.bold())
+                        .accessibilityAddTraits(.isHeader)
                 }
             }
-            //            .background(.red)
-            //            .navigationTitle("Inhaler")
-            //            .navigationBarHidden(true)
-            //            .navigationBarTitleDisplayMode(.inline)
         }
         .padding(8)
         .onAppear {

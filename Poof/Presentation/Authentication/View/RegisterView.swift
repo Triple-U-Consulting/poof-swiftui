@@ -87,6 +87,7 @@ struct RegisterView: View {
                             router.path.removeLast()
                         }
                         .padding(.top, 16)
+                        .padding(.horizontal, 24)
                         
                         Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
                             router.path.removeLast()

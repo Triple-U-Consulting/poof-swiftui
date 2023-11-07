@@ -68,15 +68,15 @@ struct Component {
                     }
                 }
             }
-            .padding(.horizontal, 24)
+//            .padding(.horizontal, 24)
         }
         
         private func Primary(_ text: Text) -> some View {
             text
                 .font(.systemButtonText)
                 .foregroundStyle(self.buttonState==DefaultButtonState.active ? .white : Color.Neutrals.gray2)
-                .frame(height: 48)
                 .frame(maxWidth: .infinity)
+                .frame(width: .infinity, height: 48)
                 .background(self.buttonState==DefaultButtonState.active ? Color.Main.primary1 : Color.Main.primary3)
                 .cornerRadius(10)
                 .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 4)
