@@ -19,7 +19,9 @@ struct Analytics: Identifiable {
 enum Frequency: String, CaseIterable, Identifiable {
     case week = "week"
     case month = "month"
-    case year = "year"
+    case quarter = "quarter"
+    case halfyear = "halfyear"
+//    case year = "year"
     
     var id: String { self.rawValue }
 }

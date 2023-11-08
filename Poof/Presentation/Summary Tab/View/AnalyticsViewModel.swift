@@ -77,8 +77,13 @@ class AnalyticsViewModel: ObservableObject {
             currentDate = Calendar.current.date(byAdding: .day, value: -7, to: currentDate) ?? currentDate
         case .month:
             currentDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) ?? currentDate
-        case .year:
-            currentDate = Calendar.current.date(byAdding: .year, value: -1, to: currentDate) ?? currentDate
+//        case .year:
+//            currentDate = Calendar.current.date(byAdding: .year, value: -1, to: currentDate) ?? currentDate
+        case .quarter:
+            currentDate = Calendar.current.date(byAdding: .month, value: -3, to: currentDate) ?? currentDate
+        case .halfyear:
+            currentDate = Calendar.current.date(byAdding: .month, value: -6, to: currentDate) ?? currentDate
+
         }
         fetchAnalytics()
     }
@@ -89,8 +94,12 @@ class AnalyticsViewModel: ObservableObject {
             currentDate = Calendar.current.date(byAdding: .day, value: 7, to: currentDate) ?? currentDate
         case .month:
             currentDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) ?? currentDate
-        case .year:
-            currentDate = Calendar.current.date(byAdding: .year, value: 1, to: currentDate) ?? currentDate
+//        case .year:
+//            currentDate = Calendar.current.date(byAdding: .year, value: 1, to: currentDate) ?? currentDate
+        case .quarter:
+            currentDate = Calendar.current.date(byAdding: .month, value: 3, to: currentDate) ?? currentDate
+        case .halfyear:
+            currentDate = Calendar.current.date(byAdding: .month, value: 6, to: currentDate) ?? currentDate
         }
         fetchAnalytics()
     }

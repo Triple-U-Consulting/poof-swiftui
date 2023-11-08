@@ -19,16 +19,30 @@ struct BarView: View {
             return 20
         case "month":
             return 5
+        case "quarter":
+            return 8
+        case "halfyear":
+            return 8
         case "year":
-            return 50
+            return 8
         default:
             return 20
         }
     }
-    var index: Int
+    private var totalUsage: Int {
+        daytimeUsage + nightUsage
+    }
+    @State private var isSelected: Bool = false
     var body: some View {
         VStack {
             Spacer()
+            if isSelected {
+                Text("\(totalUsage)")
+                    .padding(5)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .offset(y: 0)
+            }
             ZStack(alignment:.bottom){
                 Path { path in
                     path.move(to: CGPoint(x: 1, y: 0))
@@ -50,6 +64,9 @@ struct BarView: View {
                         .foregroundColor(.secondary2)
                 }
                 .cornerRadius(25)
+                .onTapGesture {
+                    isSelected.toggle()
+                }
             }
             Text(label)
         }

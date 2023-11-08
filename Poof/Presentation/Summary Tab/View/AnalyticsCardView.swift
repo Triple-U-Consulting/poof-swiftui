@@ -17,7 +17,7 @@ struct AnalyticsCardView: View {
     var body: some View {
         VStack (spacing: 20) {
             VStack {
-                Text("You are taking inhaler more this week")
+                Text("You are inhaler usage this \(frequency)")
                     .font(.headline)
                 
                 Divider()
@@ -30,7 +30,7 @@ struct AnalyticsCardView: View {
                     }
                     
                     HStack {
-                        Text("Lowest Weekly usage")
+                        Text("Lowest \(frequency)ly usage")
                         Spacer()
                         Text("\(lowestUsage)")
                     }
@@ -80,14 +80,14 @@ struct AnalyticsCardView: View {
             
             
             VStack {
-                Text("You are not using Inhaler for \(dayWithoutUsage) days")
+                Text("You are not using Inhaler for \(dayWithoutUsage) \(frequency)s")
                     .font(.headline)
                 
                 Divider()
                 
                 VStack {
                     HStack {
-                        Text("Day without Usage")
+                        Text("\(frequency) without Usage")
                         Spacer()
                         Text("\(dayWithoutUsage)")
                     }

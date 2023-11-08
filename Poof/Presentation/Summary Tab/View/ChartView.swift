@@ -16,6 +16,10 @@ struct ChartView: View {
                 return 20
             case "month":
                 return 35
+            case "quarter":
+                return 60
+            case "halfyear":
+                return 25
             case "year":
                 return 0
             default:
@@ -31,7 +35,7 @@ struct ChartView: View {
                             daytimeUsage: analytic.daytimeUsage,
                             nightUsage: analytic.nightUsage,
                             frequency: frequency,
-                            availableHeight: 200, index: index)
+                            availableHeight: 200)
                 }
             }
         }
