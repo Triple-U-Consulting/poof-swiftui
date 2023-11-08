@@ -14,9 +14,9 @@ enum SyncStatus {
 }
 
 final class InhalerTabViewModel: ObservableObject {
-    @Published private(set) var todayPuff: Int?
+    @Published var todayPuff: Int?
     @Published private(set) var weekAvgPuff: Double?
-    @Published private(set) var remaining: Int?
+    @Published  var remaining: Int?
     @Published private(set) var syncDate: String = ""
     @Published var syncStatus: SyncStatus = .unsynced
     
