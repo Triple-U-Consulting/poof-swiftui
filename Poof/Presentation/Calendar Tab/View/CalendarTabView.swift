@@ -11,7 +11,7 @@ struct CalendarTabView: View {
     
     let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"] 
     let currProgressDate = Date()
-    @ObservedObject var vm = CalendarViewModel()
+    let vm = CalendarViewModel()
     
     var body: some View {
         ScrollView {
@@ -28,7 +28,6 @@ struct CalendarTabView: View {
             
             ForEach(0...5, id:\.self) {index in
                 CalendarMonthView(currProgressDate: vm.plusMonth(date: currProgressDate, value: index))
-                    .environmentObject(vm)
             }
         }
     }

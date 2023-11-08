@@ -26,14 +26,24 @@ extension KambuhByMonthResponseDTO {
 extension KambuhByMonthResponseDTO {
     func toDomain() -> [Int: Kambuh] {
         var temp: [Int: Kambuh] = [:]
-        var keys = results.map {
-            temp.updateValue($0, forKey: $0.)
+        for res in results {
+            temp.updateValue(res.toDomain(), forKey: res.getKambuhDay())
         }
+        return temp
     }
 }
 
 extension KambuhByMonthResponseDTO.KambuhByMonthDTO {
-    func toDomain() -> Int {
+    func toDomain() -> Kambuh {
+        let formatter = DateFormatUtil()
+        let startDate = formatter.stringToDate(string: start_time)
+        let endDate = formatter.stringToDate(string: end_time)
+        let lamaInt = Int64(kambuh_interval)!
+        
+        return .init(id: kambuh_id, start: startDate, end: endDate, totalPuff: total_puff, lamaKambuh: lamaInt, scale: scale, trigger: trigger)
+    }
+    
+    func getKambuhDay() -> Int {
         let formatter = DateFormatUtil.shared
         let startDate = formatter.stringToDate(string: start_time)
         

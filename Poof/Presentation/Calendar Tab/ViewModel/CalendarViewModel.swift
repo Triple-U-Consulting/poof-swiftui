@@ -10,7 +10,6 @@ import Foundation
 class CalendarViewModel: ObservableObject {
     @Published private(set) var monthKambuhData: [Int: Kambuh] = [:]
     
-//    private(set) var kambuhData: [Date: Kambuh] = [:]
     var calendar = Calendar.current
 //    let startDate = calendar.date(from: DateComponents(year: 2020, month: 1, day:1))!
 //    let endDate = calendar.date(from: DateComponents(year: 2022, month: 12, day: 31))!
@@ -42,15 +41,18 @@ class CalendarViewModel: ObservableObject {
         Task {
             await self.getKambuhByMonth.execute(date: date)
                 .sink { completion in
-                    
-                } receiveValue: { results in
-                    var temp: [Int: Kambuh] = [:]
-                    for res in results {
-//                        self.kambuhData.updateValue(res, forKey: res.start)
-                        temp.updateValue(res, forKey: self.calendar.component(.day, from: res.start))
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error)
+                        break
                     }
-                    
-                    self.monthKambuhData = temp
+                } receiveValue: { results in
+                    print(results)
+                    DispatchQueue.main.async {
+                        self.monthKambuhData = results
+                    }
                 }
         }
     }
@@ -152,7 +154,6 @@ class CalendarViewModel: ObservableObject {
             
             ctrItem += 1
         }
-        print(daysData)
         return daysData
     }
 }
