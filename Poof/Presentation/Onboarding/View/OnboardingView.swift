@@ -70,7 +70,7 @@ struct OnboardingView: View {
                 
                 //BUTTON
                 Component.DefaultButton(text: (selectedPage != numberOfOnboardingSlides-1) ? NSLocalizedString("Berikutnya", comment:"") : NSLocalizedString("Mulai", comment:""), buttonLevel: .primary) {
-                    if selectedPage < 2 {
+                    if selectedPage < 1 {
                         selectedPage += 1
                     } else {
                         router.path.append(Page.Login)
