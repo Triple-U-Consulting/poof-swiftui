@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol AnalyticsRepository {
-    func fetchAnalytics(start_date: Date, end_date: Date, frequency: String) async -> AnyPublisher<[Analytics], Failure>
+    func fetchAnalytics(start_date: Date, frequency: String) async -> AnyPublisher<[Analytics], Failure>
 }

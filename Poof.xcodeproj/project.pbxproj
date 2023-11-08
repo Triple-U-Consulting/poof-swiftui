@@ -72,6 +72,9 @@
 		AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */; };
 		ABB5FE6F2AE6812400227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		ABB5FE702AE6812500227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
+		D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */; };
+		D61C22B42AFA2B0F006B9058 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B32AFA2B0F006B9058 /* BarView.swift */; };
+		D61C22B62AFA478B006B9058 /* FrequencyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */; };
 		D63CF52F2AF7BE5400CCE0FD /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */; };
 		D63CF5312AF88EB400CCE0FD /* TotalPuffPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF5302AF88EB400CCE0FD /* TotalPuffPopUpView.swift */; };
 		D63CF5332AF9BE3C00CCE0FD /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF5322AF9BE3C00CCE0FD /* Analytics.swift */; };
@@ -85,10 +88,11 @@
 		D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */; };
 		D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */; };
 		D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */; };
-		D68A345F2AF5FCFB00514A2B /* AnalyticDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A345E2AF5FCFB00514A2B /* AnalyticDetailView.swift */; };
 		D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */; };
 		D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */; };
 		D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */; };
+		D6EA617E2AFB8D230019BA51 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA617D2AFB8D230019BA51 /* AnalyticsView.swift */; };
+		D6EA61802AFB9BB50019BA51 /* AnalyticsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +182,9 @@
 		AB7BEDD72ACD6F8C0071BF10 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFilterView.swift; sourceTree = "<group>"; };
+		D61C22B32AFA2B0F006B9058 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyPickerView.swift; sourceTree = "<group>"; };
 		D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		D63CF5302AF88EB400CCE0FD /* TotalPuffPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPuffPopUpView.swift; sourceTree = "<group>"; };
 		D63CF5322AF9BE3C00CCE0FD /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -191,10 +198,11 @@
 		D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsViewModel.swift; sourceTree = "<group>"; };
 		D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsView.swift; sourceTree = "<group>"; };
 		D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsPopUpView.swift; sourceTree = "<group>"; };
-		D68A345E2AF5FCFB00514A2B /* AnalyticDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticDetailView.swift; sourceTree = "<group>"; };
 		D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsRepositoryImpl.swift; sourceTree = "<group>"; };
+		D6EA617D2AFB8D230019BA51 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
+		D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,7 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				0B8D60852AD94B480017445F /* View */,
-				D68A345E2AF5FCFB00514A2B /* AnalyticDetailView.swift */,
+				D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */,
+				D6EA617D2AFB8D230019BA51 /* AnalyticsView.swift */,
 			);
 			path = "Summary Tab";
 			sourceTree = "<group>";
@@ -313,6 +322,9 @@
 				D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */,
 				D63CF5302AF88EB400CCE0FD /* TotalPuffPopUpView.swift */,
 				D63CF53C2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift */,
+				D61C22B32AFA2B0F006B9058 /* BarView.swift */,
+				D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */,
+				D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -800,6 +812,7 @@
 				0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */,
 				D63CF5312AF88EB400CCE0FD /* TotalPuffPopUpView.swift in Sources */,
 				D63CF5372AF9BF3700CCE0FD /* AnalyticsRepository.swift in Sources */,
+				D6EA61802AFB9BB50019BA51 /* AnalyticsCardView.swift in Sources */,
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
 				0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */,
@@ -830,7 +843,6 @@
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
 				D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */,
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
-				D68A345F2AF5FCFB00514A2B /* AnalyticDetailView.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
 				0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */,
 				0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */,
@@ -849,10 +861,13 @@
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
+				D6EA617E2AFB8D230019BA51 /* AnalyticsView.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
+				D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */,
 				AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */,
 				D63CF53D2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift in Sources */,
+				D61C22B42AFA2B0F006B9058 /* BarView.swift in Sources */,
 				D63CF53B2AF9C05700CCE0FD /* AnalyticsRepositoryImpl.swift in Sources */,
 				D63CF5352AF9BE8B00CCE0FD /* AnalyticsResponseDTO+Mapping.swift in Sources */,
 				0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */,
@@ -873,6 +888,7 @@
 				D63CF5332AF9BE3C00CCE0FD /* Analytics.swift in Sources */,
 				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
 				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
+				D61C22B62AFA478B006B9058 /* FrequencyPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

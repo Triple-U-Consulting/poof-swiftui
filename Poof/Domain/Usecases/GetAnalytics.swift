@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GetAnalyticsUseCase {
-    func execute(start_date: Date, end_date: Date, frequency: String) async -> AnyPublisher<[Analytics], Failure>
+    func execute(start_date: Date, frequency: String) async -> AnyPublisher<[Analytics], Failure>
 }
 
 class GetAnalyticsUseCaseImpl {
@@ -19,7 +19,7 @@ class GetAnalyticsUseCaseImpl {
 }
 
 extension GetAnalyticsUseCaseImpl: GetAnalyticsUseCase {
-    func execute(start_date: Date, end_date: Date, frequency: String) async -> AnyPublisher<[Analytics], Failure> {
-        return await self.repository.fetchAnalytics(start_date: start_date, end_date: end_date, frequency: frequency)
+    func execute(start_date: Date, frequency: String) async -> AnyPublisher<[Analytics], Failure> {
+        return await self.repository.fetchAnalytics(start_date: start_date, frequency: frequency)
     }
 }

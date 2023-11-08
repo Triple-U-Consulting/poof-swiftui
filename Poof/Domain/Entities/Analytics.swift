@@ -9,8 +9,17 @@ import Foundation
 
 struct Analytics: Identifiable {
     let id = UUID()
+    let label: String
     let start_date: Date
     let end_date: Date
     let daytimeUsage: Int
     let nightUsage: Int
+}
+
+enum Frequency: String, CaseIterable, Identifiable {
+    case week = "week"
+    case month = "month"
+    case year = "year"
+    
+    var id: String { self.rawValue }
 }

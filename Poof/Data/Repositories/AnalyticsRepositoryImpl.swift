@@ -21,8 +21,8 @@ final class AnalyticsRepositoryImpl {
 }
 
 extension AnalyticsRepositoryImpl: AnalyticsRepository {
-    func fetchAnalytics(start_date: Date, end_date: Date, frequency: String) async -> AnyPublisher<[Analytics], Failure> {
-        let endpoint = APIEndpoints.getAnalytics(start_date: start_date, end_date: end_date, frequency: frequency)
+    func fetchAnalytics(start_date: Date, frequency: String) async -> AnyPublisher<[Analytics], Failure> {
+        let endpoint = APIEndpoints.getAnalytics(start_date: start_date, frequency: frequency)
         let results = await
         self.dataTransferService.request(with: endpoint)
         

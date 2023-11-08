@@ -16,7 +16,7 @@ struct PoofApp: App {
 //            ContentView()
 //                .environmentObject(router)
 //                .environmentObject(userDevice)
-            ChartView()
+            AnalyticsFilterView()
         }
     }
 }
