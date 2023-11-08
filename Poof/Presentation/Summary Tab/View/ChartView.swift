@@ -9,23 +9,24 @@ import SwiftUI
 
 struct ChartView: View {
     @Binding var analytics: [Analytics]
+    @Binding var selectedIndex: Int?
     var frequency: String
     var barSpacing: CGFloat {
-            switch frequency {
-            case "week":
-                return 20
-            case "month":
-                return 35
-            case "quarter":
-                return 60
-            case "halfyear":
-                return 25
-            case "year":
-                return 0
-            default:
-                return 20
-            }
+        switch frequency {
+        case "week":
+            return 15
+        case "month":
+            return 25
+        case "quarter":
+            return 60
+        case "halfyear":
+            return 15
+        case "year":
+            return 0
+        default:
+            return 20
         }
+    }
     let chartHeight: CGFloat = 300
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -35,7 +36,11 @@ struct ChartView: View {
                             daytimeUsage: analytic.daytimeUsage,
                             nightUsage: analytic.nightUsage,
                             frequency: frequency,
-                            availableHeight: 200)
+                            availableHeight: 200, 
+                            totalUsage: analytic.daytimeUsage+analytic.nightUsage,
+                            startDate: analytic.start_date,
+                            endDate: analytic.end_date,
+                            index: index , selectedIndex: $selectedIndex)
                 }
             }
         }

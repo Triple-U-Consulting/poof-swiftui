@@ -9,7 +9,9 @@ import SwiftUI
 
 struct TotalPuffPopUpView: View {
     var totalPuffs: Int
-    var dateRange: String
+    var startDate: Date
+    var endDate: Date
+    var frequency: String
     var body: some View {
         VStack(spacing:0) {
             VStack(alignment:.leading) {
@@ -18,9 +20,15 @@ struct TotalPuffPopUpView: View {
                     .foregroundColor(.primary1)
                 Text("\(totalPuffs) Puff")
                     .font(.systemTitle2)
-                Text(dateRange)
-                    .font(.systemFootnote)
-                    .foregroundColor(.primary1)
+                if frequency=="week"{
+                    Text("\(dateFormatter.string(from: startDate))")
+                        .font(.systemFootnote)
+                        .foregroundColor(.primary1)
+                } else {
+                    Text("\(dateFormatter.string(from: startDate ))-\(dateFormatter.string(from: endDate))")
+                        .font(.systemFootnote)
+                        .foregroundColor(.primary1)
+                }
             }
             .padding(.vertical, 8)
             .padding(.horizontal, 16)
@@ -39,6 +47,10 @@ struct TotalPuffPopUpView: View {
             }
 }
 
-#Preview {
-    TotalPuffPopUpView(totalPuffs: 5, dateRange: "6-13 Sep 2023")
+extension TotalPuffPopUpView {
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter
+    }
 }

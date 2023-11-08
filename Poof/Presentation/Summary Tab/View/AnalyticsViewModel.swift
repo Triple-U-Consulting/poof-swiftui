@@ -11,11 +11,18 @@ import Combine
 class AnalyticsViewModel: ObservableObject {
     // MARK: - Attributes
     @Published private(set) var message: String = ""
-    @Published var selectedFrequency: Frequency = .week
+    @Published var selectedIndex: Int? 
+    @Published var selectedFrequency: Frequency = .week {
+        didSet {
+            selectedIndex = nil
+        }
+    }
     @Published var startDate: Date?
     @Published var endDate: Date?
     @Published var analytics: [Analytics] = []
     @Published var currentDate: Date = Date()
+    @Published var showTotal: Bool = false
+    
     var averagePuffs: Int {
         let totalPuffs = analytics.reduce(0) { $0 + $1.daytimeUsage + $1.nightUsage }
         return !analytics.isEmpty ? Int(totalPuffs) / Int(analytics.count) : 0
@@ -77,13 +84,13 @@ class AnalyticsViewModel: ObservableObject {
             currentDate = Calendar.current.date(byAdding: .day, value: -7, to: currentDate) ?? currentDate
         case .month:
             currentDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) ?? currentDate
-//        case .year:
-//            currentDate = Calendar.current.date(byAdding: .year, value: -1, to: currentDate) ?? currentDate
+            //        case .year:
+            //            currentDate = Calendar.current.date(byAdding: .year, value: -1, to: currentDate) ?? currentDate
         case .quarter:
             currentDate = Calendar.current.date(byAdding: .month, value: -3, to: currentDate) ?? currentDate
         case .halfyear:
             currentDate = Calendar.current.date(byAdding: .month, value: -6, to: currentDate) ?? currentDate
-
+            
         }
         fetchAnalytics()
     }
@@ -94,8 +101,8 @@ class AnalyticsViewModel: ObservableObject {
             currentDate = Calendar.current.date(byAdding: .day, value: 7, to: currentDate) ?? currentDate
         case .month:
             currentDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) ?? currentDate
-//        case .year:
-//            currentDate = Calendar.current.date(byAdding: .year, value: 1, to: currentDate) ?? currentDate
+            //        case .year:
+            //            currentDate = Calendar.current.date(byAdding: .year, value: 1, to: currentDate) ?? currentDate
         case .quarter:
             currentDate = Calendar.current.date(byAdding: .month, value: 3, to: currentDate) ?? currentDate
         case .halfyear:

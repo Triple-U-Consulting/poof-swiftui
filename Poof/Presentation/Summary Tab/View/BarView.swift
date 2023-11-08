@@ -16,33 +16,28 @@ struct BarView: View {
     private var heightMultiplier: CGFloat {
         switch frequency {
         case "week":
-            return 20
+            return 15
         case "month":
             return 5
         case "quarter":
-            return 8
+            return 5
         case "halfyear":
-            return 8
+            return 5
         case "year":
-            return 8
+            return 5
         default:
             return 20
         }
     }
-    private var totalUsage: Int {
-        daytimeUsage + nightUsage
-    }
-    @State private var isSelected: Bool = false
+    var totalUsage: Int
+    var startDate: Date
+    var endDate: Date
+    var index: Int
+    @Binding var selectedIndex: Int?
+    
     var body: some View {
-        VStack {
+        ZStack {        VStack {
             Spacer()
-            if isSelected {
-                Text("\(totalUsage)")
-                    .padding(5)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .offset(y: 0)
-            }
             ZStack(alignment:.bottom){
                 Path { path in
                     path.move(to: CGPoint(x: 1, y: 0))
@@ -65,10 +60,57 @@ struct BarView: View {
                 }
                 .cornerRadius(25)
                 .onTapGesture {
-                    isSelected.toggle()
+                    if selectedIndex == index {
+                        selectedIndex = nil
+                    } else {
+                        selectedIndex = index
+                    }
                 }
             }
             Text(label)
         }
+        .overlay(
+            selectedIndex == index ?
+            TotalPuffPopUpView(totalPuffs: totalUsage, startDate: startDate, endDate: endDate, frequency: frequency)                            .frame(width: 200)
+                .offset(y: -25)
+            : nil
+        )
+            
+            
+            VStack {
+                Spacer()
+                ZStack(alignment:.bottom){
+                    Path { path in
+                        path.move(to: CGPoint(x: 1, y: 0))
+                        path.addLine(to: CGPoint(x: 1, y: 300))
+                    }
+                    .stroke(
+                        LinearGradient(gradient: Gradient(colors: [.clear, Color.gray3]), startPoint: .top, endPoint: .bottom),
+                        style: StrokeStyle(lineWidth: 3, lineCap: .round, dash: [5, 5])
+                    )
+                    .frame(width: 3, height: 300)
+                    
+                    VStack(spacing:3) {
+                        Rectangle()
+                            .frame(width: 30, height: min(availableHeight, CGFloat(nightUsage) * heightMultiplier))
+                            .foregroundColor(.primary1)
+                        
+                        Rectangle()
+                            .frame(width: 30, height: min(availableHeight, CGFloat(daytimeUsage) * heightMultiplier))
+                            .foregroundColor(.secondary2)
+                    }
+                    .cornerRadius(25)
+                    .onTapGesture {
+                        if selectedIndex == index {
+                            selectedIndex = nil
+                        } else {
+                            selectedIndex = index
+                        }
+                    }
+                }
+                Text(label)
+            }
+        }
     }
 }
+
