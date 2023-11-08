@@ -31,7 +31,7 @@ struct LoginView: View {
                 .padding(.leading, 30)
                 .textFieldStyle(.automatic)
                 
-                Component.dividerSignPage()
+                Component.CustomDivider(width: 342)
                 
                 Component.titleSignPage(text: "Kata sandi")
                 
@@ -43,7 +43,7 @@ struct LoginView: View {
                 .padding(.leading, 30)
                 .textFieldStyle(.automatic)
                 
-                Component.dividerSignPage()
+                Component.CustomDivider(width: 342)
                 
                 Spacer()
                 

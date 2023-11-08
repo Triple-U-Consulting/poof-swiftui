@@ -17,7 +17,7 @@ class ConditionViewModel: ObservableObject {
     @Published var trigger: [Bool] = []
     @Published var kambuhId: [Int] = []
     //@Published private(set) var error: String = ""
-    
+
     // MARK: Cancellables
     private var cancellables = Set<AnyCancellable>()
     
@@ -49,11 +49,11 @@ extension ConditionViewModel {
                     }
                 } receiveValue: { kambuhResults in
 //                    guard let self = self else { return }
-                    self.kambuhList = kambuhResults
-                    
+                                        
                     var tempScale: [Int] = []
                     var tempTrigger: [Bool] = []
                     var tempKambuhId: [Int] = []
+                    //self.kambuhList = []
                     
                     for kambuh in kambuhResults {
                         tempScale.append(kambuh.scale ?? 0)
@@ -64,13 +64,15 @@ extension ConditionViewModel {
                     self.scale = tempScale
                     self.trigger = tempTrigger
                     self.kambuhId = tempKambuhId
+                    self.kambuhList = kambuhResults
+                    
 //                    print(self.kambuhList ?? "error")
                 }
                 .store(in: &cancellables)
         }
     }
     
-    func updateKambuhData(scale: [Int], trigger: [Bool]){
+    func updateKambuhData(){
         Task{
             await updateConditionKambuh.execute(kambuh_id: kambuhId, scale: scale, trigger: trigger)
                 .sink { completion in
