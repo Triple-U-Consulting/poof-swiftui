@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13B6592AE686B700576845 /* AuthViewModel.swift */; };
-		0B55DFEA2AFA451A007BACCE /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */; };
 		0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */; };
 		0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */; };
 		0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */; };
@@ -51,7 +50,6 @@
 		3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */; };
 		3F5A1ED32AFA17C600A3BB57 /* UpdateConditionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */; };
 		3F6D8E6A2AFB35D2008090BB /* EditConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6D8E692AFB35D2008090BB /* EditConditionView.swift */; };
-		3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* RegisterUser.swift */; };
 		3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */; };
 		3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */; };
 		3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */; };
@@ -910,7 +908,7 @@
 				0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */,
 				0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */,
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
-				AB6883ED2AF8B848004A6E45 /* CalendarView.swift in Sources */,
+				AB6883ED2AF8B848004A6E45 /* CalendarMonthView.swift in Sources */,
 				3F5A1ED32AFA17C600A3BB57 /* UpdateConditionCard.swift in Sources */,
 				AB6883ED2AF8B848004A6E45 /* CalendarMonthView.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
@@ -932,7 +930,6 @@
 				3F23D7BF2AF89BB200DF47AC /* GetKambuhByDate.swift in Sources */,
 				0BE97CA02ACFFB68006A33AC /* KambuhRepositoryImpl.swift in Sources */,
 				D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */,
-				0B55DFEA2AFA451A007BACCE /* CalendarViewModel.swift in Sources */,
 				D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */,
 				AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */,
 				3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */,
@@ -980,7 +977,7 @@
 				D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */,
 				3FDAE0962AF889F500E0C696 /* UpdateConditionView.swift in Sources */,
 				AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */,
-				3FDAE0962AF889F500E0C696 /* MockViewCondition.swift in Sources */,
+				3FDAE0962AF889F500E0C696 /* UpdateConditionView.swift in Sources */,
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,
 				0B8D60BB2AE0C0FC0017445F /* User.swift in Sources */,
 				0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */,
