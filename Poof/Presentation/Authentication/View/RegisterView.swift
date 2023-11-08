@@ -37,8 +37,7 @@ struct RegisterView: View {
                         .autocapitalization(.none)
                         .padding(.top, 8)
                         
-                        Component.dividerSignPage()
-                            .padding(.top, 8)
+                        Component.CustomDivider(width: 342)
                         
                         Component.titleSignPage(text: "Tanggal Lahir")
                             
@@ -48,8 +47,7 @@ struct RegisterView: View {
                             .padding([.leading, .trailing], 30)
                             .padding(.top, 8)
                         
-                        Component.dividerSignPage()
-                            .padding(.top, 8)
+                        Component.CustomDivider(width: 342)
                         
                         Component.titleSignPage(text: "Kata Sandi")
                         
@@ -62,8 +60,7 @@ struct RegisterView: View {
                         .textFieldStyle(.automatic)
                         .padding(.top, 8)
                         
-                        Component.dividerSignPage()
-                            .padding(.top, 8)
+                        Component.CustomDivider(width: 342)
                         
                         Component.titleSignPage(text: "Konfirmasi Kata Sandi")
                         
@@ -76,8 +73,7 @@ struct RegisterView: View {
                         .textFieldStyle(.automatic)
                         .padding(.top, 8)
                         
-                        Component.dividerSignPage()
-                            .padding(.top, 8)
+                        Component.CustomDivider(width: 342)
                         
                         Spacer()
                         
