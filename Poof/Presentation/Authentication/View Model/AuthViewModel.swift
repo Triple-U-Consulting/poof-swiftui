@@ -70,15 +70,19 @@ extension AuthViewModel {
     }
     
     func login(email: String, password: String) {
+        self.status = .loading
         Task {
             await loginUseCase.execute(email: email, password: password)
-                .sink { completion in
+                .sink { [weak self] completion in
                     switch completion {
                     case .finished:
                         print("login done")
+                        self?.status = .success
                         break
                     case .failure(let failure):
                         print(failure)
+                        self?.status = .failure(failure: failure)
+                        break
                     }
                 } receiveValue: { accessToken in
                     self.userDefaultsController.save(accessToken, asKey: "token")

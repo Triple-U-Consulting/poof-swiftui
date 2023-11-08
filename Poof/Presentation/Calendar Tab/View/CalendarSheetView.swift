@@ -11,21 +11,24 @@ struct CalendarSheetView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        VStack (alignment: .leading, spacing:0){
-            Component.DefaultText(text: "Tracked on 20 October 2023")
-                .padding(.bottom, 24)
-            if true {
-                ForEach(1...2, id:\.self) {index in
-                    CalendarSheetDetailView()
+        ScrollView {
+            LazyVStack (alignment: .leading, spacing:0){
+                Component.DefaultText(text: "Tracked on 20 October 2023")
+                    .padding(.bottom, 24)
+                if true {
+                    ForEach(1...2, id:\.self) {index in
+                        CalendarSheetDetailView()
+                    }
+                } else {
+                    Component.DefaultText(text: "No inhaler usage tracked")
+                        .font(.systemButtonText)
                 }
-            } else {
-                Component.DefaultText(text: "No inhaler usage tracked")
-                    .font(.systemButtonText)
             }
         }
         .frame(width: .infinity)
         .padding(26)
-//        .presentationDetents([.height(200), .large])
+        .ignoresSafeArea()
+        .presentationDetents([.height(500), .large])
         .presentationDragIndicator(.visible)
     }
 }
