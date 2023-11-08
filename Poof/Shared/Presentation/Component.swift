@@ -18,16 +18,6 @@ enum DefaultButtonState {
     case inactive
 }
 
-//enum DefaultDesign: CGFloat {
-//    case buttonPadding = 24
-//    case deviceWidth = 390
-//    case width = 342
-//    
-////    func value() -> CGFloat {
-////        return self.rawValue
-////    }
-//}
-
 struct Component {
     
     // MARK: - BASIC DESIGN SYSTEM COMPONENT
@@ -130,6 +120,9 @@ struct Component {
     // TODO: BLOM KELAR
     struct CircleView: View {
         var text: String
+        @Binding var syncStatus: SyncStatus
+        @Binding var todayIntake: CGFloat
+        @Binding var remainingIntake: CGFloat
         var body: some View {
             GeometryReader { geometry in
                 ZStack {
@@ -138,9 +131,15 @@ struct Component {
                         .frame(width: geometry.size.width-80, height: geometry.size.height-80)
                         .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
                         .padding(.all, 40)
-                    Text(text)
-                        .font(.systemButtonText)
-                        .foregroundStyle(.black)
+                    if syncStatus == .unsynced {
+                        Image(systemName:"exclamationmark.triangle.fill")
+                            .resizable()
+                            .padding(.all, 110)
+                    } else if syncStatus == .syncing {
+                        //empty
+                    } else {
+                        WaveView(todayIntake: $todayIntake, remainingIntake: $remainingIntake)
+                    }
                 }
             }
         }
@@ -217,37 +216,130 @@ struct Component {
             }
         }
     }
-    
-    
-    
-    
 }
 
+
+
+struct Wave: Shape {
+    // how high our waves should be
+    var strength: Double
+
+    // how frequent our waves should be
+    var frequency: Double
+    
+    var phase: Double
+    
+    var animatableData: Double {
+        get { phase }
+        set { self.phase = newValue }
+    }
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath()
+
+        // calculate some important values up front
+        let width = Double(rect.width)
+        let height = Double(rect.height)
+        let midWidth = width / 2
+        let midHeight = height / 2
+
+        // split our total width up based on the frequency
+        let wavelength = width / frequency
+
+        // start at the left center
+        path.move(to: CGPoint(x: 0, y: midHeight))
+
+        // now count across individual horizontal points one by one
+        for x in stride(from: 0, through: width, by: 1) {
+            // find our current position relative to the wavelength
+            let relativeX = x / wavelength
+
+            // calculate the sine of that position
+//            let sine = sin(relativeX)
+            let sine = sin(relativeX + phase)
+
+            // multiply that sine by our strength to determine final offset, then move it down to the middle of our view
+            let y = strength * sine + midHeight
+
+            // add a line to here
+            path.addLine(to: CGPoint(x: x, y: y))
+        }
+
+        return Path(path.cgPath)
+    }
+}
+
+struct WaveView: View {
+    @State private var dose: CGFloat = 200
+    @Binding var todayIntake: CGFloat
+    @Binding var remainingIntake: CGFloat //assuming out of 200
+    @State private var phase = 0.0
+    var body: some View {
+        ZStack {
+            VStack {
+                Rectangle()
+                    .frame(width:180, height: 180)
+                    .foregroundStyle(.secondary3)
+                    .offset(y:200-(remainingIntake*0.9))
+            }
+            .frame(width:180, height: 180)
+            Wave(strength: 8, frequency: 6, phase: phase)
+                .stroke(Color.secondary3, lineWidth: 16)
+                .frame(width:200, height: 180)
+                .offset(y: 110-(remainingIntake*0.9))
+            Wave(strength: 8, frequency: 6, phase: phase)
+                .stroke(Color.secondary2, lineWidth: todayIntake)
+                .frame(width:200, height: 180)
+                .offset(y: 110-(remainingIntake*0.9)-8+(todayIntake*0.45))
+            
+        }
+        .frame(width:180, height: 180)
+        .clipShape(Circle())
+        .onAppear {
+            withAnimation(Animation.linear(duration: 2.5).repeatForever(autoreverses: false)) {
+                self.phase = .pi * 2
+            }
+
+        }
+    }
+}
+
+
+struct ComponentView: View {
+    @State private var phase = 0.0
+    
+    var body: some View {
+        VStack {
+            Component.DefaultButton(text: "Text Label") {
+                //logic
+            }
+            
+            Component.DefaultButton(text: "Text Label", buttonLevel: .secondary) {
+                //logic
+            }
+            
+            Component.NextButton(text: "Text Label") {
+                //logic
+            }
+            
+            ZStack (alignment: .center) {
+                Component.RotatingCircle(syncStatus: .constant(.synced))
+                    .background(.red)
+                Component.CircleView(text: "Sinkronisasi", syncStatus: .constant(SyncStatus.synced), todayIntake: .constant(5), remainingIntake: .constant(120))
+            }
+            .frame(width: 260, height: 260)
+            .padding(.top, 16)
+            
+            Component.ProfileButton() {}
+            
+        }
+    }
+}
 
 // PREVIEW BUAT TEST COMPONENT
 #Preview {
-    
-    VStack {
-        Component.DefaultButton(text: "Text Label") {
-            //logic
-        }
-        
-        Component.DefaultButton(text: "Text Label", buttonLevel: .secondary) {
-            //logic
-        }
-        
-        Component.NextButton(text: "Text Label") {
-            //logic
-        }
-        
-        ZStack (alignment: .center) {
-            Component.RotatingCircle(syncStatus: .constant(.synced))
-                .background(.red)
-            Component.CircleView(text: "Sinkronisasi")
-        }
-        .frame(width: 260, height: 260)
-        .padding(.top, 16)
-        
-        Component.ProfileButton() {}
-    }
+    ComponentView()
 }
+
+
+
