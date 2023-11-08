@@ -9,17 +9,9 @@ import SwiftUI
 
 struct CalendarTabView: View {
     
-    let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
-    let dummyDataCaledar: [calendarData] = [
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled
-    ]
+    let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"] 
     let currProgressDate = Date()
+    @ObservedObject var vm = CalendarViewModel()
     
     var body: some View {
         ScrollView {
@@ -35,7 +27,8 @@ struct CalendarTabView: View {
             }
             
             ForEach(0...5, id:\.self) {index in
-                CalendarMonthView(currProgressDate: CalendarViewModel.shared.plusMonth(date: currProgressDate, value: index), calendarData: dummyDataCaledar)
+                CalendarMonthView(currProgressDate: vm.plusMonth(date: currProgressDate, value: index))
+                    .environmentObject(vm)
             }
         }
     }

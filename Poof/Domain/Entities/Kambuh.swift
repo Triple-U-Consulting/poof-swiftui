@@ -16,3 +16,9 @@ struct Kambuh: Identifiable {
     let scale: Int?
     let trigger: Bool?
 }
+
+extension Kambuh {
+    func hasNotes() -> Bool {
+        return (scale == nil && trigger == nil) ? false : true
+    }
+}

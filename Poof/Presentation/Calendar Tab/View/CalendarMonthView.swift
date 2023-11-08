@@ -12,22 +12,23 @@ import SwiftUI
 //    @Binding var progressDataByDate: [ProgressModel]
 
 struct CalendarMonthView: View {
+    @EnvironmentObject var vm: CalendarViewModel
+    
     let columns = Array(repeating: GridItem(spacing: 0), count:7)
     let currProgressDate: Date
-    let calendarData: [calendarData]
-    @State var dayDates: [String] = []
+    
+    @State var dayDates: [Int] = []
     @State private var showSheet = false
     
     var body: some View {
         VStack {
             //Month
             HStack {
-                Text(CalendarViewModel.shared
-                    .getCalendarComponentString(date: CalendarViewModel.shared.plusMonth(date: currProgressDate, value: 0), format: "LLLL")
+                Text(vm.getCalendarComponentString(date: vm.plusMonth(date: currProgressDate, value: 0), format: "LLLL")
                 )
                 .onAppear {
                     DispatchQueue.main.async {
-                        dayDates = CalendarViewModel().showCalendarData(currProgressDate: currProgressDate)
+                        dayDates = vm.showCalendarData(currProgressDate: currProgressDate)
                     }
                 }
             }
@@ -40,27 +41,27 @@ struct CalendarMonthView: View {
                     let dayDate = dayDates[index] //["","",1,2,3,4,5,...]
                     
                     //get the current cell date (1 is random number that I generate to handle error in empty boxItem)
-                    let cellDate = CalendarViewModel.shared.getCellDate(day: Int(dayDate) ?? 1, currAppDate: currProgressDate)
+                    let cellDate = vm.getCellDate(day: dayDate, currAppDate: currProgressDate)
                     
                     //fecth data for that cell date
                     
                     //show cigarettes data in box?
                     
                     //used to block input from user in date greater than today
-                    let fillData: Bool = cellDate <= Date()
+//                    let fillData: Bool = cellDate <= Date()
                     
                     //DAY CELL
                     VStack (spacing:0) {
-                        if dayDate != "" {
+                        if dayDate != 0 {
                             Divider()
-                            Component.DefaultText(text: dayDate)
+                            Component.DefaultText(text: "\(dayDate)")
                                 .font(.systemBodyText)
                                 .padding(.top, 12)
                             //Indicator whether the user use inhaler that day
-                            Circle()
-                                .fill(calendarData[index] == .Empty ? .white.opacity(0) : calendarData[index] == .Unfilled ? Color.gray : Color.primary1)
-                                .frame(width: 8, height: 8)
-                                .padding(.top, 12)
+//                            Circle()
+//                                .fill(calendarData[index] == .Empty ? .white.opacity(0) : calendarData[index] == .Unfilled ? Color.gray : Color.primary1)
+//                                .frame(width: 8, height: 8)
+//                                .padding(.top, 12)
                             Spacer()
                         }
                     }
@@ -127,20 +128,6 @@ struct CalendarMonthView: View {
 
 
 #Preview {
-    CalendarMonthView(currProgressDate: Date(), calendarData: [
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled,
-        .Empty, .Filled, .Unfilled, .Empty, .Filled, .Empty, .Filled
-    ])
-}
-
-
-enum calendarData {
-    case Empty //memang ada
-    case Unfilled //ada inhaler usage tapi belum diisi
-    case Filled //ada inhaler usage dan sudah diisi
+    CalendarMonthView(currProgressDate: Date())
+        .environmentObject(CalendarViewModel())
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13B6592AE686B700576845 /* AuthViewModel.swift */; };
+		0B55DFEC2AFB7FBD007BACCE /* GetKambuhByMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55DFEB2AFB7FBD007BACCE /* GetKambuhByMonth.swift */; };
+		0B55DFEE2AFB82A5007BACCE /* KambuhByMonthResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55DFED2AFB82A5007BACCE /* KambuhByMonthResponseDTO+Mapping.swift */; };
 		0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */; };
 		0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */; };
 		0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */; };
@@ -122,6 +124,8 @@
 /* Begin PBXFileReference section */
 		0B13B6592AE686B700576845 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		0B55DFEB2AFB7FBD007BACCE /* GetKambuhByMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhByMonth.swift; sourceTree = "<group>"; };
+		0B55DFED2AFB82A5007BACCE /* KambuhByMonthResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KambuhByMonthResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8007052AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KambuhResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IoTResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTRepository.swift; sourceTree = "<group>"; };
@@ -434,6 +438,7 @@
 				0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */,
 				D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */,
 				0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */,
+				0B55DFED2AFB82A5007BACCE /* KambuhByMonthResponseDTO+Mapping.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 				3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */,
 				3F23D7BE2AF89BB200DF47AC /* GetKambuhByDate.swift */,
 				0BABE62A2AF8D71200FB8A28 /* GetHomeData.swift */,
+				0B55DFEB2AFB7FBD007BACCE /* GetKambuhByMonth.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -919,6 +925,7 @@
 				0BCD83C42AE138BA00D111B0 /* UserResponseDTO+Mapping.swift in Sources */,
 				AB01C3D02ADD1A72008C3160 /* StartPairingView.swift in Sources */,
 				AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */,
+				0B55DFEE2AFB82A5007BACCE /* KambuhByMonthResponseDTO+Mapping.swift in Sources */,
 				3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */,
 				AB7BEDD22ACD56680071BF10 /* Component.swift in Sources */,
 				AB7BEDD42ACD5ADD0071BF10 /* Font.swift in Sources */,
@@ -985,6 +992,7 @@
 				3F6D8E6A2AFB35D2008090BB /* EditConditionView.swift in Sources */,
 				0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */,
 				3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */,
+				0B55DFEC2AFB7FBD007BACCE /* GetKambuhByMonth.swift in Sources */,
 				3FDAE0922AF4980100E0C696 /* UpdateKambuhCondition.swift in Sources */,
 				0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,

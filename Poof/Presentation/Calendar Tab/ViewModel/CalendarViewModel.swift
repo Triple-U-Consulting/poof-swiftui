@@ -7,12 +7,57 @@
 
 import Foundation
 
-struct CalendarViewModel {
-    static let shared = CalendarViewModel()
+class CalendarViewModel: ObservableObject {
+    @Published private(set) var monthKambuhData: [Int: Kambuh] = [:]
     
+//    private(set) var kambuhData: [Date: Kambuh] = [:]
     var calendar = Calendar.current
 //    let startDate = calendar.date(from: DateComponents(year: 2020, month: 1, day:1))!
 //    let endDate = calendar.date(from: DateComponents(year: 2022, month: 12, day: 31))!
+    
+    // MARK: - Usecases
+    private let getKambuhByMonth: GetKambuhByMonthUsecase
+    
+    init(
+//        kambuhData: [Date : Kambuh] = [:],
+        monthKambuhData: [Int : Kambuh] = [:],
+        calendar: Foundation.Calendar = Calendar.current,
+        getKambuhByMonth: GetKambuhByMonthUsecase = GetKambuhByMonthImpl.shared
+    ) {
+//        self.kambuhData = kambuhData
+        self.monthKambuhData = monthKambuhData
+        self.calendar = calendar
+        self.getKambuhByMonth = getKambuhByMonth
+    }
+    
+    func getThisMonthKambuhData(currProgressDate date: Date) {
+        var dateComponents = DateComponents()
+        dateComponents.day = 1
+        dateComponents.month = calendar.component(.month, from: date)
+        dateComponents.year = calendar.component(.year, from: date)
+        
+        let itemCalendar = Calendar(identifier: .gregorian)
+        let date = itemCalendar.date(from: dateComponents)!
+        
+        Task {
+            await self.getKambuhByMonth.execute(date: date)
+                .sink { completion in
+                    
+                } receiveValue: { results in
+                    var temp: [Int: Kambuh] = [:]
+                    for res in results {
+//                        self.kambuhData.updateValue(res, forKey: res.start)
+                        temp.updateValue(res, forKey: self.calendar.component(.day, from: res.start))
+                    }
+                    
+                    self.monthKambuhData = temp
+                }
+        }
+    }
+    
+    func convertKambuhData() {
+        
+    }
     
     func getCellDate(day: Int, currAppDate: Date) -> Date {
         var dateComponents = DateComponents()
@@ -87,8 +132,8 @@ struct CalendarViewModel {
 //        return progressDataByDate
 //    }
     
-    func showCalendarData(currProgressDate: Date) -> [String] {
-        var daysData: [String] = []
+    func showCalendarData(currProgressDate: Date) -> [Int] {
+        var daysData: [Int] = []
         
         //April contains 30 days (Int)
         let totalDays = totalDaysInMonth(date: currProgressDate)
@@ -100,24 +145,14 @@ struct CalendarViewModel {
         //empty space have 42 box
         while(ctrItem <= 42) {
             if ctrItem <= startingSpace || (ctrItem - startingSpace) > totalDays {
-                daysData.append("")
+                daysData.append(0)
             } else {
-                daysData.append(String(ctrItem - startingSpace))
+                daysData.append(ctrItem - startingSpace)
             }
             
             ctrItem += 1
         }
+        print(daysData)
         return daysData
     }
-    
-    //MARK: to find a cigarette from our model with itemDate
-//    func findCigInProgressData(itemDate: Date, progressData: [ProgressModel]) -> Int {
-//        for progress in progressData {
-//            if itemDate == progress.date {
-//                return progress.cigarettes
-//            }
-//        }
-//        return -1
-//    }
-    
 }

@@ -48,6 +48,13 @@ struct APIEndpoints {
         return Endpoint(path: "data/kambuh/date", method: .get, queryParameters: queryParam)
     }
     
+    static func getKambuhByMonthYear(date: Date) -> Endpoint<KambuhResponseDTO> {
+        let requestDate = DateFormatUtil().dateToString(date: date, to: "yyyy-MM-dd")
+        let queryParam = ["date": requestDate]
+        
+        return Endpoint(path: "data/kambuh/month", method: .get, queryParameters: queryParam)
+    }
+    
     static func updateKambuhCondition(kambuh_id: [Int], scale: [Int], trigger: [Bool]) -> Endpoint<MessageResponseDTO> {
         var bodyParameters: [ConditionRequestDTO.ConditionKambuh] = []
         for i in 0..<kambuh_id.count {
