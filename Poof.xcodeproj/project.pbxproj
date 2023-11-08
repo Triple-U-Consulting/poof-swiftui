@@ -50,7 +50,6 @@
 		3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */; };
 		3F5A1ED32AFA17C600A3BB57 /* UpdateConditionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */; };
 		3F6D8E6A2AFB35D2008090BB /* EditConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6D8E692AFB35D2008090BB /* EditConditionView.swift */; };
-		3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* RegisterUser.swift */; };
 		3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */; };
 		3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */; };
 		3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */; };
@@ -591,13 +590,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		AB2E2C082AFA2EB500F5F6FC /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		AB6883F32AF8F350004A6E45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,7 +690,6 @@
 		AB7BEDC92ACD524A0071BF10 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				AB2E2C082AFA2EB500F5F6FC /* New Group */,
 				3FDAE08C2AF38BCB00E0C696 /* ConditionUpdate */,
 				D6E6D6892ADFD84C000C1A94 /* Wifi Configuration */,
 				AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */,
@@ -915,7 +906,7 @@
 				0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */,
 				0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */,
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
-				AB6883ED2AF8B848004A6E45 /* CalendarView.swift in Sources */,
+				AB6883ED2AF8B848004A6E45 /* CalendarMonthView.swift in Sources */,
 				3F5A1ED32AFA17C600A3BB57 /* UpdateConditionCard.swift in Sources */,
 				AB6883ED2AF8B848004A6E45 /* CalendarMonthView.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
@@ -983,7 +974,7 @@
 				AB2E2C0A2AFA2ECB00F5F6FC /* ProfileTabView.swift in Sources */,
 				D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */,
 				AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */,
-				3FDAE0962AF889F500E0C696 /* MockViewCondition.swift in Sources */,
+				3FDAE0962AF889F500E0C696 /* UpdateConditionView.swift in Sources */,
 				3FDAE0962AF889F500E0C696 /* UpdateConditionView.swift in Sources */,
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,
 				0B8D60BB2AE0C0FC0017445F /* User.swift in Sources */,

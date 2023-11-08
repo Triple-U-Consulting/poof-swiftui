@@ -221,7 +221,7 @@ struct Component {
         var text: String
         var action: () -> Void
         
-        var body: Some View {
+        var body: some View {
             Button(action: action) {
                 Text(text)
                     .foregroundStyle(Color.Main.blueTextSecondary)
