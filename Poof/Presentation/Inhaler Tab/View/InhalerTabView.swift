@@ -17,18 +17,23 @@ struct InhalerTabView: View {
     var body: some View {
         NavigationView {
             VStack (spacing: 0) {
-                
-//                Picker("What is your favorite color?", selection: $inhalerSegment) {
-//                    Text("Kambuh").tag(0)
-//                    Text("Harian").tag(1)
-//                }
-//                .pickerStyle(.segmented)
-//                .frame(width: 342, height: 34)
-//                .padding(.top, 16)
-            
                 ZStack (alignment: .center) {
                     Component.RotatingCircle(syncStatus: $vm.syncStatus)
-                    Component.CircleView(text: "Sinkronisasi")
+                    Component.CircleView(
+                        text: "Sinkronisasi",
+                        syncStatus: $vm.syncStatus,
+                        todayIntake: Binding(
+                            get: {
+                                CGFloat(vm.todayPuff ?? 0)
+                            },
+                            set: { _ in }
+                        ), 
+                        remainingIntake: Binding(
+                            get: {
+                                CGFloat(vm.remaining ?? 0)
+                            },
+                            set: { _ in }
+                        ))
                 }
                 .frame(width: 260, height: 260)
                 .padding(.top, 16)
