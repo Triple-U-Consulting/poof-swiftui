@@ -56,14 +56,6 @@ extension Component {
         }
     }
     
-    struct dividerSignPage: View {
-        
-        var body: some View {
-            Divider()
-                .frame(width: 342, height: 1)
-        }
-    }
-    
     struct DatePickerTextField: UIViewRepresentable{
         
         private let helper = Helper()

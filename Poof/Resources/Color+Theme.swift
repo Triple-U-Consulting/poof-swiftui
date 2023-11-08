@@ -14,6 +14,7 @@ extension Color {
         static let primary2 = Color("primary2")
         static let primary3 = Color("primary3")
         static let blueText = Color("blueText")
+        static let blueTextSecondary = Color("blueTextSecondary")
     }
 }
 
@@ -37,6 +38,7 @@ extension Color {
         static let gray4 = Color("gray4")
         static let gray5 = Color("gray5")
         static let gray6 = Color("gray6")
+        static let sheetBackground = Color("gray7")
         static let titleSignPage = Color("gray4")
         static let grayBottomSignText = Color("gray5")
     }

@@ -218,8 +218,24 @@ struct Component {
         }
     }
     
+    struct TextButton: View {
+        var text: String
+        var action: () -> Void
+        var body: some View {
+            Button(action: action) {
+                Text(text)
+                    .foregroundStyle(Color.Main.blueTextSecondary)
+            }
+        }
+    }
     
-    
+    struct CustomDivider: View {
+        var width: CGFloat
+        var body: some View {
+            Divider()
+                .frame(width: width, height: 1)
+        }
+    }
     
 }
 
