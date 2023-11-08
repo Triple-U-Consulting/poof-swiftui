@@ -262,6 +262,7 @@
 			children = (
 				3FF77A5A2ACEC53A001F6CC2 /* Test.swift */,
 				3FF77A5C2ACEC53F001F6CC2 /* Test1.swift */,
+				0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -583,13 +584,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		AB2E2C082AFA2EB500F5F6FC /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		AB6883F32AF8F350004A6E45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,7 +684,6 @@
 		AB7BEDC92ACD524A0071BF10 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				AB2E2C082AFA2EB500F5F6FC /* New Group */,
 				3FDAE08C2AF38BCB00E0C696 /* ConditionUpdate */,
 				D6E6D6892ADFD84C000C1A94 /* Wifi Configuration */,
 				AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */,
