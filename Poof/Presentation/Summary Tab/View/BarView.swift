@@ -16,7 +16,7 @@ struct BarView: View {
     private var heightMultiplier: CGFloat {
         switch frequency {
         case "week":
-            return 30
+            return 35
         case "month":
             return 20
         case "quarter":
@@ -62,6 +62,7 @@ struct BarView: View {
                                     selectedIndex = index
                                 }
                             }
+                        
                     } else if nightUsage == 0 {
                         Rectangle()
                             .frame(width: 30, height: min(availableHeight, CGFloat(daytimeUsage) * heightMultiplier))
@@ -80,6 +81,7 @@ struct BarView: View {
                             Rectangle()
                                 .frame(width: 30, height: min(availableHeight, CGFloat(nightUsage) * heightMultiplier))
                                 .foregroundColor(.primary1)
+                            
                             
                             Rectangle()
                                 .frame(width: 30, height: min(availableHeight, CGFloat(daytimeUsage) * heightMultiplier))
@@ -120,40 +122,65 @@ struct BarView: View {
                     )
                     .frame(width: 3, height: 300)
                     
-                    if daytimeUsage == 0 {
-                        Rectangle()
-                            .frame(width: 30, height: min(availableHeight, CGFloat(nightUsage) * heightMultiplier))
-                            .foregroundColor(.primary1)
-                            .cornerRadius(25)
-                            .onTapGesture {
-                                if selectedIndex == index {
-                                    selectedIndex = nil
-                                } else {
-                                    selectedIndex = index
-                                }
-                            }
-                    } else if nightUsage == 0 {
-                        Rectangle()
-                            .frame(width: 30, height: min(availableHeight, CGFloat(daytimeUsage) * heightMultiplier))
-                            .foregroundColor(.secondary2)
-                            .cornerRadius(25)
-                        
-                            .onTapGesture {
-                                if selectedIndex == index {
-                                    selectedIndex = nil
-                                } else {
-                                    selectedIndex = index
-                                }
-                            }
-                    } else {
-                        VStack(spacing:3) {
+                    if daytimeUsage == 0 && nightUsage != 0 {
+                        ZStack(alignment:.top) {
                             Rectangle()
                                 .frame(width: 30, height: min(availableHeight, CGFloat(nightUsage) * heightMultiplier))
                                 .foregroundColor(.primary1)
-                            
+                                .cornerRadius(25)
+                                .onTapGesture {
+                                    if selectedIndex == index {
+                                        selectedIndex = nil
+                                    } else {
+                                        selectedIndex = index
+                                    }
+                                }
+                            Image(systemName: "moon.stars.fill")
+                                .foregroundStyle(.black.opacity(0.25))
+                                .padding(.top,10)
+                        }
+                    } else if nightUsage == 0 && daytimeUsage != 0 {
+                        ZStack(alignment: .bottom) {
                             Rectangle()
                                 .frame(width: 30, height: min(availableHeight, CGFloat(daytimeUsage) * heightMultiplier))
                                 .foregroundColor(.secondary2)
+                                .cornerRadius(25)
+                            
+                                .onTapGesture {
+                                    if selectedIndex == index {
+                                        selectedIndex = nil
+                                    } else {
+                                        selectedIndex = index
+                                    }
+                                }
+                            
+                            Image(systemName: "sun.max.fill")
+                                .foregroundStyle(.black.opacity(0.25))
+                                .padding(.bottom,10)
+                        }
+                        
+                    } else if (daytimeUsage != 0) && (nightUsage != 0) {
+                        VStack(spacing:3) {
+                            ZStack (alignment: .top) {
+                                Rectangle()
+                                    .frame(width: 30, height: min(availableHeight, CGFloat(nightUsage) * heightMultiplier))
+                                    .foregroundColor(.primary1)
+                                
+                                Image(systemName: "moon.stars.fill")
+                                    .foregroundStyle(.black.opacity(0.25))
+                                    .padding(.top,10)
+                            }
+                            
+                            ZStack (alignment: .bottom) {
+                                Rectangle()
+                                    .frame(width: 30, height: min(availableHeight, CGFloat(daytimeUsage) * heightMultiplier))
+                                    .foregroundColor(.secondary2)
+                                
+                                Image(systemName: "sun.max.fill")
+                                    .foregroundStyle(.black.opacity(0.25))
+                                    .padding(.bottom,10)
+                            }
+                            
                         }
                         .cornerRadius(25)
                         .onTapGesture {

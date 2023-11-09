@@ -91,7 +91,6 @@
 		D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */; };
 		D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */; };
 		D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */; };
-		D6EA617E2AFB8D230019BA51 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA617D2AFB8D230019BA51 /* AnalyticsView.swift */; };
 		D6EA61802AFB9BB50019BA51 /* AnalyticsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -201,7 +200,6 @@
 		D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsRepositoryImpl.swift; sourceTree = "<group>"; };
-		D6EA617D2AFB8D230019BA51 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,7 +292,6 @@
 			children = (
 				0B8D60852AD94B480017445F /* View */,
 				D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */,
-				D6EA617D2AFB8D230019BA51 /* AnalyticsView.swift */,
 			);
 			path = "Summary Tab";
 			sourceTree = "<group>";
@@ -861,7 +858,6 @@
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
-				D6EA617E2AFB8D230019BA51 /* AnalyticsView.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
 				D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */,

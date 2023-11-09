@@ -16,7 +16,16 @@ struct AnalyticsFilterView: View {
             VStack {
                 Picker("Frequency", selection: $viewModel.selectedFrequency) {
                     ForEach(Frequency.allCases) { frequency in
-                        Text(frequency.rawValue).tag(frequency)
+                        if frequency.rawValue=="week" {
+                            Text("W").tag(frequency)
+                        } else if frequency.rawValue=="month" {
+                            Text("M").tag(frequency)
+                        } else if frequency.rawValue=="quarter" {
+                            Text("3M").tag(frequency)
+                        } else if frequency.rawValue=="halfyear" {
+                            Text("6M").tag(frequency)
+                        }
+                        
                     }
                 }
                 .onChange(of: viewModel.selectedFrequency) { newFrequency in
@@ -27,10 +36,6 @@ struct AnalyticsFilterView: View {
                 
                 HStack {
                     VStack(alignment:.leading) {
-                        Text("Average")
-                            .foregroundStyle(.primary1)
-                        Text("\(viewModel.averagePuffs) Puff")
-                            .font(.systemTitle1)
                         HStack {
                             Text("\(dateFormatter.string(from: viewModel.startDate ?? Date())) - \(dateFormatter.string(from: viewModel.endDate ?? Date()))")
                                 .foregroundStyle(.primary1)
@@ -45,6 +50,12 @@ struct AnalyticsFilterView: View {
                             }
                             .foregroundColor(.black)
                         }
+                        
+                        Text("\(viewModel.averagePuffs) Puff")
+                            .font(.systemTitle1)
+                        Text("Average")
+                            .foregroundStyle(.primary1)
+                        
                         
                     }
                     Spacer()
