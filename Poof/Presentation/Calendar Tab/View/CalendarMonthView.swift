@@ -59,7 +59,7 @@ struct CalendarMonthView: View {
                     }
                     .frame(width: 53, height: 70)
                     .onTapGesture {
-                        print("\(Date())")
+                        vm.setSelected(date: currProgressDate, day: dayDate)
                         showSheet.toggle()
                     }
                 }
@@ -73,6 +73,7 @@ struct CalendarMonthView: View {
         }
         .sheet(isPresented: self.$showSheet) {
             CalendarSheetView()
+                .environmentObject(vm)
         }
     }
 }

@@ -15,29 +15,35 @@ enum NoteStatus: Int8 {
 
 class CalendarViewModel: ObservableObject {
     @Published private(set) var processedKambuhData: [Date: [Kambuh]]
-//    @Published private(set) var monthKambuhData: [Int: Kambuh] = [:]
+    
+    // MARK: - Sheet view
+    @Published private(set) var currentDateSelected: Date?
+    
+    // MARK: - Sheet detail view
+    @Published private(set) var shownKambuhData: [Kambuh]
     
     private(set) var calendar = Calendar.current
-//    let startDate = calendar.date(from: DateComponents(year: 2020, month: 1, day:1))!
-//    let endDate = calendar.date(from: DateComponents(year: 2022, month: 12, day: 31))!
     
     // MARK: - Usecases
     private let getKambuhByMonth: GetKambuhByMonthUsecase
     
     init(
-//        kambuhData: [Date : Kambuh] = [:],
-//        monthKambuhData: [Int : Kambuh] = [:],
         processedKambuhData: [Date: [Kambuh]] = [:],
+        currentDateSelected: Date? = nil,
+        shownKambuhData: [Kambuh] = [],
         calendar: Foundation.Calendar = Calendar.current,
         getKambuhByMonth: GetKambuhByMonthUsecase = GetKambuhByMonthImpl.shared
     ) {
-//        self.kambuhData = kambuhData
-//        self.monthKambuhData = monthKambuhData
         self.processedKambuhData = processedKambuhData
+        self.currentDateSelected = currentDateSelected
+        self.shownKambuhData = shownKambuhData
         self.calendar = calendar
         self.getKambuhByMonth = getKambuhByMonth
     }
-    
+}
+
+// MARK: - Usecases
+extension CalendarViewModel {
     func getThisMonthKambuhData(currProgressDate date: Date) {
         var dateComponents = DateComponents()
         dateComponents.day = 1
@@ -63,10 +69,26 @@ class CalendarViewModel: ObservableObject {
                     
                     DispatchQueue.main.async {
                         self.processedKambuhData = groupedKambuhData
-//                        print(self.processedKambuhData)
                     }
                 }
         }
+    }
+}
+
+// MARK: - Actions
+extension CalendarViewModel {
+    func setSelected(date: Date, day: Int) {
+        var dateComponents = DateComponents()
+        dateComponents.day = day
+        dateComponents.month = calendar.component(.month, from: date)
+        dateComponents.year = calendar.component(.year, from: date)
+        
+        self.currentDateSelected = calendar.date(from: dateComponents)!
+        self.shownKambuhData = self.processedKambuhData[self.currentDateSelected!] ?? []
+    }
+    
+    func getRequestedKambuh(index: Int) -> Kambuh {
+        return shownKambuhData[index]
     }
     
     func hasNotes(date: Date, day: Int) -> NoteStatus {
@@ -77,9 +99,7 @@ class CalendarViewModel: ObservableObject {
         
         let finalDate = calendar.startOfDay(for: calendar.date(from: components)!)
         
-//        guard let finalDate = temp else { return .noNotes }
         guard let kambuhArray = self.processedKambuhData[finalDate] else { return .noNotes }
-        print("maybe notes")
         
         for kambuh in kambuhArray {
             if !kambuh.hasNotes() {
@@ -91,6 +111,7 @@ class CalendarViewModel: ObservableObject {
     }
 }
 
+// MARK: - Helper functions
 extension CalendarViewModel {
     func getCellDate(day: Int, currAppDate: Date) -> Date {
         var dateComponents = DateComponents()

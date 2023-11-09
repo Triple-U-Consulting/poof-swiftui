@@ -14,11 +14,11 @@ struct CalendarSheetView: View {
     var body: some View {
         ScrollView {
             LazyVStack (alignment: .leading, spacing:0){
-                Component.DefaultText(text: "Tracked on 20 October 2023")
+                Component.DefaultText(text: "Tracked on \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected!, to: "d MMMM yyyy"))")
                     .padding(.bottom, 24)
-                if true {
-                    ForEach(1...2, id:\.self) {index in
-                        CalendarSheetDetailView()
+                if vm.shownKambuhData.count > 0 {
+                    ForEach(vm.shownKambuhData.indices, id:\.self) {index in
+                        CalendarSheetDetailView(vm: CalendarSheetViewModel(kambuh: vm.getRequestedKambuh(index: index)))
                     }
                 } else {
                     Component.DefaultText(text: "No inhaler usage tracked")
@@ -34,20 +34,16 @@ struct CalendarSheetView: View {
     }
 }
 
-#Preview {
-    CalendarSheetView()
-        .environmentObject(CalendarViewModel())
-}
-
-
 struct CalendarSheetDetailView: View {
+    @ObservedObject var vm: CalendarSheetViewModel
+    
     var body: some View {
         VStack (spacing:0) {
             HStack (spacing:0) {
                 Text(Image(systemName: "clock"))
                     .font(.systemHeadline)
                     .foregroundColor(.primary1)
-                Component.DefaultText(text: " 9.56")
+                Component.DefaultText(text: " \(vm.time)")
                     .font(.systemHeadline)
                     .foregroundColor(.black)
                 Spacer()
@@ -58,20 +54,21 @@ struct CalendarSheetDetailView: View {
                         //logic
                     }
             }
+            
             HStack (alignment: .top, spacing:0) {
                 VStack (alignment: .leading, spacing:0) {
                     Component.DefaultText(text: "Inhaler Usage")
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
-                    Component.DefaultText(text: "2 Inhaler Puff")
+                    Component.DefaultText(text: "\(vm.totalPuff) Inhaler Puff")
                         .padding(.top, 8)
                     
                     Component.DefaultText(text: "Breathing Difficulty Scale")
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
-                    Component.DefaultText(text: "4 Points of Breathing Difficulty")
+                    Component.DefaultText(text: "\(vm.scale)")
                         .padding(.top, 8)
                     
                     Component.DefaultText(text: "Triggered By")
@@ -84,13 +81,15 @@ struct CalendarSheetDetailView: View {
                 }.padding(.leading, 12)
                 
                 Spacer()
-                
             }
             .frame(width: 338)
             .background(.gray6)
             .cornerRadius(10)
             .padding(.top, 12)
             .padding(.bottom, 24)
+        }
+        .onAppear {
+            vm.getData()
         }
     }
 }
