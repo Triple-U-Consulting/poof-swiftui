@@ -24,7 +24,7 @@ struct UpdateConditionView: View {
                         
                             ForEach(vm.getDateKeys(), id: \.self) { key in
                                 Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: key, to: "dd MMMM yyyy"))"))
-                                    .padding(.bottom, 32)
+                                    .padding(.bottom, 24)
                                 
                                 UpdateConditionPerDateView(key: key)
                                     .environmentObject(vm)

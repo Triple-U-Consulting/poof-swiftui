@@ -20,10 +20,16 @@ struct UpdateConditionCard: View {
             Color(.white).ignoresSafeArea()
             VStack (alignment: .leading){
                 
-                Text("\(NSLocalizedString("Memperbaharui kondisi", comment: ""))")
-                    .font(.systemBodyText)
-                    .padding(.bottom, 15)
-                    .padding(.top, 12)
+                HStack{
+                    Text("\(NSLocalizedString("Skala sesak", comment: ""))")
+                        .font(.systemBodyText)
+                    
+                    Text("\(vm.processedKambuhData[key]![idx].scale ?? 0)")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        //.padding(EdgeInsets(top: -5, leading: 0, bottom: 5, trailing: 8))
+                }
+                .padding(.bottom, 15)
+                .padding(.top, 12)
                 
                 Slider(
                     value: Binding(
@@ -54,14 +60,14 @@ struct UpdateConditionCard: View {
                 )
                 .accentColor(Color.Main.blueTextSecondary)
                 
-                VStack {
-                    Text("\(vm.processedKambuhData[key]![idx].scale ?? 0)")
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(.top, -5)
-                        .padding(.bottom, 5)
+           
+//                    Text("\(vm.processedKambuhData[key]![idx].scale ?? 0)")
+//                        .frame(maxWidth: .infinity, alignment: .center)
+//                        .padding(.top, -5)
+//                        .padding(.bottom, 5)
                     
                     Component.CustomDivider(width: 330)
-                }
+                
                 
                 HStack{
                     Text("\(NSLocalizedString("Dipicu oleh alergi anda?", comment: ""))")
@@ -90,11 +96,12 @@ struct UpdateConditionCard: View {
                     .padding(.trailing, 2)
                     .menuOrder(.fixed)
                 }
+                .padding(.top, 8)
 //                .padding(EdgeInsets(top: 14, leading: 0, bottom: 12, trailing: 0))
             }
             .cornerRadius(10)
             .padding(8)
-            .frame(width: 342, height: 174)
+            .frame(width: 342, height: 164)
         }
     }
 }
