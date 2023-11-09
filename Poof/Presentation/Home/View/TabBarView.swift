@@ -29,7 +29,7 @@ struct TabBarView: View {
                     }
                     .tag(1)
                 
-                SummaryTabView()
+                AnalyticsFilterView()
                     .tabItem {
                         Image(systemName: "list.bullet.clipboard.fill")
                         Text("Ringkasan")

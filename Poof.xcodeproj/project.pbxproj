@@ -81,7 +81,6 @@
 		AB7BEDAF2ACD4B780071BF10 /* PoofUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDAE2ACD4B780071BF10 /* PoofUITests.swift */; };
 		AB7BEDB12ACD4B780071BF10 /* PoofUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDB02ACD4B780071BF10 /* PoofUITestsLaunchTests.swift */; };
 		AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDBD2ACD4C940071BF10 /* InhalerTabView.swift */; };
-		AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */; };
 		AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */; };
 		AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */; };
 		AB7BEDD22ACD56680071BF10 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDD12ACD56680071BF10 /* Component.swift */; };
@@ -212,7 +211,6 @@
 		AB7BEDAE2ACD4B780071BF10 /* PoofUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoofUITests.swift; sourceTree = "<group>"; };
 		AB7BEDB02ACD4B780071BF10 /* PoofUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoofUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AB7BEDBD2ACD4C940071BF10 /* InhalerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerTabView.swift; sourceTree = "<group>"; };
-		AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTabView.swift; sourceTree = "<group>"; };
 		AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairDeviceView.swift; sourceTree = "<group>"; };
 		AB7BEDD12ACD56680071BF10 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
@@ -328,14 +326,13 @@
 			path = "Pair Device";
 			sourceTree = "<group>";
 		};
-		0B8D60812AD94ABE0017445F /* Summary Tab */ = {
+		0B8D60812AD94ABE0017445F /* Analytics Tab */ = {
 			isa = PBXGroup;
 			children = (
 				0B8D60852AD94B480017445F /* View */,
-				D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */,
 				AB6883F32AF8F350004A6E45 /* ViewModel */,
 			);
-			path = "Summary Tab";
+			path = "Analytics Tab";
 			sourceTree = "<group>";
 		};
 		0B8D60832AD94AD80017445F /* Onboarding */ = {
@@ -358,13 +355,12 @@
 		0B8D60852AD94B480017445F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */,
 				D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */,
 				D63CF5302AF88EB400CCE0FD /* TotalPuffPopUpView.swift */,
-				D63CF53C2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift */,
 				D61C22B32AFA2B0F006B9058 /* BarView.swift */,
 				D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */,
 				D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */,
+				D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -629,6 +625,7 @@
 		AB6883F32AF8F350004A6E45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D63CF53C2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -736,7 +733,7 @@
 				0B8D60802AD94AA70017445F /* Pair Device */,
 				0B8D607F2AD94A850017445F /* Inhaler Tab */,
 				AB6883F72AFA25B3004A6E45 /* Calendar Tab */,
-				0B8D60812AD94ABE0017445F /* Summary Tab */,
+				0B8D60812AD94ABE0017445F /* Analytics Tab */,
 				AB6883F92AFA25C4004A6E45 /* Profile Tab */,
 			);
 			path = Presentation;
@@ -983,7 +980,6 @@
 				AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */,
 				D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */,
 				D63CF52F2AF7BE5400CCE0FD /* ChartView.swift in Sources */,
-				AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */,
 				0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */,
 				AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */,
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
@@ -1034,8 +1030,6 @@
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
 				D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */,
 				D63CF5332AF9BE3C00CCE0FD /* Analytics.swift in Sources */,
-				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
-				3F9027B32AE0F866005011B3 /* RegisterUser.swift in Sources */,
 				D61C22B62AFA478B006B9058 /* FrequencyPickerView.swift in Sources */,
 				3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */,
 			);
