@@ -77,11 +77,19 @@ extension AuthViewModel {
                     switch completion {
                     case .finished:
                         print("login done")
-                        self?.status = .success
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            self?.status = .success
+                        }
+                        
                         break
                     case .failure(let failure):
                         print(failure)
-                        self?.status = .failure(failure: failure)
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            self?.status = .failure(failure: failure)
+                        }
+                        
                         break
                     }
                 } receiveValue: { accessToken in
