@@ -57,7 +57,7 @@ extension KambuhRepositoryImpl: KambuhRepository {
         }
     }
     
-    func fetchKambuhByMonthYear(date: Date) async -> AnyPublisher<[Int: Kambuh], Failure> {
+    func fetchKambuhByMonthYear(date: Date) async -> AnyPublisher<[Kambuh], Failure> {
         let endpoint = APIEndpoints.getKambuhByMonthYear(date: date)
         let results = await self.dataTransferService.request(with: endpoint)
         

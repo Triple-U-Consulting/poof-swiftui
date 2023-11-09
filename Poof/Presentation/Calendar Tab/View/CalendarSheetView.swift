@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CalendarSheetView: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var vm: CalendarViewModel
 
     var body: some View {
         ScrollView {
@@ -35,6 +36,7 @@ struct CalendarSheetView: View {
 
 #Preview {
     CalendarSheetView()
+        .environmentObject(CalendarViewModel())
 }
 
 

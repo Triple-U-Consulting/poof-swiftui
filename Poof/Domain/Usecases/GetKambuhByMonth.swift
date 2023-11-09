@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GetKambuhByMonthUsecase {
-    func execute(date: Date) async -> AnyPublisher<[Int: Kambuh], Failure>
+    func execute(date: Date) async -> AnyPublisher<[Kambuh], Failure>
 }
 
 class GetKambuhByMonthImpl {
@@ -19,7 +19,7 @@ class GetKambuhByMonthImpl {
 }
 
 extension GetKambuhByMonthImpl: GetKambuhByMonthUsecase {
-    func execute(date: Date) async -> AnyPublisher<[Int: Kambuh], Failure> {
+    func execute(date: Date) async -> AnyPublisher<[Kambuh], Failure> {
         return await repository.fetchKambuhByMonthYear(date: date)
     }
 }

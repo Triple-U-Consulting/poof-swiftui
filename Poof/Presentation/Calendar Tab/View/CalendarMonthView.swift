@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CalendarMonthView: View {
-    @ObservedObject var vm = CalendarViewModel()
+    @ObservedObject private var vm = CalendarViewModel()
     
     let columns = Array(repeating: GridItem(spacing: 0), count:7)
     let currProgressDate: Date
     
-    @State var dayDates: [Int] = []
+    @State private var dayDates: [Int] = []
     @State private var showSheet = false
     
     var body: some View {
@@ -51,7 +51,7 @@ struct CalendarMonthView: View {
                                 .padding(.top, 12)
                             //Indicator whether the user use inhaler that day
                             Circle()
-                                .fill(vm.monthKambuhData[dayDate] == nil ? .white.opacity(0) : (vm.monthKambuhData[dayDate]!.hasNotes() ? Color.primary1 : Color.gray))
+                                .fill(vm.hasNotes(date: currProgressDate, day: dayDate) == .noNotes ? .white.opacity(0) : (vm.hasNotes(date: currProgressDate, day: dayDate) == .filled ? Color.primary1 : Color.gray))
                                 .frame(width: 8, height: 8)
                                 .padding(.top, 12)
                             Spacer()

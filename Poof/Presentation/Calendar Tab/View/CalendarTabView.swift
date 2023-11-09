@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CalendarTabView: View {
     
-    let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"] 
-    let currProgressDate = Date()
-    let vm = CalendarViewModel()
+    private let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
+    private let currProgressDate = Date()
+    private let vm = CalendarViewModel()
     
     var body: some View {
         ScrollView {

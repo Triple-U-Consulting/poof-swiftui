@@ -48,7 +48,7 @@ struct APIEndpoints {
         return Endpoint(path: "data/kambuh/date", method: .get, queryParameters: queryParam)
     }
     
-    static func getKambuhByMonthYear(date: Date) -> Endpoint<KambuhByMonthResponseDTO> {
+    static func getKambuhByMonthYear(date: Date) -> Endpoint<KambuhResponseDTO> {
         let requestDate = DateFormatUtil().dateToString(date: date, to: "yyyy-MM-dd")
         let queryParam = ["date": requestDate]
         

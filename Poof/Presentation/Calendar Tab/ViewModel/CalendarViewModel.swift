@@ -7,10 +7,17 @@
 
 import Foundation
 
+enum NoteStatus: Int8 {
+    case noNotes = 0
+    case needsToBeFilled = 1
+    case filled = 2
+}
+
 class CalendarViewModel: ObservableObject {
-    @Published private(set) var monthKambuhData: [Int: Kambuh] = [:]
+    @Published private(set) var processedKambuhData: [Date: [Kambuh]]
+//    @Published private(set) var monthKambuhData: [Int: Kambuh] = [:]
     
-    var calendar = Calendar.current
+    private(set) var calendar = Calendar.current
 //    let startDate = calendar.date(from: DateComponents(year: 2020, month: 1, day:1))!
 //    let endDate = calendar.date(from: DateComponents(year: 2022, month: 12, day: 31))!
     
@@ -19,12 +26,14 @@ class CalendarViewModel: ObservableObject {
     
     init(
 //        kambuhData: [Date : Kambuh] = [:],
-        monthKambuhData: [Int : Kambuh] = [:],
+//        monthKambuhData: [Int : Kambuh] = [:],
+        processedKambuhData: [Date: [Kambuh]] = [:],
         calendar: Foundation.Calendar = Calendar.current,
         getKambuhByMonth: GetKambuhByMonthUsecase = GetKambuhByMonthImpl.shared
     ) {
 //        self.kambuhData = kambuhData
-        self.monthKambuhData = monthKambuhData
+//        self.monthKambuhData = monthKambuhData
+        self.processedKambuhData = processedKambuhData
         self.calendar = calendar
         self.getKambuhByMonth = getKambuhByMonth
     }
@@ -35,8 +44,7 @@ class CalendarViewModel: ObservableObject {
         dateComponents.month = calendar.component(.month, from: date)
         dateComponents.year = calendar.component(.year, from: date)
         
-        let itemCalendar = Calendar(identifier: .gregorian)
-        let date = itemCalendar.date(from: dateComponents)!
+        let date = calendar.date(from: dateComponents)!
         
         Task {
             await self.getKambuhByMonth.execute(date: date)
@@ -49,18 +57,41 @@ class CalendarViewModel: ObservableObject {
                         break
                     }
                 } receiveValue: { results in
-                    print(results)
+                    let groupedKambuhData = Dictionary(grouping: results) { kambuh in
+                        self.calendar.startOfDay(for: kambuh.start)
+                    }
+                    
                     DispatchQueue.main.async {
-                        self.monthKambuhData = results
+                        self.processedKambuhData = groupedKambuhData
+//                        print(self.processedKambuhData)
                     }
                 }
         }
     }
     
-    func convertKambuhData() {
+    func hasNotes(date: Date, day: Int) -> NoteStatus {
+        var components = DateComponents()
+        components.day = day
+        components.month = calendar.component(.month, from: date)
+        components.year = calendar.component(.year, from: date)
         
+        let finalDate = calendar.startOfDay(for: calendar.date(from: components)!)
+        
+//        guard let finalDate = temp else { return .noNotes }
+        guard let kambuhArray = self.processedKambuhData[finalDate] else { return .noNotes }
+        print("maybe notes")
+        
+        for kambuh in kambuhArray {
+            if !kambuh.hasNotes() {
+                return .needsToBeFilled
+            }
+        }
+        
+        return .filled
     }
-    
+}
+
+extension CalendarViewModel {
     func getCellDate(day: Int, currAppDate: Date) -> Date {
         var dateComponents = DateComponents()
         dateComponents.day = day
@@ -109,7 +140,7 @@ class CalendarViewModel: ObservableObject {
 //        var progressDataByDate: [ProgressModel] = []
 //        let sevenDaysInt = Calendar.current.component(.day, from: Date()) - 7
 //        let sevenDaysAgoDate = CalendarHelper().getItemDate(day: sevenDaysInt, currAppDate: Date())
-//        
+//
 //        for data in progressData {
 //            if data.date >= sevenDaysAgoDate && data.date <= Date() {
 //                progressDataByDate.append(data)
@@ -122,11 +153,11 @@ class CalendarViewModel: ObservableObject {
 //        var progressDataByDate: [ProgressModel] = []
 //        let currMonth = Calendar.current.component(.month, from: Date())
 //        let currYear = Calendar.current.component(.year, from: Date())
-//        
+//
 //        for data in progressData {
 //            let dataMonth = Calendar.current.component(.month, from: data.date)
 //            let dataYear = Calendar.current.component(.year, from: data.date)
-//            
+//
 //            if dataMonth == currMonth && dataYear == currYear {
 //                progressDataByDate.append(data)
 //            }

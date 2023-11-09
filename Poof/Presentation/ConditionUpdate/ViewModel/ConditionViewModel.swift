@@ -73,7 +73,7 @@ extension ConditionViewModel {
     }
     
     func updateKambuhData(){
-        Task{
+        Task {
             await updateConditionKambuh.execute(kambuh_id: kambuhId, scale: scale, trigger: trigger)
                 .sink { completion in
                     switch completion{
