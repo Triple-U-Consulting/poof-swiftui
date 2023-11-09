@@ -18,7 +18,7 @@ struct InhalerTabView: View {
         NavigationView {
             VStack (spacing: 0) {
                 ZStack (alignment: .center) {
-                    Component.RotatingCircle(syncStatus: $vm.syncStatus)
+                    RotatingCircleView(syncStatus: $vm.syncStatus)
                     Component.CircleView(
                         text: "Sinkronisasi",
                         syncStatus: $vm.syncStatus,
