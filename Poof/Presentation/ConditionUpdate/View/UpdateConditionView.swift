@@ -24,16 +24,12 @@ struct UpdateConditionView: View {
                     Color(Color.Neutrals.sheetBackground).ignoresSafeArea()
                     ScrollView{
                         LazyVStack(alignment: .leading){
-                            
-                            ForEach(vm.sameDate.indices, id: \.self){ idx in
-                              
-                            }
 //                            Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: date, to:  "dd MMMM yyyy"))"))
 //                                .padding(.bottom, 32)
                             
                             
                             
-                            ForEach(vm.kambuhList.indices, id: \.self) { idx in
+                            ForEach(vm.processedKambuhData.keys, id: \.self) { idx in
                                 
                                 HStack {
                                     HStack{
