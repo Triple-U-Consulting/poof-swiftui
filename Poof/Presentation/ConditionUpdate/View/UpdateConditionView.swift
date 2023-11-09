@@ -12,7 +12,7 @@ struct UpdateConditionView: View {
     
     @EnvironmentObject var vm: ConditionViewModel
     @EnvironmentObject var router: Router
-    @State private var date: Date = Date()
+    //@State private var date: Date = Date()
 //    @State private var pick: [Double] = []
 //    @State private var selectMenu: [Bool] = []
     
@@ -25,8 +25,11 @@ struct UpdateConditionView: View {
                     ScrollView{
                         LazyVStack(alignment: .leading){
                             
-                            Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: date, to:  "dd MMMM yyyy"))"))
-                                .padding(.bottom, 32)
+                            ForEach(vm.sameDate.indices, id: \.self){ idx in
+                              
+                            }
+//                            Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: date, to:  "dd MMMM yyyy"))"))
+//                                .padding(.bottom, 32)
                             
                             
                             
@@ -69,7 +72,7 @@ struct UpdateConditionView: View {
                 }
             }
             .onAppear(perform: {
-                vm.fetchKambuhDataByDate(date: date)
+                vm.fetchKambuhDataIfScaleAndTriggerIsNull()
                 //print(date)
             })
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))

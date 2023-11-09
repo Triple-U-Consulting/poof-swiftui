@@ -40,6 +40,10 @@ struct APIEndpoints {
         return Endpoint(path: "kambuh", method: .get, queryParameters: queryParameters)
     }
     
+    static func getKambuhIfScaleAndTriggerIsNull() -> Endpoint<KambuhResponseDTO> {
+        return Endpoint(path: "data/kambuh/scale-trigger/null", method: .get)
+    }
+    
     static func getKambuhByDate(date: Date) -> Endpoint<KambuhResponseDTO>{
         let requestDate = DateFormatUtil().dateToString(date: date, to: "yyyy-MM-dd")
         let queryParam = ["date": requestDate]

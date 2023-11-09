@@ -21,6 +21,26 @@ final class KambuhRepositoryImpl {
 
 extension KambuhRepositoryImpl: KambuhRepository {
     
+    func getKambuhIfScaleAndTriggerIsNull() async -> AnyPublisher<[Kambuh], Failure> {
+        let endpoint = APIEndpoints.getKambuhIfScaleAndTriggerIsNull()
+        let results = await self.dataTransferService.request(with: endpoint)
+        
+        switch results{
+        case.success(let kambuhResponseDTOs):
+//            print(kambuhResponseDTOs)
+            return Just(kambuhResponseDTOs)
+                .setFailureType(to: Failure.self)
+                .map {
+                    $0.toDomain()
+                }
+                .eraseToAnyPublisher()
+        case .failure(let error):
+            print(error)
+            return Fail(error: Failure.fetchKambuhFailure).eraseToAnyPublisher()
+        }
+    }
+    
+    
     func updateKambuhCondition(kambuh_id: [Int], scale: [Int], trigger: [Bool]) async -> AnyPublisher<String, Failure> {
         let endpoint = APIEndpoints.updateKambuhCondition(kambuh_id: kambuh_id, scale: scale, trigger: trigger)
         let results = await self.dataTransferService.request(with: endpoint)
@@ -56,6 +76,7 @@ extension KambuhRepositoryImpl: KambuhRepository {
             return Fail(error: Failure.fetchKambuhFailure).eraseToAnyPublisher()
         }
     }
+    
     
     func fetchKambuhByMonthYear(date: Date) async -> AnyPublisher<[Kambuh], Failure> {
         let endpoint = APIEndpoints.getKambuhByMonthYear(date: date)

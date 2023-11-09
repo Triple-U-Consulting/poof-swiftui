@@ -16,6 +16,7 @@ class ConditionViewModel: ObservableObject {
     @Published var scale: [Int] = []
     @Published var trigger: [Bool] = []
     @Published var kambuhId: [Int] = []
+    @Published var sameDate: [Date] = []
     //@Published private(set) var error: String = ""
 
     // MARK: Cancellables
@@ -24,13 +25,16 @@ class ConditionViewModel: ObservableObject {
     // MARK: USE CASE
     private let getKambuhDataByDate: GetKambuhDataByDateUseCase
     private let updateConditionKambuh: UpdateKambuhConditionUseCase
+    private let getKambuhDataIfScaleOrTriggerIsNull: GetKambuhDataIfScaleAndTriggerIsNullUseCase
     
     init(
         getKambuhDataByDate: GetKambuhDataByDateUseCase = GetKambuhDataByDateImpl.shared,
+        getKambuhDataIfScaleOrTriggerIsNull: GetKambuhDataIfScaleAndTriggerIsNullUseCase = GetKambuhDataIfScaleAndTriggerIsNullImpl.shared,
         updateConditionKambuh: UpdateKambuhConditionUseCase = UpdateKambuhConditionImpl.shared
     ){
         self.getKambuhDataByDate = getKambuhDataByDate
         self.updateConditionKambuh = updateConditionKambuh
+        self.getKambuhDataIfScaleOrTriggerIsNull = getKambuhDataIfScaleOrTriggerIsNull
     }
     
 }
@@ -66,6 +70,52 @@ extension ConditionViewModel {
                     self.kambuhId = tempKambuhId
                     self.kambuhList = kambuhResults
                     
+//                    print(self.kambuhList ?? "error")
+                }
+                .store(in: &cancellables)
+        }
+    }
+    
+    func fetchKambuhDataIfScaleAndTriggerIsNull(){
+        Task{
+            await getKambuhDataIfScaleOrTriggerIsNull.execute()
+                .sink { completion in
+                    switch completion{
+                    case .finished:
+                        print(completion)
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { kambuhResults in
+                                        
+                    var tempScale: [Int] = []
+                    var tempTrigger: [Bool] = []
+                    var tempKambuhId: [Int] = []
+                    var tempStartDate: [Date] = []
+                    var tempEndDate: [Date] = []
+                    var tempSameDay: [Date] = []
+                    //self.kambuhList = []
+                    
+                    for kambuh in kambuhResults {
+                        tempScale.append(kambuh.scale ?? 0)
+                        tempTrigger.append(kambuh.trigger ?? true)
+                        tempKambuhId.append(kambuh.id)
+                        tempStartDate.append(kambuh.start)
+                        tempEndDate.append(kambuh.end)
+                    }
+                    
+                    for i in tempStartDate.indices{
+                        if DateFormatUtil.shared.dateToString(date: tempStartDate[i], to:  "dd MMMM yyyy") == DateFormatUtil.shared.dateToString(date: tempEndDate[i], to:  "dd MMMM yyyy") {
+                                tempSameDay += [tempStartDate[i]]
+                            }
+                    }
+                    
+                    self.scale = tempScale
+                    self.trigger = tempTrigger
+                    self.kambuhId = tempKambuhId
+                    self.sameDate = tempSameDay
+                    self.kambuhList = kambuhResults
+                    print(tempSameDay)
 //                    print(self.kambuhList ?? "error")
                 }
                 .store(in: &cancellables)
