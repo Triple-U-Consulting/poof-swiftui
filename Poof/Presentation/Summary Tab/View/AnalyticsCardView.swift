@@ -17,7 +17,7 @@ struct AnalyticsCardView: View {
     var body: some View {
         VStack (spacing: 20) {
             VStack {
-                Text("You are inhaler usage this \(frequency)")
+                Text("Your inhaler usage this \(frequency)")
                     .font(.headline)
                 
                 Divider()
