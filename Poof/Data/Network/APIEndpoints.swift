@@ -59,12 +59,12 @@ struct APIEndpoints {
         return Endpoint(path: "data/kambuh/month", method: .get, queryParameters: queryParam)
     }
     
-    static func updateKambuhCondition(kambuh_id: [Int], scale: [Int], trigger: [Bool]) -> Endpoint<MessageResponseDTO> {
+    static func updateKambuhCondition(kambuh: [Kambuh]) -> Endpoint<MessageResponseDTO> {
         var bodyParameters: [ConditionRequestDTO.ConditionKambuh] = []
-        for i in 0..<kambuh_id.count {
-            let requestKambuh_id = kambuh_id[i]
-            let requestScale = scale[i]
-            let requestTrigger = trigger[i]
+        for k in kambuh {
+            let requestKambuh_id = k.id
+            let requestScale = k.scale
+            let requestTrigger = k.trigger
             let req = ConditionRequestDTO.ConditionKambuh(kambuh_id: requestKambuh_id, scale: requestScale, trigger: requestTrigger)
             bodyParameters.append(req)
         }

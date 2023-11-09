@@ -12,12 +12,13 @@ class ConditionViewModel: ObservableObject {
     
     // MARK: Attributes
     @Published private(set) var message: String = ""
-    @Published private(set) var processedKambuhData: [Date: [Kambuh]] = [:]
+    @Published var processedKambuhData: [Date: [Kambuh]] = [:]
     @Published var scale: [Int] = []
     @Published var trigger: [Bool] = []
     @Published var kambuhId: [Int] = []
     //@Published private(set) var error: String = ""
 
+//    private let /*kambuh*/: Kambuh?
     private(set) var calendar = Calendar.current
     
     // MARK: Cancellables
@@ -41,6 +42,15 @@ class ConditionViewModel: ObservableObject {
 }
 
 extension ConditionViewModel {
+    func getDateKeys() -> [Date] {
+        let s = self.processedKambuhData.keys.sorted{ $0 < $1 }
+        return s
+    }
+    
+    func getKambuhByDate(date: Date) -> [Kambuh] {
+        return self.processedKambuhData[date] ?? []
+    }
+    
     // fetch kambuh by date
 //    func fetchKambuhDataByDate(date: Date){
 //        Task{
@@ -96,46 +106,15 @@ extension ConditionViewModel {
                     DispatchQueue.main.async {
                         self.processedKambuhData = groupedKambuhData
                     }
-                    
-                   // let groupKambuhData = Dictio
-                    
-//                    var tempScale: [Int] = []
-//                    var tempTrigger: [Bool] = []
-//                    var tempKambuhId: [Int] = []
-//                    var tempStartDate: [Date] = []
-//                    var tempEndDate: [Date] = []
-//                    var tempSameDay: [Date] = []
-                    //self.kambuhList = []
-                    
-//                    for kambuh in kambuhResults {
-//                        tempScale.append(kambuh.scale ?? 0)
-//                        tempTrigger.append(kambuh.trigger ?? true)
-//                        tempKambuhId.append(kambuh.id)
-//                        tempStartDate.append(kambuh.start)
-//                        tempEndDate.append(kambuh.end)
-//                    }
-//                    
-//                    for i in tempStartDate.indices{
-//                        if DateFormatUtil.shared.dateToString(date: tempStartDate[i], to:  "dd MMMM yyyy") == DateFormatUtil.shared.dateToString(date: tempEndDate[i], to:  "dd MMMM yyyy") {
-//                                tempSameDay += [tempStartDate[i]]
-//                            }
-//                    }
-//                    
-//                    self.scale = tempScale
-//                    self.trigger = tempTrigger
-//                    self.kambuhId = tempKambuhId
-//                    self.sameDate = tempSameDay
-//                    self.kambuhList = kambuhResults
-//                    print(tempSameDay)
-//                    print(self.kambuhList ?? "error")
                 }
                 .store(in: &cancellables)
         }
     }
     
     func updateKambuhData(){
+        print(self.processedKambuhData)
         Task {
-            await updateConditionKambuh.execute(kambuh_id: kambuhId, scale: scale, trigger: trigger)
+            await updateConditionKambuh.execute(kambuh: self.processedKambuhData.values.flatMap{ $0 })
                 .sink { completion in
                     switch completion{
                     case .finished:

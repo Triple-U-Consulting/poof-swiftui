@@ -13,8 +13,8 @@ struct Kambuh: Identifiable {
     let end: Date
     let totalPuff: Int
     let lamaKambuh: Int64
-    let scale: Int?
-    let trigger: Bool?
+    var scale: Int?
+    var trigger: Bool?
 }
 
 extension Kambuh {

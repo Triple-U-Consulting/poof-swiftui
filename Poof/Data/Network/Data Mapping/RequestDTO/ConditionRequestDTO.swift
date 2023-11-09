@@ -14,7 +14,7 @@ struct ConditionRequestDTO: Encodable{
 extension ConditionRequestDTO{
     struct ConditionKambuh: Encodable{
         let kambuh_id: Int
-        let scale: Int
-        let trigger: Bool
+        let scale: Int?
+        let trigger: Bool?
     }
 }

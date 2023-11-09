@@ -41,8 +41,8 @@ extension KambuhRepositoryImpl: KambuhRepository {
     }
     
     
-    func updateKambuhCondition(kambuh_id: [Int], scale: [Int], trigger: [Bool]) async -> AnyPublisher<String, Failure> {
-        let endpoint = APIEndpoints.updateKambuhCondition(kambuh_id: kambuh_id, scale: scale, trigger: trigger)
+    func updateKambuhCondition(kambuh: [Kambuh]) async -> AnyPublisher<String, Failure> {
+        let endpoint = APIEndpoints.updateKambuhCondition(kambuh: kambuh)
         let results = await self.dataTransferService.request(with: endpoint)
         
         switch results{

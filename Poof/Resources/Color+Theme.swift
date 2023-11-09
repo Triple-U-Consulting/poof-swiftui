@@ -15,6 +15,7 @@ extension Color {
         static let primary3 = Color("primary3")
         static let blueText = Color("blueText")
         static let blueTextSecondary = Color("blueTextSecondary")
+        static let backgroundTitleCard = Color("backgroundTitleCard")
     }
 }
 
