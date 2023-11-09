@@ -52,7 +52,7 @@ struct AnalyticsFilterView: View {
                 .padding()
                 
                 
-                ChartView(analytics: $viewModel.analytics, selectedIndex: $viewModel.selectedIndex, frequency: viewModel.selectedFrequency.rawValue)
+                ChartView(analytics: $viewModel.analytics, selectedIndex: $viewModel.selectedIndex, frequency: viewModel.selectedFrequency.rawValue, isLoading: $viewModel.isLoading)
                     .frame(height: 300)
                     .padding()
                 

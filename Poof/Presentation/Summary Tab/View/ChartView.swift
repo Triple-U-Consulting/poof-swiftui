@@ -28,22 +28,30 @@ struct ChartView: View {
         }
     }
     let chartHeight: CGFloat = 300
+    @Binding var isLoading: Bool
+    
     var body: some View {
-        ZStack(alignment: .bottom) {
-            HStack(alignment: .bottom, spacing: barSpacing) {
-                ForEach(Array(zip(analytics.indices, analytics)), id: \.1.id) { (index, analytic) in
-                    BarView(label: analytic.label,
-                            daytimeUsage: analytic.daytimeUsage,
-                            nightUsage: analytic.nightUsage,
-                            frequency: frequency,
-                            availableHeight: 200, 
-                            totalUsage: analytic.daytimeUsage+analytic.nightUsage,
-                            startDate: analytic.start_date,
-                            endDate: analytic.end_date,
-                            index: index , selectedIndex: $selectedIndex)
+        if isLoading {
+            ProgressView()
+                .frame(height: chartHeight)
+        } else {
+            ZStack(alignment: .bottom) {
+                HStack(alignment: .bottom, spacing: barSpacing) {
+                    ForEach(Array(zip(analytics.indices, analytics)), id: \.1.id) { (index, analytic) in
+                        BarView(label: analytic.label,
+                                daytimeUsage: analytic.daytimeUsage,
+                                nightUsage: analytic.nightUsage,
+                                frequency: frequency,
+                                availableHeight: 200,
+                                totalUsage: analytic.daytimeUsage+analytic.nightUsage,
+                                startDate: analytic.start_date,
+                                endDate: analytic.end_date,
+                                index: index , selectedIndex: $selectedIndex)
+                    }
                 }
             }
+            .frame(height: chartHeight)
+            
         }
-        .frame(height: chartHeight)
     }
 }

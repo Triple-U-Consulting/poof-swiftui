@@ -14,6 +14,7 @@ class AnalyticsViewModel: ObservableObject {
     @Published var selectedIndex: Int? 
     @Published var selectedFrequency: Frequency = .week {
         didSet {
+            isLoading = true
             selectedIndex = nil
         }
     }
@@ -22,6 +23,8 @@ class AnalyticsViewModel: ObservableObject {
     @Published var analytics: [Analytics] = []
     @Published var currentDate: Date = Date()
     @Published var showTotal: Bool = false
+    @Published var isLoading: Bool = false
+
     
     var averagePuffs: Int {
         let totalPuffs = analytics.reduce(0) { $0 + $1.daytimeUsage + $1.nightUsage }
@@ -62,6 +65,7 @@ class AnalyticsViewModel: ObservableObject {
                 .sink {completion in
                     switch completion {
                     case .finished:
+                        self.isLoading = false
                         print(completion)
                         break
                     case .failure(let failure):
@@ -71,6 +75,7 @@ class AnalyticsViewModel: ObservableObject {
                     self.analytics = result
                     self.startDate = self.analytics.first?.start_date
                     self.endDate = self.analytics.last?.end_date
+                    self.isLoading = false
                     print(result)
                 }
                 .store(in: &cancellables)
