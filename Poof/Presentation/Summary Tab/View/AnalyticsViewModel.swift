@@ -93,6 +93,7 @@ class AnalyticsViewModel: ObservableObject {
             
         }
         fetchAnalytics()
+        selectedIndex = nil
     }
     
     func goForward() {
@@ -109,6 +110,7 @@ class AnalyticsViewModel: ObservableObject {
             currentDate = Calendar.current.date(byAdding: .month, value: 6, to: currentDate) ?? currentDate
         }
         fetchAnalytics()
+        selectedIndex = nil
     }
 }
 
