@@ -81,7 +81,10 @@ struct AnalyticsFilterView: View {
                     viewModel.fetchAnalytics()
                 }
                 
-            }.toolbar {
+            }
+            .navigationBarTitleDisplayMode(.inline)
+
+            .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Analytics")
                         .font(.largeTitle.bold())
