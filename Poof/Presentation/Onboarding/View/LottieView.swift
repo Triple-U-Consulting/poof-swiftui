@@ -32,5 +32,6 @@ struct LottieViewComponent: UIViewRepresentable {
         
         return view
     }
+    
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieViewComponent>) {}
 }

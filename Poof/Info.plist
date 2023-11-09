@@ -4,5 +4,7 @@
 <dict>
 	<key>ApiBaseURL</key>
 	<string>https://back-end-macro-production.up.railway.app</string>
+	<key>LocalBaseURL</key>
+	<string>http://127.0.0.1:3000</string>
 </dict>
 </plist>

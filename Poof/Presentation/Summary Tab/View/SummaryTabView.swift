@@ -10,20 +10,17 @@ import SwiftUI
 struct SummaryTabView: View {
     
     @EnvironmentObject var router: Router
-    
+    @EnvironmentObject var userDevice: UserDevice
+
     var body: some View {
-        VStack {
-            Text("Summary")
-            
-            Component.DefaultButton(text: "Pairing") {
-                router.path.append(Page.PairDevice)
-            }
-            .padding(.top, 68)
-        }
+        Text("Ini Analytics")
         
     }
 }
 
 #Preview {
     SummaryTabView()
+        .environmentObject(Router())
+        .environmentObject(UserDevice())
 }
+

@@ -73,3 +73,13 @@
 "Koneksi Hilang" = "Connection Lost";
 "Koneksi dengan inhaler terputus. Silahkan menghubungkan kembali." = "We can’t detect your inhaler. Please reconnect.";
 "Oke" = "Okay";
+
+// MARK: SheetAddData
+"Simpan" = "Save";
+"Dilacak pada" = "Tracked on";
+"Memperbaharui kondisi" = "Update condition";
+"puff terdeteksi" = "puff detected";
+"Iya" = "Yes";
+"Tidak" = "No";
+"Dipicu oleh alergi anda?" = "Triggered by your irritants?";
+"Pilih" = "Select";
