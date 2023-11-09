@@ -23,7 +23,9 @@
 		0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE62E2AF8D7CF00FB8A28 /* HomepageRepository.swift */; };
 		0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */; };
 		0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */; };
-		0BBBD9D22AFC917E0075AE6D /* CalendarSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D12AFC917E0075AE6D /* CalendarSheetViewModel.swift */; };
+		0BBBD9D42AFCF35C0075AE6D /* CalendarEditSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */; };
+		0BBBD9D62AFD3E940075AE6D /* CalendarEditSheetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */; };
+		0BBBD9D82AFD45130075AE6D /* UpdateConditionFromCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */; };
 		0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */; };
 		0BCD83B62AE0E0D200D111B0 /* UpdateUserInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */; };
 		0BCD83B82AE0E26500D111B0 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B72AE0E26500D111B0 /* UserRepository.swift */; };
@@ -140,7 +142,9 @@
 		0BABE62E2AF8D7CF00FB8A28 /* HomepageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageRepository.swift; sourceTree = "<group>"; };
 		0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageRepositoryImpl.swift; sourceTree = "<group>"; };
 		0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDataResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
-		0BBBD9D12AFC917E0075AE6D /* CalendarSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetViewModel.swift; sourceTree = "<group>"; };
+		0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditSheetView.swift; sourceTree = "<group>"; };
+		0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditSheetDetailView.swift; sourceTree = "<group>"; };
+		0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConditionFromCalendarView.swift; sourceTree = "<group>"; };
 		0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B72AE0E26500D111B0 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -627,6 +631,9 @@
 				AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */,
 				AB6883F42AF8F3B9004A6E45 /* CalendarSheetView.swift */,
 				3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */,
+				0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */,
+				0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */,
+				0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -635,7 +642,6 @@
 			isa = PBXGroup;
 			children = (
 				AB6883EA2AF8B804004A6E45 /* CalendarViewModel.swift */,
-				0BBBD9D12AFC917E0075AE6D /* CalendarSheetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -917,7 +923,6 @@
 				3F5A1ED32AFA17C600A3BB57 /* UpdateConditionCard.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
 				0BE97CB92AD7F894006A33AC /* TestGetNetwork.swift in Sources */,
-				0BBBD9D22AFC917E0075AE6D /* CalendarSheetViewModel.swift in Sources */,
 				0BABE62D2AF8D73B00FB8A28 /* HomeData.swift in Sources */,
 				AB5CB3822ADFC81800A4C291 /* UserDevice.swift in Sources */,
 				AB01C3E82ADD3A88008C3160 /* ConnectToHomeWifiView.swift in Sources */,
@@ -965,6 +970,7 @@
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
 				3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */,
 				0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */,
+				0BBBD9D62AFD3E940075AE6D /* CalendarEditSheetDetailView.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */,
@@ -976,6 +982,7 @@
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
 				AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */,
 				0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */,
+				0BBBD9D42AFCF35C0075AE6D /* CalendarEditSheetView.swift in Sources */,
 				3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */,
 				0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */,
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
@@ -993,6 +1000,7 @@
 				0B55DFEC2AFB7FBD007BACCE /* GetKambuhByMonth.swift in Sources */,
 				3FDAE0922AF4980100E0C696 /* UpdateKambuhCondition.swift in Sources */,
 				0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */,
+				0BBBD9D82AFD45130075AE6D /* UpdateConditionFromCalendarView.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
 				D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */,
 				3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */,

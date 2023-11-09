@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct ConditionRequestDTO: Encodable{
-    let allValuetoUpdate: [ConditionKambuh]
+struct ConditionRequestDTO: Encodable {
+    let allValueToUpdate: [ConditionKambuh]
 }
 
-extension ConditionRequestDTO{
-    struct ConditionKambuh: Encodable{
+extension ConditionRequestDTO {
+    struct ConditionKambuh: Encodable {
         let kambuh_id: Int
         let scale: Int?
         let trigger: Bool?

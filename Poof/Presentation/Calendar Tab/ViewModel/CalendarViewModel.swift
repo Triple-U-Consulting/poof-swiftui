@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum NoteStatus: Int8 {
     case noNotes = 0
@@ -14,31 +15,32 @@ enum NoteStatus: Int8 {
 }
 
 class CalendarViewModel: ObservableObject {
-    @Published private(set) var processedKambuhData: [Date: [Kambuh]]
+    @Published var processedKambuhData: [Date: [Kambuh]]
     
     // MARK: - Sheet view
-    @Published private(set) var currentDateSelected: Date?
-    
-    // MARK: - Sheet detail view
-    @Published private(set) var shownKambuhData: [Kambuh]
+    @Published private(set) var currentDateSelected: Date
     
     private(set) var calendar = Calendar.current
     
     // MARK: - Usecases
     private let getKambuhByMonth: GetKambuhByMonthUsecase
+    private let updateConditionKambuh: UpdateKambuhConditionUseCase
+    
+    // MARK: - Cancellables
+    private var cancellables = Set<AnyCancellable>()
     
     init(
         processedKambuhData: [Date: [Kambuh]] = [:],
-        currentDateSelected: Date? = nil,
-        shownKambuhData: [Kambuh] = [],
-        calendar: Foundation.Calendar = Calendar.current,
-        getKambuhByMonth: GetKambuhByMonthUsecase = GetKambuhByMonthImpl.shared
+        currentDateSelected: Date = Date(),
+        calendar: Calendar = Calendar.current,
+        getKambuhByMonth: GetKambuhByMonthUsecase = GetKambuhByMonthImpl.shared,
+        updateConditionKambuh: UpdateKambuhConditionUseCase = UpdateKambuhConditionImpl.shared
     ) {
         self.processedKambuhData = processedKambuhData
         self.currentDateSelected = currentDateSelected
-        self.shownKambuhData = shownKambuhData
         self.calendar = calendar
         self.getKambuhByMonth = getKambuhByMonth
+        self.updateConditionKambuh = updateConditionKambuh
     }
 }
 
@@ -71,12 +73,31 @@ extension CalendarViewModel {
                         self.processedKambuhData = groupedKambuhData
                     }
                 }
+                .store(in: &cancellables)
+        }
+    }
+    
+    func updateKambuhData() {
+        Task {
+            await updateConditionKambuh.execute(kambuh: self.processedKambuhData.values.flatMap{ $0 })
+                .sink { completion in
+                    switch completion{
+                    case .finished:
+                        print(completion)
+                    case .failure(let failure):
+                        print(failure.localizedDescription)
+                    }
+                } receiveValue: { result in
+                    print(result)
+                }
+                .store(in: &cancellables)
         }
     }
 }
 
 // MARK: - Actions
 extension CalendarViewModel {
+    // CalendarMonthView
     func setSelected(date: Date, day: Int) {
         var dateComponents = DateComponents()
         dateComponents.day = day
@@ -84,11 +105,6 @@ extension CalendarViewModel {
         dateComponents.year = calendar.component(.year, from: date)
         
         self.currentDateSelected = calendar.date(from: dateComponents)!
-        self.shownKambuhData = self.processedKambuhData[self.currentDateSelected!] ?? []
-    }
-    
-    func getRequestedKambuh(index: Int) -> Kambuh {
-        return shownKambuhData[index]
     }
     
     func hasNotes(date: Date, day: Int) -> NoteStatus {
@@ -108,6 +124,38 @@ extension CalendarViewModel {
         }
         
         return .filled
+    }
+    
+    // CalendarSheetView
+    func getDateKeys() -> [Date] {
+        return self.processedKambuhData.keys.sorted{ $0 < $1 }
+    }
+    
+    func getKambuhByDate(date: Date) -> [Kambuh] {
+        return self.processedKambuhData[date] ?? []
+    }
+    
+    func getCurrentKambuhTotalPuff(idx: Int) -> Int {
+        guard self.processedKambuhData[self.currentDateSelected] != nil else { return 0 }
+        
+        return self.processedKambuhData[self.currentDateSelected]![idx].totalPuff
+    }
+    
+    func getCurrentKambuhScale(idx: Int) -> String {
+        guard self.processedKambuhData[self.currentDateSelected] != nil else { return "No data recorded" }
+        
+        return self.processedKambuhData[self.currentDateSelected]![idx].scale == nil ? "No data recorded" : "\(self.processedKambuhData[self.currentDateSelected]![idx].scale!) points of breathing difficulty"
+    }
+    
+    func getCurrentKambuhTime(idx: Int) -> String {
+        guard self.processedKambuhData[self.currentDateSelected] != nil else { return "No data recorded" }
+        
+        return DateFormatUtil.shared.dateToString(date: self.processedKambuhData[self.currentDateSelected]![idx].start, to: "HH.mm")
+    }
+    
+    // CalendarEditSheetView
+    func getCurrentKambuh(index: Int) -> Kambuh {
+        return self.processedKambuhData[self.currentDateSelected]![index]
     }
 }
 

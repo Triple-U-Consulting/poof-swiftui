@@ -18,7 +18,6 @@ class ConditionViewModel: ObservableObject {
     @Published var kambuhId: [Int] = []
     //@Published private(set) var error: String = ""
 
-//    private let /*kambuh*/: Kambuh?
     private(set) var calendar = Calendar.current
     
     // MARK: Cancellables
@@ -111,7 +110,7 @@ extension ConditionViewModel {
         }
     }
     
-    func updateKambuhData(){
+    func updateKambuhData() {
         print(self.processedKambuhData)
         Task {
             await updateConditionKambuh.execute(kambuh: self.processedKambuhData.values.flatMap{ $0 })

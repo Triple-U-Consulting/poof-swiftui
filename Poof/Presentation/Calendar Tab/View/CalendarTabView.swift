@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CalendarTabView: View {
-    
     private let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
     private let currProgressDate = Date()
     private let vm = CalendarViewModel()

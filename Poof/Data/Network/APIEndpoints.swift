@@ -68,7 +68,7 @@ struct APIEndpoints {
             let req = ConditionRequestDTO.ConditionKambuh(kambuh_id: requestKambuh_id, scale: requestScale, trigger: requestTrigger)
             bodyParameters.append(req)
         }
-        let requestDTO = ConditionRequestDTO(allValuetoUpdate: bodyParameters)
+        let requestDTO = ConditionRequestDTO(allValueToUpdate: bodyParameters)
         print(requestDTO)
         
         return Endpoint(path: "data/update/condition", method: .put, bodyParametersEncodable: requestDTO)

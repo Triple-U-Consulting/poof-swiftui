@@ -15,6 +15,8 @@ struct CalendarMonthView: View {
     
     @State private var dayDates: [Int] = []
     @State private var showSheet = false
+    @State private var showEditSheet = false
+    @State private var indexKambuh = 0
     
     var body: some View {
         VStack {
@@ -72,9 +74,13 @@ struct CalendarMonthView: View {
             print(currProgressDate)
         }
         .sheet(isPresented: self.$showSheet) {
-            CalendarSheetView()
+            CalendarSheetView(index: $indexKambuh, showSheet: $showSheet, showEditSheet: $showEditSheet)
                 .environmentObject(vm)
         }
+        .sheet(isPresented: self.$showEditSheet, content: {
+            CalendarEditSheetView(index: indexKambuh, showSheet: $showEditSheet)
+                .environmentObject(vm)
+        })
     }
 }
 

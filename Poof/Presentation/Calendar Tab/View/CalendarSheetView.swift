@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct CalendarSheetView: View {
-    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var vm: CalendarViewModel
+    
+    @Binding private(set) var index: Int
+    @Binding private(set) var showSheet: Bool
+    @Binding private(set) var showEditSheet: Bool
 
     var body: some View {
         ScrollView {
             LazyVStack (alignment: .leading, spacing:0){
-                Component.DefaultText(text: "Tracked on \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected!, to: "d MMMM yyyy"))")
+                Component.DefaultText(text: "Tracked on \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "d MMMM yyyy"))")
                     .padding(.bottom, 24)
-                if vm.shownKambuhData.count > 0 {
-                    ForEach(vm.shownKambuhData.indices, id:\.self) {index in
-                        CalendarSheetDetailView(vm: CalendarSheetViewModel(kambuh: vm.getRequestedKambuh(index: index)))
+                if vm.processedKambuhData[vm.currentDateSelected] != nil {
+                    ForEach(vm.processedKambuhData[vm.currentDateSelected]!.indices, id:\.self) { idx in
+                        CalendarSheetDetailView(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet)
+                            .environmentObject(vm)
                     }
                 } else {
                     Component.DefaultText(text: "No inhaler usage tracked")
@@ -35,7 +39,13 @@ struct CalendarSheetView: View {
 }
 
 struct CalendarSheetDetailView: View {
-    @ObservedObject var vm: CalendarSheetViewModel
+    @EnvironmentObject private var vm: CalendarViewModel
+    
+    let index: Int
+    
+    @Binding private(set) var bindingIndex: Int
+    @Binding private(set) var showSheet: Bool
+    @Binding private(set) var showEditSheet: Bool
     
     var body: some View {
         VStack (spacing:0) {
@@ -43,7 +53,7 @@ struct CalendarSheetDetailView: View {
                 Text(Image(systemName: "clock"))
                     .font(.systemHeadline)
                     .foregroundColor(.primary1)
-                Component.DefaultText(text: " \(vm.time)")
+                Component.DefaultText(text: " \(vm.getCurrentKambuhTime(idx: index))")
                     .font(.systemHeadline)
                     .foregroundColor(.black)
                 Spacer()
@@ -51,7 +61,11 @@ struct CalendarSheetDetailView: View {
                     .font(.systemHeadline)
                     .foregroundColor(.primary1)
                     .onTapGesture {
-                        //logic
+                        withAnimation {
+                            self.bindingIndex = index
+                            self.showSheet.toggle()
+                            self.showEditSheet.toggle()
+                        }
                     }
             }
             
@@ -61,14 +75,14 @@ struct CalendarSheetDetailView: View {
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
-                    Component.DefaultText(text: "\(vm.totalPuff) Inhaler Puff")
+                    Component.DefaultText(text: "\(vm.getCurrentKambuhTotalPuff(idx: index)) Inhaler Puff")
                         .padding(.top, 8)
                     
                     Component.DefaultText(text: "Breathing Difficulty Scale")
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
-                    Component.DefaultText(text: "\(vm.scale)")
+                    Component.DefaultText(text: "\(vm.getCurrentKambuhScale(idx: index))")
                         .padding(.top, 8)
                     
                     Component.DefaultText(text: "Triggered By")
@@ -87,9 +101,6 @@ struct CalendarSheetDetailView: View {
             .cornerRadius(10)
             .padding(.top, 12)
             .padding(.bottom, 24)
-        }
-        .onAppear {
-            vm.getData()
         }
     }
 }

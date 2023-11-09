@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 struct UpdateConditionView: View {
-    
     @EnvironmentObject var vm: ConditionViewModel
     @EnvironmentObject var router: Router
     
