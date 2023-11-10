@@ -95,6 +95,7 @@
 		AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */; };
 		ABB5FE6F2AE6812400227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		ABB5FE702AE6812500227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
+		D608B06C2AFD0A4D00ECD179 /* RotatingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D608B06B2AFD0A4D00ECD179 /* RotatingCircleView.swift */; };
 		D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */; };
 		D61C22B42AFA2B0F006B9058 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B32AFA2B0F006B9058 /* BarView.swift */; };
 		D61C22B62AFA478B006B9058 /* FrequencyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */; };
@@ -228,6 +229,7 @@
 		AB7BEDD72ACD6F8C0071BF10 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		D608B06B2AFD0A4D00ECD179 /* RotatingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircleView.swift; sourceTree = "<group>"; };
 		D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFilterView.swift; sourceTree = "<group>"; };
 		D61C22B32AFA2B0F006B9058 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyPickerView.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDBD2ACD4C940071BF10 /* InhalerTabView.swift */,
+				D608B06B2AFD0A4D00ECD179 /* RotatingCircleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1015,6 +1018,8 @@
 				0BABE62B2AF8D71200FB8A28 /* GetHomeData.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
+				D608B06C2AFD0A4D00ECD179 /* RotatingCircleView.swift in Sources */,
+				3FDA760F2AFB65110096EA7D /* InputDataCondition.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
 				D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */,
