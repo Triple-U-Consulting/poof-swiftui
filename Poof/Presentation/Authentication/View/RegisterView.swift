@@ -13,11 +13,11 @@ struct RegisterView: View {
     @EnvironmentObject var userDevice: UserDevice
     @EnvironmentObject private var viewModel: AuthViewModel
     @State private var email: String = ""
-    @State private var dob: Date?
+    //@State private var dob: Date?
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
-   // @State private var currentPage: SignPage = .register
-//var currentPage: Page
+    // @State private var currentPage: SignPage = .register
+    //var currentPage: Page
     
     var body: some View {
         ZStack {
@@ -39,15 +39,15 @@ struct RegisterView: View {
                         
                         Component.CustomDivider(width: 342)
                         
-                        Component.titleSignPage(text: "Tanggal Lahir")
-                            
-                        Component.DatePickerTextField(placeholder: NSLocalizedString("HH.BB.TTTT", comment: ""), date: $dob)
-                            .frame(height: 34)
-                            //.background(Color.black)
-                            .padding([.leading, .trailing], 30)
-                            .padding(.top, 8)
-                        
-                        Component.CustomDivider(width: 342)
+//                        Component.titleSignPage(text: "Tanggal Lahir")
+//                        
+//                        Component.DatePickerTextField(placeholder: NSLocalizedString("HH.BB.TTTT", comment: ""), date: $dob)
+//                            .frame(height: 34)
+//                        //.background(Color.black)
+//                            .padding([.leading, .trailing], 30)
+//                            .padding(.top, 8)
+//                        
+//                        Component.CustomDivider(width: 342)
                         
                         Component.titleSignPage(text: "Kata Sandi")
                         
@@ -77,30 +77,38 @@ struct RegisterView: View {
                         
                         Spacer()
                         
-                        
-                        Component.DefaultButton(text: "Sign Up") {
-                            viewModel.register(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
-                            router.path.removeLast()
+                        VStack{
+                            
+                            switch viewModel.message {
+                            case "Email already registered":
+                                Component.textErrorMessageSignPage(string: "Email sudah terdaftar")
+                            case "User registered":
+                                Text("")
+                            case self.viewModel.message:
+                                Component.textErrorMessageSignPage(string: viewModel.message)
+                            default:
+                                Text("")
+                            }
+                            
+//                            if viewModel.message == "Email already registered"{
+//                                Component.textErrorMessageSignPage(string: "Email sudah terdaftar")
+//                            } else {
+//                                Component.textErrorMessageSignPage(string: viewModel.message)
+//                            }
+                            
+                            Component.DefaultButton(text: "Sign Up") {
+                                viewModel.register(email: email, password: password, confirmPassword: confirmPassword)
+                                //                                    router.path.removeLast()
+                            }
+                            .padding(.top, 5)
+                            .padding(.horizontal, 24)
+                            Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
+                                router.path.removeLast()
+                            }
+                            .padding(.top, 25)
+                            .padding(.bottom, 76 - userDevice.bottomSafeArea)
                         }
-                        .padding(.top, 16)
-                        .padding(.horizontal, 24)
-                        
-                        Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
-                            router.path.removeLast()
-                        }
-                        .padding(.top, 40)
-                        .padding(.bottom, 76 - userDevice.bottomSafeArea)
-                        
-//                        if let message = viewModel.message{
-//                            Text(message)
-//                                .foregroundStyle(.green)
-//                        }
-//                        
-//                        if let error = viewModel.error{
-//                            Text(error)
-//                                .foregroundStyle(.red)
-//                        }
-                        
+                        .position(x: 190, y: 395)
                     }
                     .toolbar{
                         ToolbarItem(placement: .topBarLeading) {
@@ -109,6 +117,7 @@ struct RegisterView: View {
                         }
                     }
                 }
+                
             }
             .padding(8)
         }
@@ -120,4 +129,5 @@ struct RegisterView: View {
         .environmentObject(AuthViewModel())
         .environmentObject(UserDevice())
         .environmentObject(Router())
+        .environment(\.locale, .init(identifier: "id"))
 }

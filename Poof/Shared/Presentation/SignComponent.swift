@@ -32,7 +32,7 @@ extension Component {
                 
                 Spacer()
             }
-            .padding(EdgeInsets(top: 25, leading: 16, bottom: 0, trailing: 0))
+            .padding(EdgeInsets(top: 20, leading: 16, bottom: 0, trailing: 0))
         }
     }
     
@@ -53,6 +53,15 @@ extension Component {
                         .foregroundStyle(Color.Main.blueText)
                 }
             }
+        }
+    }
+    
+    struct textErrorMessageSignPage: View {
+        var string: String
+        var body: some View {
+            Text((NSLocalizedString(string, comment: "")))
+                .font(.systemBodyText)
+                .foregroundStyle(.red)
         }
     }
     

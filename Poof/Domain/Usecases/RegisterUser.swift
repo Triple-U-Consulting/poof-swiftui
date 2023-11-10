@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol RegisterUserUsecase {
-    func execute(email: String, password: String, dob: Date) async -> AnyPublisher<String, Failure>
+    func execute(email: String, password: String) async -> AnyPublisher<String, Failure>
 }
 
 class RegisterUserImpl {
@@ -19,7 +19,7 @@ class RegisterUserImpl {
 }
 
 extension RegisterUserImpl: RegisterUserUsecase{
-    func execute(email: String, password: String, dob: Date) async -> AnyPublisher<String, Failure> {
-        return await self.repository.registerUser(email: email, password: password, dob: dob)
+    func execute(email: String, password: String) async -> AnyPublisher<String, Failure> {
+        return await self.repository.registerUser(email: email, password: password)
     }
 }
