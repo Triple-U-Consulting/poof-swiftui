@@ -130,9 +130,9 @@ extension CalendarViewModel {
         return calendar.date(byAdding: .month, value: value, to: date)!
     }
 
-//    func minusMonth(date: Date) -> Date {
-//        return calendar.date(byAdding: .month, value: -1, to: date)!
-//    }
+    func minusMonth(date: Date, value: Int) -> Date {
+        return calendar.date(byAdding: .month, value: value, to: date)!
+    }
     
     //full month = LLLL, year = yyyy
     func getCalendarComponentString(date: Date, format: String) -> String {
@@ -197,6 +197,7 @@ extension CalendarViewModel {
         
         var ctrItem: Int = 1
         //empty space have 42 box
+        print(startingSpace)
         while(ctrItem <= 42) {
             if ctrItem <= startingSpace || (ctrItem - startingSpace) > totalDays {
                 daysData.append(0)
@@ -207,5 +208,17 @@ extension CalendarViewModel {
             ctrItem += 1
         }
         return daysData
+    }
+}
+
+
+
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
     }
 }

@@ -13,25 +13,30 @@ struct CalendarMonthView: View {
     let columns = Array(repeating: GridItem(spacing: 0), count:7)
     let currProgressDate: Date
     
+//    @Binding var dayDates: [Int]
     @State private var dayDates: [Int] = []
     @State private var showSheet = false
     
     var body: some View {
         VStack {
+            
             //Month
             HStack {
                 Text(vm.getCalendarComponentString(date: vm.plusMonth(date: currProgressDate, value: 0), format: "LLLL")
                 )
                 .onAppear {
-                    DispatchQueue.main.async {
+                    dayDates = vm.showCalendarData(currProgressDate: currProgressDate)
+                }
+                .onChange(of: currProgressDate) {
+//                    DispatchQueue.main.async {
                         dayDates = vm.showCalendarData(currProgressDate: currProgressDate)
-                    }
+//                    }
                 }
             }
-            
+                        
             //Calendar Data
             LazyVGrid(columns: columns, alignment: .center, spacing: 0) {
-                
+
                 //Day Cell
                 ForEach(dayDates.indices, id:\.self) {index in
                     let dayDate = dayDates[index] //["","",1,2,3,4,5,...]
