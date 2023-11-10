@@ -62,8 +62,6 @@ struct LoginView: View {
                 
                 Component.DefaultButton(text: "Sign In") {
                     viewModel.login(email: "angela@gmail.com", password: "angela")
-                    
-                    router.path.append(Page.TabBar)
                 }
                 .padding(.top, 16)
                 .padding(.horizontal, 24)
@@ -83,6 +81,11 @@ struct LoginView: View {
 //                RegisterView().environmentObject(router)
 //            }
         }
+        .onChange(of: viewModel.status, { _, newValue in
+            if newValue == .success {
+                router.path.append(Page.TabBar)
+            }
+        })
         .padding(8)
     }
 }

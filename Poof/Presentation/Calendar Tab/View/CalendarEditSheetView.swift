@@ -19,13 +19,17 @@ struct CalendarEditSheetView: View {
             NavigationView{
                 ZStack {
                     Color(Color.Neutrals.sheetBackground).ignoresSafeArea()
-                    VStack(alignment: .leading){
-                    
-                        Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "dd MMMM yyyy"))"))
-                            .padding(.bottom, 32)
+                    VStack {
+                        LazyVStack(alignment: .leading){
                         
-                        CalendarEditSheetDetailView(index: index, showSheet: $showSheet)
-                            .environmentObject(vm)
+                            Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "dd MMMM yyyy"))"))
+                                .padding(.bottom, 32)
+                            
+                            CalendarEditSheetDetailView(index: index, showSheet: $showSheet)
+                                .environmentObject(vm)
+                        }
+                        
+                        Spacer()
                     }
                 }
                 .toolbar{

@@ -61,9 +61,10 @@ struct CalendarSheetDetailView: View {
                     .font(.systemHeadline)
                     .foregroundColor(.primary1)
                     .onTapGesture {
-                        withAnimation {
-                            self.bindingIndex = index
-                            self.showSheet.toggle()
+                        self.bindingIndex = index
+                        self.showSheet.toggle()
+                        
+                        withAnimation(Animation.linear.delay(2)) {
                             self.showEditSheet.toggle()
                         }
                     }

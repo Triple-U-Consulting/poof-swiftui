@@ -8,11 +8,11 @@
 import Foundation
 import Combine
 
-enum LoginStatus {
+enum LoginStatus: Int8 {
     case initial
     case loading
     case success
-    case failure(failure: Failure)
+    case failure
 }
 
 class AuthViewModel: ObservableObject {
@@ -87,7 +87,7 @@ extension AuthViewModel {
                         print(failure)
                         
                         DispatchQueue.main.async { [weak self] in
-                            self?.status = .failure(failure: failure)
+                            self?.status = .failure
                         }
                         
                         break
