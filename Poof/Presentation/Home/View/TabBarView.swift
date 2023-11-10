@@ -45,11 +45,11 @@ struct TabBarView: View {
                 
             }
             .accentColor(Color.Main.primary1)
-            .onAppear() {
-                UITabBar.appearance().tintColor = .yellow
-                UITabBar.appearance().barTintColor = .red
-                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
-            }
+//            .onAppear() {
+//                UITabBar.appearance().tintColor = .yellow
+//                UITabBar.appearance().barTintColor = .red
+//                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
+//            }
         }
     }
 }
