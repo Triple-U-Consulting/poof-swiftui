@@ -22,7 +22,7 @@ struct PairDeviceView: View {
                     ConnectToDeviceWifiView(pairProgress: $pairProgress)
                 case .loadingPairing:
                     LoadingPairingView(pairProgress: $pairProgress)
-                        .environmentObject(ViewModel())
+                        .environmentObject(PairingViewModel())
                 case .failedPairing:
                     FailedPairingView(pairProgress: $pairProgress)
                 case .successPairing:
@@ -41,6 +41,7 @@ struct PairDeviceView: View {
                         .font(.systemTitle1)
                 }
             }
+            .padding(.horizontal, 24)
         }
     }
 }

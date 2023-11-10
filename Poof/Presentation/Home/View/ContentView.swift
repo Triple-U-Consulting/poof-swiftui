@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
-    @StateObject var vm = ViewModel()
+    @StateObject var vm = PairingViewModel()
     
     var body: some View {
         ZStack {

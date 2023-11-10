@@ -81,6 +81,13 @@ struct APIEndpoints {
         return Endpoint(path: "auth/update/inhaler", method: .put, bodyParameters: bodyParameters, headerParameters: headerParameters)
     }
     
+    static func updateInhalerBottle(id: String, dose: Int) -> Endpoint<MessageResponseDTO> {
+        let bodyParameters = ["remaining_puff": dose]
+        let headerParameters = ["inhaler_id": id]
+        
+        return Endpoint(path: "inhaler/update/remaining-inhaler", method: .put, bodyParameters: bodyParameters, headerParameters: headerParameters)
+    }
+    
     // MARK: - IOT
     static func getIoTInhalerId() -> Endpoint<IoTResponseDTO> {
         return Endpoint(path: "http://192.168.4.1/device-id", isFullPath: true, method: .get)

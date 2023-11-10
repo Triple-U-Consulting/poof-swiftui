@@ -22,7 +22,7 @@ enum InhalerStatus {
     case failure(failure: Failure)
 }
 
-class ViewModel: ObservableObject {
+class PairingViewModel: ObservableObject {
     // MARK: - Attributes
 //    @Published var name: String
     @Published private(set) var kambuhList: [Kambuh] = []
@@ -39,6 +39,7 @@ class ViewModel: ObservableObject {
     private let getKambuhById: GetKambuhDataByIdUseCase
     private let getInhalerId: PairInhalerUsecase
     private let updateUserInhaler: UpdateUserInhalerUsecase
+    private let updateInhalerBottle: UpdateInhalerDoseUsecase
     private let login: LoginUserUsecase
     
     private let stateManager: StateManager
@@ -49,6 +50,7 @@ class ViewModel: ObservableObject {
         getKambuhById: GetKambuhDataByIdUseCase = GetKambuhDataByIdImpl.shared,
         getInhalerId: PairInhalerUsecase = PairInhalerImpl.shared,
         updateUserInhaler: UpdateUserInhalerUsecase = UpdateUserInhalerImpl.shared,
+        updateInhalerBottle: UpdateInhalerDoseUsecase = UpdateInhalerDoseImpl.shared,
         login: LoginUserUsecase = LoginUserImpl.shared,
 //        addWifi: AddWifiUseCase = AddWifiImpl.shared
         stateManager: StateManager = StateManager.shared,
@@ -59,6 +61,7 @@ class ViewModel: ObservableObject {
         self.getKambuhById = getKambuhById
         self.getInhalerId = getInhalerId
         self.updateUserInhaler = updateUserInhaler
+        self.updateInhalerBottle = updateInhalerBottle
         self.login = login
         self.stateManager = stateManager
         self.userDefaultsController = userDefaultsController
@@ -125,6 +128,24 @@ class ViewModel: ObservableObject {
     func updateUserInhalerId() {
         Task {
             await self.updateUserInhaler.execute(requestValue: self.inhalerId ?? "", userToken: userDefaultsController.getString(key: "token") ?? "")
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { result in
+                    print(result)
+                }
+        }
+    }
+    
+    func updateDose(dose: Int = 200) {
+        guard let inhalerId = self.inhalerId else { return }
+        
+        Task {
+            await self.updateInhalerBottle.execute(inhalerId: inhalerId, dose: dose)
                 .sink { completion in
                     switch completion {
                     case .finished:

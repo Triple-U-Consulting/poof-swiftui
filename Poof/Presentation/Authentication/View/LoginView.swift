@@ -83,7 +83,7 @@ struct LoginView: View {
         }
         .onChange(of: viewModel.status, { _, newValue in
             if newValue == .success {
-                router.path.append(Page.TabBar)
+                router.path.append(Page.PairDevice)
             }
         })
         .padding(8)

@@ -10,7 +10,7 @@ import SwiftUI
 struct LoadingPairingView: View {
     
     @Binding var pairProgress : PairDevicePage
-    @EnvironmentObject var vm: ViewModel
+    @EnvironmentObject var vm: PairingViewModel
 
     
     var body: some View {
