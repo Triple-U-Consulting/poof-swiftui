@@ -96,6 +96,8 @@
 		AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */; };
 		ABB5FE6F2AE6812400227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		ABB5FE702AE6812500227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
+		ABE72E1F2AFE38AF008AF550 /* DoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE72E1E2AFE38AF008AF550 /* DoseView.swift */; };
+		ABE72E212AFE3915008AF550 /* IrritantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE72E202AFE3915008AF550 /* IrritantView.swift */; };
 		D608B06C2AFD0A4D00ECD179 /* RotatingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D608B06B2AFD0A4D00ECD179 /* RotatingCircleView.swift */; };
 		D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */; };
 		D61C22B42AFA2B0F006B9058 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B32AFA2B0F006B9058 /* BarView.swift */; };
@@ -231,6 +233,8 @@
 		AB7BEDD72ACD6F8C0071BF10 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		ABE72E1E2AFE38AF008AF550 /* DoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseView.swift; sourceTree = "<group>"; };
+		ABE72E202AFE3915008AF550 /* IrritantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrritantView.swift; sourceTree = "<group>"; };
 		D608B06B2AFD0A4D00ECD179 /* RotatingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircleView.swift; sourceTree = "<group>"; };
 		D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFilterView.swift; sourceTree = "<group>"; };
 		D61C22B32AFA2B0F006B9058 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
@@ -389,6 +393,8 @@
 				AB01C3D52ADD21D0008C3160 /* SuccessPairingView.swift */,
 				AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */,
 				AB01C3E72ADD3A88008C3160 /* ConnectToHomeWifiView.swift */,
+				ABE72E1E2AFE38AF008AF550 /* DoseView.swift */,
+				ABE72E202AFE3915008AF550 /* IrritantView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1017,12 +1023,12 @@
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */,
+				ABE72E212AFE3915008AF550 /* IrritantView.swift in Sources */,
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
 				0BABE62B2AF8D71200FB8A28 /* GetHomeData.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
 				D608B06C2AFD0A4D00ECD179 /* RotatingCircleView.swift in Sources */,
-				3FDA760F2AFB65110096EA7D /* InputDataCondition.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
 				D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */,
@@ -1041,6 +1047,7 @@
 				3FDA76192AFCB4E30096EA7D /* CalendarMonthView.swift in Sources */,
 				D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */,
 				AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */,
+				ABE72E1F2AFE38AF008AF550 /* DoseView.swift in Sources */,
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,
 				0B8D60BB2AE0C0FC0017445F /* User.swift in Sources */,
 				0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */,
