@@ -10,5 +10,4 @@ import Foundation
 struct UserRequestDTO: Encodable {
     let email: String
     let password: String
-    let dob: String
 }

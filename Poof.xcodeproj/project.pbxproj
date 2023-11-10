@@ -63,6 +63,7 @@
 		3FDA76192AFCB4E30096EA7D /* CalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */; };
 		3FDAE0922AF4980100E0C696 /* UpdateKambuhCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */; };
 		3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAE0932AF8705A00E0C696 /* ConditionRequestDTO.swift */; };
+		3FFE00E52AFDD02A00069D48 /* CalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE00E42AFDD02A00069D48 /* CalendarMonthView.swift */; };
 		AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3CA2AD809B7008C3160 /* LottieView.swift */; };
 		AB01C3CE2AD80A4D008C3160 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AB01C3CD2AD80A4D008C3160 /* Lottie */; };
 		AB01C3D02ADD1A72008C3160 /* StartPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */; };
@@ -196,6 +197,7 @@
 		3FDAE0932AF8705A00E0C696 /* ConditionRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionRequestDTO.swift; sourceTree = "<group>"; };
 		3FF77A5A2ACEC53A001F6CC2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3FF77A5C2ACEC53F001F6CC2 /* Test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1.swift; sourceTree = "<group>"; };
+		3FFE00E42AFDD02A00069D48 /* CalendarMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthView.swift; sourceTree = "<group>"; };
 		AB01C3CA2AD809B7008C3160 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPairingView.swift; sourceTree = "<group>"; };
 		AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToDeviceWifiView.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 			isa = PBXGroup;
 			children = (
 				AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */,
+				3FFE00E42AFDD02A00069D48 /* CalendarMonthView.swift */,
 				AB6883F42AF8F3B9004A6E45 /* CalendarSheetView.swift */,
 				3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */,
 				0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */,
@@ -1053,6 +1056,7 @@
 				D63CF5332AF9BE3C00CCE0FD /* Analytics.swift in Sources */,
 				D61C22B62AFA478B006B9058 /* FrequencyPickerView.swift in Sources */,
 				3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */,
+				3FFE00E52AFDD02A00069D48 /* CalendarMonthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

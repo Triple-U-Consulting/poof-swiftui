@@ -234,6 +234,7 @@ struct Component {
         var body: some View {
             Divider()
                 .frame(width: width, height: 1)
+                .padding(.top, 8)
         }
     }
 }

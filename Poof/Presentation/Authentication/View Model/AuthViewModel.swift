@@ -18,7 +18,8 @@ enum LoginStatus: Int8 {
 class AuthViewModel: ObservableObject {
     // MARK: - Attributes
     @Published private(set) var status: LoginStatus = .initial
-    @Published private(set) var errorMsg: String = ""
+    @Published private(set) var message: String = ""
+    //@Published private(set) var message: String = ""
     
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
@@ -46,15 +47,36 @@ class AuthViewModel: ObservableObject {
 }
 
 extension AuthViewModel {
-    func register(email: String, password: String, dob: Date?, confirmPassword: String) {
-        guard let d = dob else { return }
-        guard password == confirmPassword else {
-            self.errorMsg = "Passwords don't match!"
+    func register(email: String, password: String, confirmPassword: String) {
+//        guard let d = dob else { 
+//            print("dob error")
+//            return }
+        guard email != "" else {
+            self.message = "Email can't be empty"
             return
         }
-        
+        guard !email.contains("@.com") else {
+            self.message = "Email must contains @.com"
+            return
+        }
+        guard password == confirmPassword else {
+            self.message = "Passwords don't match!"
+            return
+        }
+        guard password != "" else {
+            self.message = "Password can't be empty"
+            return
+        }
+        guard confirmPassword != "" else {
+            self.message = "Confirm password can't be empty"
+            return
+        }
+        guard password.count > 8 else {
+            self.message = "Password must 8 characters or higher"
+            return
+        }
         Task {
-            await registUseCase.execute(email: email, password: password, dob: d)
+            await registUseCase.execute(email: email, password: password)
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -64,6 +86,7 @@ extension AuthViewModel {
                     }
                 } receiveValue: { message in
                     print(message)
+                    self.message = message
                 }
                 .store(in: &cancellables)
         }
