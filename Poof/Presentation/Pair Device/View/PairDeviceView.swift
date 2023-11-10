@@ -11,6 +11,7 @@ struct PairDeviceView: View {
     
     @EnvironmentObject var router: Router
     @State private var pairProgress = PairDevicePage.startPairing
+    @State private var navigationTitleText: String = "Pair Your Inhaler"
     
     var body: some View {
         NavigationView {
@@ -29,19 +30,43 @@ struct PairDeviceView: View {
                     SuccessPairingView(pairProgress: $pairProgress)
                 case .connectToHomeWifi:
                     ConnectToHomeWifiView(pairProgress: $pairProgress)
+                case .dose:
+                    DoseView(pairProgress: $pairProgress)
+                case .irritant:
+                    IrritantView(pairProgress: $pairProgress)
                 }
             }
             .toolbar {
-                if pairProgress == PairDevicePage.startPairing {
-                    ToolbarItem(placement: .topBarLeading) {
-                    }
-                }
+//                if pairProgress == PairDevicePage.startPairing {
+//                    ToolbarItem(placement: .topBarLeading) {
+//                    }
+//                }
                 ToolbarItem(placement: .principal) {
-                    Text("Pair Your Device")
+                    Text("\(navigationTitleText)")
                         .font(.systemTitle1)
                 }
             }
             .padding(.horizontal, 24)
+            .onChange(of: pairProgress) { _, newValue in
+                switch newValue {
+                case .startPairing:
+                    navigationTitleText = "Pair Your Inhaler"
+                case .connectToDeviceWifi:
+                    navigationTitleText = "Pair Your Inhaler"
+                case .loadingPairing:
+                    navigationTitleText = "Pair Your Inhaler"
+                case .failedPairing:
+                    navigationTitleText = "Pair Your Inhaler"
+                case .successPairing:
+                    navigationTitleText = "Pair Your Inhaler"
+                case .connectToHomeWifi:
+                    navigationTitleText = "Pair Your Inhaler"
+                case .dose:
+                    navigationTitleText = "Input Remaining Inhaler Doses"
+                case .irritant:
+                    navigationTitleText = "Irritants"
+                }
+            }
         }
     }
 }
@@ -58,4 +83,6 @@ enum PairDevicePage {
     case failedPairing
     case successPairing
     case connectToHomeWifi
+    case dose
+    case irritant
 }

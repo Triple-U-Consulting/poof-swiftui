@@ -36,7 +36,7 @@ struct ConnectToHomeWifiView: View {
                     .padding(.top, 8)
                 
                 Component.DefaultButton(text: "Done", buttonLevel: .primary, buttonState: .active) {
-                    pairProgress = .connectToDeviceWifi
+                    pairProgress = .dose
                     router.path.append(Page.TabBar)
                 }
                 
