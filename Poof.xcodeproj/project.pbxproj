@@ -82,7 +82,6 @@
 		AB7BEDAF2ACD4B780071BF10 /* PoofUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDAE2ACD4B780071BF10 /* PoofUITests.swift */; };
 		AB7BEDB12ACD4B780071BF10 /* PoofUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDB02ACD4B780071BF10 /* PoofUITestsLaunchTests.swift */; };
 		AB7BEDBE2ACD4C940071BF10 /* InhalerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDBD2ACD4C940071BF10 /* InhalerTabView.swift */; };
-		AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */; };
 		AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */; };
 		AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */; };
 		AB7BEDD22ACD56680071BF10 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDD12ACD56680071BF10 /* Component.swift */; };
@@ -93,6 +92,17 @@
 		AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */; };
 		ABB5FE6F2AE6812400227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		ABB5FE702AE6812500227E43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
+		D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */; };
+		D61C22B42AFA2B0F006B9058 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B32AFA2B0F006B9058 /* BarView.swift */; };
+		D61C22B62AFA478B006B9058 /* FrequencyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */; };
+		D63CF52F2AF7BE5400CCE0FD /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */; };
+		D63CF5312AF88EB400CCE0FD /* TotalPuffPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF5302AF88EB400CCE0FD /* TotalPuffPopUpView.swift */; };
+		D63CF5332AF9BE3C00CCE0FD /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF5322AF9BE3C00CCE0FD /* Analytics.swift */; };
+		D63CF5352AF9BE8B00CCE0FD /* AnalyticsResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF5342AF9BE8B00CCE0FD /* AnalyticsResponseDTO+Mapping.swift */; };
+		D63CF5372AF9BF3700CCE0FD /* AnalyticsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF5362AF9BF3700CCE0FD /* AnalyticsRepository.swift */; };
+		D63CF5392AF9BF8A00CCE0FD /* GetAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF5382AF9BF8A00CCE0FD /* GetAnalytics.swift */; };
+		D63CF53B2AF9C05700CCE0FD /* AnalyticsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF53A2AF9C05700CCE0FD /* AnalyticsRepositoryImpl.swift */; };
+		D63CF53D2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CF53C2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift */; };
 		D65636FF2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */; };
 		D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */; };
 		D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */; };
@@ -101,6 +111,7 @@
 		D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */; };
 		D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */; };
 		D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */; };
+		D6EA61802AFB9BB50019BA51 /* AnalyticsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,7 +215,6 @@
 		AB7BEDAE2ACD4B780071BF10 /* PoofUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoofUITests.swift; sourceTree = "<group>"; };
 		AB7BEDB02ACD4B780071BF10 /* PoofUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoofUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AB7BEDBD2ACD4C940071BF10 /* InhalerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerTabView.swift; sourceTree = "<group>"; };
-		AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTabView.swift; sourceTree = "<group>"; };
 		AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairDeviceView.swift; sourceTree = "<group>"; };
 		AB7BEDD12ACD56680071BF10 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
@@ -213,6 +223,17 @@
 		AB7BEDD72ACD6F8C0071BF10 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AB7BEDDE2ACD7A8A0071BF10 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFilterView.swift; sourceTree = "<group>"; };
+		D61C22B32AFA2B0F006B9058 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyPickerView.swift; sourceTree = "<group>"; };
+		D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		D63CF5302AF88EB400CCE0FD /* TotalPuffPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPuffPopUpView.swift; sourceTree = "<group>"; };
+		D63CF5322AF9BE3C00CCE0FD /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		D63CF5342AF9BE8B00CCE0FD /* AnalyticsResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnalyticsResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		D63CF5362AF9BF3700CCE0FD /* AnalyticsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsRepository.swift; sourceTree = "<group>"; };
+		D63CF5382AF9BF8A00CCE0FD /* GetAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnalytics.swift; sourceTree = "<group>"; };
+		D63CF53A2AF9C05700CCE0FD /* AnalyticsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsRepositoryImpl.swift; sourceTree = "<group>"; };
+		D63CF53C2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsRepository.swift; sourceTree = "<group>"; };
 		D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -221,6 +242,7 @@
 		D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWifiDetails.swift; sourceTree = "<group>"; };
 		D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetailsRepositoryImpl.swift; sourceTree = "<group>"; };
+		D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,13 +331,13 @@
 			path = "Pair Device";
 			sourceTree = "<group>";
 		};
-		0B8D60812AD94ABE0017445F /* Summary Tab */ = {
+		0B8D60812AD94ABE0017445F /* Analytics Tab */ = {
 			isa = PBXGroup;
 			children = (
 				0B8D60852AD94B480017445F /* View */,
 				AB6883F32AF8F350004A6E45 /* ViewModel */,
 			);
-			path = "Summary Tab";
+			path = "Analytics Tab";
 			sourceTree = "<group>";
 		};
 		0B8D60832AD94AD80017445F /* Onboarding */ = {
@@ -338,7 +360,12 @@
 		0B8D60852AD94B480017445F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB7BEDBF2ACD4CB10071BF10 /* SummaryTabView.swift */,
+				D63CF52E2AF7BE5400CCE0FD /* ChartView.swift */,
+				D63CF5302AF88EB400CCE0FD /* TotalPuffPopUpView.swift */,
+				D61C22B32AFA2B0F006B9058 /* BarView.swift */,
+				D61C22B52AFA478B006B9058 /* FrequencyPickerView.swift */,
+				D6EA617F2AFB9BB50019BA51 /* AnalyticsCardView.swift */,
+				D61C22B12AF9D651006B9058 /* AnalyticsFilterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,6 +463,7 @@
 				0BCD83BB2AE0E81D00D111B0 /* UserLoginResponseDTO+Mapping.swift */,
 				0B8007072AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift */,
 				D65636FE2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift */,
+				D63CF5342AF9BE8B00CCE0FD /* AnalyticsResponseDTO+Mapping.swift */,
 				0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */,
 				0B55DFED2AFB82A5007BACCE /* KambuhByMonthResponseDTO+Mapping.swift */,
 			);
@@ -467,6 +495,7 @@
 				0BE97C972ACFF4D0006A33AC /* KambuhRepository.swift */,
 				0BCD83B72AE0E26500D111B0 /* UserRepository.swift */,
 				0B8D60A52ADD4A9C0017445F /* IoTRepository.swift */,
+				D63CF5362AF9BF3700CCE0FD /* AnalyticsRepository.swift */,
 				D65637002AE0D3CD00C64FC1 /* WifiDetailsRepository.swift */,
 				0BABE62E2AF8D7CF00FB8A28 /* HomepageRepository.swift */,
 			);
@@ -483,6 +512,7 @@
 				0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */,
 				0BCD83BD2AE0F20300D111B0 /* LoginUser.swift */,
 				D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */,
+				D63CF5382AF9BF8A00CCE0FD /* GetAnalytics.swift */,
 				3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */,
 				3F23D7BE2AF89BB200DF47AC /* GetKambuhByDate.swift */,
 				0BABE62A2AF8D71200FB8A28 /* GetHomeData.swift */,
@@ -498,6 +528,7 @@
 				0B8D60AB2ADE309F0017445F /* Inhaler.swift */,
 				0B8D60BA2AE0C0FC0017445F /* User.swift */,
 				D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */,
+				D63CF5322AF9BE3C00CCE0FD /* Analytics.swift */,
 				0BABE62C2AF8D73B00FB8A28 /* HomeData.swift */,
 			);
 			path = Entities;
@@ -519,6 +550,7 @@
 				0BCD83B92AE0E29600D111B0 /* UserRepositoryImpl.swift */,
 				0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */,
 				D6E6D6932ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift */,
+				D63CF53A2AF9C05700CCE0FD /* AnalyticsRepositoryImpl.swift */,
 				0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */,
 			);
 			path = Repositories;
@@ -600,6 +632,7 @@
 		AB6883F32AF8F350004A6E45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D63CF53C2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -707,7 +740,7 @@
 				0B8D60802AD94AA70017445F /* Pair Device */,
 				0B8D607F2AD94A850017445F /* Inhaler Tab */,
 				AB6883F72AFA25B3004A6E45 /* Calendar Tab */,
-				0B8D60812AD94ABE0017445F /* Summary Tab */,
+				0B8D60812AD94ABE0017445F /* Analytics Tab */,
 				AB6883F92AFA25C4004A6E45 /* Profile Tab */,
 			);
 			path = Presentation;
@@ -912,6 +945,9 @@
 				0BD889442AFA28D200B70F39 /* IoTRepositoryImpl.swift in Sources */,
 				0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */,
 				0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */,
+				D63CF5312AF88EB400CCE0FD /* TotalPuffPopUpView.swift in Sources */,
+				D63CF5372AF9BF3700CCE0FD /* AnalyticsRepository.swift in Sources */,
+				D6EA61802AFB9BB50019BA51 /* AnalyticsCardView.swift in Sources */,
 				0B8D60B42ADF9B450017445F /* UserDefaultsController.swift in Sources */,
 				3F5A1ED32AFA17C600A3BB57 /* UpdateConditionCard.swift in Sources */,
 				0BE97CA92ACFFC44006A33AC /* DataTransferService.swift in Sources */,
@@ -939,6 +975,7 @@
 				3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */,
 				0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */,
 				AB7BEDD82ACD6F8C0071BF10 /* Router.swift in Sources */,
+				D63CF5392AF9BF8A00CCE0FD /* GetAnalytics.swift in Sources */,
 				0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */,
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
 				D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */,
@@ -948,7 +985,7 @@
 				0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */,
 				AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */,
 				D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */,
-				AB7BEDC02ACD4CB10071BF10 /* SummaryTabView.swift in Sources */,
+				D63CF52F2AF7BE5400CCE0FD /* ChartView.swift in Sources */,
 				0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */,
 				AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */,
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
@@ -971,7 +1008,12 @@
 				3FDA760F2AFB65110096EA7D /* InputDataCondition.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
+				D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */,
 				AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */,
+				D63CF53D2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift in Sources */,
+				D61C22B42AFA2B0F006B9058 /* BarView.swift in Sources */,
+				D63CF53B2AF9C05700CCE0FD /* AnalyticsRepositoryImpl.swift in Sources */,
+				D63CF5352AF9BE8B00CCE0FD /* AnalyticsResponseDTO+Mapping.swift in Sources */,
 				0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */,
 				3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */,
 				0BCD83C02AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift in Sources */,
@@ -992,6 +1034,8 @@
 				0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
 				D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */,
+				D63CF5332AF9BE3C00CCE0FD /* Analytics.swift in Sources */,
+				D61C22B62AFA478B006B9058 /* FrequencyPickerView.swift in Sources */,
 				3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */,
 				3FFE00E52AFDD02A00069D48 /* CalendarMonthView.swift in Sources */,
 			);
