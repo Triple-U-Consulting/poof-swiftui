@@ -9,7 +9,6 @@ import SwiftUI
 
 struct UpdateConditionFromCalendarView: View {
     @EnvironmentObject var vm: CalendarViewModel
-    @State private var isSelected: Bool = false
     
     let index: Int
     
@@ -66,12 +65,10 @@ struct UpdateConditionFromCalendarView: View {
                     Spacer()
                     Menu {
                         Button("\(NSLocalizedString("Iya", comment: ""))"){
-                            isSelected = true
                             vm.processedKambuhData[vm.currentDateSelected]![index].trigger = true
                         }
                         .frame(maxWidth: 10)
                         Button("\(NSLocalizedString("Tidak", comment: ""))") {
-                            isSelected = true
                             vm.processedKambuhData[vm.currentDateSelected]![index].trigger = false
                         }
                         .frame(maxWidth: 10)
@@ -90,9 +87,14 @@ struct UpdateConditionFromCalendarView: View {
                 }
                 //                .padding(EdgeInsets(top: 14, leading: 0, bottom: 12, trailing: 0))
             }
+            .frame(width: 342, height: 174)
             .cornerRadius(10)
             .padding(8)
-            .frame(width: 342, height: 174)
         }
     }
 }
+
+//#Preview {
+//    UpdateConditionFromCalendarView(index: 0)
+//        .environmentObject(CalendarViewModel())
+//}
