@@ -18,22 +18,38 @@ struct TabBarView: View {
                 InhalerTabView()
                     .tabItem {
                         Image(systemName: "lungs.fill")
-                        Text("Inhaler")
+                        Text("Obat")
                     }
                     .tag(0)
                 
-                SummaryTabView()
+                CalendarTabView()
                     .tabItem {
-                        Image(systemName: "list.bullet.clipboard.fill")
-                        Text("Summary")
+                        Image(systemName: "calendar")
+                        Text("Kalender")
                     }
                     .tag(1)
+                
+                AnalyticsFilterView()
+                    .tabItem {
+                        Image(systemName: "list.bullet.clipboard.fill")
+                        Text("Ringkasan")
+                    }
+                    .tag(2)
+                
+                ProfileTabView()
+                    .tabItem {
+                        Image(systemName: "person")
+                        Text("Profile")
+                    }
+                    .tag(3)
+                
             }
             .accentColor(Color.Main.primary1)
-//            .onAppear() {
-//                UITabBar.appearance().barTintColor = .red
-//                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
-//            }
+            .onAppear() {
+                UITabBar.appearance().tintColor = .yellow
+                UITabBar.appearance().barTintColor = .red
+                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
+            }
         }
     }
 }

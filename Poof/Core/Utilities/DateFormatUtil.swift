@@ -41,4 +41,5 @@ class DateFormatUtil {
     func stringToDateOnly(string: String) -> Date{
         return formatterDayOnly.date(from: string)!
     }
+
 }

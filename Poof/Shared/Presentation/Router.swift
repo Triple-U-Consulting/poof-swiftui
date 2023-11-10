@@ -21,5 +21,6 @@ enum Page {
     case Login
     case Register
     case PairDevice
+    case WifiConfig
     case TabBar
 }

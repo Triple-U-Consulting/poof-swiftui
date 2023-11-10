@@ -10,6 +10,8 @@ import SwiftUI
 struct LoadingPairingView: View {
     
     @Binding var pairProgress : PairDevicePage
+    @EnvironmentObject var vm: ViewModel
+
     
     var body: some View {
         VStack {
@@ -23,10 +25,10 @@ struct LoadingPairingView: View {
             .frame(height:512)
             
             VStack {
-                Text("Pairing")
+                Text("Menyambungkan")
                     .font(.systemTitle1)
                 
-                Text("Please wait for a moment, we are \npairing it now")
+                Text("Mohon tunggu sebentar, kami sedang menyambungkan perangkat anda.")
                     .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(.center)
                     .padding(.top, 8)
@@ -35,13 +37,23 @@ struct LoadingPairingView: View {
             }
             .frame(height: 195)
             .padding(.bottom, 83)
+            .onReceive(vm.$status, perform: { newStatus in
+//                pairProgress = .failedPairing
+                            switch newStatus {
+                            case .failure(_):
+                                print("failure")
+                                pairProgress = .failedPairing
+                            case .success:
+                                pairProgress = .successPairing
+                            default:
+                                break
+                            }
+                        })
             
         }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                pairProgress = .successPairing
-            }
-        }
+        .onAppear(perform: {
+                    vm.findInhaler()
+                })
     }
 }
 

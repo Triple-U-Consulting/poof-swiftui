@@ -20,6 +20,8 @@ extension KambuhResponseDTO {
         let end_time: String
         let total_puff: Int
         let kambuh_interval: String
+        let scale: Int?
+        let trigger: Bool?
     }
 }
 
@@ -38,6 +40,6 @@ extension KambuhResponseDTO.KambuhDTO {
         let endDate = formatter.stringToDate(string: end_time)
         let lamaInt = Int64(kambuh_interval)!
         
-        return .init(id: kambuh_id, start: startDate, end: endDate, totalPuff: total_puff, lamaKambuh: lamaInt)
+        return .init(id: kambuh_id, start: startDate, end: endDate, totalPuff: total_puff, lamaKambuh: lamaInt, scale: scale, trigger: trigger)
     }
 }

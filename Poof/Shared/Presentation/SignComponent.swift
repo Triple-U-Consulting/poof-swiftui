@@ -25,7 +25,7 @@ extension Component {
             HStack{
                 Text(NSLocalizedString(text, comment: ""))
                     .foregroundColor(Color.Neutrals.titleSignPage)
-                    .font(.systemHeadline2)
+                    .font(.systemHeadline)
                 
                 Text("*")
                     .foregroundColor(.red)
@@ -53,16 +53,6 @@ extension Component {
                         .foregroundStyle(Color.Main.blueText)
                 }
             }
-            .padding(.top, 16)
-            .padding(.bottom, 41)
-        }
-    }
-    
-    struct dividerSignPage: View {
-        
-        var body: some View {
-            Divider()
-                .frame(width: 342, height: 1)
         }
     }
     

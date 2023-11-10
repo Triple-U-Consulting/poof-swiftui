@@ -10,6 +10,7 @@ import SwiftUI
 struct RegisterView: View {
     
     @EnvironmentObject var router: Router
+    @EnvironmentObject var userDevice: UserDevice
     @EnvironmentObject private var viewModel: AuthViewModel
     @State private var email: String = ""
     @State private var dob: Date?
@@ -24,7 +25,7 @@ struct RegisterView: View {
             NavigationView {
                 ZStack {
                     Color(.white).ignoresSafeArea()
-                    VStack{
+                    VStack (spacing:0) {
                         Component.titleSignPage(text: "Email")
                         
                         TextField(text: $email) {
@@ -34,8 +35,9 @@ struct RegisterView: View {
                         .padding(.leading, 30)
                         .textFieldStyle(.automatic)
                         .autocapitalization(.none)
+                        .padding(.top, 8)
                         
-                        Component.dividerSignPage()
+                        Component.CustomDivider(width: 342)
                         
                         Component.titleSignPage(text: "Tanggal Lahir")
                             
@@ -43,8 +45,9 @@ struct RegisterView: View {
                             .frame(height: 34)
                             //.background(Color.black)
                             .padding([.leading, .trailing], 30)
+                            .padding(.top, 8)
                         
-                        Component.dividerSignPage()
+                        Component.CustomDivider(width: 342)
                         
                         Component.titleSignPage(text: "Kata Sandi")
                         
@@ -55,8 +58,9 @@ struct RegisterView: View {
                         .autocorrectionDisabled(true)
                         .padding(.leading, 30)
                         .textFieldStyle(.automatic)
+                        .padding(.top, 8)
                         
-                        Component.dividerSignPage()
+                        Component.CustomDivider(width: 342)
                         
                         Component.titleSignPage(text: "Konfirmasi Kata Sandi")
                         
@@ -67,21 +71,25 @@ struct RegisterView: View {
                         .autocorrectionDisabled(true)
                         .padding(.leading, 30)
                         .textFieldStyle(.automatic)
+                        .padding(.top, 8)
                         
-                        Component.dividerSignPage()
+                        Component.CustomDivider(width: 342)
                         
                         Spacer()
+                        
                         
                         Component.DefaultButton(text: "Sign Up") {
                             viewModel.register(email: email, password: password, dob: dob, confirmPassword: confirmPassword)
                             router.path.removeLast()
                         }
-                        .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 650)
+                        .padding(.top, 16)
+                        .padding(.horizontal, 24)
                         
                         Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
                             router.path.removeLast()
                         }
-                        .position(x: UIScreen.main.bounds.width / 2.05, y: UIScreen.main.bounds.height - 730)
+                        .padding(.top, 40)
+                        .padding(.bottom, 76 - userDevice.bottomSafeArea)
                         
 //                        if let message = viewModel.message{
 //                            Text(message)
@@ -110,5 +118,6 @@ struct RegisterView: View {
 #Preview {
     RegisterView()
         .environmentObject(AuthViewModel())
+        .environmentObject(UserDevice())
         .environmentObject(Router())
 }

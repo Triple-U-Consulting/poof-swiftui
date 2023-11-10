@@ -30,10 +30,9 @@ extension WiFiDetailsRepositoryImpl: WiFiDetailsRepository {
                 .setFailureType(to: Failure.self)
                 .map {
                     $0.toDomain()
-                }
-                .eraseToAnyPublisher()
-        case .failure(let error):
-            return Fail(error: error).eraseToAnyPublisher()
-        }
+                }.eraseToAnyPublisher()
+            case .failure(let error):
+                return Fail(error: error).eraseToAnyPublisher()
+            }
     }
 }

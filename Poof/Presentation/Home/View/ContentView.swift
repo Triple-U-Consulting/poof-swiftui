@@ -36,11 +36,6 @@ struct ContentView: View {
                 OnboardingView()
                     .navigationDestination(for: Page.self){ destination in
                         switch destination {
-                            //                        case Page.Onboarding:
-                            //                            OnboardingView()
-                            //                                .environmentObject(router)
-                            //                                .navigationBarBackButtonHidden(true)
-                            //                                .environmentObject(vm)
                         case Page.Login:
                             LoginView()
                                 .environmentObject(router)
@@ -57,7 +52,10 @@ struct ContentView: View {
                             TabBarView()
                                 .environmentObject(router)
                                 .navigationBarHidden(true)
-                            //                                .navigationBarBackButtonHidden(true)
+                        case Page.WifiConfig:
+                            WiFiDetailsView()
+                                .environmentObject(router)
+                                .navigationBarHidden(true)
                         default:
                             VStack {
                                 Text("ada yang error gan")
