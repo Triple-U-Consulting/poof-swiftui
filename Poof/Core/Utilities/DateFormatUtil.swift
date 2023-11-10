@@ -42,4 +42,12 @@ class DateFormatUtil {
         return formatterDayOnly.date(from: string)!
     }
 
+    lazy var calendar = {
+        let cal = Calendar.current
+        return cal
+    }()
+    
+    func getDay(date: Date) -> Int {
+        return calendar.component(.day, from: date)
+    }
 }

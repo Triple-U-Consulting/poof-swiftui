@@ -9,12 +9,8 @@ import SwiftUI
 import Combine
 
 struct UpdateConditionView: View {
-    
     @EnvironmentObject var vm: ConditionViewModel
     @EnvironmentObject var router: Router
-    @State private var date: Date = Date()
-//    @State private var pick: [Double] = []
-//    @State private var selectMenu: [Bool] = []
     
     var body: some View {
         ZStack {
@@ -24,44 +20,21 @@ struct UpdateConditionView: View {
                     Color(Color.Neutrals.sheetBackground).ignoresSafeArea()
                     ScrollView{
                         LazyVStack(alignment: .leading){
-                            
-                            Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: date, to:  "dd MMMM yyyy"))"))
-                                .padding(.bottom, 32)
-                            
-                            
-                            
-                            ForEach(vm.kambuhList.indices, id: \.self) { idx in
+                        
+                            ForEach(vm.getDateKeys(), id: \.self) { key in
+                                Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: key, to: "dd MMMM yyyy"))"))
+                                    .padding(.bottom, 32)
                                 
-                                HStack {
-                                    HStack{
-                                        Image(systemName: "clock").foregroundColor(Color.Main.blueTextSecondary)
-                                        
-                                        Text("\(DateFormatUtil.shared.dateToString(date: vm.kambuhList[idx].start, to: "HH.mm"))")
-                                            .padding(.leading, -3)
-                
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    Text("\(vm.kambuhList[idx].totalPuff) \(NSLocalizedString("puff terdeteksi", comment: ""))")
-                                }
-                                
-                                UpdateConditionCard(idx: idx)
+                                UpdateConditionPerDateView(key: key)
                                     .environmentObject(vm)
-                                    .padding(.bottom, 24)
-                                
                             }
-                            
-//                            Component.DefaultButton(text: "Fetch") {
-//                                vm.fetchKambuhDataByDate(date: date)
-//                            }
                             
                         }
                         .toolbar{
                             ToolbarItem(placement: .topBarTrailing) {
                                 Component.TextButton(text: NSLocalizedString("Simpan", comment: ""), action: {
                                     vm.updateKambuhData()
-                                    router.path.append(Page.TabBar)
+                                   // router.path.append(Page.TabBar)
                                 })
                             }
                         }
@@ -69,7 +42,7 @@ struct UpdateConditionView: View {
                 }
             }
             .onAppear(perform: {
-                vm.fetchKambuhDataByDate(date: date)
+                vm.fetchKambuhDataIfScaleAndTriggerIsNull()
                 //print(date)
             })
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
@@ -81,4 +54,39 @@ struct UpdateConditionView: View {
     UpdateConditionView()
         .environmentObject(ConditionViewModel())
         .environmentObject(Router())
+}
+
+struct UpdateConditionPerDateView: View {
+    @EnvironmentObject var vm: ConditionViewModel
+    
+    let key: Date
+    
+    var body: some View {
+        VStack {
+            ForEach(0..<(vm.processedKambuhData[key]?.count ?? 0), id: \.self) { idx in
+                HStack {
+                    HStack{
+                        Image(systemName: "clock").foregroundColor(Color.Main.blueTextSecondary)
+
+                        Text("\(DateFormatUtil.shared.dateToString(date: vm.processedKambuhData[key]![idx].start, to: "HH.mm"))")
+                            .padding(.leading, -3)
+
+                    }
+
+                    Spacer()
+
+                    Text("\(vm.processedKambuhData[key]![idx].totalPuff) \(NSLocalizedString("puff terdeteksi", comment: ""))")
+                }
+                .padding()
+                .frame(height: 45)
+                .background(Color.Main.backgroundTitleCard)
+                .cornerRadius(10)
+
+                UpdateConditionCard(key: key, idx: idx)
+                    .environmentObject(vm)
+                    .padding(.bottom, 24)
+                    .padding(.top, -14)
+            }
+        }
+    }
 }

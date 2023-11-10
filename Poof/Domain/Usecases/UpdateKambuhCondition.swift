@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol UpdateKambuhConditionUseCase {
-    func execute(kambuh_id: [Int], scale: [Int], trigger: [Bool]) async -> AnyPublisher<String, Failure>
+    func execute(kambuh: [Kambuh]) async -> AnyPublisher<String, Failure>
 }
 
 struct UpdateKambuhConditionImpl {
@@ -18,7 +18,7 @@ struct UpdateKambuhConditionImpl {
     private let repository = KambuhRepositoryImpl.shared
 }
 extension UpdateKambuhConditionImpl: UpdateKambuhConditionUseCase{
-    func execute(kambuh_id: [Int], scale: [Int], trigger: [Bool]) async -> AnyPublisher<String, Failure> {
-        return await self.repository.updateKambuhCondition(kambuh_id: kambuh_id, scale: scale, trigger: trigger)
+    func execute(kambuh: [Kambuh]) async -> AnyPublisher<String, Failure> {
+        return await self.repository.updateKambuhCondition(kambuh: kambuh)
     }
 }

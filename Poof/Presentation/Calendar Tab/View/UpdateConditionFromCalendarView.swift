@@ -1,24 +1,22 @@
 //
-//  UpdateConditionCard.swift
+//  UpdateConditionFromCalendar.swift
 //  Poof
 //
-//  Created by Geraldy Kumara on 07/11/23.
+//  Created by Angela Christabel on 09/11/23.
 //
 
 import SwiftUI
 
-struct UpdateConditionCard: View {
-    
-    @EnvironmentObject var vm: ConditionViewModel
+struct UpdateConditionFromCalendarView: View {
+    @EnvironmentObject var vm: CalendarViewModel
     @State private var isSelected: Bool = false
     
-    let key: Date
-    let idx: Int
+    let index: Int
     
     var body: some View {
         ZStack {
             Color(.white).ignoresSafeArea()
-            VStack (alignment: .leading){
+            VStack (alignment: .leading) {
                 
                 Text("\(NSLocalizedString("Memperbaharui kondisi", comment: ""))")
                     .font(.systemBodyText)
@@ -27,8 +25,8 @@ struct UpdateConditionCard: View {
                 
                 Slider(
                     value: Binding(
-                        get: { Double(vm.processedKambuhData[key]![idx].scale ?? 0) },
-                        set: { vm.processedKambuhData[key]![idx].scale = Int($0) }
+                        get: { Double(vm.getCurrentKambuh(index: index).scale ?? 0) },
+                        set: { vm.processedKambuhData[vm.currentDateSelected]![index].scale = Int($0) }
                     ),
                     in: 1...5,
                     step: 1,
@@ -55,7 +53,7 @@ struct UpdateConditionCard: View {
                 .accentColor(Color.Main.blueTextSecondary)
                 
                 VStack {
-                    Text("\(vm.processedKambuhData[key]![idx].scale ?? 0)")
+                    Text("\(vm.getCurrentKambuh(index: index).scale ?? 0)")
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top, -5)
                         .padding(.bottom, 5)
@@ -69,16 +67,16 @@ struct UpdateConditionCard: View {
                     Menu {
                         Button("\(NSLocalizedString("Iya", comment: ""))"){
                             isSelected = true
-                            vm.processedKambuhData[key]![idx].trigger = true
+                            vm.processedKambuhData[vm.currentDateSelected]![index].trigger = true
                         }
                         .frame(maxWidth: 10)
                         Button("\(NSLocalizedString("Tidak", comment: ""))") {
                             isSelected = true
-                            vm.processedKambuhData[key]![idx].trigger = false
+                            vm.processedKambuhData[vm.currentDateSelected]![index].trigger = false
                         }
                         .frame(maxWidth: 10)
                     } label: {
-                        Label(isSelected ? (vm.processedKambuhData[key]![idx].trigger  ?? false ? "\(NSLocalizedString("Iya", comment: ""))" : "\(NSLocalizedString("Tidak", comment: ""))") : "\(NSLocalizedString("Pilih", comment: ""))", image: "")
+                        Label(vm.getCurrentKambuh(index: index).trigger != nil ? (vm.getCurrentKambuh(index: index).trigger == true ? "\(NSLocalizedString("Iya", comment: ""))" : "\(NSLocalizedString("Tidak", comment: ""))") : "\(NSLocalizedString("Pilih", comment: ""))", image: "")
                             .font(.systemBodyText)
                             .foregroundColor(.black)
                             .padding(EdgeInsets(top: 6, leading: 4, bottom: 6, trailing: 12))
@@ -90,7 +88,7 @@ struct UpdateConditionCard: View {
                     .padding(.trailing, 2)
                     .menuOrder(.fixed)
                 }
-//                .padding(EdgeInsets(top: 14, leading: 0, bottom: 12, trailing: 0))
+                //                .padding(EdgeInsets(top: 14, leading: 0, bottom: 12, trailing: 0))
             }
             .cornerRadius(10)
             .padding(8)
@@ -98,8 +96,3 @@ struct UpdateConditionCard: View {
         }
     }
 }
-
-//#Preview {
-//    UpdateConditionCard(idx: 0)
-//        .environmentObject(ConditionViewModel())
-//}

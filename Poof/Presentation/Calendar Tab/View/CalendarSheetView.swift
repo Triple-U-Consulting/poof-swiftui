@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct CalendarSheetView: View {
-    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject private var vm: CalendarViewModel
+    
+    @Binding private(set) var index: Int
+    @Binding private(set) var showSheet: Bool
+    @Binding private(set) var showEditSheet: Bool
 
     var body: some View {
         ScrollView {
             LazyVStack (alignment: .leading, spacing:0){
-                Component.DefaultText(text: "Tracked on 20 October 2023")
+                Component.DefaultText(text: "Tracked on \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "d MMMM yyyy"))")
                     .padding(.bottom, 24)
-                if true {
-                    ForEach(1...2, id:\.self) {index in
-                        CalendarSheetDetailView()
+                if vm.processedKambuhData[vm.currentDateSelected] != nil {
+                    ForEach(vm.processedKambuhData[vm.currentDateSelected]!.indices, id:\.self) { idx in
+                        CalendarSheetDetailView(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet)
+                            .environmentObject(vm)
                     }
                 } else {
                     Component.DefaultText(text: "No inhaler usage tracked")
@@ -33,19 +38,22 @@ struct CalendarSheetView: View {
     }
 }
 
-#Preview {
-    CalendarSheetView()
-}
-
-
 struct CalendarSheetDetailView: View {
+    @EnvironmentObject private var vm: CalendarViewModel
+    
+    let index: Int
+    
+    @Binding private(set) var bindingIndex: Int
+    @Binding private(set) var showSheet: Bool
+    @Binding private(set) var showEditSheet: Bool
+    
     var body: some View {
         VStack (spacing:0) {
             HStack (spacing:0) {
                 Text(Image(systemName: "clock"))
                     .font(.systemHeadline)
                     .foregroundColor(.primary1)
-                Component.DefaultText(text: " 9.56")
+                Component.DefaultText(text: " \(vm.getCurrentKambuhTime(idx: index))")
                     .font(.systemHeadline)
                     .foregroundColor(.black)
                 Spacer()
@@ -53,23 +61,28 @@ struct CalendarSheetDetailView: View {
                     .font(.systemHeadline)
                     .foregroundColor(.primary1)
                     .onTapGesture {
-                        //logic
+                        withAnimation {
+                            self.bindingIndex = index
+                            self.showSheet.toggle()
+                            self.showEditSheet.toggle()
+                        }
                     }
             }
+            
             HStack (alignment: .top, spacing:0) {
                 VStack (alignment: .leading, spacing:0) {
                     Component.DefaultText(text: "Inhaler Usage")
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
-                    Component.DefaultText(text: "2 Inhaler Puff")
+                    Component.DefaultText(text: "\(vm.getCurrentKambuhTotalPuff(idx: index)) Inhaler Puff")
                         .padding(.top, 8)
                     
                     Component.DefaultText(text: "Breathing Difficulty Scale")
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
-                    Component.DefaultText(text: "4 Points of Breathing Difficulty")
+                    Component.DefaultText(text: "\(vm.getCurrentKambuhScale(idx: index))")
                         .padding(.top, 8)
                     
                     Component.DefaultText(text: "Triggered By")
@@ -82,7 +95,6 @@ struct CalendarSheetDetailView: View {
                 }.padding(.leading, 12)
                 
                 Spacer()
-                
             }
             .frame(width: 338)
             .background(.gray6)
