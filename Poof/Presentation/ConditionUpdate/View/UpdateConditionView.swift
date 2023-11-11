@@ -41,10 +41,6 @@ struct UpdateConditionView: View {
                     }
                 }
             }
-            .onAppear(perform: {
-                vm.fetchKambuhDataIfScaleAndTriggerIsNull()
-                //print(date)
-            })
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
         }
     }

@@ -24,7 +24,7 @@ struct IrritantView: View {
     }
 }
 
-#Preview {
-    IrritantView(pairProgress: .constant(PairDevicePage.irritant))
-        .environmentObject(Router())
-}
+//#Preview {
+//    IrritantView(pairProgress: .constant(PairDevicePage.irritant))
+//        .environmentObject(Router())
+//}

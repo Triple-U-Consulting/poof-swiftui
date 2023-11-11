@@ -56,6 +56,10 @@ struct ContentView: View {
                             WiFiDetailsView()
                                 .environmentObject(router)
                                 .navigationBarHidden(true)
+                        case Page.InputDose:
+                            DoseView()
+                                .environmentObject(router)
+                                .navigationBarHidden(true)
                         default:
                             VStack {
                                 Text("ada yang error gan")

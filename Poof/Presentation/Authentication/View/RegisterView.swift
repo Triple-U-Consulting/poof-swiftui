@@ -11,7 +11,7 @@ struct RegisterView: View {
     
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
-    @EnvironmentObject private var viewModel: AuthViewModel
+    @ObservedObject private var viewModel = AuthViewModel()
     @State private var email: String = ""
     //@State private var dob: Date?
     @State private var password: String = ""
@@ -97,6 +97,7 @@ struct RegisterView: View {
 //                            }
                             
                             Component.DefaultButton(text: "Sign Up") {
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                                 viewModel.register(email: email, password: password, confirmPassword: confirmPassword)
                                 //                                    router.path.removeLast()
                             }

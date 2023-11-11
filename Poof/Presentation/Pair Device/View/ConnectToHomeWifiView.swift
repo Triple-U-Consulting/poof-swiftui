@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ConnectToHomeWifiView: View {
-    
     @EnvironmentObject var router: Router
     @Binding var pairProgress : PairDevicePage
     
@@ -36,8 +35,8 @@ struct ConnectToHomeWifiView: View {
                     .padding(.top, 8)
                 
                 Component.DefaultButton(text: "Done", buttonLevel: .primary, buttonState: .active) {
-                    pairProgress = .dose
-                    router.path.append(Page.TabBar)
+//                    pairProgress = .dose
+//                    router.path.append(Page.TabBar)
                 }
                 
                 Spacer()

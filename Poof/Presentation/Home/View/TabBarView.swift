@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     
     @EnvironmentObject var router: Router
+    @StateObject private var vm: ConditionViewModel = ConditionViewModel()
     @State private var selection = 0
     
     var body: some View {
@@ -45,6 +46,12 @@ struct TabBarView: View {
                 
             }
             .accentColor(Color.Main.primary1)
+            .onAppear(perform: {
+                vm.fetchKambuhDataIfScaleAndTriggerIsNull()
+            })
+            .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/, content: {
+                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
+            })
 //            .onAppear() {
 //                UITabBar.appearance().tintColor = .yellow
 //                UITabBar.appearance().barTintColor = .red

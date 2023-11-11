@@ -16,6 +16,7 @@ class ConditionViewModel: ObservableObject {
     @Published var scale: [Int] = []
     @Published var trigger: [Bool] = []
     @Published var kambuhId: [Int] = []
+    var hasDataToBeFilled: Bool = false
     //@Published private(set) var error: String = ""
 
     private(set) var calendar = Calendar.current
@@ -50,42 +51,6 @@ extension ConditionViewModel {
         return self.processedKambuhData[date] ?? []
     }
     
-    // fetch kambuh by date
-//    func fetchKambuhDataByDate(date: Date){
-//        Task{
-//            await getKambuhDataByDate.execute(requestDate: date)
-//                .sink { completion in
-//                    switch completion{
-//                    case .finished:
-//                        print(completion)
-//                    case .failure(let failure):
-//                        print(failure)
-//                    }
-//                } receiveValue: { kambuhResults in
-////                    guard let self = self else { return }
-//                                        
-//                    var tempScale: [Int] = []
-//                    var tempTrigger: [Bool] = []
-//                    var tempKambuhId: [Int] = []
-//                    //self.kambuhList = []
-//                    
-//                    for kambuh in kambuhResults {
-//                        tempScale.append(kambuh.scale ?? 0)
-//                        tempTrigger.append(kambuh.trigger ?? true)
-//                        tempKambuhId.append(kambuh.id)
-//                    }
-//                    
-//                    self.scale = tempScale
-//                    self.trigger = tempTrigger
-//                    self.kambuhId = tempKambuhId
-//                    self.kambuhList = kambuhResults
-//                    
-////                    print(self.kambuhList ?? "error")
-//                }
-//                .store(in: &cancellables)
-//        }
-//    }
-    
     func fetchKambuhDataIfScaleAndTriggerIsNull(){
         Task{
             await getKambuhDataIfScaleOrTriggerIsNull.execute()
@@ -104,6 +69,9 @@ extension ConditionViewModel {
                     
                     DispatchQueue.main.async {
                         self.processedKambuhData = groupedKambuhData
+                        if self.processedKambuhData.count > 0 {
+                            self.hasDataToBeFilled = true
+                        }
                     }
                 }
                 .store(in: &cancellables)

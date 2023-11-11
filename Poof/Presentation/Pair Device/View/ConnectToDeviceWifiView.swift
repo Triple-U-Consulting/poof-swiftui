@@ -38,7 +38,7 @@ struct ConnectToDeviceWifiView: View {
                     pairProgress = .loadingPairing
                 }
                 .padding(.bottom, 40)
-                }
+            }
             .frame(height: 195)
             .padding(.bottom, 83)
             

@@ -12,6 +12,7 @@ import SwiftUI
 struct PoofApp: App {
     @StateObject var router = Router()
     @StateObject var userDevice = UserDevice()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

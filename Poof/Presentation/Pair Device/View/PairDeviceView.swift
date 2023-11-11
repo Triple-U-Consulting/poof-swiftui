@@ -28,12 +28,12 @@ struct PairDeviceView: View {
                     FailedPairingView(pairProgress: $pairProgress)
                 case .successPairing:
                     SuccessPairingView(pairProgress: $pairProgress)
-                case .connectToHomeWifi:
-                    ConnectToHomeWifiView(pairProgress: $pairProgress)
-                case .dose:
-                    DoseView(pairProgress: $pairProgress)
-                case .irritant:
-                    IrritantView(pairProgress: $pairProgress)
+//                case .connectToHomeWifi:
+//                    ConnectToHomeWifiView(pairProgress: $pairProgress)
+//                case .dose:
+//                    DoseView(pairProgress: $pairProgress)
+//                case .irritant:
+//                    IrritantView(pairProgress: $pairProgress)
                 }
             }
             .toolbar {
@@ -59,12 +59,12 @@ struct PairDeviceView: View {
                     navigationTitleText = "Pair Your Inhaler"
                 case .successPairing:
                     navigationTitleText = "Pair Your Inhaler"
-                case .connectToHomeWifi:
-                    navigationTitleText = "Pair Your Inhaler"
-                case .dose:
-                    navigationTitleText = "Input Remaining Inhaler Doses"
-                case .irritant:
-                    navigationTitleText = "Irritants"
+//                case .connectToHomeWifi:
+//                    navigationTitleText = "Pair Your Inhaler"
+//                case .dose:
+//                    navigationTitleText = "Input Remaining Inhaler Doses"
+//                case .irritant:
+//                    navigationTitleText = "Irritants"
                 }
             }
         }
@@ -82,7 +82,7 @@ enum PairDevicePage {
     case loadingPairing
     case failedPairing
     case successPairing
-    case connectToHomeWifi
-    case dose
-    case irritant
+//    case connectToHomeWifi
+//    case dose
+//    case irritant
 }

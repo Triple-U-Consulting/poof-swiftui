@@ -61,7 +61,8 @@ struct LoginView: View {
                     .padding(.leading, 31)
                 
                 Component.DefaultButton(text: "Sign In") {
-                    viewModel.login(email: "angela@gmail.com", password: "angela")
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    viewModel.login(email: email, password: password)
                 }
                 .padding(.top, 16)
                 .padding(.horizontal, 24)

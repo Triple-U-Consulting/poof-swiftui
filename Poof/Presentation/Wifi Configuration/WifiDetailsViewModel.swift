@@ -12,6 +12,7 @@ enum WiFiDetailsStatus {
     case initial
     case loading
     case success
+    case successPaired
     case failure
 }
 
@@ -24,19 +25,97 @@ class WiFiDetailsViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var isPopUpDisplayed = false
     @Published var showErrorText: Bool = false
+    
+    @Published var inhalerConnectedWifi: Bool = false
+    @Published var updatedUserInhaler: Bool = false
 
-    
-    
-    
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Usecases
     private let postWiFiDetails: PostWiFiDetailsUseCase
+    private let updateUserInhaler: UpdateUserInhalerUsecase
+    private let updateInhalerBottle: UpdateInhalerDoseUsecase
     
-    init(postWiFiDetails: PostWiFiDetailsUseCase = PostWiFiDetailsUseCaseImpl.shared)
-    {
+    private let stateManager: StateManager
+    private let userDefaultsController = UserDefaultsControllerImpl.shared
+    
+    init(
+        postWiFiDetails: PostWiFiDetailsUseCase = PostWiFiDetailsUseCaseImpl.shared,
+        updateUserInhaler: UpdateUserInhalerUsecase = UpdateUserInhalerImpl.shared,
+        updateInhalerBottle: UpdateInhalerDoseUsecase = UpdateInhalerDoseImpl.shared,
+        stateManager: StateManager = StateManager.shared,
+        userDefaultsController: UserDefaultsController = UserDefaultsControllerImpl.shared
+    ) {
         self.postWiFiDetails = postWiFiDetails
+        self.updateUserInhaler = updateUserInhaler
+        self.updateInhalerBottle = updateInhalerBottle
+        self.stateManager = stateManager
+        
+//        stateManager.inhalerId.publisher
+//            .sink { completion in
+//                switch completion {
+//                case .finished:
+//                    break
+//                case .failure(let error):
+//                    print(error)
+//                    break
+//                }
+//            } receiveValue: { inhalerId in
+//                print(inhalerId)
+//                self.updateUserInhalerId()
+//            }
+//            .store(in: &cancellables)
+        
+//        stateManager.pairedUserToInhalerDB.publisher
+//            .sink { completion in
+//                switch completion {
+//                case .finished:
+//                    break
+//                case .failure(let error):
+//                    print(error)
+//                    break
+//                }
+//            } receiveValue: { status in
+//                if status == true {
+//                    self.status = .success
+//                }
+//            }
+//            .store(in: &cancellables)
+    }
+    
+    func updateUserInhalerId() {
+        self.status = .loading
+        self.isPopUpDisplayed = true
+        
+        print("inhaler_id:")
+        print(stateManager.inhalerId)
+        
+        if let id = stateManager.inhalerId {
+            Task {
+                await self.updateUserInhaler.execute(requestValue: id, userToken: userDefaultsController.getString(key: "token") ?? "")
+                    .sink { [weak self] completion in
+                        switch completion {
+                        case .finished:
+                            self?.status = .success
+                        case .failure(let failure):
+                            self?.status = .failure
+                            print(failure)
+                        }
+                    } receiveValue: { result in
+                        print(result)
+                    }
+                    .store(in: &cancellables)
+                
+                if self.status == .success {
+                    self.updatedUserInhaler = true
+                    self.isPopUpDisplayed = false
+                } else {
+                    self.isPopUpDisplayed = false
+                    self.showAlert = true
+                }
+            }
+        }
     }
     
     func postWiFiDetails(ssid: String, password: String) {
@@ -48,27 +127,35 @@ class WiFiDetailsViewModel: ObservableObject {
                 .sink { [weak self] completion in
                     switch completion {
                     case .finished:
-                        if self?.message != nil {
-                            self?.status = .success
-                        } else {
-                            self?.status = .failure
-                        }
+                        break
                     case .failure(let failure):
                         self?.status = .failure
                         self?.error = failure.localizedDescription
-                        
                     }
                 } receiveValue: { message in
-                    self.message = message
+                    print(message)
+                    DispatchQueue.main.async {
+                        self.message = message
+                        
+                        if message != "WiFi Failed to Connect." {
+                            self.inhalerConnectedWifi = true
+                        }
+                        
+                        if self.status == .failure {
+                            self.isPopUpDisplayed = false
+                            self.showAlert = true
+                        } else {
+                            if message != "WiFi Failed to Connect." {
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6.0, execute: {
+                                    self.updateUserInhalerId()
+                                })
+                            } else {
+                                self.isPopUpDisplayed = false
+                            }
+                        }
+                    }
                 }
                 .store(in: &cancellables)
-            
-            if self.status == .failure {
-                self.isPopUpDisplayed = false
-                self.showAlert = true
-            } else if self.status == .success {
-                self.isPopUpDisplayed = false
-            }
         }
     }
     

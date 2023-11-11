@@ -10,12 +10,11 @@ import SwiftUI
 struct WiFiDetailsView: View {
     
     @EnvironmentObject var router: Router
+    @EnvironmentObject var pairingStateManager: StateManager
     @StateObject var viewModel = WiFiDetailsViewModel()
     @State private var ssid: String = ""
     @State private var password: String = ""
     @State private var showAlert: Bool = false
-    
-    
     
     var body: some View {
         ZStack {
@@ -59,18 +58,20 @@ struct WiFiDetailsView: View {
                     
                 }
                 
-                if viewModel.status == .success && viewModel.message == "WiFi Failed to Connect." {
+                if viewModel.message == "WiFi Failed to Connect." {
                     Text("Tidak dapat terhubung ke Wi-Fi. Pastikan kembali SSID dan Kata Sandi anda")
                         .foregroundColor(.red)
                         .font(.systemBodyText)
                 }
                 
                 Component.DefaultButton(text: "Bergabung", buttonLevel: .primary) {
-                    viewModel.postWiFiDetails(ssid: ssid, password: password)
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    if !viewModel.inhalerConnectedWifi {
+                        viewModel.postWiFiDetails(ssid: ssid, password: password)
+                    }
                 }
                 
                 Spacer()
-                
             }
             .padding()
             
@@ -82,11 +83,11 @@ struct WiFiDetailsView: View {
                 .edgesIgnoringSafeArea(.all)
             }
             
-            if viewModel.status == .success && viewModel.message != "WiFi Failed to Connect." {
-                TabBarView()
-                    .environmentObject(router)
-                    .navigationBarHidden(true)
-            }
+//            if viewModel.status == .successPaired && viewModel.message != "WiFi Failed to Connect." {
+//                TabBarView()
+//                    .environmentObject(router)
+//                    .navigationBarHidden(true)
+//            }
         }
         .alert(isPresented: $viewModel.showAlert) {
             Alert(
@@ -97,6 +98,9 @@ struct WiFiDetailsView: View {
                 })
             )
         }
+        .onChange(of: viewModel.updatedUserInhaler, initial: false, {
+            router.path.append(Page.InputDose)
+        })
     }
 }
 

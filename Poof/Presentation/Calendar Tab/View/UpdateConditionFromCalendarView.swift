@@ -87,7 +87,7 @@ struct UpdateConditionFromCalendarView: View {
                 }
                 //                .padding(EdgeInsets(top: 14, leading: 0, bottom: 12, trailing: 0))
             }
-            .frame(width: 342, height: 164)
+            .frame(width: 342, height: 174)
             .cornerRadius(10)
             .padding(8)
         }
