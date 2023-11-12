@@ -60,9 +60,13 @@ struct ContentView: View {
                             DoseView()
                                 .environmentObject(router)
                                 .navigationBarHidden(true)
+                        case Page.UpdateCondition:
+                            UpdateConditionView()
+                                .environmentObject(router)
+                                .navigationBarHidden(true)
                         default:
                             VStack {
-                                Text("ada yang error gan")
+                                Text("An error occured. Check ContentView")
                             }
                         }
                     }

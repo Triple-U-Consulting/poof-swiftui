@@ -99,17 +99,18 @@ struct Component {
             Button(action: action) {
                 HStack {
                     Text(NSLocalizedString(text, comment: ""))
-                        .padding(.leading, 33.5)
+                        .padding(.leading, 20)
                     Spacer()
                     Text(Image(systemName: "chevron.right"))
-                        .padding(.trailing, 33.5)
+                        .padding(.trailing, 20)
+                        .foregroundColor(.primary1)
                 }
                     .font(.systemButtonText)
                     .foregroundStyle(.black)
                     .frame(width: 342, height: 47)
                     .background(.white)
                     .cornerRadius(10)
-                    .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
+//                    .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(borderColor, lineWidth: 2)
@@ -149,49 +150,28 @@ struct Component {
     
     // TODO: BLOM KELAR
     struct RotatingCircle: View {
-        @State private var gradientAngle: Double = 0
+        @State var gradientAngle: Double = 0
         let colors: [Color] = [.white, .red, .white]
         @Binding var syncStatus: SyncStatus
         var body: some View {
             GeometryReader { geometry in
                 VStack {
-                    if syncStatus == .unsynced {
+                    ZStack {
                         Circle()
-                            .trim(from: 0, to: 1)
-                            .stroke(.red, lineWidth: 10)
-                            .padding(.all, 10)
-                    } else if syncStatus == .syncing {
-                            Circle()
-                                .trim(from: 0, to: 0.25)
-                                .stroke(Color.black, lineWidth: 10)
-                                .stroke(LinearGradient(gradient: Gradient(colors: [.white, .red, .white]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                                .padding(.all, 10)
-                                .rotationEffect(.degrees(gradientAngle))
-                                .onAppear {
-                                    withAnimation(Animation.linear(duration: 4).repeatForever(autoreverses: false)) {
-                                        self.gradientAngle = 360
-                                    }
-                                }
-                    } else {
-                        Circle()
-                            .trim(from: 0, to: 1)
-                            .stroke(Color.primary2, lineWidth: 10)
+                            .trim(from: 0, to: syncStatus == SyncStatus.syncing ? 0.25 : 1)
+                            .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.syncing ? colors : syncStatus == SyncStatus.synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                            .rotationEffect(.degrees(gradientAngle))
+                            .frame(width: geometry.size.width-20, height:geometry.size.height-20)
                             .padding(.all, 10)
                     }
-                    
-//                    Circle()
-//                        .trim(from: 0, to: syncStatus == SyncStatus.syncing ? 0.25 : 1)
-//                        .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.syncing ? colors : syncStatus == SyncStatus.synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-//                        .frame(width: geometry.size.width-20, height:geometry.size.height-20)
-//                        .padding(.all, 10)
-//                        .rotationEffect(.degrees(gradientAngle))
                 }
-//                .onAppear {
-//                    withAnimation(Animation.linear(duration: 4).repeatForever(autoreverses: false)) {
-//                        self.gradientAngle = 360
-//                    }
-//                }
+                .onAppear {
+                    withAnimation(Animation.linear(duration: 4).repeatForever(autoreverses: false)) {
+                        self.gradientAngle = 360
+                    }
+                }
             }
+            
         }
     }
     
@@ -201,9 +181,10 @@ struct Component {
     // Usage Example: Component.NavigationTitle(text: "abc")
     struct NavigationTitle: View {
         var text: String
+        var fontSize: Font = .systemTitle2
         var body: some View {
             Text(NSLocalizedString(text, comment: ""))
-                .font(.systemTitle2)
+                .font(fontSize)
         }
     }
     

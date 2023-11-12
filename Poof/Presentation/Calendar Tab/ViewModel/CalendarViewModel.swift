@@ -177,10 +177,6 @@ extension CalendarViewModel {
     func plusMonth(date: Date, value: Int) -> Date {
         return calendar.date(byAdding: .month, value: value, to: date)!
     }
-
-    func minusMonth(date: Date, value: Int) -> Date {
-        return calendar.date(byAdding: .month, value: value, to: date)!
-    }
     
     //full month = LLLL, year = yyyy
     func getCalendarComponentString(date: Date, format: String) -> String {
@@ -202,37 +198,9 @@ extension CalendarViewModel {
     func firstWeekDayOfMonth(date: Date) -> Int {
         let component = calendar.dateComponents([.year, .month], from: date)
         let firstOfMonthDate = calendar.date(from: component)!
-        return calendar.component(.weekday, from: firstOfMonthDate) - 2
+        return calendar.component(.weekday, from: firstOfMonthDate) - 1
     }
     
-//    func showStatLastSevenDays(progressData: [ProgressModel]) -> [ProgressModel] {
-//        var progressDataByDate: [ProgressModel] = []
-//        let sevenDaysInt = Calendar.current.component(.day, from: Date()) - 7
-//        let sevenDaysAgoDate = CalendarHelper().getItemDate(day: sevenDaysInt, currAppDate: Date())
-//
-//        for data in progressData {
-//            if data.date >= sevenDaysAgoDate && data.date <= Date() {
-//                progressDataByDate.append(data)
-//            }
-//        }
-//        return progressDataByDate
-//    }
-    
-//    func showStatThisMonth(progressData: [ProgressModel]) -> [ProgressModel] {
-//        var progressDataByDate: [ProgressModel] = []
-//        let currMonth = Calendar.current.component(.month, from: Date())
-//        let currYear = Calendar.current.component(.year, from: Date())
-//
-//        for data in progressData {
-//            let dataMonth = Calendar.current.component(.month, from: data.date)
-//            let dataYear = Calendar.current.component(.year, from: data.date)
-//
-//            if dataMonth == currMonth && dataYear == currYear {
-//                progressDataByDate.append(data)
-//            }
-//        }
-//        return progressDataByDate
-//    }
     
     func showCalendarData(currProgressDate: Date) -> [Int] {
         var daysData: [Int] = []
@@ -261,12 +229,49 @@ extension CalendarViewModel {
 
 
 
-extension Date {
-    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
-        return calendar.dateComponents(Set(components), from: self)
-    }
+//extension Date {
+//    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+//        return calendar.dateComponents(Set(components), from: self)
+//    }
+//
+//    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+//        return calendar.component(component, from: self)
+//    }
+//}
 
-    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
-        return calendar.component(component, from: self)
-    }
+
+extension Formatter {
+    static let monthMedium: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLL"
+        return formatter
+    }()
+    static let hour12: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h"
+        return formatter
+    }()
+    static let minute0x: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "mm"
+        return formatter
+    }()
+    static let amPM: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "a"
+        return formatter
+    }()
+    static let month: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL"
+        return formatter
+    }()
+}
+
+extension Date {
+    var monthMedium: String  { return Formatter.monthMedium.string(from: self) }
+    var hour12:  String      { return Formatter.hour12.string(from: self) }
+    var minute0x: String     { return Formatter.minute0x.string(from: self) }
+    var amPM: String         { return Formatter.amPM.string(from: self) }
+    var month: String        { return Formatter.month.string(from: self) }
 }

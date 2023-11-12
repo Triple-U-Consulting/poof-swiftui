@@ -49,14 +49,9 @@ struct TabBarView: View {
             .onAppear(perform: {
                 vm.fetchKambuhDataIfScaleAndTriggerIsNull()
             })
-            .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/, content: {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
-            })
-//            .onAppear() {
-//                UITabBar.appearance().tintColor = .yellow
-//                UITabBar.appearance().barTintColor = .red
-//                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
-//            }
+//            .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/, content: {
+//                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
+//            })
         }
     }
 }
@@ -64,5 +59,6 @@ struct TabBarView: View {
 #Preview {
     TabBarView()
         .environmentObject(Router())
+        .environmentObject(ConditionViewModel())
     
 }

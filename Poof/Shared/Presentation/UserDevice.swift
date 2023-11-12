@@ -22,9 +22,3 @@ class UserDevice: ObservableObject {
     @Published var width342: CGFloat = 342
     @Published var height402: CGFloat = 402
 }
-
-//extension UIScreen{
-//   static let screenWidth = UIScreen.main.bounds.size.width
-//   static let screenHeight = UIScreen.main.bounds.size.height
-//   static let screenSize = UIScreen.main.bounds.size
-//}

@@ -34,7 +34,7 @@ struct UpdateConditionView: View {
                             ToolbarItem(placement: .topBarTrailing) {
                                 Component.TextButton(text: NSLocalizedString("Simpan", comment: ""), action: {
                                     vm.updateKambuhData()
-                                   // router.path.append(Page.TabBar)
+                                    router.path.removeLast()
                                 })
                             }
                         }

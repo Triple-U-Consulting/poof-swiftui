@@ -13,17 +13,17 @@ struct CalendarTabView: View {
     private let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
     @State private var currProgressDate = Date()
     private let vm = CalendarViewModel()
-//    @State private var dayDates: [Int] = []
-    
     @State private var showSheet = false
+    @State private var recentMonth = 2 //means show 3 months
     
     var body: some View {
         NavigationView {
-            VStack {
-                Component.DefaultText(text: "Calendar")
-                Component.NextButton(text: "\(currProgressDate.get(.month)) \(currProgressDate.get(.year))", borderColor: .black) {
+            VStack (spacing: 0) {
+                Component.NextButton(text: "\(vm.getCalendarComponentString(date: currProgressDate, format: "LLLL")) \(vm.getCalendarComponentString(date: currProgressDate, format: "yyyy"))", borderColor: .white.opacity(0)) {
                     showSheet.toggle()
                 }
+                .padding(.top, 8)
+                
                 HStack (spacing:0) {
                     ForEach(weekDaysData, id:\.self) {dayName in
                         Component.DefaultText(text: "\(dayName)")
@@ -31,27 +31,37 @@ struct CalendarTabView: View {
                             .frame(width: 53, height: 17)
                     }
                     .frame(width: .infinity, height: 17)
-                    .background(.gray3)
-                    
                 }
+                .padding(.top, 16)
+                
+                Component.CustomDivider(width: userDevice.usableWidth)
+                
                 ScrollView {
                     
-                    ForEach(0...5, id:\.self) {index in
+                    ForEach(0...recentMonth, id:\.self) {index in
                         CalendarMonthView(currProgressDate: vm.plusMonth(date: currProgressDate, value: index))
-                        //                    CalendarMonthView(currProgressDate: $currProgressDate)
                     }
                 }
                 .refreshable {
-                    currProgressDate = vm.minusMonth(date: currProgressDate, value: -3)
+                    currProgressDate = vm.plusMonth(date: currProgressDate, value: -2)
+                    recentMonth += 2
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Component.NavigationTitle(text: "Calendar", fontSize: .systemTitle1)
+                        .accessibilityAddTraits(.isHeader)
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .background(.gray7)
+        }
+        .onAppear {
+            currProgressDate = vm.plusMonth(date: currProgressDate, value: -recentMonth)
         }
         .sheet(isPresented: self.$showSheet) {
             CalendarDatePickerView(showSheet: $showSheet, currProgressDate: $currProgressDate)
 //                .environmentObject(vm)
-        }
-        .toolbar {
-            Component.DefaultText(text: "haha")
         }
 
     }
@@ -82,7 +92,7 @@ struct CalendarDatePickerView: View {
                             showSheet.toggle()
                         }
                 }
-//                Text("picker disini")
+
                 DatePicker("", selection: $currProgressDate, displayedComponents: DatePickerComponents.date)
                     .datePickerStyle(WheelDatePickerStyle())
             }

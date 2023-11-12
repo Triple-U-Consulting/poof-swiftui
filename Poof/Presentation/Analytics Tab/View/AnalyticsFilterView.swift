@@ -82,15 +82,14 @@ struct AnalyticsFilterView: View {
                 }
                 
             }
-            .navigationBarTitleDisplayMode(.inline)
-
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Analytics")
-                        .font(.largeTitle.bold())
+                    Component.NavigationTitle(text: "Analitik", fontSize: .systemTitle1)
                         .accessibilityAddTraits(.isHeader)
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .background(.gray7)
         }
         
     }

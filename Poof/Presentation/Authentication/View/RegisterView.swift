@@ -76,6 +76,7 @@ struct RegisterView: View {
                             default:
                                 Text("")
                             }
+                        }
                             
 //                            if viewModel.message == "Email already registered"{
 //                                Component.textErrorMessageSignPage(string: "Email sudah terdaftar")
@@ -83,19 +84,19 @@ struct RegisterView: View {
 //                                Component.textErrorMessageSignPage(string: viewModel.message)
 //                            }
                             
-                            Component.DefaultButton(text: "Daftar") {
-                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                viewModel.register(email: email, password: password, confirmPassword: confirmPassword)
-                            }
-                            .padding(.top, 5)
-                            .padding(.horizontal, 24)
-                            Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
-                                router.path.removeLast()
-                            }
-                            .padding(.top, 25)
-                            .padding(.bottom, 76 - userDevice.bottomSafeArea)
+                        Component.DefaultButton(text: "Daftar") {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            viewModel.register(email: email, password: password, confirmPassword: confirmPassword)
                         }
-                        .position(x: 190, y: 395)
+                        .padding(.top, 5)
+                        .padding(.horizontal, 24)
+                        
+                        Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
+                            router.path.removeLast()
+                        }
+                        .padding(.top, 40)
+                        .padding(.bottom, 76 - userDevice.bottomSafeArea)
+
                     }
                     .toolbar{
                         ToolbarItem(placement: .topBarLeading) {

@@ -17,8 +17,9 @@ struct InhalerTabView: View {
     var body: some View {
         NavigationView {
             VStack (spacing: 0) {
+                //CIRCLE INDICATOR
                 ZStack (alignment: .center) {
-                    RotatingCircleView(syncStatus: $vm.syncStatus)
+                    Component.RotatingCircle(syncStatus: $vm.syncStatus)
                     Component.CircleView(
                         text: "Sinkronisasi",
                         syncStatus: $vm.syncStatus,
@@ -34,26 +35,31 @@ struct InhalerTabView: View {
                             },
                             set: { _ in }
                         ))
+                    
+                    Component.RotatingCircle(syncStatus: .constant(.synced))
+                    Component.CircleView(
+                        text: "Sinkronisasi",
+                        syncStatus: .constant(.synced),
+                        todayIntake: .constant(8),
+                        remainingIntake: .constant(100))
                 }
                 .frame(width: 260, height: 260)
-                .padding(.top, 16)
+                .padding(.top, -28)
                 
+                //LAST SYNC
                 Text("Terakhir disinkronisasi pada \(vm.syncDate)")
                     .padding(.top, 12)
                 
+                //HIGHLIGHTS
                 VStack (spacing:0) {
-                    
-                    //TODAY'S DATA
                     HStack (alignment: .center, spacing: 0) {
-                        
                         Spacer()
                         Spacer()
-                        
                         VStack (alignment: .center) {
                             Component.DefaultText(text: "Pemakaian Hari Ini")
                                 .font(.systemFootnote)
                                 .lineLimit(2...)
-                            Component.DefaultText(text: (vm.todayPuff != nil ? "\(vm.todayPuff!)" : ""))
+                            Component.DefaultText(text: (vm.todayPuff != nil ? "\(vm.todayPuff!)" : "0"))
                                 .font(.systemTitle2)
                         }
                         .frame(width: 90, height:65)
@@ -69,10 +75,8 @@ struct InhalerTabView: View {
                                 .font(.systemFootnote)
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2...)
-//                                .background(.yellow)
-                            Component.DefaultText(text: (vm.weekAvgPuff != nil ? "\(vm.weekAvgPuff!)" : ""))
+                            Component.DefaultText(text: (vm.weekAvgPuff != nil ? "\(vm.weekAvgPuff!)" : "0"))
                                 .font(.systemTitle2)
-//                                .background(.red)
                         }
                         .frame(width: 90, height:65)
                         
@@ -87,7 +91,7 @@ struct InhalerTabView: View {
                                 .font(.systemFootnote)
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2...)
-                            Component.DefaultText(text: (vm.remaining != nil ? "\(vm.remaining!)" : ""))
+                            Component.DefaultText(text: (vm.remaining != nil ? "\(vm.remaining!)" : "0"))
                                 .font(.systemTitle2)
                         }
                         .frame(width: 90, height:65)
@@ -99,80 +103,79 @@ struct InhalerTabView: View {
                     .frame(width:342, height:101)
                     .background(.primary3.opacity(0.5))
                     .cornerRadius(10)
-//                    .shadow(color: .gray3, radius: 12, x: 0, y: 4)
-                    .padding(.top, 16)
-                    
-                    //STATUS
-//                    VStack (alignment: .leading, spacing:0) {
-//                        Component.DefaultText(text: "Status")
-//                            .font(.systemHeadline)
-//                        
-//                        HStack (spacing:0) {
-//                            Component.DefaultText(text: "Last Replaced Date")
-//                                .font(.systemFootnote)
-//                            Spacer()
-//                            Component.DefaultText(text: "15/08/2023")
-//                                .font(.systemFootnote)
-//                        }
-////                        .background(.yellow)
-//                        .padding(.top, 8)
-//                        
-//                        
-//                        HStack (spacing:0) {
-//                            Component.DefaultText(text: "Expected Replace Date")
-//                                .font(.systemFootnote)
-//                            Spacer()
-//                            Component.DefaultText(text: "29/09/2023")
-//                                .font(.systemFootnote)
-//                        }
-////                        .background(.yellow)
-//                        .padding(.top, 8)
-//                        
-//                    }
-//                    .padding(.top, 16)
-                    
-                    //BUTTON
-                    Component.DefaultButton(text: "Sync", buttonLevel: .primary) {
-                        vm.getData()
-                    }
-                    .padding(.top, 16)
-                    
-                    Component.DefaultButton(text: "Change Inhaler", buttonLevel: .secondary) {
-                        //
-                    }
-                    .padding(.top, 16)
-                    
                 }
-                .frame(width: 342, height:249)
-                .padding(.top, 18)
+                .frame(width: 342)
+                .padding(.top, 16)
                 
+                //LOW INHALER WARNING
+                if let remainingPuff = vm.remaining {
+                    if remainingPuff < 10 {
+                        HStack {
+                            Text(Image(systemName: "exclamationmark.triangle.fill"))
+                            Component.DefaultText(text: " Inhaler Anda hampir habis")
+                        }
+                        .padding(.top, 12)
+                    }
+                }
+                
+                //BUTTON
+                Component.DefaultButton(text: "Sinkronisasi", buttonLevel: .primary) {
+                    vm.getData()
+                }
+                .padding(.top, 12)
+                .padding(.horizontal, 24)
+                
+                Component.DefaultButton(text: "Ganti Inhaler", buttonLevel: .secondary) {
+                    //TODO: LOGIC GANTI INHALER
+                }
+                .padding(.top, 12)
+                .padding(.horizontal, 24)
+                
+                //CONDITION UPDATE FORM
+                HStack {
+                    Component.DefaultText(text: "Perbaharui Kondisi")
+                        .font(.systemSubheader)
+                    Spacer()
+                }
+                .frame(width: 342)
+                .padding(.top, 24)
+                
+                VStack (alignment: .leading, spacing:0) {
+                    HStack {
+                        Component.DefaultText(text: "Perbarui gejala anda")
+                            .foregroundStyle(.primary1)
+                        Spacer()
+                        Text(Image(systemName: "chevron.right"))
+                            .foregroundStyle(.primary1)
+                    }
+                    .padding(.horizontal, 12)
+                    //TODO: JUMLAH DATA YANG BELUM DIISI
+                    Component.DefaultText(text: "5 Puff terdeteksi")
+                        .padding(.top, 8)
+                        .padding(.leading, 12)
+                }
+                .padding(12)
+                .background(.white)
+                .cornerRadius(12)
+                .frame(width: 342, height: 71)
+                .padding(.top, 8)
+                .onTapGesture {
+                    router.path.append(Page.UpdateCondition)
+                }
+                
+                Text(" ")
                 Spacer()
                 
-                
             }
-//            .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Component.NavigationTitle(text: "Inhaler")
-////                        .padding(.top, 16)
-//                }
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    Component.ProfileButton() {
-//                        //logic
-//                    }
-////                    .padding(.top, 8)
-//                }
-//            }
-//            .background(.red)
-//            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Medication")
-                        .font(.largeTitle.bold())
+                    Component.NavigationTitle(text: "Obat", fontSize: .systemTitle1)
                         .accessibilityAddTraits(.isHeader)
                 }
             }
+            .frame(width: userDevice.usableWidth)
+            .background(.gray7)
         }
-        .padding(8)
         .onAppear {
             vm.getData()
         }
