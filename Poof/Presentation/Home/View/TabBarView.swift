@@ -10,37 +10,44 @@ import SwiftUI
 struct TabBarView: View {
     
     @EnvironmentObject var router: Router
+    @EnvironmentObject var userDevice: UserDevice
     @State private var selection = 0
     
     var body: some View {
         VStack {
             TabView(selection: $selection) {
                 InhalerTabView()
+                    .environmentObject(router)
+                    .environmentObject(userDevice)
                     .tabItem {
                         Image(systemName: "lungs.fill")
-                        Text("Inhaler")
+                        Text("Obat")
                     }
                     .tag(0)
                 
-                SummaryTabView()
+                CalendarTabView()
                     .tabItem {
-                        Image(systemName: "list.bullet.clipboard.fill")
-                        Text("Summary")
+                        Image(systemName: "calendar")
+                        Text("Kalender")
                     }
                     .tag(1)
                 
-//                RecommendationTabView()
-//                    .tabItem {
-//                        Image(systemName: "hand.thumbsup.fill")
-//                        Text("Reccomendation")
-//                    }
-//                    .tag(2)
+                AnalyticsFilterView()
+                    .tabItem {
+                        Image(systemName: "list.bullet.clipboard.fill")
+                        Text("Ringkasan")
+                    }
+                    .tag(2)
+                
+                ProfileTabView()
+                    .tabItem {
+                        Image(systemName: "person")
+                        Text("Profile")
+                    }
+                    .tag(3)
+                
             }
             .accentColor(Color.Main.primary1)
-//            .onAppear() {
-//                UITabBar.appearance().barTintColor = .red
-//                UITabBar.appearance().layer.borderColor = UIColor(.gray).cgColor
-//            }
         }
     }
 }
@@ -48,5 +55,6 @@ struct TabBarView: View {
 #Preview {
     TabBarView()
         .environmentObject(Router())
+        .environmentObject(UserDevice())
     
 }

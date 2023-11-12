@@ -1,0 +1,87 @@
+/* 
+  Localizable.strings
+  Poof
+
+  Created by Jonathan Evan Christian on 18/10/23.
+  
+*/
+
+//"AiroPuff" = "AiroPuff";
+//"AiroPuff is an application designed to assist parents in monitoring their child's asthma condition." = "Airopuff merupakan aplikasi yang dirancang untuk membantu orang tua memantau kondisi asma anak.";
+//"Next" = "Berikutnya";
+
+
+// MARK: ONBOARDING
+"AiroPuff" = "AiroPuff";
+
+"Airopuff merupakan aplikasi yang dirancang untuk membantu orang tua memantau kondisi asma anak." = "AiroPuff is an application designed to assist parents in monitoring their child's asthma condition.";
+
+"Berikutnya" = "Next";
+
+"Sambungkan Inhaler Pintar Anda" = "Pair Your Smart Inhaler";
+
+"Inhaler pintar akan memantau pemakaian harian inhaler anda dan menyediakan informasi mengenai lingkungan sekitar anda." = "Our inhaler will monitor your daily puffs and provide you with your environtment information.";
+
+"Notifikasi Pengingat" = "Reminder Notification";
+
+"Mulai" = "Let’s Get Started";
+
+"Kami akan mengirimkan anda pengingat untuk obat harian dan notifikasi ketika inhaler pintar digunakan." = "We’ll send you daily medication reminders and alerts when smart inhaler is used.";
+
+// MARK: LOGIN
+"Masuk" = "Sign In";
+"Email" = "Email";
+"Kata sandi" = "Password";
+"Tidak memiliki akun?" = "Do not have an account?";
+"Daftar" = "Sign Up";
+"Ketik Kata Sandi Anda" = "Type Your Password";
+
+// MARK: REGISTER
+//"Daftar" = "Sign Up"; udah ada
+//"Email" = "Email"; udah ada
+"Tanggal Lahir" = "Date Of Birth";
+"Kata Sandi" = "Password";
+"Konfirmasi Kata Sandi" = "Confirm Password";
+"Sudah memiliki akun?" = "Already have an account?";
+//"Masuk" = "Sign In";
+"Buat Kata Sandi" = "Create Password";
+"Ketik Ulang Kata Sandi Anda" = "Retype Password";
+"HH.BB.TTTT" = "DD.MM.YYYY";
+"Email sudah terdaftar" = "Email already resgistered";
+
+// MARK: PAIRING
+"Sambungkan Perangkat Anda" = "Pair Your Device";
+"Sambungkan Inhaler Anda" = "Pair Your Inhaler";
+"Menyambungkan inhaler membantu kami untuk membuat analisis yang lebih baik." = "Connecting your inhaler helps us to improve our analysis.";
+"Mulai" = "Start Pairing";
+"Sambungkan ke Wi-Fi" = "Connect to Wi-Fi";
+"Buka setelan ponsel anda dan hubungkan ke Wi-Fi inhaler. Pastikan inhaler memiliki baterai yang cukup." = "Open your phone setting and connect to inhaler's Wi-Fi. Make sure it has sufficient battery.";
+"Memuat" = "Loading";
+"Pastikan inhaler anda berada dekat dengan anda." = "Please make sure that you have your inhaler near you.";
+"Coba Lagi" = "Try Again";
+"Menyambungkan" = "Pairing";
+"Mohon tunggu sebentar, kami sedang menyambungkan perangkat anda." = "Please wait for a moment, we are pairing it now.";
+"Tersambung" = "Paired";
+"Inhaler anda sudah tersambung dengan perangkat anda." = "We have successfully paired your inhaler!";
+"Pilih Wi-Fi untuk Inhaler" = "Choose a Wi-Fi for Inhaler";
+"SSID" = "SSID";
+"Penyambungan Perangkat Gagal" = "Failed to Pair";
+"Kata Sandi" = "Password";
+"Nama Wi-Fi" = "Wi-Fi Name";
+"Kata Sandi Wi-Fi" = "Wi-Fi Password";
+"Bergabung" = "Join";
+"Tidak dapat terhubung ke Wi-Fi. Pastikan kembali SSID dan Kata Sandi anda" = "Unable to connect to Wi-Fi. Please recheck SSID and Password!";
+"Koneksi Hilang" = "Connection Lost";
+"Koneksi dengan inhaler terputus. Silahkan menghubungkan kembali." = "We can’t detect your inhaler. Please reconnect.";
+"Oke" = "Okay";
+
+// MARK: SheetAddData
+"Simpan" = "Save";
+"Dilacak pada" = "Tracked on";
+"Memperbaharui kondisi" = "Update condition";
+"puff terdeteksi" = "Puff detected";
+"Iya" = "Yes";
+"Tidak" = "No";
+"Dipicu oleh alergi anda?" = "Triggered by your irritants?";
+"Pilih" = "Select";
+"Skala sesak" = "Shortness of Breath";

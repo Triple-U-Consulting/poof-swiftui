@@ -13,6 +13,9 @@ extension Color {
         static let primary1 = Color("primary1")
         static let primary2 = Color("primary2")
         static let primary3 = Color("primary3")
+        static let blueText = Color("blueText")
+        static let blueTextSecondary = Color("blueTextSecondary")
+        static let backgroundTitleCard = Color("backgroundTitleCard")
     }
 }
 
@@ -28,11 +31,17 @@ extension Color {
 // For Neutrals
 extension Color {
     struct Neutrals {
-        static let white = Color("white")
-        static let black = Color("black")
+        //static let systemWhite = Color("white")
+       // static let systemBlack = Color("black")
         static let gray1 = Color("gray1")
         static let gray2 = Color("gray2")
         static let gray3 = Color("gray3") //for shadow button
+        static let gray4 = Color("gray4")
+        static let gray5 = Color("gray5")
+        static let gray6 = Color("gray6")
+        static let sheetBackground = Color("gray7")
+        static let titleSignPage = Color("gray4")
+        static let grayBottomSignText = Color("gray5")
     }
 }
 

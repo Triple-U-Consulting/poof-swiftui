@@ -14,13 +14,9 @@ protocol GetKambuhDataUseCase {
 
 
 class GetKambuhDataImpl {
-    static let shared = GetKambuhDataImpl(repository: KambuhRepositoryImpl.shared)
+    static let shared = GetKambuhDataImpl()
     
-    private let repository: KambuhRepositoryImpl
-    
-    init(repository: KambuhRepositoryImpl) {
-        self.repository = repository
-    }
+    private let repository = KambuhRepositoryImpl.shared
 }
 
 extension GetKambuhDataImpl: GetKambuhDataUseCase {

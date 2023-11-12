@@ -10,41 +10,62 @@ import SwiftUI
 struct LoadingPairingView: View {
     
     @Binding var pairProgress : PairDevicePage
+    @EnvironmentObject var vm: PairingViewModel
+
     
     var body: some View {
-        VStack {
-            VStack {
+        NavigationView {
+            VStack (spacing:0){
+                VStack (spacing:0) {
+                    Spacer()
+                    LottieViewComponent(name: "pairing-loading", loopMode: .loop)
+                        .frame(width:358, height:169.53)
+                    Spacer()
+                }
+                
+                VStack (spacing:0) {
+                    Component.DefaultText(text: "Menyambungkan...")
+                        .font(.systemSubheader)
+                    
+                    Component.DefaultText(text: "Mohon tunggu sebentar, kami sedang menyambungkan perangkat anda.")
+                        .lineLimit(3...3)
+                        .padding(.top, 12)
+                        .frame(width: 295)
+                    
+                    Spacer()
+                        .frame(height: 48)
+                    .padding(.top, 88)
+                }
+                .frame(height: 195)
+                .padding(.bottom, 44)
+                .onReceive(vm.$status, perform: { newStatus in
+                    switch newStatus {
+                    case .failure(_):
+                        print("failure")
+                        pairProgress = .failedPairing
+                    case .success:
+                        pairProgress = .successPairing
+                    default:
+                        break
+                    }
+                })
+                
                 Spacer()
                 
-                LottieViewComponent(name: "pairing-loading", loopMode: .loop)
-                    .frame(width:358, height:169.53)
-                Spacer()
             }
-            .frame(height:512)
-            
-            VStack {
-                Text("Pairing")
-                    .font(.systemTitle)
-                
-                Text("Please wait for a moment, we are \npairing it now")
-                    .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 8)
-                
-                Spacer()
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Component.NavigationTitle(text: "Sambungkan Inhaler Anda")
+                }
             }
-            .frame(height: 195)
-            .padding(.bottom, 83)
-            
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                pairProgress = .successPairing
-            }
+            .onAppear(perform: {
+                vm.findInhaler()
+            })
         }
     }
 }
 
-//#Preview {
-//    LoadingPairingView()
-//}
+#Preview {
+    LoadingPairingView(pairProgress: .constant(PairDevicePage.loadingPairing))
+        .environmentObject(PairingViewModel())
+}

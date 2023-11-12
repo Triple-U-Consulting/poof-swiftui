@@ -12,40 +12,46 @@ struct StartPairingView: View {
     @Binding var pairProgress : PairDevicePage
     
     var body: some View {
-        VStack {
-            VStack {
-                Spacer()
-                
-                LottieViewComponent(name: "pairing-start", loopMode: .loop)
-                    .frame(width:255, height:220)
-                Spacer()
-            }
-            .frame(height:512)
-            
-            VStack {
-                Text("Pair Your Inhaler")
-                    .font(.systemTitle)
-                
-                Text("Connecting your inhaler helps us to \nimprove our analysis.")
-                    .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 8)
-                
-                Component.DefaultButton(text: "Next", buttonLevel: .primary) {
-                    pairProgress = .connectToDeviceWifi
+        NavigationView {
+            VStack (spacing:0){
+                VStack (spacing:0) {
+                    Spacer()
+                    LottieViewComponent(name: "pairing-start", loopMode: .loop)
+                        .frame(width:255, height:220)
+                    Spacer()
                 }
-                .padding(.top, 40)
+                
+                VStack (spacing:0) {
+                    Component.DefaultText(text: "Sambungkan Inhaler Anda")
+                        .font(.systemSubheader)
+                    
+                    Component.DefaultText(text: "Sambungkan inhaler anda untuk pengalaman yang lebih baik.")
+                        .lineLimit(3...3)
+                        .padding(.top, 12)
+                        .frame(width: 295)
+                    
+                    Component.DefaultButton(text: "Berikutnya", buttonLevel: .primary) {
+                        pairProgress = .connectToDeviceWifi
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.top, 88)
+                }
+                .frame(height: 195)
+                .padding(.bottom, 44)
                 
                 Spacer()
+                
             }
-            .frame(height: 195)
-            .padding(.bottom, 83)
-            
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Component.NavigationTitle(text: "Sambungkan Inhaler Anda")
+                }
+            }
         }
     }
 }
 
-//#Preview {
-//    StartPairingView(pairProgress: $pairProgress))
-//        .environmentObject(Router())
-//}
+#Preview {
+    StartPairingView(pairProgress: .constant(PairDevicePage.startPairing))
+        .environmentObject(Router())
+}
