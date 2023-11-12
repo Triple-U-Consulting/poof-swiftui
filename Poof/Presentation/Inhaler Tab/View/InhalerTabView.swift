@@ -35,19 +35,15 @@ struct InhalerTabView: View {
                             },
                             set: { _ in }
                         ))
-                    
-                    Component.RotatingCircle(syncStatus: .constant(.synced))
-                    Component.CircleView(
-                        text: "Sinkronisasi",
-                        syncStatus: .constant(.synced),
-                        todayIntake: .constant(8),
-                        remainingIntake: .constant(100))
                 }
                 .frame(width: 260, height: 260)
                 .padding(.top, -28)
                 
                 //LAST SYNC
-                Text("Terakhir disinkronisasi pada \(vm.syncDate)")
+                let lastSyncText = vm.syncDate == "" ? "Inhaler belum pernah disinkronkan" : "Terakhir disinkronisasi pada \(vm.syncDate)"
+                
+                Component.DefaultText(text: lastSyncText)
+                    .font(.systemBodyText)
                     .padding(.top, 12)
                 
                 //HIGHLIGHTS
