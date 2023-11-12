@@ -9,8 +9,8 @@ import SwiftUI
 import Combine
 
 struct UpdateConditionView: View {
-    @EnvironmentObject var vm: ConditionViewModel
-    @EnvironmentObject var router: Router
+    @Binding var showUpdateSheet: Bool
+    @StateObject var vm: ConditionViewModel = ConditionViewModel()
     
     var body: some View {
         ZStack {
@@ -34,7 +34,7 @@ struct UpdateConditionView: View {
                             ToolbarItem(placement: .topBarTrailing) {
                                 Component.TextButton(text: NSLocalizedString("Simpan", comment: ""), action: {
                                     vm.updateKambuhData()
-                                    router.path.removeLast()
+                                    self.showUpdateSheet = false
                                 })
                             }
                         }
@@ -43,13 +43,15 @@ struct UpdateConditionView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
         }
+        .onAppear {
+            vm.fetchKambuhDataIfScaleAndTriggerIsNull()
+        }
     }
 }
 
 #Preview {
-    UpdateConditionView()
+    UpdateConditionView(showUpdateSheet: .constant(true))
         .environmentObject(ConditionViewModel())
-        .environmentObject(Router())
 }
 
 struct UpdateConditionPerDateView: View {

@@ -24,5 +24,4 @@ enum Page {
     case WifiConfig
     case TabBar
     case InputDose
-    case UpdateCondition
 }

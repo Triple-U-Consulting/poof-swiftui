@@ -146,7 +146,7 @@ class WiFiDetailsViewModel: ObservableObject {
                             self.showAlert = true
                         } else {
                             if message != "WiFi Failed to Connect." {
-                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6.0, execute: {
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10.0, execute: {
                                     self.updateUserInhalerId()
                                 })
                             } else {

@@ -10,13 +10,15 @@ import SwiftUI
 struct TabBarView: View {
     
     @EnvironmentObject var router: Router
-    @StateObject private var vm: ConditionViewModel = ConditionViewModel()
+    @EnvironmentObject var userDevice: UserDevice
     @State private var selection = 0
     
     var body: some View {
         VStack {
             TabView(selection: $selection) {
                 InhalerTabView()
+                    .environmentObject(router)
+                    .environmentObject(userDevice)
                     .tabItem {
                         Image(systemName: "lungs.fill")
                         Text("Obat")
@@ -46,12 +48,6 @@ struct TabBarView: View {
                 
             }
             .accentColor(Color.Main.primary1)
-            .onAppear(perform: {
-                vm.fetchKambuhDataIfScaleAndTriggerIsNull()
-            })
-//            .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/, content: {
-//                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
-//            })
         }
     }
 }
@@ -59,6 +55,6 @@ struct TabBarView: View {
 #Preview {
     TabBarView()
         .environmentObject(Router())
-        .environmentObject(ConditionViewModel())
+        .environmentObject(UserDevice())
     
 }

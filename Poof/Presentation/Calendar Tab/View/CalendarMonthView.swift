@@ -87,12 +87,15 @@ struct CalendarMonthView: View {
             print(currProgressDate)
         }
         .sheet(isPresented: self.$showSheet) {
+            // TODO: what kind of interaction?
             CalendarSheetView(index: $indexKambuh, showSheet: $showSheet, showEditSheet: $showEditSheet)
                 .environmentObject(vm)
+//                .presentationContentInteraction(.scrolls)
         }
         .sheet(isPresented: self.$showEditSheet, content: {
             CalendarEditSheetView(index: indexKambuh, showSheet: $showEditSheet)
                 .environmentObject(vm)
+                .interactiveDismissDisabled()
         })
     }
 }

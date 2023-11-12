@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
+    @StateObject var conditionVM = ConditionViewModel()
     @StateObject var vm = PairingViewModel()
     
     var body: some View {
@@ -51,6 +52,8 @@ struct ContentView: View {
                         case Page.TabBar:
                             TabBarView()
                                 .environmentObject(router)
+                                .environmentObject(userDevice)
+                                .environmentObject(conditionVM)
                                 .navigationBarHidden(true)
                         case Page.WifiConfig:
                             WiFiDetailsView()
@@ -58,10 +61,6 @@ struct ContentView: View {
                                 .navigationBarHidden(true)
                         case Page.InputDose:
                             DoseView()
-                                .environmentObject(router)
-                                .navigationBarHidden(true)
-                        case Page.UpdateCondition:
-                            UpdateConditionView()
                                 .environmentObject(router)
                                 .navigationBarHidden(true)
                         default:

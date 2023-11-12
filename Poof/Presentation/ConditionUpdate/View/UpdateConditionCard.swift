@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct UpdateConditionCard: View {
-    
     @EnvironmentObject var vm: ConditionViewModel
     @State private var isSelected: Bool = false
     

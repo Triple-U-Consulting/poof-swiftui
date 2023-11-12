@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum SyncStatus {
     case unsynced // have not been synced
@@ -14,25 +15,35 @@ enum SyncStatus {
 }
 
 final class InhalerTabViewModel: ObservableObject {
-    @Published var todayPuff: Int?
     @Published private(set) var weekAvgPuff: Double?
-    @Published  var remaining: Int?
     @Published private(set) var syncDate: String = ""
+    @Published var todayPuff: Int?
+    @Published var remaining: Int?
     @Published var syncStatus: SyncStatus = .unsynced
+    @Published var processedKambuhData: [Date: [Kambuh]] = [:]
+    @Published var hasDataToBeFilled: Bool = false
+    
+    private(set) var calendar = Calendar.current
     
     // MARK: - Usecases
     private let getHomeData: GetHomeDataUsecase
+    private let getKambuhDataIfScaleOrTriggerIsNull: GetKambuhDataIfScaleAndTriggerIsNullUseCase
     
     // MARK: - Utils
     private let dateFormat: DateFormatUtil
     private let userDefaultsController: UserDefaultsController
     
+    // MARK: Cancellables
+    private var cancellables = Set<AnyCancellable>()
+    
     init(
         getHomeData: GetHomeDataUsecase = GetHomeDataImpl.shared,
+        getKambuhDataIfScaleOrTriggerIsNull: GetKambuhDataIfScaleAndTriggerIsNullUseCase = GetKambuhDataIfScaleAndTriggerIsNullImpl.shared,
         dateFormat: DateFormatUtil = DateFormatUtil.shared,
         userDefaultsController: UserDefaultsController = UserDefaultsControllerImpl.shared
     ) {
         self.getHomeData = getHomeData
+        self.getKambuhDataIfScaleOrTriggerIsNull = getKambuhDataIfScaleOrTriggerIsNull
         self.dateFormat = dateFormat
         self.userDefaultsController = userDefaultsController
     }
@@ -63,6 +74,34 @@ final class InhalerTabViewModel: ObservableObject {
                         self.remaining = data.remaining
                     }
                 }
+                .store(in: &cancellables)
+        }
+    }
+    
+    func fetchKambuhDataIfScaleAndTriggerIsNull(){
+        Task{
+            await getKambuhDataIfScaleOrTriggerIsNull.execute()
+                .sink { completion in
+                    switch completion{
+                    case .finished:
+                        print(completion)
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { kambuhResults in
+                    
+                    let groupedKambuhData = Dictionary(grouping: kambuhResults) { kambuh in
+                        self.calendar.startOfDay(for: kambuh.start)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.processedKambuhData = groupedKambuhData
+                        if self.processedKambuhData.count > 0 {
+                            self.hasDataToBeFilled = true
+                        }
+                    }
+                }
+                .store(in: &cancellables)
         }
     }
 }

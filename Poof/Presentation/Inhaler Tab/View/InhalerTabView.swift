@@ -13,6 +13,7 @@ struct InhalerTabView: View {
     @EnvironmentObject var userDevice: UserDevice
     @StateObject var vm = InhalerTabViewModel()
     @State private var inhalerSegment = 0
+    @State private var showUpdateSheet: Bool = false
     
     var body: some View {
         NavigationView {
@@ -128,38 +129,39 @@ struct InhalerTabView: View {
                 .padding(.horizontal, 24)
                 
                 //CONDITION UPDATE FORM
-                HStack {
-                    Component.DefaultText(text: "Perbaharui Kondisi")
-                        .font(.systemSubheader)
-                    Spacer()
-                }
-                .frame(width: 342)
-                .padding(.top, 24)
-                
-                VStack (alignment: .leading, spacing:0) {
+                if vm.hasDataToBeFilled {
                     HStack {
-                        Component.DefaultText(text: "Perbarui gejala anda")
-                            .foregroundStyle(.primary1)
+                        Component.DefaultText(text: "Perbaharui Kondisi")
+                            .font(.systemSubheader)
                         Spacer()
-                        Text(Image(systemName: "chevron.right"))
-                            .foregroundStyle(.primary1)
                     }
-                    .padding(.horizontal, 12)
-                    //TODO: JUMLAH DATA YANG BELUM DIISI
-                    Component.DefaultText(text: "5 Puff terdeteksi")
-                        .padding(.top, 8)
-                        .padding(.leading, 12)
-                }
-                .padding(12)
-                .background(.white)
-                .cornerRadius(12)
-                .frame(width: 342, height: 71)
-                .padding(.top, 8)
-                .onTapGesture {
-                    router.path.append(Page.UpdateCondition)
+                    .frame(width: 342)
+                    .padding(.top, 24)
+                    
+                    VStack (alignment: .leading, spacing:0) {
+                        HStack {
+                            Component.DefaultText(text: "Perbarui gejala anda")
+                                .foregroundStyle(.primary1)
+                            Spacer()
+                            Text(Image(systemName: "chevron.right"))
+                                .foregroundStyle(.primary1)
+                        }
+                        .padding(.horizontal, 12)
+                        //TODO: JUMLAH DATA YANG BELUM DIISI
+                        Component.DefaultText(text: "\(vm.processedKambuhData.values.first!.count) kali pemakaian")
+                            .padding(.top, 8)
+                            .padding(.leading, 12)
+                    }
+                    .padding(12)
+                    .background(.white)
+                    .cornerRadius(12)
+                    .frame(width: 342, height: 71)
+                    .padding(.top, 8)
+                    .onTapGesture {
+                        self.showUpdateSheet = true
+                    }
                 }
                 
-                Text(" ")
                 Spacer()
                 
             }
@@ -171,9 +173,16 @@ struct InhalerTabView: View {
             }
             .frame(width: userDevice.usableWidth)
             .background(.gray7)
+            .sheet(isPresented: $showUpdateSheet, content: {
+                UpdateConditionView(showUpdateSheet: $showUpdateSheet)
+                    .interactiveDismissDisabled()
+                    .environmentObject(router)
+                    .navigationBarHidden(true)
+            })
         }
         .onAppear {
             vm.getData()
+            vm.fetchKambuhDataIfScaleAndTriggerIsNull()
         }
     }
 }
