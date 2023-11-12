@@ -28,10 +28,11 @@ struct Component {
     struct DefaultText: View {
         
         var text: String
+        var textAlignment: TextAlignment = .center
         
         var body: some View {
             Text(NSLocalizedString(text, comment: ""))
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(textAlignment)
                 .lineSpacing(-2)
                 .tracking(0.4)
         }
@@ -202,7 +203,7 @@ struct Component {
         var text: String
         var body: some View {
             Text(NSLocalizedString(text, comment: ""))
-                .font(.systemTitle1)
+                .font(.systemTitle2)
         }
     }
     

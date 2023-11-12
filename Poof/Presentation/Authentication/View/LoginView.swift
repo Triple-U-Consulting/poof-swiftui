@@ -24,7 +24,7 @@ struct LoginView: View {
                 Component.titleSignPage(text: "Email")
                 
                 TextField(text: $email) {
-                    Text(verbatim: "john.doe@gmail.com")
+                    Text(verbatim: "loremipsum@gmail.com")
                 }
                 .autocapitalization(.none)
                 .autocorrectionDisabled(true)
@@ -37,7 +37,7 @@ struct LoginView: View {
                 Component.titleSignPage(text: "Kata sandi")
                 
                 SecureField(text: $password) {
-                    Text(verbatim: "********")
+                    Text(verbatim: "Ketik Kata Sandi Anda")
                 }
                 .autocapitalization(.none)
                 .autocorrectionDisabled(true)
@@ -49,25 +49,23 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                Text((wrongPassword || wrongEmail) ? "Unable to connect to Wi-Fi. Please recheck SSID and Password" : "")
-                    .lineSpacing(-2)
-                    .tracking(0.4)
+//                Text((wrongPassword || wrongEmail) ? "Unable to connect to Wi-Fi. Please recheck SSID and Password" : "")
+                Component.DefaultText(text: (wrongPassword || wrongEmail) ? "Email atau kata sandi yang dimasukkan salah." : "", textAlignment: .leading)
                     .lineLimit(2...2)
                     .font(.systemHeadline)
                     .frame(width: userDevice.width342, alignment: .leading)
                     .foregroundStyle(.red)
                     .padding(.top, 12)
-                    .multilineTextAlignment(.leading)
-                    .padding(.leading, 31)
+                    .padding(.leading, 24)
                 
-                Component.DefaultButton(text: "Sign In") {
+                Component.DefaultButton(text: "Masuk") {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     viewModel.login(email: email, password: password)
                 }
                 .padding(.top, 16)
                 .padding(.horizontal, 24)
                 
-                Component.bottomSignText(text: "Do not have an account?", blueText: "Sign Up") {
+                Component.bottomSignText(text: "Tidak memiliki akun?", blueText: "Daftar") {
                     router.path.append(Page.Register)
                 }
                 .padding(.top, 40)
@@ -78,9 +76,6 @@ struct LoginView: View {
                     Component.NavigationTitle(text: "Masuk")
                 }
             }
-//            .navigationDestination(for: Page.self) { _ in
-//                RegisterView().environmentObject(router)
-//            }
         }
         .onChange(of: viewModel.status, { _, newValue in
             if newValue == .success {

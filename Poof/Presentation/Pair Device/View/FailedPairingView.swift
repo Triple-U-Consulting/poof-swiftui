@@ -11,39 +11,45 @@ struct FailedPairingView: View {
     @Binding var pairProgress : PairDevicePage
     
     var body: some View {
-        VStack {
-            VStack {
+        NavigationView {
+            VStack (spacing:0){
+                VStack (spacing:0) {
+                    Spacer()
+                    LottieViewComponent(name: "pairing-failed", loopMode: .loop)
+                        .frame(width:358, height:172.69)
+                    Spacer()
+                }
+                
+                VStack (spacing:0) {
+                    Component.DefaultText(text: "Perangkat Gagal Tersambung")
+                        .font(.systemSubheader)
+                    
+                    Component.DefaultText(text: "Koneksi dengan inhaler terputus. Silahkan mengubungkan kembali")
+                        .lineLimit(3...3)
+                        .padding(.top, 12)
+                        .frame(width: 295)
+                    
+                    Component.DefaultButton(text: "Coba Lagi", buttonLevel: .primary) {
+                        pairProgress = .connectToDeviceWifi
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.top, 88)
+                }
+                .frame(height: 195)
+                .padding(.bottom, 44)
+                
                 Spacer()
                 
-                LottieViewComponent(name: "pairing-failed", loopMode: .loop)
-                    .frame(width:358, height:172.69)
-                Spacer()
             }
-            .frame(height:512)
-            
-            VStack {
-                Text("Penyambungan Perangkat Gagal")
-                    .font(.systemTitle1)
-                
-                Text("Pastikan inhaler anda berada dekat dengan anda.")
-                    .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 8)
-                
-                Spacer()
-            }
-            .frame(height: 195)
-            .padding(.bottom, 83)
-            
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                pairProgress = .connectToDeviceWifi
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Component.NavigationTitle(text: "Sambungkan Inhaler Anda")
+                }
             }
         }
     }
 }
 
-//#Preview {
-//    FailedPairingView()
-//}
+#Preview {
+    FailedPairingView(pairProgress: .constant(PairDevicePage.failedPairing))
+}

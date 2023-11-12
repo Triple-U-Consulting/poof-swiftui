@@ -12,22 +12,20 @@ struct OnboardingView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
     @State private var selectedPage = 0
-    private var numberOfOnboardingSlides : Int = 2
+    private let numberOfOnboardingSlides : Int = 2
     
     private var title : [String] = [
         "AiroPuff",
-        "Sambungkan Inhaler Pintar Anda",
-        "Notifikasi Pengingat"
+        "Inhaler Pintar"
     ]
     private var details : [String] = [
-        "Airopuff merupakan aplikasi yang dirancang untuk membantu orang tua memantau kondisi asma anak.",
-        "Inhaler pintar akan memantau pemakaian harian inhaler anda dan menyediakan informasi mengenai lingkungan sekitar anda.",
-        "Kami akan mengirimkan anda pengingat untuk obat harian dan notifikasi ketika inhaler pintar digunakan."
+        "AiroPuff adalah aplikasi yang dibuat untuk membantu masyarakat memantau kondisi asmanya.",
+        "Inhaler pintar akan memantau penggunaan harian. Data akan tersinkronisasi otomatis saat aplikasi dibuka."
     ]
     
     var body: some View {
         VStack (spacing:0) {
-            //IMAGE
+            //IMAGExs
             TabView(selection: $selectedPage) {
                 ForEach(0..<numberOfOnboardingSlides) { index in
                     Image("onboardingArtwork-\(index+1)")
@@ -55,16 +53,6 @@ struct OnboardingView: View {
                     .frame(width: userDevice.width342, alignment: .center)
                     .foregroundStyle(.gray1)
                     .padding(.top, 12)
-                
-                //INDICATOR
-//                HStack(spacing: 8) {
-//                    ForEach(0..<numberOfOnboardingSlides) { index in
-//                        Circle()
-//                            .fill(selectedPage == index ? Color.black : Color.gray)
-//                            .frame(width: 8, height: 8)
-//                    }
-//                }
-//                .padding(.top, 32)
                 
                 Spacer()
                 

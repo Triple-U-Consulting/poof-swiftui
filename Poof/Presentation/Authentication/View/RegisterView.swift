@@ -13,11 +13,8 @@ struct RegisterView: View {
     @EnvironmentObject var userDevice: UserDevice
     @ObservedObject private var viewModel = AuthViewModel()
     @State private var email: String = ""
-    //@State private var dob: Date?
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
-    // @State private var currentPage: SignPage = .register
-    //var currentPage: Page
     
     var body: some View {
         ZStack {
@@ -29,7 +26,7 @@ struct RegisterView: View {
                         Component.titleSignPage(text: "Email")
                         
                         TextField(text: $email) {
-                            Text(verbatim: "john.doe@gmail.com")
+                            Text(verbatim: "loremipsum@gmail.com")
                         }
                         .autocorrectionDisabled(true)
                         .padding(.leading, 30)
@@ -38,16 +35,6 @@ struct RegisterView: View {
                         .padding(.top, 8)
                         
                         Component.CustomDivider(width: 342)
-                        
-//                        Component.titleSignPage(text: "Tanggal Lahir")
-//                        
-//                        Component.DatePickerTextField(placeholder: NSLocalizedString("HH.BB.TTTT", comment: ""), date: $dob)
-//                            .frame(height: 34)
-//                        //.background(Color.black)
-//                            .padding([.leading, .trailing], 30)
-//                            .padding(.top, 8)
-//                        
-//                        Component.CustomDivider(width: 342)
                         
                         Component.titleSignPage(text: "Kata Sandi")
                         
@@ -96,10 +83,9 @@ struct RegisterView: View {
 //                                Component.textErrorMessageSignPage(string: viewModel.message)
 //                            }
                             
-                            Component.DefaultButton(text: "Sign Up") {
+                            Component.DefaultButton(text: "Daftar") {
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                                 viewModel.register(email: email, password: password, confirmPassword: confirmPassword)
-                                //                                    router.path.removeLast()
                             }
                             .padding(.top, 5)
                             .padding(.horizontal, 24)

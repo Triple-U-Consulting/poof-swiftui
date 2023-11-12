@@ -13,39 +13,49 @@ struct SuccessPairingView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        VStack {
-            VStack {
+        NavigationView {
+            VStack (spacing:0){
+                VStack (spacing:0) {
+                    Spacer()
+                    LottieViewComponent(name: "pairing-success", loopMode: .loop)
+                        .frame(width:358, height:197.55)
+                    Spacer()
+                }
+                
+                VStack (spacing:0) {
+                    Component.DefaultText(text: "Tersambung")
+                        .font(.systemSubheader)
+                    
+                    Component.DefaultText(text: "Inhaler anda sudah tersambung dengan ponsel anda.")
+                        .lineLimit(3...3)
+                        .padding(.top, 12)
+                        .frame(width: 295)
+                    
+                    Spacer()
+                        .frame(height: 48)
+                    .padding(.top, 88)
+                }
+                .frame(height: 195)
+                .padding(.bottom, 44)
+                
                 Spacer()
                 
-                LottieViewComponent(name: "pairing-success", loopMode: .loop)
-                    .frame(width:358, height:197.55)
-                Spacer()
             }
-            .frame(height:512)
-            
-            VStack {
-                Text("Tersambung")
-                    .font(.systemTitle1)
-                
-                Text("Inhaler anda sudah tersambung dengan perangkat anda.")
-                    .frame(width: 291, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 8)
-                
-                
-                Spacer()
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Component.NavigationTitle(text: "Sambungkan Inhaler Anda")
+                }
             }
-            .frame(height: 195)
-            .padding(.bottom, 83)
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                router.path.append(Page.WifiConfig)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    router.path.append(Page.WifiConfig)
+                }
             }
         }
     }
 }
 
-//#Preview {
-//    SuccessPairingView()
-//}
+#Preview {
+    SuccessPairingView(pairProgress: .constant(.successPairing))
+        .environmentObject(Router())
+}

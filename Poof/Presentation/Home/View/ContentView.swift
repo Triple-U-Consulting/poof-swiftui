@@ -68,6 +68,7 @@ struct ContentView: View {
                     }
             }
         }
+        .preferredColorScheme(.light) //force light mode
     }
 }
 
@@ -75,6 +76,5 @@ struct ContentView: View {
     ContentView()
         .environmentObject(Router())
         .environmentObject(UserDevice())
-//        .environment(\.locale, .init(identifier: "id"))
         .environment(\.locale, .init(identifier: "en"))
 }
