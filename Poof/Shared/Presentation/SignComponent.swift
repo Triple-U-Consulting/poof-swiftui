@@ -24,7 +24,7 @@ extension Component {
         var body: some View {
             HStack{
                 Text(NSLocalizedString(text, comment: ""))
-                    .foregroundColor(Color.Neutrals.titleSignPage)
+                    .foregroundColor(.black)
                     .font(.systemHeadline)
                 
                 Text("*")
