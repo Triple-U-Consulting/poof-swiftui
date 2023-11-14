@@ -85,3 +85,11 @@
 "Dipicu oleh alergi anda?" = "Triggered by your irritants?";
 "Pilih" = "Select";
 "Skala sesak" = "Shortness of Breath";
+"Sepertinya anda belum mengisi semua catatan!" = "Uh-oh, it looks like you haven't filled all your notes!";
+"Ya, simpan perubahan" = "Yes, save changes";
+"Pastikan data yang diisi sudah sesuai" = "Make sure the data is correct";
+"Anda bisa membuat perubahan kembali di halaman Kalender" = "You can edit your notes later in the Calendar Tab";
+
+// MARK: SheetEditCalendar
+"Batal" = "Cancel";
+"Memuat" = "Loading";

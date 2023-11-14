@@ -19,6 +19,10 @@ struct CalendarMonthView: View {
     @State private var showEditSheet = false
     @State private var indexKambuh = 0
     
+    @Binding var selectedDate: Date?
+    
+    let todayDate = Date()
+    
     var body: some View {
         VStack {
             
@@ -40,8 +44,7 @@ struct CalendarMonthView: View {
                     let temp = vm.firstWeekDayOfMonth(date: currProgressDate)
                     if index == temp {
                         Component.DefaultText(text: "\(vm.getCalendarComponentString(date: vm.plusMonth(date: currProgressDate, value: 0), format: "LLL"))")
-                            .font(.systemSubheader)
-                            .textCase(.uppercase)
+                            .font(.systemTitle3)
                             .frame(width: 53, height: 41)
                     } else {
                         Component.DefaultText(text: " ")
@@ -59,11 +62,32 @@ struct CalendarMonthView: View {
                     //DAY CELL
                     VStack (spacing:0) {
                         if dayDate != 0 {
+                            let thisIsToday = ((dayDate == Int(todayDate.date)) && (currProgressDate.month == todayDate.month) && (currProgressDate.year == todayDate.year))
                             Divider()
-                            Component.DefaultText(text: "\(dayDate)")
-                                .font(.systemBodyText)
-                                .padding(.top, 12)
-                            //Indicator whether the user use inhaler that day
+                            ZStack(alignment: .center) {
+                                Circle()
+                                    .foregroundColor(thisIsToday ? .primary4 : .white.opacity(0))
+                                
+                                if !thisIsToday {
+                                    if let d = self.selectedDate {
+                                        if vm.dayOfMonth(date: d) == dayDate && (currProgressDate.month == d.month) && (currProgressDate.year == d.year) {
+                                            Circle()
+                                                .foregroundColor(.white.opacity(0))
+                                                .overlay(
+                                                    Circle()
+                                                        .stroke(.primary4, lineWidth: 2)
+                                                )
+                                        }
+                                    }
+                                }
+                                
+                                Component.DefaultText(text: "\(dayDate)")
+                                    .font(.systemBodyText)
+                                    .foregroundColor(thisIsToday ? .white : .black)
+                            }
+                            .frame(width: 32, height: 32)
+                            .padding(.top, 12)
+                            
                             Circle()
                                 .fill(vm.hasNotes(date: currProgressDate, day: dayDate) == .noNotes ? .white.opacity(0) : (vm.hasNotes(date: currProgressDate, day: dayDate) == .filled ? Color.primary1 : Color.gray))
                                 .frame(width: 8, height: 8)
@@ -74,6 +98,7 @@ struct CalendarMonthView: View {
                     }
                     .frame(width: 53) //height:70
                     .onTapGesture {
+                        self.selectedDate = vm.getDateFromDayDate(date: currProgressDate, day: dayDate)
                         vm.setSelected(date: currProgressDate, day: dayDate)
                         showSheet.toggle()
                     }
@@ -102,5 +127,5 @@ struct CalendarMonthView: View {
 
 
 #Preview {
-    CalendarMonthView(currProgressDate: Date())
+    CalendarMonthView(currProgressDate: Date(), selectedDate: .constant(nil))
 }

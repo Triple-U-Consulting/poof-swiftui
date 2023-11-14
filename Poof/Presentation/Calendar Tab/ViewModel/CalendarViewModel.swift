@@ -98,13 +98,17 @@ extension CalendarViewModel {
 // MARK: - Actions
 extension CalendarViewModel {
     // CalendarMonthView
-    func setSelected(date: Date, day: Int) {
+    func getDateFromDayDate(date: Date, day: Int) -> Date {
         var dateComponents = DateComponents()
         dateComponents.day = day
         dateComponents.month = calendar.component(.month, from: date)
         dateComponents.year = calendar.component(.year, from: date)
         
-        self.currentDateSelected = calendar.date(from: dateComponents)!
+        return calendar.date(from: dateComponents)!
+    }
+    
+    func setSelected(date: Date, day: Int) {
+        self.currentDateSelected = getDateFromDayDate(date: date, day: day)
     }
     
     func hasNotes(date: Date, day: Int) -> NoteStatus {
@@ -266,6 +270,16 @@ extension Formatter {
         formatter.dateFormat = "LLLL"
         return formatter
     }()
+    static let date: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd"
+        return formatter
+    }()
+    static let year: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter
+    }()
 }
 
 extension Date {
@@ -274,4 +288,6 @@ extension Date {
     var minute0x: String     { return Formatter.minute0x.string(from: self) }
     var amPM: String         { return Formatter.amPM.string(from: self) }
     var month: String        { return Formatter.month.string(from: self) }
+    var date: String         { return Formatter.date.string(from: self) }
+    var year: String         { return Formatter.year.string(from: self) }
 }

@@ -23,6 +23,10 @@ extension Font {
         return .system(size: 22, weight: .semibold)
     }
     
+    static var systemTitle3: Font {
+        return .system(size: 20, weight: .semibold)
+    }
+    
     static var systemSubheader: Font {
         return .system(size: 22, weight: .semibold)
     }

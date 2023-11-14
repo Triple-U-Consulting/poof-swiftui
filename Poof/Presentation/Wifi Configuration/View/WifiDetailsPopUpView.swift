@@ -17,7 +17,7 @@ struct WiFiDetailsPopUpView: View {
         VStack(spacing: 20) {
             if status == .loading {
                 ProgressView()
-                Text("Memuat")
+                Text("\(self.message ?? "Loading")")
             }
         }
         .padding(40)

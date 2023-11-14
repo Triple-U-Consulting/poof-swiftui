@@ -32,6 +32,7 @@ struct DoseView: View {
                             .stroke(.primary2, lineWidth: 2)
                     )
                     .padding(.horizontal, 24)
+                    .padding(.top, 12)
                     
                     Spacer()
                     
@@ -44,11 +45,9 @@ struct DoseView: View {
                 }
             
                 if vm.isPopUpDisplayed {
-                    LoadingView(dismissAction: {
-                        vm.isPopUpDisplayed = false
-                    })
-                    .background(Color.black.opacity(0.4))
-                    .edgesIgnoringSafeArea(.all)
+                    LoadingView()
+                        .background(Color.black.opacity(0.4))
+                        .edgesIgnoringSafeArea(.all)
                 }
                 
                 
@@ -58,6 +57,8 @@ struct DoseView: View {
                     Component.NavigationTitle(text: "Masukkan Sisa Dosis Inhaler")
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .ignoresSafeArea(.keyboard)
         }
         .onChange(of: vm.status) { _, newValue in
             if newValue == .success {

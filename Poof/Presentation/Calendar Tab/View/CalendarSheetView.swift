@@ -64,9 +64,9 @@ struct CalendarSheetDetailView: View {
                         self.bindingIndex = index
                         self.showSheet.toggle()
                         
-                        withAnimation(Animation.linear.delay(2)) {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
                             self.showEditSheet.toggle()
-                        }
+                        })
                     }
             }
             

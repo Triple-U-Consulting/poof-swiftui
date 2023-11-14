@@ -118,6 +118,7 @@ struct InhalerTabView: View {
                 //BUTTON
                 Component.DefaultButton(text: "Sinkronisasi", buttonLevel: .primary) {
                     vm.getData()
+                    vm.fetchKambuhDataIfScaleAndTriggerIsNull()
                 }
                 .padding(.top, 12)
                 .padding(.horizontal, 24)
@@ -131,7 +132,7 @@ struct InhalerTabView: View {
                 //CONDITION UPDATE FORM
                 if vm.hasDataToBeFilled {
                     HStack {
-                        Component.DefaultText(text: "Perbaharui Kondisi")
+                        Component.DefaultText(text: "Perbaharui Catatan Kondisi")
                             .font(.systemSubheader)
                         Spacer()
                     }

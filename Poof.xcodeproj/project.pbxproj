@@ -296,6 +296,23 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		0B1F6F0F2B0213EA005ACCBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */,
+				D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0B1F6F102B0213F1005ACCBC /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		0B2AF8E82AFE37D800572762 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,7 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				ABE72E1E2AFE38AF008AF550 /* DoseView.swift */,
-				0B7617B12AFF57D600AF4975 /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -466,6 +482,7 @@
 		0B8D608A2AD94B8D0017445F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0B7617B12AFF57D600AF4975 /* LoadingView.swift */,
 				AB7BEDD12ACD56680071BF10 /* Component.swift */,
 				AB7BEDD72ACD6F8C0071BF10 /* Router.swift */,
 				3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */,
@@ -853,9 +870,8 @@
 		D6E6D6892ADFD84C000C1A94 /* Wifi Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */,
-				D65637062AE0E00100C64FC1 /* WifiDetailsView.swift */,
-				D65637202AE220D500C64FC1 /* WifiDetailsPopUpView.swift */,
+				0B1F6F102B0213F1005ACCBC /* View Model */,
+				0B1F6F0F2B0213EA005ACCBC /* View */,
 			);
 			path = "Wifi Configuration";
 			sourceTree = "<group>";
