@@ -19,7 +19,6 @@ struct RegisterView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(.white).ignoresSafeArea()
                 VStack (spacing:0) {
                     VStack {
                         Component.titleSignPage(text: "Email")
@@ -62,6 +61,7 @@ struct RegisterView: View {
                         Component.CustomDivider(width: 342)
                     }
                     .padding(8)
+//                    .ignoresSafeArea(.keyboard)
                     
                     Spacer()
                     
@@ -91,12 +91,14 @@ struct RegisterView: View {
                     }
                     .padding(.top, 5)
                     .padding(.horizontal, 24)
+//                    .ignoresSafeArea(.keyboard)
                     
                     Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
                         router.path.removeLast()
                     }
                     .padding(.top, 40)
                     .padding(.bottom, 76 - userDevice.bottomSafeArea)
+//                    .ignoresSafeArea(.keyboard)
                     
                 }
                 

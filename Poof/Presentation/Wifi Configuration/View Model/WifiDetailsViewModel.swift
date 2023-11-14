@@ -137,7 +137,7 @@ class WiFiDetailsViewModel: ObservableObject {
                 } receiveValue: { message in
                     print(message)
                     DispatchQueue.main.async {
-                        self.message = message
+//                        self.message = message
                         
                         if message != "WiFi Failed to Connect." {
                             self.inhalerConnectedWifi = true

@@ -14,16 +14,19 @@ struct WiFiDetailsPopUpView: View {
 
     
     var body: some View {
-        VStack(spacing: 20) {
-            if status == .loading {
-                ProgressView()
-                Text("\(self.message ?? "Loading")")
+        GeometryReader { geo in
+            VStack(spacing: 20) {
+                if status == .loading {
+                     ProgressView()
+                    Text("\(self.message ?? "Loading")")
+                        .multilineTextAlignment(.center)
+                }
             }
+            .frame(maxWidth: geo.size.width/2, maxHeight: .infinity, alignment: .center)
         }
         .padding(40)
         .background(Color.white)
         .cornerRadius(8)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }
 

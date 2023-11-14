@@ -58,7 +58,6 @@ struct DoseView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .ignoresSafeArea(.keyboard)
         }
         .onChange(of: vm.status) { _, newValue in
             if newValue == .success {
