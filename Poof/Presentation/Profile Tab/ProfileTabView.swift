@@ -40,16 +40,17 @@ struct ProfileTabView: View {
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 155 - userDevice.bottomSafeArea)
+                //                }
             }
             .frame(width: userDevice.usableWidth)
             .background(.gray7)
-            .toolbar{
+            .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Component.NavigationTitle(text: "Profil")
+                    Component.NavigationTitle(text: "Profil", fontSize: .systemTitle1)
+                        .accessibilityAddTraits(.isHeader)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-//            .ignoresSafeArea(.keyboard)
         }
     }
 }

@@ -217,7 +217,7 @@ struct Component {
         var action: () -> Void
         var body: some View {
             Button(action: action) {
-                Image("profileIcon")
+                Image("tabBarIcon4")
                     .resizable()
                     .renderingMode(.original) // Use original rendering mode
                     .frame(width: 44, height: 44)
@@ -313,11 +313,11 @@ struct WaveView: View {
                     .offset(y:200-(remainingIntake*0.9))
             }
             .frame(width:180, height: 180)
-            Wave(strength: 8, frequency: 6, phase: phase)
+            Wave(strength: 2, frequency: 5, phase: phase)
                 .stroke(Color.secondary3, lineWidth: 16)
                 .frame(width:200, height: 180)
                 .offset(y: 110-(remainingIntake*0.9))
-            Wave(strength: 8, frequency: 6, phase: phase)
+            Wave(strength: 2, frequency: 5, phase: phase)
                 .stroke(Color.secondary2, lineWidth: todayIntake)
                 .frame(width:200, height: 180)
                 .offset(y: 110-(remainingIntake*0.9)-8+(todayIntake*0.45))

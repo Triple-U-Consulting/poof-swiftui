@@ -20,29 +20,33 @@ struct TabBarView: View {
                     .environmentObject(router)
                     .environmentObject(userDevice)
                     .tabItem {
-                        Image(systemName: "lungs.fill")
-                        Text("Obat")
+                        Image("tabBarIcon1")
+                            .renderingMode(.template)
+                        Text("Inhaler")
                     }
                     .tag(0)
                 
                 CalendarTabView()
                     .tabItem {
-                        Image(systemName: "calendar")
+                        Image("tabBarIcon2")
+                            .renderingMode(.template)
                         Text("Kalender")
                     }
                     .tag(1)
                 
                 AnalyticsFilterView()
                     .tabItem {
-                        Image(systemName: "list.bullet.clipboard.fill")
-                        Text("Ringkasan")
+                        Image("tabBarIcon3")
+                            .renderingMode(.template)
+                        Text("Analitik")
                     }
                     .tag(2)
                 
                 ProfileTabView()
                     .tabItem {
-                        Image(systemName: "person")
-                        Text("Profile")
+                        Image("tabBarIcon4")
+                            .renderingMode(.template)
+                        Text("Profil")
                     }
                     .tag(3)
                 
