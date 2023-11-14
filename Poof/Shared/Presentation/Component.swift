@@ -180,8 +180,9 @@ struct Component {
     // CUSTOM NAVIGATION TITLE FOR NAVIGATION BAR
     // Usage Example: Component.NavigationTitle(text: "abc")
     struct NavigationTitle: View {
+        var userDevice = UserDevice()
         var text: String
-        var fontSize: Font = .systemTitle2
+        var fontSize: Font = .systemTitle3
         var body: some View {
             Text(NSLocalizedString(text, comment: ""))
                 .font(fontSize)

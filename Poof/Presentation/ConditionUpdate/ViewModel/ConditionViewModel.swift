@@ -16,7 +16,7 @@ class ConditionViewModel: ObservableObject {
     @Published var scale: [Int] = []
     @Published var trigger: [Bool] = []
     @Published var kambuhId: [Int] = []
-    var hasDataToBeFilled: Bool = false
+    
     //@Published private(set) var error: String = ""
 
     private(set) var calendar = Calendar.current
@@ -51,15 +51,33 @@ extension ConditionViewModel {
         return self.processedKambuhData[date] ?? []
     }
     
+    func hasDataToBeFilled() -> Bool {
+        guard !processedKambuhData.isEmpty else { return false }
+        
+        let data = processedKambuhData.values.flatMap{ $0 }
+        
+        for d in data {
+            print(d.scale)
+            print(d.trigger)
+            print(d.hasNotes())
+            if !d.hasNotes() {
+                return true
+            }
+        }
+        return false
+    }
+
     func fetchKambuhDataIfScaleAndTriggerIsNull(){
         Task{
             await getKambuhDataIfScaleOrTriggerIsNull.execute()
                 .sink { completion in
                     switch completion{
                     case .finished:
-                        print(completion)
+//                        print(completion)
+                        break
                     case .failure(let failure):
                         print(failure)
+                        break
                     }
                 } receiveValue: { kambuhResults in
                     
@@ -69,9 +87,6 @@ extension ConditionViewModel {
                     
                     DispatchQueue.main.async {
                         self.processedKambuhData = groupedKambuhData
-                        if self.processedKambuhData.count > 0 {
-                            self.hasDataToBeFilled = true
-                        }
                     }
                 }
                 .store(in: &cancellables)
@@ -85,9 +100,11 @@ extension ConditionViewModel {
                 .sink { completion in
                     switch completion{
                     case .finished:
-                        print(completion)
+//                        print(completion)
+                        break
                     case .failure(let failure):
                         print(failure.localizedDescription)
+                        break
                     }
                 } receiveValue: { result in
                     print(result)

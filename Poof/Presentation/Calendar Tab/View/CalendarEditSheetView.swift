@@ -11,6 +11,7 @@ struct CalendarEditSheetView: View {
     @EnvironmentObject var vm: CalendarViewModel
     
     let index: Int
+    @State var showConfDialog: Bool = false
     @Binding var showSheet: Bool
     
     var body: some View {
@@ -35,11 +36,25 @@ struct CalendarEditSheetView: View {
                 .toolbar{
                     ToolbarItem(placement: .topBarTrailing) {
                         Component.TextButton(text: NSLocalizedString("Simpan", comment: ""), action: {
-                            vm.updateKambuhData()
+                            showConfDialog = true
+                        })
+                    }
+                    ToolbarItem(placement: .topBarLeading) {
+                        Component.TextButton(text: NSLocalizedString("Batal", comment: ""), action: {
                             self.showSheet.toggle()
                         })
                     }
                 }
+                .confirmationDialog(NSLocalizedString("Pastikan data yang diisi sudah sesuai", comment: ""), isPresented: $showConfDialog, actions: {
+                    Button {
+                        vm.updateKambuhData()
+                        self.showSheet.toggle()
+                    } label: {
+                        Text(NSLocalizedString("Ya, simpan perubahan", comment: ""))
+                    }
+                }, message: {
+                    Text(NSLocalizedString("Pastikan data yang diisi sudah sesuai", comment: ""))
+                })
             }
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
         }

@@ -10,11 +10,12 @@ import SwiftUI
 struct CalendarTabView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
-    private let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
     @State private var currProgressDate = Date()
-    private let vm = CalendarViewModel()
     @State private var showSheet = false
     @State private var recentMonth = 2 //means show 3 months
+    @State var selectedDate: Date?
+    private let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
+    private let vm = CalendarViewModel()
     
     var body: some View {
         NavigationView {
@@ -39,7 +40,8 @@ struct CalendarTabView: View {
                 ScrollView {
                     
                     ForEach(0...recentMonth, id:\.self) {index in
-                        CalendarMonthView(currProgressDate: vm.plusMonth(date: currProgressDate, value: index))
+                        let month = vm.plusMonth(date: currProgressDate, value: index)
+                        CalendarMonthView(currProgressDate: month, selectedDate: $selectedDate)
                     }
                 }
                 .refreshable {
@@ -61,7 +63,6 @@ struct CalendarTabView: View {
         }
         .sheet(isPresented: self.$showSheet) {
             CalendarDatePickerView(showSheet: $showSheet, currProgressDate: $currProgressDate)
-//                .environmentObject(vm)
         }
 
     }

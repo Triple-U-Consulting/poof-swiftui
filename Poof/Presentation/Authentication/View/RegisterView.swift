@@ -17,12 +17,11 @@ struct RegisterView: View {
     @State private var confirmPassword: String = ""
     
     var body: some View {
-        ZStack {
-            Color(.white).ignoresSafeArea()
-            NavigationView {
-                ZStack {
-                    Color(.white).ignoresSafeArea()
-                    VStack (spacing:0) {
+        NavigationView {
+            ZStack {
+                Color(.white).ignoresSafeArea()
+                VStack (spacing:0) {
+                    VStack {
                         Component.titleSignPage(text: "Email")
                         
                         TextField(text: $email) {
@@ -61,53 +60,54 @@ struct RegisterView: View {
                         .padding(.top, 8)
                         
                         Component.CustomDivider(width: 342)
-                        
-                        Spacer()
-                        
-                        VStack{
-                            
-                            switch viewModel.message {
-                            case "Email already registered":
-                                Component.textErrorMessageSignPage(string: "Email sudah terdaftar")
-                            case "User registered":
-                                Text("")
-                            case self.viewModel.message:
-                                Component.textErrorMessageSignPage(string: viewModel.message)
-                            default:
-                                Text("")
-                            }
-                        }
-                            
-//                            if viewModel.message == "Email already registered"{
-//                                Component.textErrorMessageSignPage(string: "Email sudah terdaftar")
-//                            } else {
-//                                Component.textErrorMessageSignPage(string: viewModel.message)
-//                            }
-                            
-                        Component.DefaultButton(text: "Daftar") {
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                            viewModel.register(email: email, password: password, confirmPassword: confirmPassword)
-                        }
-                        .padding(.top, 5)
-                        .padding(.horizontal, 24)
-                        
-                        Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
-                            router.path.removeLast()
-                        }
-                        .padding(.top, 40)
-                        .padding(.bottom, 76 - userDevice.bottomSafeArea)
-
                     }
-                    .toolbar{
-                        ToolbarItem(placement: .topBarLeading) {
-                            Component.NavigationTitle(text: "Daftar")
-                                .padding(.top, 16)
+                    .padding(8)
+                    
+                    Spacer()
+                    
+                    VStack{
+                        
+                        switch viewModel.message {
+                        case "Email already registered":
+                            Component.textErrorMessageSignPage(string: "Email sudah terdaftar")
+                        case "User registered":
+                            Text("")
+                        case self.viewModel.message:
+                            Component.textErrorMessageSignPage(string: viewModel.message)
+                        default:
+                            Text("")
                         }
                     }
+                    
+                    //                            if viewModel.message == "Email already registered"{
+                    //                                Component.textErrorMessageSignPage(string: "Email sudah terdaftar")
+                    //                            } else {
+                    //                                Component.textErrorMessageSignPage(string: viewModel.message)
+                    //                            }
+                    
+                    Component.DefaultButton(text: "Daftar") {
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        viewModel.register(email: email, password: password, confirmPassword: confirmPassword)
+                    }
+                    .padding(.top, 5)
+                    .padding(.horizontal, 24)
+                    
+                    Component.bottomSignText(text: "Sudah memiliki akun?", blueText: "Masuk") {
+                        router.path.removeLast()
+                    }
+                    .padding(.top, 40)
+                    .padding(.bottom, 76 - userDevice.bottomSafeArea)
+                    
                 }
                 
+                if viewModel.status == .loading {
+                    LoadingView()
+                        .background(Color.black.opacity(0.4))
+                        .edgesIgnoringSafeArea(.all)
+                }
             }
-            .padding(8)
+            .ignoresSafeArea(.keyboard)
+            .navigationTitle("\(NSLocalizedString("Daftar", comment: ""))")
         }
     }
 }

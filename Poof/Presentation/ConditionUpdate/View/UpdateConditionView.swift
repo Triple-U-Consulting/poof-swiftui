@@ -9,6 +9,8 @@ import SwiftUI
 import Combine
 
 struct UpdateConditionView: View {
+    @State var showFirstAlert: Bool = false
+    @State var showSecondAlert: Bool = false
     @Binding var showUpdateSheet: Bool
     @StateObject var vm: ConditionViewModel = ConditionViewModel()
     
@@ -22,7 +24,8 @@ struct UpdateConditionView: View {
                         LazyVStack(alignment: .leading){
                         
                             ForEach(vm.getDateKeys(), id: \.self) { key in
-                                Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: key, to: "dd MMMM yyyy"))"))
+                                Component.DefaultText(text: "\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: key, to: "dd MMMM yyyy"))")
+                                    .font(.systemHeadline)
                                     .padding(.bottom, 24)
                                 
                                 UpdateConditionPerDateView(key: key)
@@ -33,8 +36,7 @@ struct UpdateConditionView: View {
                         .toolbar{
                             ToolbarItem(placement: .topBarTrailing) {
                                 Component.TextButton(text: NSLocalizedString("Simpan", comment: ""), action: {
-                                    vm.updateKambuhData()
-                                    self.showUpdateSheet = false
+                                    showFirstAlert = true
                                 })
                             }
                         }
@@ -46,6 +48,30 @@ struct UpdateConditionView: View {
         .onAppear {
             vm.fetchKambuhDataIfScaleAndTriggerIsNull()
         }
+        .alert(Text(NSLocalizedString("Sepertinya anda belum mengisi semua catatan!", comment: "")), isPresented: $showSecondAlert, actions: {
+            Button(action: {
+                self.showUpdateSheet.toggle()
+            }, label: {
+                Text("OK")
+            })
+        }, message: {
+            Text(NSLocalizedString("Anda bisa membuat perubahan kembali di halaman Kalender", comment: ""))
+        })
+        .confirmationDialog(NSLocalizedString("Pastikan data yang diisi sudah sesuai", comment: ""), isPresented: $showFirstAlert, actions: {
+            Button {
+                vm.updateKambuhData()
+                
+                if vm.hasDataToBeFilled() {
+                    showSecondAlert = true
+                } else {
+                    self.showUpdateSheet.toggle()
+                }
+            } label: {
+                Text(NSLocalizedString("Ya, simpan perubahan", comment: ""))
+            }
+        }, message: {
+            Text(NSLocalizedString("Pastikan data yang diisi sudah sesuai", comment: ""))
+        })
     }
 }
 

@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct LoadingView: View {
-    var dismissAction: () -> Void
-
     var body: some View {
         VStack(spacing: 20) {
             ProgressView()
-            Text("Memuat")
+            Text("\(NSLocalizedString("Memuat", comment: ""))")
         }
         .padding(40)
         .background(Color.white)
         .cornerRadius(8)
+        .edgesIgnoringSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }

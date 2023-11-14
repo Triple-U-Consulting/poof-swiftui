@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-enum LoginStatus: Int8 {
+enum LoginRegistStatus: Int8 {
     case initial
     case loading
     case success
@@ -17,7 +17,7 @@ enum LoginStatus: Int8 {
 
 class AuthViewModel: ObservableObject {
     // MARK: - Attributes
-    @Published private(set) var status: LoginStatus = .initial
+    @Published private(set) var status: LoginRegistStatus = .initial
     @Published private(set) var message: String = ""
     //@Published private(set) var message: String = ""
     
@@ -32,7 +32,7 @@ class AuthViewModel: ObservableObject {
     private let userDefaultsController: UserDefaultsController
     
     init(
-        status: LoginStatus = .initial,
+        status: LoginRegistStatus = .initial,
         cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
         loginUseCase: LoginUserUsecase = LoginUserImpl.shared,
         registUseCase: RegisterUserUsecase = RegisterUserImpl.shared,
@@ -51,38 +51,39 @@ extension AuthViewModel {
 //        guard let d = dob else { 
 //            print("dob error")
 //            return }
-        guard email != "" else {
-            self.message = "Email can't be empty"
+        guard email != "" && password != "" && confirmPassword != "" else {
+            self.message = "All fields must be filled"
             return
         }
         guard !email.contains("@.com") else {
-            self.message = "Email must contains @.com"
+            self.message = "Email has incorrect format"
             return
         }
         guard password == confirmPassword else {
-            self.message = "Passwords don't match!"
+            self.message = "Passwords don't match"
             return
         }
-        guard password != "" else {
-            self.message = "Password can't be empty"
+        guard password.count >= 8 else {
+            self.message = "Password must be 8 characters or longer"
             return
         }
-        guard confirmPassword != "" else {
-            self.message = "Confirm password can't be empty"
-            return
-        }
-        guard password.count > 8 else {
-            self.message = "Password must 8 characters or higher"
-            return
-        }
+        
+        self.status = .loading
+        
         Task {
             await registUseCase.execute(email: email, password: password)
                 .sink { completion in
                     switch completion {
                     case .finished:
                         print("register done")
+                        DispatchQueue.main.async { [weak self] in
+                            self?.status = .success
+                        }
                     case .failure(let failure):
                         print(failure)
+                        DispatchQueue.main.async { [weak self] in
+                            self?.status = .failure
+                        }
                     }
                 } receiveValue: { message in
                     print(message)

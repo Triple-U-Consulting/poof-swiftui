@@ -62,7 +62,7 @@ struct ContentView: View {
                         case Page.InputDose:
                             DoseView()
                                 .environmentObject(router)
-                                .navigationBarHidden(true)
+//                                .navigationBarHidden(true)
                         default:
                             VStack {
                                 Text("An error occured. Check ContentView")

@@ -86,6 +86,7 @@ class WiFiDetailsViewModel: ObservableObject {
     
     func updateUserInhalerId() {
         self.status = .loading
+        self.message = "Getting everything ready"
         self.isPopUpDisplayed = true
         
         print("inhaler_id:")
@@ -120,6 +121,7 @@ class WiFiDetailsViewModel: ObservableObject {
     
     func postWiFiDetails(ssid: String, password: String) {
         self.status = .loading
+        self.message = "Connecting to WiFi"
         self.isPopUpDisplayed = true
         
         Task {

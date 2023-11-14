@@ -87,7 +87,9 @@ struct WiFiDetailsView: View {
             .onChange(of: viewModel.updatedUserInhaler, initial: false, {
                 router.path.append(Page.InputDose)
             })
+            .navigationBarTitleDisplayMode(.inline)
         }
+        .ignoresSafeArea(.keyboard)
     }
 }
 
