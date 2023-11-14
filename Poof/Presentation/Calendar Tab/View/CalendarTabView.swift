@@ -14,6 +14,8 @@ struct CalendarTabView: View {
     @State private var showSheet = false
     @State private var recentMonth = 2 //means show 3 months
     @State var selectedDate: Date?
+    @State var pickerMonth: Int = Calendar.current.component(.month, from: Date.now)
+    @State var pickerYear: Int = Calendar.current.component(.year, from: Date.now)
     private let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
     private let vm = CalendarViewModel()
     
@@ -62,7 +64,8 @@ struct CalendarTabView: View {
             currProgressDate = vm.plusMonth(date: currProgressDate, value: -recentMonth)
         }
         .sheet(isPresented: self.$showSheet) {
-            CalendarDatePickerView(currProgressDate: $currProgressDate, showSheet: $showSheet)
+            CalendarDatePickerView(pickerMonth: $pickerMonth, pickerYear: $pickerYear, currProgressDate: $currProgressDate, showSheet: $showSheet)
+                .environmentObject(vm)
         }
 
     }
@@ -79,8 +82,8 @@ struct CalendarDatePickerView: View {
     
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var vm: CalendarViewModel
-    @State var month: Int = Calendar.current.component(.month, from: Date.now)
-    @State var year: Int = Calendar.current.component(.year, from: Date.now)
+    @Binding var pickerMonth: Int
+    @Binding var pickerYear: Int
     @Binding var currProgressDate: Date
     @Binding var showSheet: Bool
     
@@ -91,7 +94,7 @@ struct CalendarDatePickerView: View {
         NavigationView {
             HStack {
                 LazyVStack(alignment: .leading, spacing: 0) {
-                    Picker("", selection: $month) {
+                    Picker("", selection: $pickerMonth) {
                         ForEach(1...months.count, id: \.self) {
                             Text(months[$0 - 1])
                         }
@@ -100,7 +103,7 @@ struct CalendarDatePickerView: View {
                 }
                 
                 LazyVStack(alignment: .leading, spacing: 0) {
-                    Picker("", selection: $year) {
+                    Picker("", selection: $pickerYear) {
                         ForEach(years, id: \.self) {
                             Text(String($0))
                         }
@@ -112,7 +115,7 @@ struct CalendarDatePickerView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Component.TextButton(text: NSLocalizedString("Selesai", comment: ""), action: {
-                        currProgressDate = vm.getDateFromMonthYear(month: month, year: year)
+                        currProgressDate = vm.getDateFromMonthYear(month: pickerMonth ?? Calendar.current.component(.month, from: Date.now), year: pickerYear ?? Calendar.current.component(.year, from: Date.now))
                         showSheet.toggle()
                     })
                 }
