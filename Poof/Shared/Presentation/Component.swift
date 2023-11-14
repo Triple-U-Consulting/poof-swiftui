@@ -94,6 +94,7 @@ struct Component {
     struct NextButton: View {
         var text: String
         var borderColor: Color = Color.primary1
+        var shadowColor: Color = .white.opacity(0)
         var action: () -> Void
         var body: some View {
             Button(action: action) {
@@ -110,7 +111,7 @@ struct Component {
                     .frame(width: 342, height: 47)
                     .background(.white)
                     .cornerRadius(10)
-//                    .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
+                    .shadow(color: shadowColor, radius: 12, x: 0, y: 10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(borderColor, lineWidth: 2)
