@@ -165,6 +165,16 @@ extension CalendarViewModel {
 
 // MARK: - Helper functions
 extension CalendarViewModel {
+    func getDateFromMonthYear(month: Int, year: Int) -> Date {
+        var dateComponents = DateComponents()
+        dateComponents.day = 1
+        dateComponents.month = month
+        dateComponents.year = year
+        
+        let itemCalendar = Calendar(identifier: .gregorian)
+        return itemCalendar.date(from: dateComponents)!
+    }
+    
     func getCellDate(day: Int, currAppDate: Date) -> Date {
         var dateComponents = DateComponents()
         dateComponents.day = day

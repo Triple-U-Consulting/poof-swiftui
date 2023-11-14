@@ -62,7 +62,7 @@ struct CalendarTabView: View {
             currProgressDate = vm.plusMonth(date: currProgressDate, value: -recentMonth)
         }
         .sheet(isPresented: self.$showSheet) {
-            CalendarDatePickerView(showSheet: $showSheet, currProgressDate: $currProgressDate)
+            CalendarDatePickerView(currProgressDate: $currProgressDate, showSheet: $showSheet)
         }
 
     }
@@ -77,29 +77,48 @@ struct CalendarTabView: View {
 
 struct CalendarDatePickerView: View {
     
-    @Binding var showSheet: Bool
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var vm: CalendarViewModel
+    @State var month: Int = Calendar.current.component(.month, from: Date.now)
+    @State var year: Int = Calendar.current.component(.year, from: Date.now)
     @Binding var currProgressDate: Date
+    @Binding var showSheet: Bool
+    
+    let years = Array(1900...Calendar.current.component(.year, from: Date.now))
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
     var body: some View {
-        ScrollView {
-            LazyVStack (alignment: .leading, spacing:0){
-                HStack {
-                    Spacer()
-                    Component.DefaultText(text: "Done")
-                        .foregroundStyle(.primary1)
-                        .onTapGesture {
-                            showSheet.toggle()
+        NavigationView {
+            HStack {
+                LazyVStack(alignment: .leading, spacing: 0) {
+                    Picker("", selection: $month) {
+                        ForEach(1...months.count, id: \.self) {
+                            Text(months[$0 - 1])
                         }
+                    }
+                    .pickerStyle(.wheel)
                 }
-
-                DatePicker("", selection: $currProgressDate, displayedComponents: DatePickerComponents.date)
-                    .datePickerStyle(WheelDatePickerStyle())
+                
+                LazyVStack(alignment: .leading, spacing: 0) {
+                    Picker("", selection: $year) {
+                        ForEach(years, id: \.self) {
+                            Text(String($0))
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                }
+            }
+            .padding(.horizontal, 26)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Component.TextButton(text: NSLocalizedString("Selesai", comment: ""), action: {
+                        currProgressDate = vm.getDateFromMonthYear(month: month, year: year)
+                        showSheet.toggle()
+                    })
+                }
             }
         }
         .frame(width: .infinity)
-        .padding(26)
         .ignoresSafeArea()
         .presentationDetents([.height(200), .large])
         .presentationDragIndicator(.hidden)
