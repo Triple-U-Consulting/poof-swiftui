@@ -89,7 +89,7 @@ struct AnalyticsFilterView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .background(.gray7)
+            .background(.gray8)
         }
         
     }

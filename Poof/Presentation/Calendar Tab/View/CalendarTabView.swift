@@ -56,7 +56,7 @@ struct CalendarTabView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .background(.gray7)
+            .background(.gray8)
         }
         .onAppear {
             currProgressDate = vm.plusMonth(date: currProgressDate, value: -recentMonth)

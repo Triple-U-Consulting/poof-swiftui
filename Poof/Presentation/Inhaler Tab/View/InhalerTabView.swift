@@ -173,7 +173,7 @@ struct InhalerTabView: View {
                 }
             }
             .frame(width: userDevice.usableWidth)
-            .background(.gray7)
+            .background(.gray8)
             .sheet(isPresented: $showUpdateSheet, content: {
                 UpdateConditionView(showUpdateSheet: $showUpdateSheet)
                     .interactiveDismissDisabled()

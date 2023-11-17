@@ -12,6 +12,7 @@ struct DoseView: View {
     @State private var remainingDose: String = ""
     @EnvironmentObject var router: Router
     @StateObject var vm = InhalerDoseViewModel()
+    @FocusState var isInputActive: Bool
     
     var body: some View {
         NavigationView {
@@ -20,6 +21,7 @@ struct DoseView: View {
                     TextField(text: $remainingDose) {
                         Text(verbatim: "Enter your remaining inhaler dose")
                     }
+                    .focused($isInputActive)
                     .autocapitalization(.none)
                     .autocorrectionDisabled(true)
                     .padding(.leading, 30)
@@ -27,9 +29,10 @@ struct DoseView: View {
                     .padding(.vertical, 12)
                     .padding(.leading, -10)
                     .keyboardType(.numberPad)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(.white))
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(.primary2, lineWidth: 2)
+                            .stroke(.primary1, lineWidth: 2)
                     )
                     .padding(.horizontal, 24)
                     .padding(.top, 12)
@@ -43,7 +46,7 @@ struct DoseView: View {
                     .padding(.bottom, 44)
                     .padding(.horizontal, 24)
                 }
-            
+                
                 if vm.isPopUpDisplayed {
                     LoadingView()
                         .background(Color.black.opacity(0.4))
@@ -56,7 +59,15 @@ struct DoseView: View {
                 ToolbarItem(placement: .principal) {
                     Component.NavigationTitle(text: "Masukkan Sisa Dosis Inhaler")
                 }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    
+                    Button("Selesai") {
+                        isInputActive = false
+                    }
+                }
             }
+            .background(.gray8)
             .navigationBarTitleDisplayMode(.inline)
             .ignoresSafeArea(.keyboard)
         }
