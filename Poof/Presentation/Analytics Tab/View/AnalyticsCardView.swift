@@ -39,7 +39,7 @@ struct AnalyticsCardView: View {
                 
             }
             .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray3.opacity(0.3)))
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
             .frame(maxWidth: 350)
             
             
@@ -75,7 +75,7 @@ struct AnalyticsCardView: View {
                 
             }
             .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray3.opacity(0.3)))
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
             .frame(maxWidth: 350)
             
             
@@ -96,7 +96,7 @@ struct AnalyticsCardView: View {
                 
             }
             .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray3.opacity(0.3)))
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
             .frame(maxWidth: 350)
             
         }

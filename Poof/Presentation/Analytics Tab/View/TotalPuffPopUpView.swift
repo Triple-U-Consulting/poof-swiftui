@@ -32,7 +32,7 @@ struct TotalPuffPopUpView: View {
             }
             .padding(.vertical, 8)
             .padding(.horizontal, 16)
-            .background(Color.gray3)
+            .background(Color.white)
             .cornerRadius(10)
 
             Path { path in
