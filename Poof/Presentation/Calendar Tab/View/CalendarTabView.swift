@@ -24,6 +24,7 @@ struct CalendarTabView: View {
                     showSheet.toggle()
                 }
                 .padding(.top, 8)
+                .padding(.horizontal, 24)
                 
                 HStack (spacing:0) {
                     ForEach(weekDaysData, id:\.self) {dayName in

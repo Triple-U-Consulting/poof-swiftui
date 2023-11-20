@@ -35,7 +35,7 @@ struct UpdateConditionView: View {
                         }
                         .toolbar{
                             ToolbarItem(placement: .topBarTrailing) {
-                                Component.TextButton(text: NSLocalizedString("Simpan", comment: ""), action: {
+                                Component.TextButton(text: "Simpan", action: {
                                     showFirstAlert = true
                                 })
                             }

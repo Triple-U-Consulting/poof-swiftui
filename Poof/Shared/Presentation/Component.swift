@@ -108,8 +108,9 @@ struct Component {
                 }
                     .font(.systemButtonText)
                     .foregroundStyle(.black)
-                    .frame(width: 342, height: 47)
-                    .background(.white.opacity(0))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 47)
+                    .background(.white)
                     .cornerRadius(10)
                     .shadow(color: shadowColor, radius: 12, x: 0, y: 10)
                     .overlay(
@@ -232,7 +233,7 @@ struct Component {
         
         var body: some View {
             Button(action: action) {
-                Text(text)
+                Text(NSLocalizedString(text, comment: ""))
                     .foregroundStyle(Color.Main.blueTextSecondary)
             }
         }

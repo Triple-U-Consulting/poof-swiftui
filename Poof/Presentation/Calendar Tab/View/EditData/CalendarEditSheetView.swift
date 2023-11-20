@@ -35,12 +35,12 @@ struct CalendarEditSheetView: View {
                 }
                 .toolbar{
                     ToolbarItem(placement: .topBarTrailing) {
-                        Component.TextButton(text: NSLocalizedString("Simpan", comment: ""), action: {
+                        Component.TextButton(text: "Simpan", action: {
                             showConfDialog = true
                         })
                     }
                     ToolbarItem(placement: .topBarLeading) {
-                        Component.TextButton(text: NSLocalizedString("Batal", comment: ""), action: {
+                        Component.TextButton(text: "Batal", action: {
                             self.showSheet.toggle()
                         })
                     }

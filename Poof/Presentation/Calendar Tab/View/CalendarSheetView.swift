@@ -15,23 +15,38 @@ struct CalendarSheetView: View {
     @Binding private(set) var showEditSheet: Bool
 
     var body: some View {
-        ScrollView {
-            LazyVStack (alignment: .leading, spacing:0){
-                Component.DefaultText(text: "Tracked on \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "d MMMM yyyy"))")
-                    .padding(.bottom, 24)
-                if vm.processedKambuhData[vm.currentDateSelected] != nil {
-                    ForEach(vm.processedKambuhData[vm.currentDateSelected]!.indices, id:\.self) { idx in
-                        CalendarSheetDetailView(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet)
-                            .environmentObject(vm)
+        NavigationView {
+            ScrollView {
+                LazyVStack (alignment: .leading, spacing:0){
+                    Component.DefaultText(text: "Terekam pada \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "d MMMM yyyy"))")
+                        .padding(.bottom, 24)
+                    if vm.processedKambuhData[vm.currentDateSelected] != nil {
+                        ForEach(vm.processedKambuhData[vm.currentDateSelected]!.indices, id:\.self) { idx in
+                            CalendarSheetDetailView(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet)
+                                .environmentObject(vm)
+                        }
+                    } else {
+                        Component.DefaultText(text: "Tidak ada data inhaler yang terekam.", textAlignment: .leading)
+                            .font(.systemButtonText)
                     }
-                } else {
-                    Component.DefaultText(text: "No inhaler usage tracked")
-                        .font(.systemButtonText)
+                }
+                .padding(.all, 24)
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Component.TextButton(text: "Simpan", action: {
+//                        showConfDialog = true
+                    })
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Component.TextButton(text: "Batal", action: {
+//                        self.showSheet.toggle()
+                    })
                 }
             }
+            .background(.gray7)
         }
         .frame(width: .infinity)
-        .padding(26)
         .ignoresSafeArea()
         .presentationDetents([.height(500), .large])
         .presentationDragIndicator(.visible)
@@ -48,59 +63,81 @@ struct CalendarSheetDetailView: View {
     @Binding private(set) var showEditSheet: Bool
     
     var body: some View {
+        
         VStack (spacing:0) {
-            HStack (spacing:0) {
-                Text(Image(systemName: "clock"))
-                    .font(.systemHeadline)
-                    .foregroundColor(.primary1)
-                Component.DefaultText(text: " \(vm.getCurrentKambuhTime(idx: index))")
-                    .font(.systemHeadline)
-                    .foregroundColor(.black)
-                Spacer()
-                Component.DefaultText(text: "Edit")
-                    .font(.systemHeadline)
-                    .foregroundColor(.primary1)
-                    .onTapGesture {
-                        self.bindingIndex = index
-                        self.showSheet.toggle()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
-                            self.showEditSheet.toggle()
-                        })
-                    }
+            VStack (spacing:0) {
+                HStack (spacing:0) {
+                    Text(Image(systemName: "clock"))
+                        .font(.systemHeadline)
+                        .foregroundColor(.primary1)
+                    Component.DefaultText(text: " \(vm.getCurrentKambuhTime(idx: index))")
+                        .font(.systemHeadline)
+                        .foregroundColor(.black)
+                    Spacer()
+                    Component.DefaultText(text: "Edit")
+                        .font(.systemHeadline)
+                        .foregroundColor(.primary1)
+                        .onTapGesture {
+                            self.bindingIndex = index
+                            self.showSheet.toggle()
+                            
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
+                                self.showEditSheet.toggle()
+                            })
+                        }
+                }
+                .padding(.all, 12)
             }
+            .frame(width: 338)
+            .background(.primary3)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 10,
+                    bottomLeadingRadius: 0,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 10
+                )
+            )
             
             HStack (alignment: .top, spacing:0) {
                 VStack (alignment: .leading, spacing:0) {
-                    Component.DefaultText(text: "Inhaler Usage")
+                    Component.DefaultText(text: "Penggunaan Inhaler")
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
-                    Component.DefaultText(text: "\(vm.getCurrentKambuhTotalPuff(idx: index)) Inhaler Puff")
+                    Component.DefaultText(text: "\(vm.getCurrentKambuhTotalPuff(idx: index)) Semprot")
                         .padding(.top, 8)
                     
-                    Component.DefaultText(text: "Breathing Difficulty Scale")
+                    Component.DefaultText(text: "Skala Sesak")
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
                     Component.DefaultText(text: "\(vm.getCurrentKambuhScale(idx: index))")
                         .padding(.top, 8)
                     
-                    Component.DefaultText(text: "Triggered By")
+                    Component.DefaultText(text: "Dipicu Oleh")
                         .font(.systemHeadline)
                         .foregroundColor(.primary1)
                         .padding(.top, 12)
-                    Component.DefaultText(text: "XXX")
+                    Component.DefaultText(text: "Belum ada data")
                         .padding(.top, 8)
                         .padding(.bottom, 12)
-                }.padding(.leading, 12)
+                }
+                .padding(.leading, 12)
                 
                 Spacer()
             }
             .frame(width: 338)
-            .background(.gray6)
-            .cornerRadius(10)
-            .padding(.top, 12)
+            .background(.white)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 0,
+                    bottomLeadingRadius: 10,
+                    bottomTrailingRadius: 10,
+                    topTrailingRadius: 0
+                )
+            )
+//            .padding(.top, 12)
             .padding(.bottom, 24)
         }
     }
