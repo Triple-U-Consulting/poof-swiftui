@@ -48,11 +48,9 @@ struct LoginView: View {
                         
                         Component.CustomDivider(width: 342)
                     }
-                    .padding(8)
                     
                     Spacer()
                     
-    //                Text((wrongPassword || wrongEmail) ? "Unable to connect to Wi-Fi. Please recheck SSID and Password" : "")
                     Component.DefaultText(text: (wrongPassword || wrongEmail) ? "Email atau kata sandi yang dimasukkan salah." : "", textAlignment: .leading)
                         .lineLimit(2...2)
                         .font(.systemHeadline)

@@ -77,6 +77,8 @@
 		AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */; };
 		AB2E2C0A2AFA2ECB00F5F6FC /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2E2C092AFA2ECB00F5F6FC /* ProfileTabView.swift */; };
 		AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */; };
+		AB2F17A02B0B47F70046E2F0 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F179F2B0B47F70046E2F0 /* TermsAndConditionsView.swift */; };
+		AB30CCC42B0775E00083703B /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB30CCC32B0775E00083703B /* PrivacyPolicyView.swift */; };
 		AB5CB3822ADFC81800A4C291 /* UserDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5CB3812ADFC81800A4C291 /* UserDevice.swift */; };
 		AB5CB3872ADFE2BE00A4C291 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		AB6883EB2AF8B804004A6E45 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6883EA2AF8B804004A6E45 /* CalendarViewModel.swift */; };
@@ -214,6 +216,8 @@
 		AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedPairingView.swift; sourceTree = "<group>"; };
 		AB2E2C092AFA2ECB00F5F6FC /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTabView.swift; sourceTree = "<group>"; };
+		AB2F179F2B0B47F70046E2F0 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		AB30CCC32B0775E00083703B /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AB5CB3812ADFC81800A4C291 /* UserDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDevice.swift; sourceTree = "<group>"; };
 		AB5CB3882ADFE2BE00A4C291 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB5CB38A2ADFE2C200A4C291 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */,
+				AB30CCC32B0775E00083703B /* PrivacyPolicyView.swift */,
+				AB2F179F2B0B47F70046E2F0 /* TermsAndConditionsView.swift */,
 				AB01C3CA2AD809B7008C3160 /* LottieView.swift */,
 			);
 			path = View;
@@ -1066,6 +1072,7 @@
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
 				AB7BEDDF2ACD7A8A0071BF10 /* PairingViewModel.swift in Sources */,
 				0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */,
+				AB30CCC42B0775E00083703B /* PrivacyPolicyView.swift in Sources */,
 				AB6883F52AF8F3B9004A6E45 /* CalendarSheetView.swift in Sources */,
 				3F5AC8252AFCB7A9006E2AF0 /* UpdateConditionView.swift in Sources */,
 				AB6883EB2AF8B804004A6E45 /* CalendarViewModel.swift in Sources */,
@@ -1076,6 +1083,7 @@
 				0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */,
 				0BBBD9D62AFD3E940075AE6D /* CalendarEditSheetDetailView.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
+				AB2F17A02B0B47F70046E2F0 /* TermsAndConditionsView.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */,
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
