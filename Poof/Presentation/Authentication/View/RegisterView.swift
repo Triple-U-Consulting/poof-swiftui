@@ -61,7 +61,6 @@ struct RegisterView: View {
                         
                         Component.CustomDivider(width: 342)
                     }
-                    .padding(8)
                     
                     Spacer()
                     
@@ -78,12 +77,7 @@ struct RegisterView: View {
                             Text("")
                         }
                     }
-                    
-                    //                            if viewModel.message == "Email already registered"{
-                    //                                Component.textErrorMessageSignPage(string: "Email sudah terdaftar")
-                    //                            } else {
-                    //                                Component.textErrorMessageSignPage(string: viewModel.message)
-                    //                            }
+                
                     
                     Component.DefaultButton(text: "Daftar") {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

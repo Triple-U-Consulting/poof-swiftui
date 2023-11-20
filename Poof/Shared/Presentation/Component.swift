@@ -79,7 +79,7 @@ struct Component {
                 .foregroundStyle(self.buttonState==DefaultButtonState.active ? Color.Main.primary1 : Color.Neutrals.gray2)
                 .frame(height: 48)
                 .frame(maxWidth: .infinity)
-                .background(.white)
+                .background(.white.opacity(0))
                 .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 4)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -109,7 +109,7 @@ struct Component {
                     .font(.systemButtonText)
                     .foregroundStyle(.black)
                     .frame(width: 342, height: 47)
-                    .background(.white)
+                    .background(.white.opacity(0))
                     .cornerRadius(10)
                     .shadow(color: shadowColor, radius: 12, x: 0, y: 10)
                     .overlay(
@@ -124,23 +124,22 @@ struct Component {
     // TODO: BLOM KELAR
     struct CircleView: View {
         var text: String
+        var scale: CGFloat = 104/206
         @Binding var syncStatus: SyncStatus
         @Binding var todayIntake: CGFloat
         @Binding var remainingIntake: CGFloat
         var body: some View {
             GeometryReader { geometry in
-                ZStack {
+                ZStack (alignment: .center){
                     Circle()
                         .foregroundStyle(.white)
-                        .frame(width: geometry.size.width-80, height: geometry.size.height-80)
+                        .frame(width: geometry.size.width, height: geometry.size.height)
                         .shadow(color: Color.Neutrals.gray3, radius: 12, x: 0, y: 10)
-                        .padding(.all, 40)
                     if syncStatus == .unsynced {
                         Image(systemName:"exclamationmark.triangle.fill")
                             .resizable()
-                            .padding(.all, 110)
+                            .padding(.all, geometry.size.width/3)
                     } else if syncStatus == .syncing {
-                        //empty
                     } else {
                         WaveView(todayIntake: $todayIntake, remainingIntake: $remainingIntake)
                     }
@@ -152,6 +151,7 @@ struct Component {
     // TODO: BLOM KELAR
     struct RotatingCircle: View {
         @State var gradientAngle: Double = 0
+        var scale: CGFloat = 104/206
         let colors: [Color] = [.white, .red, .white]
         @Binding var syncStatus: SyncStatus
         var body: some View {
@@ -160,10 +160,10 @@ struct Component {
                     ZStack {
                         Circle()
                             .trim(from: 0, to: syncStatus == SyncStatus.syncing ? 0.25 : 1)
-                            .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.syncing ? colors : syncStatus == SyncStatus.synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                            .stroke(LinearGradient(gradient: Gradient(colors: syncStatus == SyncStatus.syncing ? colors : syncStatus == SyncStatus.synced ? [.primary2] : [.red]), startPoint: .topTrailing, endPoint: .bottomLeading), style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
                             .rotationEffect(.degrees(gradientAngle))
-                            .frame(width: geometry.size.width-20, height:geometry.size.height-20)
-                            .padding(.all, 10)
+                            .frame(width: geometry.size.width-10, height:geometry.size.height-10)
+                            .padding(.all, 5)
                     }
                 }
                 .onAppear {
@@ -301,35 +301,39 @@ struct Wave: Shape {
 
 struct WaveView: View {
     @State private var dose: CGFloat = 200
+//    @State var scale: CGFloat = 104/206
     @Binding var todayIntake: CGFloat
     @Binding var remainingIntake: CGFloat //assuming out of 200
     @State private var phase = 0.0
     var body: some View {
-        ZStack {
-            VStack {
-                Rectangle()
-                    .frame(width:180, height: 180)
-                    .foregroundStyle(.secondary3)
-                    .offset(y:200-(remainingIntake*0.9))
+        GeometryReader { geometry in
+            ZStack {
+                let scale: CGFloat = geometry.size.width/206
+                VStack {
+                    Rectangle()
+                        .frame(width:geometry.size.width, height: 180*scale)
+                        .foregroundStyle(.secondary3)
+                        .offset(y:(200-(remainingIntake*0.9))*scale)
+                }
+                .frame(width:180*scale, height: 180*scale)
+                Wave(strength: 2, frequency: 5, phase: phase)
+                    .stroke(Color.secondary3, lineWidth: 16*scale)
+                    .frame(width:geometry.size.width+10, height: 180*scale)
+                    .offset(y: (110-(remainingIntake*0.9))*scale)
+                Wave(strength: 2, frequency: 5, phase: phase)
+                    .stroke(Color.secondary2, lineWidth: todayIntake*scale)
+                    .frame(width:geometry.size.width+10, height: 180*scale)
+                    .offset(y: (110-(remainingIntake*0.9)-8+(todayIntake*0.45))*scale)
+                
             }
-            .frame(width:180, height: 180)
-            Wave(strength: 2, frequency: 5, phase: phase)
-                .stroke(Color.secondary3, lineWidth: 16)
-                .frame(width:200, height: 180)
-                .offset(y: 110-(remainingIntake*0.9))
-            Wave(strength: 2, frequency: 5, phase: phase)
-                .stroke(Color.secondary2, lineWidth: todayIntake)
-                .frame(width:200, height: 180)
-                .offset(y: 110-(remainingIntake*0.9)-8+(todayIntake*0.45))
-            
-        }
-        .frame(width:180, height: 180)
-        .clipShape(Circle())
-        .onAppear {
-            withAnimation(Animation.linear(duration: 2.5).repeatForever(autoreverses: false)) {
-                self.phase = .pi * 2
+            .frame(width:geometry.size.width, height: geometry.size.height)
+            .clipShape(Circle())
+            .onAppear {
+                withAnimation(Animation.linear(duration: 2.5).repeatForever(autoreverses: false)) {
+                    self.phase = .pi * 2
+                }
+                
             }
-
         }
     }
 }
@@ -339,29 +343,34 @@ struct ComponentView: View {
     @State private var phase = 0.0
     
     var body: some View {
-        VStack {
-            Component.DefaultButton(text: "Text Label") {
-                //logic
+        ZStack {
+            Color.gray7.ignoresSafeArea()
+            VStack {
+                Component.DefaultButton(text: "Text Label") {
+                    //logic
+                }
+                
+                Component.DefaultButton(text: "Text Label", buttonLevel: .secondary) {
+                    //logic
+                }
+                
+                Component.NextButton(text: "Text Label") {
+                    //logic
+                }
+                
+                ZStack (alignment: .center) {
+                    Component.RotatingCircle(syncStatus: .constant(.synced))
+                    Component.CircleView(text: "Sinkronisasi", syncStatus: .constant(SyncStatus.synced), todayIntake: .constant(5), remainingIntake: .constant(120))
+                        .padding(.all, 15)
+                }
+                .frame(width: 104, height: 104)
+                .background(.yellow.opacity(0.1))
+                .padding(.top, 16)
+                
+                
+                //            Component.ProfileButton() {}
+                
             }
-            
-            Component.DefaultButton(text: "Text Label", buttonLevel: .secondary) {
-                //logic
-            }
-            
-            Component.NextButton(text: "Text Label") {
-                //logic
-            }
-            
-            ZStack (alignment: .center) {
-                Component.RotatingCircle(syncStatus: .constant(.unsynced))
-                    .background(.cyan)
-                Component.CircleView(text: "Sinkronisasi", syncStatus: .constant(SyncStatus.synced), todayIntake: .constant(5), remainingIntake: .constant(120))
-            }
-            .frame(width: 260, height: 260)
-            .padding(.top, 16)
-            
-            Component.ProfileButton() {}
-            
         }
     }
 }

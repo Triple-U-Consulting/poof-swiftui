@@ -28,7 +28,7 @@ struct OnboardingView: View {
             //IMAGExs
             TabView(selection: $selectedPage) {
                 ForEach(0..<numberOfOnboardingSlides) { index in
-                    Image("onboardingArtwork-\(index+1)")
+                    Image("onboardingArtwork\(index+1)")
                         .resizable()
                         .frame(width: userDevice.usableWidth, height: userDevice.height402)
                         .tag(index)
@@ -51,7 +51,7 @@ struct OnboardingView: View {
                     .lineLimit(3...3)
                     .font(.systemBodyText)
                     .frame(width: userDevice.width342, alignment: .center)
-                    .foregroundStyle(.gray1)
+                    .foregroundStyle(.black)
                     .padding(.top, 12)
                 
                 Spacer()
@@ -61,7 +61,7 @@ struct OnboardingView: View {
                     if selectedPage < 1 {
                         selectedPage += 1
                     } else {
-                        router.path.append(Page.Login)
+                        router.path.append(Page.PrivacyPolicy)
                     }
                 }
             }

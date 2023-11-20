@@ -37,6 +37,14 @@ struct ContentView: View {
                 OnboardingView()
                     .navigationDestination(for: Page.self){ destination in
                         switch destination {
+                        case Page.PrivacyPolicy:
+                            PrivacyPolicyView()
+                                .environmentObject(router)
+                                .navigationBarHidden(true)
+                        case Page.TermsAndCondition:
+                            TermsAndConditionsView()
+                                .environmentObject(router)
+                                .navigationBarHidden(true)
                         case Page.Login:
                             LoginView()
                                 .environmentObject(router)

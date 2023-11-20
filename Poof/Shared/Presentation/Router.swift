@@ -17,6 +17,8 @@ class Router: ObservableObject {
 }
 
 enum Page {
+    case PrivacyPolicy
+    case TermsAndCondition
     case Onboarding
     case Login
     case Register

@@ -22,7 +22,7 @@ struct TabBarView: View {
                     .tabItem {
                         Image("tabBarIcon1")
                             .renderingMode(.template)
-                        Text("Inhaler")
+                        Text("Airo")
                     }
                     .tag(0)
                 
