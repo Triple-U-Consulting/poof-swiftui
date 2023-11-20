@@ -16,7 +16,7 @@ struct CalendarEditSheetView: View {
     
     var body: some View {
         ZStack {
-            Color(Color.Neutrals.sheetBackground).ignoresSafeArea()
+            Color.gray7.ignoresSafeArea()
             NavigationView{
                 ZStack {
                     Color(Color.Neutrals.sheetBackground).ignoresSafeArea()

@@ -34,13 +34,8 @@ struct CalendarSheetView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Component.TextButton(text: "Simpan", action: {
-//                        showConfDialog = true
-                    })
-                }
-                ToolbarItem(placement: .topBarLeading) {
-                    Component.TextButton(text: "Batal", action: {
-//                        self.showSheet.toggle()
+                    Component.TextButton(text: "Tambah data", action: {
+                        //logic
                     })
                 }
             }
