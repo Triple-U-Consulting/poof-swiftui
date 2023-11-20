@@ -16,16 +16,14 @@ struct CalendarEditSheetView: View {
     
     var body: some View {
         ZStack {
-            Color(Color.Neutrals.sheetBackground).ignoresSafeArea()
+            Color(.gray8).ignoresSafeArea()
             NavigationView{
                 ZStack {
-                    Color(Color.Neutrals.sheetBackground).ignoresSafeArea()
-                    VStack {
+                    Color(.gray8).ignoresSafeArea()
+                    VStack(spacing:0) {
                         LazyVStack(alignment: .leading){
-                        
                             Text(("\(NSLocalizedString("Dilacak pada", comment: "")) \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "dd MMMM yyyy"))"))
-                                .padding(.bottom, 32)
-                            
+                                .padding(.bottom)
                             CalendarEditSheetDetailView(index: index, showSheet: $showSheet)
                                 .environmentObject(vm)
                         }
@@ -39,10 +37,15 @@ struct CalendarEditSheetView: View {
                             showConfDialog = true
                         })
                     }
+                    ToolbarItem(placement:.principal) {
+                        Text("Perbaharui Kondisi")
+                            .font(.headline)
+                    }
                     ToolbarItem(placement: .topBarLeading) {
-                        Component.TextButton(text: NSLocalizedString("Batal", comment: ""), action: {
+                        Component.TextButton(text: NSLocalizedString("Hapus", comment: ""), action: {
                             self.showSheet.toggle()
                         })
+                        .foregroundStyle(.red)
                     }
                 }
                 .confirmationDialog(NSLocalizedString("Pastikan data yang diisi sudah sesuai", comment: ""), isPresented: $showConfDialog, actions: {
