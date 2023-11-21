@@ -13,6 +13,7 @@ struct CalendarEditSheetView: View {
     let index: Int
     @State var showConfDialog: Bool = false
     @Binding var showSheet: Bool
+    @Binding var showEditSheet: Bool
     
     var body: some View {
         ZStack {
@@ -40,8 +41,12 @@ struct CalendarEditSheetView: View {
                         })
                     }
                     ToolbarItem(placement: .topBarLeading) {
-                        Component.TextButton(text: "Batal", action: {
-                            self.showSheet.toggle()
+                        Component.TextButton(text: "Batal", color: .red, action: {
+                            self.showEditSheet.toggle()
+                            
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
+                                self.showSheet.toggle()
+                            })
                         })
                     }
                 }
@@ -57,6 +62,8 @@ struct CalendarEditSheetView: View {
                 })
             }
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
+            .presentationDetents([.height(500), .large])
+            .presentationDragIndicator(.visible)
         }
     }
 }

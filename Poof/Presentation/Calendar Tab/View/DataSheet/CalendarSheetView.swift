@@ -13,13 +13,12 @@ struct CalendarSheetView: View {
     @Binding private(set) var index: Int
     @Binding private(set) var showSheet: Bool
     @Binding private(set) var showEditSheet: Bool
+    @Binding private(set) var showAddSheet: Bool
 
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack (alignment: .leading, spacing:0){
-                    Component.DefaultText(text: "Terekam pada \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "d MMMM yyyy"))")
-                        .padding(.bottom, 24)
                     if vm.processedKambuhData[vm.currentDateSelected] != nil {
                         ForEach(vm.processedKambuhData[vm.currentDateSelected]!.indices, id:\.self) { idx in
                             CalendarSheetDetailView(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet)
@@ -33,9 +32,21 @@ struct CalendarSheetView: View {
                 .padding(.all, 24)
             }
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Component.TextButton(text: "Tambah data", action: {
+                ToolbarItem(placement: .topBarLeading) {
+                    Component.TextButton(text: "Hapus", color: .red, action: {
                         //logic
+                    })
+                }
+                ToolbarItem(placement: .principal) {
+                    Component.DefaultText(text: " \(DateFormatUtil.shared.dateToString(date: vm.currentDateSelected, to: "d MMMM yyyy"))")
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Component.TextButton(text: "Tambah", action: {
+                        self.showSheet.toggle()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
+                            self.showAddSheet.toggle()
+                        })
                     })
                 }
             }
@@ -132,7 +143,6 @@ struct CalendarSheetDetailView: View {
                     topTrailingRadius: 0
                 )
             )
-//            .padding(.top, 12)
             .padding(.bottom, 24)
         }
     }

@@ -280,6 +280,11 @@ extension Formatter {
         formatter.dateFormat = "yyyy"
         return formatter
     }()
+    static let hourMinute: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
 }
 
 extension Date {
@@ -290,4 +295,5 @@ extension Date {
     var month: String        { return Formatter.month.string(from: self) }
     var date: String         { return Formatter.date.string(from: self) }
     var year: String         { return Formatter.year.string(from: self) }
+    var hourMinute: String   { return Formatter.hourMinute.string(from: self) }
 }

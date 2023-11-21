@@ -59,7 +59,6 @@ struct Component {
                     }
                 }
             }
-//            .padding(.horizontal, 24)
         }
         
         private func Primary(_ text: Text) -> some View {
@@ -229,12 +228,13 @@ struct Component {
     
     struct TextButton: View {
         var text: String
+        var color: Color = .blueTextSecondary
         var action: () -> Void
         
         var body: some View {
             Button(action: action) {
                 Text(NSLocalizedString(text, comment: ""))
-                    .foregroundStyle(Color.Main.blueTextSecondary)
+                    .foregroundStyle(color)
             }
         }
     }
