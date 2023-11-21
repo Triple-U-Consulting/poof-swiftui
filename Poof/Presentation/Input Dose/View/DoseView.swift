@@ -73,7 +73,7 @@ struct DoseView: View {
         }
         .onChange(of: vm.status) { _, newValue in
             if newValue == .success {
-                router.path.append(Page.TabBar)
+                router.path.append(Page.InputTrigger)
             }
         }
     }
