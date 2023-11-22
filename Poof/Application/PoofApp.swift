@@ -18,6 +18,8 @@ struct PoofApp: App {
             ContentView()
                 .environmentObject(router)
                 .environmentObject(userDevice)
+//            DoseView()
+//                .environmentObject(router)
         }
     }
 }

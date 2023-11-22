@@ -8,32 +8,52 @@
 import SwiftUI
 
 struct AnalyticsCardView: View {
-    var frequency: String
-    var highestUsage: Int
-    var lowestUsage: Int
-    var totalDaytimeUsage: Int
-    var totalNightUsage: Int
-    var dayWithoutUsage: Int
+
+    @StateObject var viewModel = AnalyticsViewModel()
+    @Binding var summary: [Summary]
+    
     var body: some View {
         VStack (spacing: 20) {
             VStack {
-                Text("Your inhaler usage this \(frequency)")
+                Text("Berdasarkan data Anda menggunakan inhaler lebih banyak bulan ini dibanding bulan sebelumnya.")
                     .font(.headline)
                 
                 Divider()
                 
-                VStack {
-                    HStack {
-                        Text("Highest \(frequency)ly usage")
-                        Spacer()
-                        Text("\(highestUsage)")
+                VStack (spacing: 15) {
+                    VStack (spacing: 8) {
+                        HStack {
+                            Text("Pemakaian Tertinggi")
+                            Spacer()
+                            Text("26")
+                        }
+                        HStack {
+                            Text("November")
+                                .foregroundStyle(.white)
+                                .frame(width: 100)
+                                .background(RoundedRectangle(cornerRadius: 2).fill(.primary1))
+                            
+                            Spacer()
+                        }
                     }
                     
-                    HStack {
-                        Text("Lowest \(frequency)ly usage")
-                        Spacer()
-                        Text("\(lowestUsage)")
+                    VStack (spacing:8){
+                        HStack {
+                            Text("Pemakaian Terendah")
+                            Spacer()
+                            Text("0")
+                        }
+                        HStack {
+                            Text("Juni")
+                                .foregroundStyle(.white)
+                                .frame(width: 100)
+                                .background(RoundedRectangle(cornerRadius: 2).fill(.primary1))
+                            
+                            Spacer()
+                        }
                     }
+                    
+
                 }
                 .padding([.leading,.trailing])
                 
@@ -44,32 +64,45 @@ struct AnalyticsCardView: View {
             
             
             VStack {
-                if totalDaytimeUsage > totalNightUsage {
-                    Text("Your daytime usage is higher")
+                    Text("Selama 6 bulan terakhir, pemakaian inhaler malam anda tertinggi pada bulan November.")
                         .font(.headline)
-                } else if totalDaytimeUsage < totalNightUsage {
-                    Text("Your night usage is higher")
-                        .font(.headline)
-                } else {
-                    Text("Your daytime and night usage are the same")
-                        .font(.headline)
-                }
-                    
                 
                 Divider()
                 
-                VStack {
-                    HStack {
-                        Text("Total Daytime Usage")
-                        Spacer()
-                        Text("\(totalDaytimeUsage)")
+                VStack (spacing:15) {
+                    VStack (spacing:8) {
+                        HStack {
+                            Text("Total Daytime Usage")
+                            Spacer()
+                            Text("18 / 26")
+                        }
+                        HStack {
+                            Text(" ")
+                                .foregroundStyle(.white)
+                                .frame(width: 100)
+                                .background(RoundedRectangle(cornerRadius: 2).fill(.secondary1))
+                            
+                            Spacer()
+                        }
                     }
+                   
                     
-                    HStack {
-                        Text("Total Night Usage")
-                        Spacer()
-                        Text("\(totalNightUsage)")
+                    VStack (spacing:8) {
+                        HStack {
+                            Text("Total Night Usage")
+                            Spacer()
+                            Text("8 / 26")
+                        }
+                        HStack {
+                            Text(" ")
+                                .foregroundStyle(.white)
+                                .frame(width: 100)
+                                .background(RoundedRectangle(cornerRadius: 2).fill(.primary1))
+                            
+                            Spacer()
+                        }
                     }
+                   
                 }
                 .padding([.leading,.trailing])
                 
@@ -80,16 +113,16 @@ struct AnalyticsCardView: View {
             
             
             VStack {
-                Text("You are not using Inhaler for \(dayWithoutUsage) \(frequency)s")
+                Text("Selama 6 bulan terakhir, anda tidak menggunakan inhaler 163 hari.")
                     .font(.headline)
                 
                 Divider()
                 
                 VStack {
                     HStack {
-                        Text("\(frequency) without Usage")
+                        Text("Hari tanpa Inhaler")
                         Spacer()
-                        Text("\(dayWithoutUsage)")
+                        Text("163")
                     }
                 }
                 .padding([.leading,.trailing])
@@ -105,6 +138,8 @@ struct AnalyticsCardView: View {
     }
 }
 
-#Preview {
-    AnalyticsCardView(frequency: "week", highestUsage: 2, lowestUsage: 3, totalDaytimeUsage: 5, totalNightUsage: 4, dayWithoutUsage: 0)
-}
+//#Preview {
+//    AnalyticsCardView(
+//        frequency: "week", highestUsage: 2, lowestUsage: 3, totalDaytimeUsage: 5, totalNightUsage: 4, dayWithoutUsage: 0
+//    )
+//}

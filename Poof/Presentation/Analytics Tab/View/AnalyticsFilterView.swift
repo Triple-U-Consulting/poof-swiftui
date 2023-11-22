@@ -13,6 +13,7 @@ struct AnalyticsFilterView: View {
     @EnvironmentObject var userDevice: UserDevice
     @StateObject var viewModel = AnalyticsViewModel()
     
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -39,42 +40,50 @@ struct AnalyticsFilterView: View {
                     
                     HStack {
                         VStack(alignment:.leading) {
-                            HStack {
-                                Text("\(dateFormatter.string(from: viewModel.startDate ?? Date())) - \(dateFormatter.string(from: viewModel.endDate ?? Date()))")
-                                    .foregroundStyle(.primary1)
-                                Spacer()
-                                HStack(spacing: 15) {
-                                    Button(action: viewModel.goBackward) {
-                                        Image(systemName: "chevron.left")
+                            if viewModel.selectedIndex == nil {
+                                HStack {
+                                    Text("Average")
+                                        .foregroundStyle(.primary1)
+                                    Spacer()
+                                    HStack(spacing: 15) {
+                                        Button(action: viewModel.goBackward) {
+                                            Image(systemName: "chevron.left")
+                                        }
+                                        Button(action: viewModel.goForward) {
+                                            Image(systemName: "chevron.right")
+                                        }
                                     }
-                                    Button(action: viewModel.goForward) {
-                                        Image(systemName: "chevron.right")
-                                    }
+                                    .foregroundColor(.black)
                                 }
-                                .foregroundColor(.black)
+                                
+                                Text("\(viewModel.averagePuffs) Puff")
+                                    .font(.systemTitle1)
+                                Text("\(dateFormatter.string(from: viewModel.startDate ?? Date())) - \(dateFormatter.string(from: viewModel.endDate ?? Date()))")
+                                    .foregroundStyle(Color.Main.primary1)
                             }
                             
-                            Text("\(viewModel.averagePuffs) Puff")
-                                .font(.systemTitle1)
-                            Text("Average")
-                                .foregroundStyle(.primary1)
                             
                             
                         }
+                        .frame(height:80)
                         Spacer()
                     }
                     .padding()
                     
-                    
                     ChartView(analytics: $viewModel.analytics, selectedIndex: $viewModel.selectedIndex, frequency: viewModel.selectedFrequency.rawValue, isLoading: $viewModel.isLoading)
                         .frame(height: 300)
                         .padding()
-                    
-                    Component.DefaultButton(text: "Generate", buttonLevel: .secondary) {
-                    }
-                    .padding([.top,.bottom])
-                    
-                    AnalyticsCardView(frequency: viewModel.selectedFrequency.rawValue, highestUsage: viewModel.highestUsage, lowestUsage: viewModel.lowestUsage, totalDaytimeUsage: viewModel.totalDaytimeUsage, totalNightUsage: viewModel.totalNightUsage, dayWithoutUsage: viewModel.dayWithoutUsage)
+                        .gesture(DragGesture()
+                            .onEnded { value in
+                                if value.translation.width < 0 {
+                                    viewModel.goForward()
+                                } else if value.translation.width > 0 {
+                                    viewModel.goBackward()
+                                }
+                            })
+
+                    AnalyticsCardView(summary: $viewModel.summary)
+                    .padding()
                 }
                 .padding()
                 .onAppear {
@@ -87,9 +96,18 @@ struct AnalyticsFilterView: View {
                     Component.NavigationTitle(text: "Analitik", fontSize: .systemTitle1)
                         .accessibilityAddTraits(.isHeader)
                 }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        print("Generated!")
+                    }label:{
+                        Image("generate")
+                            .padding(.trailing)
+                    }
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .background(.gray8)
+            .background(Color.Neutrals.gray8)
         }
         
     }

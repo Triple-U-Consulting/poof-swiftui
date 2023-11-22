@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IrritantsView: View {
-    
+    @State var other = ""
     @State private var iritansSelected: Array = []
     @EnvironmentObject var router: Router
     @StateObject private var viewModel = IrritantsViewModel()
@@ -33,6 +33,14 @@ struct IrritantsView: View {
                         }
                     }
                     Spacer()
+                    
+                    TextField("Ketik di sini", text: $other, axis: .vertical)
+                        .padding()
+                        .lineLimit(5, reservesSpace: true)
+                        .background(RoundedRectangle(cornerRadius: 10)
+                            .stroke(.primary1, lineWidth: 1).fill(.white))
+                        .padding()
+                    
                 }
                 .padding()
                 
@@ -46,6 +54,18 @@ struct IrritantsView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Component.TextButton(text: "Simpan") {
                         viewModel.printTriggers()
+                        router.path.append(Page.TabBar)
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        router.path.removeLast()
+                    } label: {
+                        Image(systemName: "chevron.backward")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .padding(.leading)
                     }
                 }
             }

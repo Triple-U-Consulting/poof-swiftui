@@ -40,8 +40,9 @@ struct DoseView: View {
                     Spacer()
                     
                     Component.DefaultButton(text: "Berikutnya", buttonLevel: .primary, buttonState: .active) {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        vm.updateDose(dose: Int(remainingDose)!)
+//                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                        vm.updateDose(dose: Int(remainingDose)!)
+                        router.path.append(Page.InputTrigger)
                     }
                     .padding(.bottom, 44)
                     .padding(.horizontal, 24)

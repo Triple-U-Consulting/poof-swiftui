@@ -31,6 +31,7 @@ enum Failure: Error {
     
     // MARK: - Analytics Failures
     case fetchAnalyticsFailure
+    case fetchSummaryFailure
     
     // MARK: - Data Transfer Error
     case noResponse

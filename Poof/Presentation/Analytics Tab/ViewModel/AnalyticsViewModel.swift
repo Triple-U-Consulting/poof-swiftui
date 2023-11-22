@@ -24,6 +24,9 @@ class AnalyticsViewModel: ObservableObject {
     @Published var currentDate: Date = Date()
     @Published var showTotal: Bool = false
     @Published var isLoading: Bool = false
+    @Published var summary: [Summary] = []
+    @Published var nextAnalytics: [Analytics] = []
+    @Published var previousAnalytics: [Analytics] = []
 
     
     var averagePuffs: Int {
@@ -49,15 +52,20 @@ class AnalyticsViewModel: ObservableObject {
     var dayWithoutUsage: Int {
         analytics.filter { $0.daytimeUsage == 0 && $0.nightUsage == 0 }.count
     }
+    
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Usecases
     private let getAnalytics: GetAnalyticsUseCase
-    
-    init(getAnalytics: GetAnalyticsUseCase = GetAnalyticsUseCaseImpl.shared) {
-        self.getAnalytics = getAnalytics
-    }
+    private let getSummary: GetSummaryUseCase
+
+    init(getAnalytics: GetAnalyticsUseCase = GetAnalyticsUseCaseImpl.shared,
+             getSummary: GetSummaryUseCase = GetSummaryUseCaseImpl.shared) {
+            
+            self.getAnalytics = getAnalytics
+            self.getSummary = getSummary
+        }
     
     func fetchAnalytics() {
         Task {
@@ -80,6 +88,26 @@ class AnalyticsViewModel: ObservableObject {
                 }
                 .store(in: &cancellables)
         }
+    }
+    
+    func fetchSummary() {
+        Task {
+            await getSummary.execute(start_date: currentDate)
+                .sink {completion in
+                    switch completion {
+                    case .finished:
+                        self.isLoading = false
+                        break
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { result in
+                    self.summary = result
+                    self.isLoading = false
+                    print(result)
+                }
+                .store(in: &cancellables)
+        }
         
     }
     
@@ -89,8 +117,6 @@ class AnalyticsViewModel: ObservableObject {
             currentDate = Calendar.current.date(byAdding: .day, value: -7, to: currentDate) ?? currentDate
         case .month:
             currentDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) ?? currentDate
-            //        case .year:
-            //            currentDate = Calendar.current.date(byAdding: .year, value: -1, to: currentDate) ?? currentDate
         case .quarter:
             currentDate = Calendar.current.date(byAdding: .month, value: -3, to: currentDate) ?? currentDate
         case .halfyear:
@@ -107,8 +133,6 @@ class AnalyticsViewModel: ObservableObject {
             currentDate = Calendar.current.date(byAdding: .day, value: 7, to: currentDate) ?? currentDate
         case .month:
             currentDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) ?? currentDate
-            //        case .year:
-            //            currentDate = Calendar.current.date(byAdding: .year, value: 1, to: currentDate) ?? currentDate
         case .quarter:
             currentDate = Calendar.current.date(byAdding: .month, value: 3, to: currentDate) ?? currentDate
         case .halfyear:
