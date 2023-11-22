@@ -29,7 +29,7 @@
 		0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */; };
 		0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */; };
 		0BBBD9D42AFCF35C0075AE6D /* CalendarEditSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */; };
-		0BBBD9D62AFD3E940075AE6D /* CalendarEditSheetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */; };
+		0BBBD9D62AFD3E940075AE6D /* EditDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */; };
 		0BBBD9D82AFD45130075AE6D /* UpdateConditionFromCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */; };
 		0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */; };
 		0BCD83B62AE0E0D200D111B0 /* UpdateUserInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */; };
@@ -168,7 +168,7 @@
 		0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageRepositoryImpl.swift; sourceTree = "<group>"; };
 		0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDataResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditSheetView.swift; sourceTree = "<group>"; };
-		0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditSheetDetailView.swift; sourceTree = "<group>"; };
+		0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataCard.swift; sourceTree = "<group>"; };
 		0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConditionFromCalendarView.swift; sourceTree = "<group>"; };
 		0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInhaler.swift; sourceTree = "<group>"; };
@@ -683,37 +683,20 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		3FDAE08C2AF38BCB00E0C696 /* ConditionUpdate */ = {
+		3FDAE08C2AF38BCB00E0C696 /* UpdateConditionFromDashboard */ = {
 			isa = PBXGroup;
 			children = (
-				3FDAE08D2AF38BE000E0C696 /* ViewModel */,
-				3FDAE08E2AF38BE600E0C696 /* View */,
-			);
-			path = ConditionUpdate;
-			sourceTree = "<group>";
-		};
-		3FDAE08D2AF38BE000E0C696 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3FDAE08E2AF38BE600E0C696 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */,
 				3F5AC8242AFCB7A9006E2AF0 /* UpdateConditionView.swift */,
+				3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */,
 			);
-			path = View;
+			path = UpdateConditionFromDashboard;
 			sourceTree = "<group>";
 		};
 		AB2F17A22B0B69000046E2F0 /* EditDataSheet */ = {
 			isa = PBXGroup;
 			children = (
 				0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */,
-				0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */,
+				0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */,
 				0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */,
 			);
 			path = EditDataSheet;
@@ -765,6 +748,7 @@
 			children = (
 				AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */,
 				3FFE00E42AFDD02A00069D48 /* CalendarMonthView.swift */,
+				3FDAE08C2AF38BCB00E0C696 /* UpdateConditionFromDashboard */,
 				AB2F17A42B0CAB470046E2F0 /* DataSheet */,
 				AB2F17A32B0B691D0046E2F0 /* AddDataSheet */,
 				AB2F17A22B0B69000046E2F0 /* EditDataSheet */,
@@ -776,6 +760,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6883EA2AF8B804004A6E45 /* CalendarViewModel.swift */,
+				3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -844,7 +829,6 @@
 				D6E6D6892ADFD84C000C1A94 /* Wifi Configuration */,
 				0B7617AC2AFF562B00AF4975 /* Input Dose */,
 				0B8D608B2AD94B9F0017445F /* Home */,
-				3FDAE08C2AF38BCB00E0C696 /* ConditionUpdate */,
 				0B8D607F2AD94A850017445F /* Inhaler Tab */,
 				AB6883F72AFA25B3004A6E45 /* Calendar Tab */,
 				0B8D60812AD94ABE0017445F /* Analytics Tab */,
@@ -1109,7 +1093,7 @@
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
 				3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */,
 				0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */,
-				0BBBD9D62AFD3E940075AE6D /* CalendarEditSheetDetailView.swift in Sources */,
+				0BBBD9D62AFD3E940075AE6D /* EditDataCard.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
 				AB2F17A02B0B47F70046E2F0 /* TermsAndConditionsView.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
