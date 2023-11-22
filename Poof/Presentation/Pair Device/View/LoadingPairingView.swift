@@ -42,11 +42,10 @@ struct LoadingPairingView: View {
                     switch newStatus {
                     case .failure(_):
                         print("failure")
-                        pairProgress = .successPairing
+                        pairProgress = .failedPairing
                     case .success:
                         pairProgress = .successPairing
                     default:
-                        pairProgress = .successPairing
                         break
                     }
                 })
