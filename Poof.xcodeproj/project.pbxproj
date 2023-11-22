@@ -31,7 +31,7 @@
 		0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */; };
 		0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */; };
 		0BBBD9D42AFCF35C0075AE6D /* CalendarEditSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */; };
-		0BBBD9D62AFD3E940075AE6D /* CalendarEditSheetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */; };
+		0BBBD9D62AFD3E940075AE6D /* EditDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */; };
 		0BBBD9D82AFD45130075AE6D /* UpdateConditionFromCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */; };
 		0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */; };
 		0BCD83B62AE0E0D200D111B0 /* UpdateUserInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */; };
@@ -66,7 +66,6 @@
 		3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */; };
 		3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */; };
 		3FDA76172AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA76162AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift */; };
-		3FDA76192AFCB4E30096EA7D /* CalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */; };
 		3FDAE0922AF4980100E0C696 /* UpdateKambuhCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */; };
 		3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAE0932AF8705A00E0C696 /* ConditionRequestDTO.swift */; };
 		3FFE00E52AFDD02A00069D48 /* CalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE00E42AFDD02A00069D48 /* CalendarMonthView.swift */; };
@@ -79,6 +78,10 @@
 		AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */; };
 		AB2E2C0A2AFA2ECB00F5F6FC /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2E2C092AFA2ECB00F5F6FC /* ProfileTabView.swift */; };
 		AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */; };
+		AB2F17A02B0B47F70046E2F0 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F179F2B0B47F70046E2F0 /* TermsAndConditionsView.swift */; };
+		AB2F17A62B0CAEC30046E2F0 /* CalendarAddSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F17A52B0CAEC30046E2F0 /* CalendarAddSheetView.swift */; };
+		AB2F17A82B0D1AE20046E2F0 /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F17A72B0D1AE20046E2F0 /* FormComponent.swift */; };
+		AB30CCC42B0775E00083703B /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB30CCC32B0775E00083703B /* PrivacyPolicyView.swift */; };
 		AB5CB3822ADFC81800A4C291 /* UserDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5CB3812ADFC81800A4C291 /* UserDevice.swift */; };
 		AB5CB3872ADFE2BE00A4C291 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB5CB3892ADFE2BE00A4C291 /* Localizable.strings */; };
 		AB6883EB2AF8B804004A6E45 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6883EA2AF8B804004A6E45 /* CalendarViewModel.swift */; };
@@ -187,7 +190,7 @@
 		0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageRepositoryImpl.swift; sourceTree = "<group>"; };
 		0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDataResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditSheetView.swift; sourceTree = "<group>"; };
-		0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditSheetDetailView.swift; sourceTree = "<group>"; };
+		0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataCard.swift; sourceTree = "<group>"; };
 		0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConditionFromCalendarView.swift; sourceTree = "<group>"; };
 		0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInhaler.swift; sourceTree = "<group>"; };
@@ -222,7 +225,6 @@
 		3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignComponent.swift; sourceTree = "<group>"; };
 		3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		3FDA76162AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhDataIfScaleAndTriggerIsNull.swift; sourceTree = "<group>"; };
-		3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthView.swift; sourceTree = "<group>"; };
 		3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateKambuhCondition.swift; sourceTree = "<group>"; };
 		3FDAE0932AF8705A00E0C696 /* ConditionRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionRequestDTO.swift; sourceTree = "<group>"; };
 		3FF77A5A2ACEC53A001F6CC2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -236,6 +238,10 @@
 		AB01C3D72ADD243F008C3160 /* FailedPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedPairingView.swift; sourceTree = "<group>"; };
 		AB2E2C092AFA2ECB00F5F6FC /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTabView.swift; sourceTree = "<group>"; };
+		AB2F179F2B0B47F70046E2F0 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		AB2F17A52B0CAEC30046E2F0 /* CalendarAddSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAddSheetView.swift; sourceTree = "<group>"; };
+		AB2F17A72B0D1AE20046E2F0 /* FormComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormComponent.swift; sourceTree = "<group>"; };
+		AB30CCC32B0775E00083703B /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AB5CB3812ADFC81800A4C291 /* UserDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDevice.swift; sourceTree = "<group>"; };
 		AB5CB3882ADFE2BE00A4C291 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB5CB38A2ADFE2C200A4C291 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -458,6 +464,8 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDC52ACD500C0071BF10 /* OnboardingView.swift */,
+				AB30CCC32B0775E00083703B /* PrivacyPolicyView.swift */,
+				AB2F179F2B0B47F70046E2F0 /* TermsAndConditionsView.swift */,
 				AB01C3CA2AD809B7008C3160 /* LottieView.swift */,
 			);
 			path = View;
@@ -525,6 +533,7 @@
 				AB7BEDD72ACD6F8C0071BF10 /* Router.swift */,
 				3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */,
 				AB5CB3812ADFC81800A4C291 /* UserDevice.swift */,
+				AB2F17A72B0D1AE20046E2F0 /* FormComponent.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -540,8 +549,8 @@
 		0B8D608C2AD94BA30017445F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */,
 				AB7BED952ACD4B770071BF10 /* ContentView.swift */,
+				AB7BEDE02ACD7E6C0071BF10 /* TabBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -717,30 +726,39 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		3FDAE08C2AF38BCB00E0C696 /* ConditionUpdate */ = {
+		3FDAE08C2AF38BCB00E0C696 /* UpdateConditionFromDashboard */ = {
 			isa = PBXGroup;
 			children = (
-				3FDAE08D2AF38BE000E0C696 /* ViewModel */,
-				3FDAE08E2AF38BE600E0C696 /* View */,
-			);
-			path = ConditionUpdate;
-			sourceTree = "<group>";
-		};
-		3FDAE08D2AF38BE000E0C696 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3FDAE08E2AF38BE600E0C696 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */,
 				3F5AC8242AFCB7A9006E2AF0 /* UpdateConditionView.swift */,
+				3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */,
 			);
-			path = View;
+			path = UpdateConditionFromDashboard;
+			sourceTree = "<group>";
+		};
+		AB2F17A22B0B69000046E2F0 /* EditDataSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */,
+				0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */,
+				0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */,
+			);
+			path = EditDataSheet;
+			sourceTree = "<group>";
+		};
+		AB2F17A32B0B691D0046E2F0 /* AddDataSheet */ = {
+			isa = PBXGroup;
+			children = (
+				AB2F17A52B0CAEC30046E2F0 /* CalendarAddSheetView.swift */,
+			);
+			path = AddDataSheet;
+			sourceTree = "<group>";
+		};
+		AB2F17A42B0CAB470046E2F0 /* DataSheet */ = {
+			isa = PBXGroup;
+			children = (
+				AB6883F42AF8F3B9004A6E45 /* CalendarSheetView.swift */,
+			);
+			path = DataSheet;
 			sourceTree = "<group>";
 		};
 		AB6883F32AF8F350004A6E45 /* ViewModel */ = {
@@ -773,11 +791,10 @@
 			children = (
 				AB2E2C0B2AFA389A00F5F6FC /* CalendarTabView.swift */,
 				3FFE00E42AFDD02A00069D48 /* CalendarMonthView.swift */,
-				AB6883F42AF8F3B9004A6E45 /* CalendarSheetView.swift */,
-				3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */,
-				0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */,
-				0BBBD9D52AFD3E940075AE6D /* CalendarEditSheetDetailView.swift */,
-				0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */,
+				3FDAE08C2AF38BCB00E0C696 /* UpdateConditionFromDashboard */,
+				AB2F17A42B0CAB470046E2F0 /* DataSheet */,
+				AB2F17A32B0B691D0046E2F0 /* AddDataSheet */,
+				AB2F17A22B0B69000046E2F0 /* EditDataSheet */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -786,6 +803,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6883EA2AF8B804004A6E45 /* CalendarViewModel.swift */,
+				3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -856,7 +874,6 @@
 				D6E6D6892ADFD84C000C1A94 /* Wifi Configuration */,
 				0B7617AC2AFF562B00AF4975 /* Input Dose */,
 				0B8D608B2AD94B9F0017445F /* Home */,
-				3FDAE08C2AF38BCB00E0C696 /* ConditionUpdate */,
 				0B8D607F2AD94A850017445F /* Inhaler Tab */,
 				AB6883F72AFA25B3004A6E45 /* Calendar Tab */,
 				0B8D60812AD94ABE0017445F /* Analytics Tab */,
@@ -1128,6 +1145,7 @@
 				D63CF5392AF9BF8A00CCE0FD /* GetAnalytics.swift in Sources */,
 				0B2AF8EE2AFE396200572762 /* InhalerRepositoryImpl.swift in Sources */,
 				0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */,
+				AB2F17A62B0CAEC30046E2F0 /* CalendarAddSheetView.swift in Sources */,
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
 				0B7617B02AFF56B100AF4975 /* InhalerDoseViewModel.swift in Sources */,
 				D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */,
@@ -1143,6 +1161,7 @@
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
 				AB7BEDDF2ACD7A8A0071BF10 /* PairingViewModel.swift in Sources */,
 				0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */,
+				AB30CCC42B0775E00083703B /* PrivacyPolicyView.swift in Sources */,
 				AB6883F52AF8F3B9004A6E45 /* CalendarSheetView.swift in Sources */,
 				D6809E552B0C2C7B00054DFE /* IrritantsViewModel.swift in Sources */,
 				3F5AC8252AFCB7A9006E2AF0 /* UpdateConditionView.swift in Sources */,
@@ -1153,8 +1172,9 @@
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
 				3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */,
 				0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */,
-				0BBBD9D62AFD3E940075AE6D /* CalendarEditSheetDetailView.swift in Sources */,
+				0BBBD9D62AFD3E940075AE6D /* EditDataCard.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
+				AB2F17A02B0B47F70046E2F0 /* TermsAndConditionsView.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */,
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
@@ -1177,7 +1197,6 @@
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
 				D65636FF2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift in Sources */,
 				AB2E2C0A2AFA2ECB00F5F6FC /* ProfileTabView.swift in Sources */,
-				3FDA76192AFCB4E30096EA7D /* CalendarMonthView.swift in Sources */,
 				D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */,
 				AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */,
 				0B7617B22AFF57D600AF4975 /* LoadingView.swift in Sources */,
@@ -1185,6 +1204,7 @@
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,
 				0B8D60BB2AE0C0FC0017445F /* User.swift in Sources */,
 				0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */,
+				AB2F17A82B0D1AE20046E2F0 /* FormComponent.swift in Sources */,
 				D6809E522B0C29A600054DFE /* IrritantsView.swift in Sources */,
 				0BCD83BA2AE0E29600D111B0 /* UserRepositoryImpl.swift in Sources */,
 				0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */,

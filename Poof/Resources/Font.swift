@@ -47,8 +47,8 @@ extension Font {
         return .system(size: 15, weight: .regular)
     }
     
-    static var test: Font {
-        return .custom("SFProText-Regular", size: 17, relativeTo: .body)
+    static func custom(size: CGFloat, weight: Weight) -> Font {
+        return .system(size: size, weight: weight)
     }
     
 }
