@@ -29,7 +29,7 @@ struct CalendarSheetView: View {
                             .font(.systemButtonText)
                     }
                 }
-                .padding(.all, 24)
+                .padding(.horizontal, 24)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -54,7 +54,7 @@ struct CalendarSheetView: View {
         }
         .frame(width: .infinity)
         .ignoresSafeArea()
-        .presentationDetents([.height(500), .large])
+        .presentationDetents([.height(400), .large])
         .presentationDragIndicator(.visible)
     }
 }
