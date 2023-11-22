@@ -227,12 +227,13 @@ struct Component {
     
     struct TextButton: View {
         var text: String
+        var color: Color = Color.Main.blueText
         var action: () -> Void
         
         var body: some View {
             Button(action: action) {
                 Text(text)
-                    .foregroundStyle(Color.Main.blueTextSecondary)
+                    .foregroundStyle(color == .red ? .red : self.color)
             }
         }
     }
@@ -245,6 +246,7 @@ struct Component {
                 .padding(.top, 8)
         }
     }
+    
 }
 
 

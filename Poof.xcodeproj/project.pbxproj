@@ -56,15 +56,22 @@
 		0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */; };
 		3F23D7BF2AF89BB200DF47AC /* GetKambuhByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23D7BE2AF89BB200DF47AC /* GetKambuhByDate.swift */; };
 		3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */; };
+		3F29AB302B0AEF0300B3112A /* PdfContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29AB2F2B0AEF0300B3112A /* PdfContent.swift */; };
+		3F29AB322B0AF06900B3112A /* PdfViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29AB312B0AF06900B3112A /* PdfViewUI.swift */; };
+		3F29AB342B0AF0A400B3112A /* SharePdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29AB332B0AF0A400B3112A /* SharePdfView.swift */; };
 		3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */; };
 		3F5A1ED32AFA17C600A3BB57 /* UpdateConditionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */; };
 		3F5AC8252AFCB7A9006E2AF0 /* UpdateConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AC8242AFCB7A9006E2AF0 /* UpdateConditionView.swift */; };
+		3F8A5BBB2B05D2C200E65E14 /* PdfPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5BBA2B05D2C200E65E14 /* PdfPreviewView.swift */; };
+		3F8A5BBF2B05D2E600E65E14 /* PdfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5BBE2B05D2E600E65E14 /* PdfViewModel.swift */; };
+		3F8A5C092B0A378D00E65E14 /* PdfCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5C082B0A378D00E65E14 /* PdfCreator.swift */; };
+		3F8A5C0B2B0A40DE00E65E14 /* GeneratePdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5C0A2B0A40DE00E65E14 /* GeneratePdfView.swift */; };
 		3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */; };
 		3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */; };
 		3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */; };
 		3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */; };
+		3FB22F102B0B6AA300E9D63D /* ChartPdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB22F0F2B0B6AA300E9D63D /* ChartPdfView.swift */; };
 		3FDA76172AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA76162AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift */; };
-		3FDA76192AFCB4E30096EA7D /* CalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */; };
 		3FDAE0922AF4980100E0C696 /* UpdateKambuhCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */; };
 		3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAE0932AF8705A00E0C696 /* ConditionRequestDTO.swift */; };
 		3FFE00E52AFDD02A00069D48 /* CalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE00E42AFDD02A00069D48 /* CalendarMonthView.swift */; };
@@ -191,14 +198,22 @@
 		0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerTabViewModel.swift; sourceTree = "<group>"; };
 		3F23D7BE2AF89BB200DF47AC /* GetKambuhByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhByDate.swift; sourceTree = "<group>"; };
 		3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRequestDTO.swift; sourceTree = "<group>"; };
+		3F29AB2F2B0AEF0300B3112A /* PdfContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfContent.swift; sourceTree = "<group>"; };
+		3F29AB312B0AF06900B3112A /* PdfViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewUI.swift; sourceTree = "<group>"; };
+		3F29AB332B0AF0A400B3112A /* SharePdfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePdfView.swift; sourceTree = "<group>"; };
 		3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionViewModel.swift; sourceTree = "<group>"; };
 		3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConditionCard.swift; sourceTree = "<group>"; };
 		3F5AC8242AFCB7A9006E2AF0 /* UpdateConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConditionView.swift; sourceTree = "<group>"; };
+		3F8A5BBA2B05D2C200E65E14 /* PdfPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfPreviewView.swift; sourceTree = "<group>"; };
+		3F8A5BBE2B05D2E600E65E14 /* PdfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewModel.swift; sourceTree = "<group>"; };
+		3F8A5C082B0A378D00E65E14 /* PdfCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfCreator.swift; sourceTree = "<group>"; };
+		3F8A5C0A2B0A40DE00E65E14 /* GeneratePdfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePdfView.swift; sourceTree = "<group>"; };
 		3F9027B22AE0F866005011B3 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRegisterRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignComponent.swift; sourceTree = "<group>"; };
 		3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		3FB22F0F2B0B6AA300E9D63D /* ChartPdfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPdfView.swift; sourceTree = "<group>"; };
 		3FDA76162AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhDataIfScaleAndTriggerIsNull.swift; sourceTree = "<group>"; };
 		3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthView.swift; sourceTree = "<group>"; };
 		3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateKambuhCondition.swift; sourceTree = "<group>"; };
@@ -602,6 +617,8 @@
 				D6E6D68D2ADFDC06000C1A94 /* WifiDetails.swift */,
 				D63CF5322AF9BE3C00CCE0FD /* Analytics.swift */,
 				0BABE62C2AF8D73B00FB8A28 /* HomeData.swift */,
+				3F8A5C082B0A378D00E65E14 /* PdfCreator.swift */,
+				3F29AB2F2B0AEF0300B3112A /* PdfContent.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -672,6 +689,35 @@
 				0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		3F8A5BB92B05D2A700E65E14 /* GeneratePDF */ = {
+			isa = PBXGroup;
+			children = (
+				3F8A5BBC2B05D2C800E65E14 /* View */,
+				3F8A5BBD2B05D2CD00E65E14 /* ViewModel */,
+			);
+			path = GeneratePDF;
+			sourceTree = "<group>";
+		};
+		3F8A5BBC2B05D2C800E65E14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F8A5BBA2B05D2C200E65E14 /* PdfPreviewView.swift */,
+				3F8A5C0A2B0A40DE00E65E14 /* GeneratePdfView.swift */,
+				3F29AB312B0AF06900B3112A /* PdfViewUI.swift */,
+				3F29AB332B0AF0A400B3112A /* SharePdfView.swift */,
+				3FB22F0F2B0B6AA300E9D63D /* ChartPdfView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F8A5BBD2B05D2CD00E65E14 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F8A5BBE2B05D2E600E65E14 /* PdfViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3FDAE08C2AF38BCB00E0C696 /* ConditionUpdate */ = {
@@ -805,6 +851,7 @@
 		AB7BEDC92ACD524A0071BF10 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3F8A5BB92B05D2A700E65E14 /* GeneratePDF */,
 				0B8D60832AD94AD80017445F /* Onboarding */,
 				0B8D607E2AD94A7E0017445F /* Authentication */,
 				0B8D60802AD94AA70017445F /* Pair Device */,
@@ -1017,6 +1064,7 @@
 			files = (
 				0BD889442AFA28D200B70F39 /* IoTRepositoryImpl.swift in Sources */,
 				0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */,
+				3F29AB302B0AEF0300B3112A /* PdfContent.swift in Sources */,
 				0BCD83BE2AE0F20300D111B0 /* LoginUser.swift in Sources */,
 				D63CF5312AF88EB400CCE0FD /* TotalPuffPopUpView.swift in Sources */,
 				D63CF5372AF9BF3700CCE0FD /* AnalyticsRepository.swift in Sources */,
@@ -1043,12 +1091,15 @@
 				0BE97CA02ACFFB68006A33AC /* KambuhRepositoryImpl.swift in Sources */,
 				D6E6D68E2ADFDC06000C1A94 /* WifiDetails.swift in Sources */,
 				D65637032AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift in Sources */,
+				3F8A5C0B2B0A40DE00E65E14 /* GeneratePdfView.swift in Sources */,
 				3FDA76172AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift in Sources */,
 				AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */,
 				3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */,
 				0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */,
 				AB7BEDD82ACD6F8C0071BF10 /* Router.swift in Sources */,
+				3F8A5C092B0A378D00E65E14 /* PdfCreator.swift in Sources */,
 				D63CF5392AF9BF8A00CCE0FD /* GetAnalytics.swift in Sources */,
+				3F29AB342B0AF0A400B3112A /* SharePdfView.swift in Sources */,
 				0B2AF8EE2AFE396200572762 /* InhalerRepositoryImpl.swift in Sources */,
 				0B8D60AC2ADE309F0017445F /* Inhaler.swift in Sources */,
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
@@ -1069,6 +1120,7 @@
 				AB6883F52AF8F3B9004A6E45 /* CalendarSheetView.swift in Sources */,
 				3F5AC8252AFCB7A9006E2AF0 /* UpdateConditionView.swift in Sources */,
 				AB6883EB2AF8B804004A6E45 /* CalendarViewModel.swift in Sources */,
+				3F8A5BBF2B05D2E600E65E14 /* PdfViewModel.swift in Sources */,
 				AB7BEDD62ACD67720071BF10 /* LoginView.swift in Sources */,
 				0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */,
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
@@ -1078,6 +1130,7 @@
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */,
+				3FB22F102B0B6AA300E9D63D /* ChartPdfView.swift in Sources */,
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
 				0BABE62B2AF8D71200FB8A28 /* GetHomeData.swift in Sources */,
 				AB7BEDC82ACD51000071BF10 /* PairDeviceView.swift in Sources */,
@@ -1090,6 +1143,7 @@
 				D63CF53D2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift in Sources */,
 				D61C22B42AFA2B0F006B9058 /* BarView.swift in Sources */,
 				D63CF53B2AF9C05700CCE0FD /* AnalyticsRepositoryImpl.swift in Sources */,
+				3F29AB322B0AF06900B3112A /* PdfViewUI.swift in Sources */,
 				D63CF5352AF9BE8B00CCE0FD /* AnalyticsResponseDTO+Mapping.swift in Sources */,
 				0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */,
 				0BBBD9D42AFCF35C0075AE6D /* CalendarEditSheetView.swift in Sources */,
@@ -1098,9 +1152,9 @@
 				0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */,
 				D65636FF2AE0D27F00C64FC1 /* MessageResponseDTO+Mapping.swift in Sources */,
 				AB2E2C0A2AFA2ECB00F5F6FC /* ProfileTabView.swift in Sources */,
-				3FDA76192AFCB4E30096EA7D /* CalendarMonthView.swift in Sources */,
 				D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */,
 				AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */,
+				3F8A5BBB2B05D2C200E65E14 /* PdfPreviewView.swift in Sources */,
 				0B7617B22AFF57D600AF4975 /* LoadingView.swift in Sources */,
 				ABE72E1F2AFE38AF008AF550 /* DoseView.swift in Sources */,
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,

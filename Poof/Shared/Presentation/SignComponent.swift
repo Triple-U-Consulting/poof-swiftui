@@ -82,6 +82,7 @@ extension Component {
         func makeUIView(context: Context) -> UITextField {
             self.datePicker.datePickerMode = .date
             self.datePicker.preferredDatePickerStyle = .wheels
+            self.datePicker.maximumDate = Date()
             self.datePicker.addTarget(self.helper, action: #selector(self.helper.dateValueChanged), for: .valueChanged)
             self.textField.placeholder = self.placeholder
             self.textField.inputView = self.datePicker

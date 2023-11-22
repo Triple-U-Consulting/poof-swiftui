@@ -50,4 +50,5 @@ class DateFormatUtil {
     func getDay(date: Date) -> Int {
         return calendar.component(.day, from: date)
     }
+    
 }

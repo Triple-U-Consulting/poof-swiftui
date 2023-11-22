@@ -17,6 +17,7 @@ extension Color {
         static let blueText = Color("blueText")
         static let blueTextSecondary = Color("blueTextSecondary")
         static let backgroundTitleCard = Color("backgroundTitleCard")
+        static let backgroundTitleReportCard = Color("backrgoundTitleReportCard")
     }
 }
 
@@ -26,6 +27,7 @@ extension Color {
         static let secondary1 = Color("secondary1")
         static let secondary2 = Color("secondary2")
         static let secondary3 = Color("secondary3")
+        static let pdfSecondary = Color("pdfSecondary")
     }
 }
 
@@ -46,3 +48,8 @@ extension Color {
     }
 }
 
+extension UIColor{
+    struct UIMain {
+        static let blueTitlePdf = UIColor(named: "blueTitlePdf")!
+    }
+}

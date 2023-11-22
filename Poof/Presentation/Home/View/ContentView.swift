@@ -13,6 +13,7 @@ struct ContentView: View {
     @EnvironmentObject var userDevice: UserDevice
     @StateObject var conditionVM = ConditionViewModel()
     @StateObject var vm = PairingViewModel()
+    @StateObject var pdfVM = PdfViewModel()
     
     var body: some View {
         ZStack {
@@ -34,41 +35,43 @@ struct ContentView: View {
             .environmentObject(userDevice)
             
             NavigationStack (path: $router.path) {
-                OnboardingView()
-                    .navigationDestination(for: Page.self){ destination in
-                        switch destination {
-                        case Page.Login:
-                            LoginView()
-                                .environmentObject(router)
-                                .navigationBarHidden(true)
-                        case Page.Register:
-                            RegisterView()
-                                .environmentObject(router)
-                                .navigationBarHidden(true)
-                        case Page.PairDevice:
-                            PairDeviceView()
-                                .environmentObject(router)
-                                .navigationBarHidden(true)
-                        case Page.TabBar:
-                            TabBarView()
-                                .environmentObject(router)
-                                .environmentObject(userDevice)
-                                .environmentObject(conditionVM)
-                                .navigationBarHidden(true)
-                        case Page.WifiConfig:
-                            WiFiDetailsView()
-                                .environmentObject(router)
-                                .navigationBarHidden(true)
-                        case Page.InputDose:
-                            DoseView()
-                                .environmentObject(router)
+                PdfPreviewView()
+                    .environmentObject(pdfVM)
+
+                   // .navigationDestination(for: Page.self){ destination in
+//                        switch destination {
+//                        case Page.Login:
+//                            LoginView()
+//                                .environmentObject(router)
 //                                .navigationBarHidden(true)
-                        default:
-                            VStack {
-                                Text("An error occured. Check ContentView")
-                            }
-                        }
-                    }
+//                        case Page.Register:
+//                            RegisterView()
+//                                .environmentObject(router)
+//                                .navigationBarHidden(true)
+//                        case Page.PairDevice:
+//                            PairDeviceView()
+//                                .environmentObject(router)
+//                                .navigationBarHidden(true)
+//                        case Page.TabBar:
+//                            TabBarView()
+//                                .environmentObject(router)
+//                                .environmentObject(userDevice)
+//                                .environmentObject(conditionVM)
+//                                .navigationBarHidden(true)
+//                        case Page.WifiConfig:
+//                            WiFiDetailsView()
+//                                .environmentObject(router)
+//                                .navigationBarHidden(true)
+//                        case Page.InputDose:
+//                            DoseView()
+//                                .environmentObject(router)
+////                                .navigationBarHidden(true)
+//                        default:
+//                            VStack {
+//                                Text("An error occured. Check ContentView")
+//                            }
+//                        }
+//                    }
             }
         }
         .preferredColorScheme(.light) //force light mode
