@@ -16,9 +16,9 @@ struct BarView: View {
     private var heightMultiplier: CGFloat {
         switch frequency {
         case "week":
-            return 35
+            return 25
         case "month":
-            return 20
+            return 10
         case "quarter":
             return 10
         case "halfyear":
@@ -103,7 +103,7 @@ struct BarView: View {
             }
             .overlay(
                 selectedIndex == index ?
-                TotalPuffPopUpView(totalPuffs: totalUsage, startDate: startDate, endDate: endDate, frequency: frequency)                            .frame(width: 200)
+                TotalPuffPopUpView(totalPuffs: totalUsage, startDate: startDate, endDate: endDate, frequency: frequency, daytimeUsage: daytimeUsage, nightUsage: nightUsage)                            .frame(width: 200)
                     .offset(y: -25)
                 : nil
             )
@@ -112,16 +112,6 @@ struct BarView: View {
             VStack {
                 Spacer()
                 ZStack(alignment:.bottom){
-                    Path { path in
-                        path.move(to: CGPoint(x: 1, y: 0))
-                        path.addLine(to: CGPoint(x: 1, y: 300))
-                    }
-                    .stroke(
-                        LinearGradient(gradient: Gradient(colors: [.clear, Color.gray3]), startPoint: .top, endPoint: .bottom),
-                        style: StrokeStyle(lineWidth: 3, lineCap: .round, dash: [5, 5])
-                    )
-                    .frame(width: 3, height: 300)
-                    
                     if daytimeUsage == 0 && nightUsage != 0 {
                         ZStack(alignment:.top) {
                             Rectangle()
@@ -145,7 +135,6 @@ struct BarView: View {
                                 .frame(width: 30, height: min(availableHeight, CGFloat(daytimeUsage) * heightMultiplier))
                                 .foregroundColor(.secondary2)
                                 .cornerRadius(25)
-                            
                                 .onTapGesture {
                                     if selectedIndex == index {
                                         selectedIndex = nil

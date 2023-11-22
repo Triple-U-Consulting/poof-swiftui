@@ -51,7 +51,7 @@ struct OnboardingView: View {
                     .lineLimit(3...3)
                     .font(.systemBodyText)
                     .frame(width: userDevice.width342, alignment: .center)
-                    .foregroundStyle(.gray1)
+                    .foregroundStyle(Color.Neutrals.gray1)
                     .padding(.top, 12)
                 
                 Spacer()

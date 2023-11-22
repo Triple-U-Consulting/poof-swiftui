@@ -21,7 +21,6 @@ enum Frequency: String, CaseIterable, Identifiable {
     case month = "month"
     case quarter = "quarter"
     case halfyear = "halfyear"
-//    case year = "year"
     
     var id: String { self.rawValue }
 }

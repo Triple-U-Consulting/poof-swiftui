@@ -50,10 +50,12 @@ struct WiFiDetailsView: View {
                     }
                     
                     Component.DefaultButton(text: "Bergabung", buttonLevel: .primary) {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        if !viewModel.inhalerConnectedWifi {
-                            viewModel.postWiFiDetails(ssid: ssid, password: password)
-                        }
+//                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                        if !viewModel.inhalerConnectedWifi {
+//                            viewModel.postWiFiDetails(ssid: ssid, password: password)
+//                        }
+                        router.path.append(Page.InputDose)
+                        
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 20)

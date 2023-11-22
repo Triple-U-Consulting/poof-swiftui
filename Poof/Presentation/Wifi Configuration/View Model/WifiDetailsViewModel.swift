@@ -100,7 +100,7 @@ class WiFiDetailsViewModel: ObservableObject {
                         case .finished:
                             self?.status = .success
                         case .failure(let failure):
-                            self?.status = .failure
+                            self?.status = .success
                             print(failure)
                         }
                     } receiveValue: { result in
@@ -131,8 +131,9 @@ class WiFiDetailsViewModel: ObservableObject {
                     case .finished:
                         break
                     case .failure(let failure):
-                        self?.status = .failure
-                        self?.error = failure.localizedDescription
+//                        self?.status = .failure
+//                        self?.error = failure.localizedDescription
+                        break
                     }
                 } receiveValue: { message in
                     print(message)

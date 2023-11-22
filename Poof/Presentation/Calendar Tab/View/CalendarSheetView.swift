@@ -33,6 +33,7 @@ struct CalendarSheetView: View {
         .frame(width: .infinity)
         .padding(26)
         .ignoresSafeArea()
+        .background(.gray8)
         .presentationDetents([.height(500), .large])
         .presentationDragIndicator(.visible)
     }
@@ -69,6 +70,17 @@ struct CalendarSheetDetailView: View {
                         })
                     }
             }
+            .padding()
+            .frame(height: 50)
+            .background(.primary5)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 10,
+                    bottomLeadingRadius: 0,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 10
+                )
+            )
             
             HStack (alignment: .top, spacing:0) {
                 VStack (alignment: .leading, spacing:0) {
@@ -98,9 +110,15 @@ struct CalendarSheetDetailView: View {
                 Spacer()
             }
             .frame(width: 338)
-            .background(.gray6)
-            .cornerRadius(10)
-            .padding(.top, 12)
+            .background(.white)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 0,
+                    bottomLeadingRadius: 10,
+                    bottomTrailingRadius: 10,
+                    topTrailingRadius: 0
+                )
+            )
             .padding(.bottom, 24)
         }
     }

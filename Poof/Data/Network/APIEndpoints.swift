@@ -105,12 +105,13 @@ struct APIEndpoints {
     static func getAnalytics(start_date: Date, frequency: String) -> Endpoint<AnalyticsResponseDTO> {
         let start_date = DateFormatUtil().dateToString(date: start_date, to: "yyyy-MM-dd")
         let queryParameters = ["start_date": start_date, "frequency": frequency]
-        print(queryParameters)
-//        return Endpoint(path: "http://192.168.100.52:3000/data/analytics",
-//                                    isFullPath: true,
-//                                    method: .get,
-//                        queryParameters: queryParameters)
         return Endpoint(path: "data/analytics", method: .get, queryParameters: queryParameters)
+    }
+    
+    static func getSummary(start_date: Date) -> Endpoint<SummaryResponseDTO> {
+        let start_date = DateFormatUtil().dateToString(date: start_date, to: "yyyy-MM-dd")
+        let queryParameters = ["start_date": start_date]
+        return Endpoint(path: "data/summary", method: .get, queryParameters: queryParameters)
     }
 
 }

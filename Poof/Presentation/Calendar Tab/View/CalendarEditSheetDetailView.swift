@@ -15,28 +15,45 @@ struct CalendarEditSheetDetailView: View {
     @Binding private(set) var showSheet: Bool
     
     var body: some View {
-        HStack {
-            HStack{
-                Image(systemName: "clock").foregroundColor(Color.Main.blueTextSecondary)
+        VStack(spacing:0) {
+            HStack (alignment:.center) {
+                HStack{
+                    Image(systemName: "clock").foregroundColor(Color.Main.blueTextSecondary)
 
-                Text("\(vm.getCurrentKambuhTime(idx: index))")
-                    .padding(.leading, -3)
+                    Text("\(vm.getCurrentKambuhTime(idx: index))")
 
+                }
+
+                Spacer()
+
+                Text("\(vm.getCurrentKambuhTotalPuff(idx: index)) \(NSLocalizedString("puff terdeteksi", comment: ""))")
+                    .bold()
             }
+            .padding()
+            .frame(height: 50)
+            .background(.primary5)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 10,
+                    bottomLeadingRadius: 0,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 10
+                )
+            )
 
-            Spacer()
+            UpdateConditionFromCalendarView(index: index)
+                .environmentObject(vm)
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 0,
+                        bottomLeadingRadius: 10,
+                        bottomTrailingRadius: 10,
+                        topTrailingRadius: 0
+                    )
+                )
 
-            Text("\(vm.getCurrentKambuhTotalPuff(idx: index)) \(NSLocalizedString("puff terdeteksi", comment: ""))")
         }
-        .padding()
-        .frame(height: 45)
-        .background(Color.Main.backgroundTitleCard)
-        .cornerRadius(10)
 
-        UpdateConditionFromCalendarView(index: index)
-            .environmentObject(vm)
-            .padding(.bottom, 24)
-            .padding(.top, -14)
     }
 }
 
