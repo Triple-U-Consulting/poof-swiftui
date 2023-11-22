@@ -17,6 +17,8 @@ struct CalendarAddSheetView: View {
     
     @State var sprayCount: Int = 0
     @State var selectedIrritant: String = "Choose"
+    @State var skalaSesak: Double = 0
+    @State var noSkalaSesak: Bool = false
     
     var body: some View {
         NavigationView {
@@ -42,7 +44,7 @@ struct CalendarAddSheetView: View {
                         Component.Stepper(value: $sprayCount)
                     }
                 }
-                
+
                 Section {
                     HStack {
                         Component.DefaultText(text: "Skala Sesak")
@@ -54,13 +56,13 @@ struct CalendarAddSheetView: View {
                     }
                     
                     if showSkalaSesak {
-                        Text("--------Slider sesak-------")
+                        Component.FormSlider(value: $skalaSesak, toggle: $noSkalaSesak)
                     }
                         
                     HStack {
                         Component.DefaultText(text: "Alergen")
                         Spacer()
-                        Component.MenuWithBorder(selection: $selectedIrritant, array: .constant(["Pollen", "Pet", "Exercise"]))
+                        Component.MenuWithBorder(selection: $selectedIrritant, menuSelection: .constant(["Pollen", "Pet", "Exercise", "Others"]))
                     }
                 }
                 
