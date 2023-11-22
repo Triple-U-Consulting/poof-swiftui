@@ -16,6 +16,7 @@ enum NoteStatus: Int8 {
 
 class CalendarViewModel: ObservableObject {
     @Published var processedKambuhData: [Date: [Kambuh]]
+    @Published var monthsInCalendar: [Date]
     
     // MARK: - Sheet view
     @Published private(set) var currentDateSelected: Date
@@ -31,12 +32,14 @@ class CalendarViewModel: ObservableObject {
     
     init(
         processedKambuhData: [Date: [Kambuh]] = [:],
+        monthsInCalendar: [Date] = [],
         currentDateSelected: Date = Date(),
         calendar: Calendar = Calendar.current,
         getKambuhByMonth: GetKambuhByMonthUsecase = GetKambuhByMonthImpl.shared,
         updateConditionKambuh: UpdateKambuhConditionUseCase = UpdateKambuhConditionImpl.shared
     ) {
         self.processedKambuhData = processedKambuhData
+        self.monthsInCalendar = monthsInCalendar
         self.currentDateSelected = currentDateSelected
         self.calendar = calendar
         self.getKambuhByMonth = getKambuhByMonth
@@ -69,8 +72,10 @@ extension CalendarViewModel {
                         self.calendar.startOfDay(for: kambuh.start)
                     }
                     
-                    DispatchQueue.main.async {
-                        self.processedKambuhData = groupedKambuhData
+                    if groupedKambuhData.count > 0 {
+                        DispatchQueue.main.async {
+                            self.processedKambuhData = groupedKambuhData
+                        }
                     }
                 }
                 .store(in: &cancellables)
@@ -97,6 +102,35 @@ extension CalendarViewModel {
 
 // MARK: - Actions
 extension CalendarViewModel {
+    // CalendarTabView
+    func initMonthsInCalendar() {
+        var monthsInCalendar: [Date] = []
+        var refMonth = calendar.date(from: DateComponents(year: 1970, month: 1, day: 1))!
+        let today = Date.now
+        
+        while today.compare(refMonth) == .orderedDescending {
+            let pastMonth = calendar.date(byAdding: .month, value: 1, to: refMonth)!
+            monthsInCalendar.append(refMonth)
+            refMonth = pastMonth
+        }
+                 
+        self.monthsInCalendar = monthsInCalendar
+    }
+    
+    func addMoreMonths(_ placement: String, n: Int = 1) {
+        if placement == "prev" {
+            for _ in 0..<n {
+                let prev = self.plusMonth(date: self.monthsInCalendar.first!, value: -1)
+                self.monthsInCalendar.insert(prev, at: 0)
+            }
+        } else {
+            for _ in 0..<n {
+                let last = self.plusMonth(date: self.monthsInCalendar.last!, value: 1)
+                self.monthsInCalendar.append(last)
+            }
+        }
+    }
+    
     // CalendarMonthView
     func getDateFromDayDate(date: Date, day: Int) -> Date {
         var dateComponents = DateComponents()

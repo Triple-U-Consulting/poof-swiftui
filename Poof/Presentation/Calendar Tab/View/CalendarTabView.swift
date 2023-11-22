@@ -6,19 +6,30 @@
 //
 
 import SwiftUI
+import Combine
+import SwiftUIIntrospect
 
 struct CalendarTabView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject var userDevice: UserDevice
+    @StateObject private var vm = CalendarViewModel()
+    
     @State private var currProgressDate = Date()
     @State private var showSheet = false
     @State private var recentMonth = 2 //means show 3 months
     @State var selectedDate: Date?
     @State var pickerMonth: Int = Calendar.current.component(.month, from: Date.now)
     @State var pickerYear: Int = Calendar.current.component(.year, from: Date.now)
-    private let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
-    private let vm = CalendarViewModel()
     
+    // Scrolling feature
+    @State private var doneScrolled: Bool = false
+    @State private var previousScrollOffset: CGFloat = 0
+    @State private var screenOffset: CGFloat = 0
+    @State private var collectionView: UICollectionView?
+    private let minimumOffset: CGFloat = 180 // Optional
+    
+    private let weekDaysData: [String] = ["S", "S", "R", "K", "J", "S", "M"]
+        
     var body: some View {
         NavigationView {
             VStack (spacing: 0) {
@@ -33,23 +44,31 @@ struct CalendarTabView: View {
                             .font(.systemFootnote)
                             .frame(width: 53, height: 17)
                     }
-                    .frame(width: .infinity, height: 17)
+                    .frame(height: 17)
                 }
                 .padding(.top, 16)
                 
                 Component.CustomDivider(width: userDevice.usableWidth)
                 
-                ScrollView {
-                    
-                    ForEach(0...recentMonth, id:\.self) {index in
-                        let month = vm.plusMonth(date: currProgressDate, value: index)
+                List {
+                    ForEach(vm.monthsInCalendar.indices, id:\.self) {i in
+                        let month = vm.monthsInCalendar[i]
+                        
                         CalendarMonthView(currProgressDate: month, selectedDate: $selectedDate)
+                            .id(i)
+                            .onAppear {
+                                //
+                            }
                     }
                 }
-                .refreshable {
-                    currProgressDate = vm.plusMonth(date: currProgressDate, value: -2)
-                    recentMonth += 2
-                }
+                .introspect(.list, on: .iOS(.v13, .v14, .v15), customize: {
+                    $0.scrollToRow(at: IndexPath(row: vm.monthsInCalendar.count - 1, section: 0), at: .bottom, animated: false)
+                })
+                .introspect(.list, on: .iOS(.v16, .v17), customize: {
+                    $0.scrollToItem(at: IndexPath(row: vm.monthsInCalendar.count - 1, section: 0), at: .bottom, animated: false)
+                    self.collectionView = $0
+                })
+                .frame(maxWidth: .infinity)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -61,13 +80,33 @@ struct CalendarTabView: View {
             .background(.gray7)
         }
         .onAppear {
-            currProgressDate = vm.plusMonth(date: currProgressDate, value: -recentMonth)
+            print("init")
+            vm.initMonthsInCalendar()
+            print("done init")
+            print(vm.monthsInCalendar.count)
+            
+//            DispatchQueue.main.async {
+//                let currVisibleMonthIdx = self.collectionView?.indexPathsForVisibleItems.first?[1]
+//                if let idx = currVisibleMonthIdx {
+//                    if idx == vm.monthsInCalendar.count - 1 {
+//                        doneScrolled = true
+//                    }
+//                }
+//            }
         }
         .sheet(isPresented: self.$showSheet) {
             CalendarDatePickerView(pickerMonth: $pickerMonth, pickerYear: $pickerYear, currProgressDate: $currProgressDate, showSheet: $showSheet)
                 .environmentObject(vm)
         }
 
+    }
+}
+
+struct ViewOffsetKey: PreferenceKey {
+    typealias Value = CGFloat
+    static var defaultValue = CGFloat.zero
+    static func reduce(value: inout Value, nextValue: () -> Value) {
+        value += nextValue()
     }
 }
 
@@ -87,7 +126,7 @@ struct CalendarDatePickerView: View {
     @Binding var currProgressDate: Date
     @Binding var showSheet: Bool
     
-    let years = Array(1900...Calendar.current.component(.year, from: Date.now))
+    let years = Array(1970...Calendar.current.component(.year, from: Date.now))
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
     var body: some View {
@@ -115,7 +154,7 @@ struct CalendarDatePickerView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Component.TextButton(text: NSLocalizedString("Selesai", comment: ""), action: {
-                        currProgressDate = vm.getDateFromMonthYear(month: pickerMonth ?? Calendar.current.component(.month, from: Date.now), year: pickerYear ?? Calendar.current.component(.year, from: Date.now))
+                        currProgressDate = vm.getDateFromMonthYear(month: pickerMonth , year: pickerYear)
                         showSheet.toggle()
                     })
                 }

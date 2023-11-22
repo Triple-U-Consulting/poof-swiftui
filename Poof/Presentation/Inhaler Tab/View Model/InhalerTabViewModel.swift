@@ -55,20 +55,20 @@ final class InhalerTabViewModel: ObservableObject {
                 .sink { completion in
                     switch completion {
                     case .finished:
-                        DispatchQueue.main.async { [weak self] in
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) { [weak self] in
                             self?.syncStatus = .synced
                             self?.syncDate = self?.dateFormat.dateToString(date: Date.now, to: "HH:mm") ?? ""
                         }
                     case .failure:
                         print(completion)
                         
-                        DispatchQueue.main.async { [weak self] in
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) { [weak self] in
                             self?.syncStatus = .unsynced
                         }
                         break
                     }
                 } receiveValue: { data in
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
                         self.todayPuff = data.today
                         self.weekAvgPuff = data.weekAvg
                         self.remaining = data.remaining

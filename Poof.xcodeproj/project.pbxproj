@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13B6592AE686B700576845 /* AuthViewModel.swift */; };
+		0B2486E42B0DE56600FEAC8D /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2486E32B0DE56600FEAC8D /* SwiftUIIntrospect */; };
+		0B2486E92B0DE56600FEAC8D /* SwiftUIIntrospect-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2486E82B0DE56600FEAC8D /* SwiftUIIntrospect-Static */; };
 		0B2AF8EC2AFE392A00572762 /* UpdateInhalerDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF8EB2AFE392A00572762 /* UpdateInhalerDose.swift */; };
 		0B2AF8EE2AFE396200572762 /* InhalerRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF8ED2AFE396200572762 /* InhalerRepositoryImpl.swift */; };
 		0B2AF8F02AFE397500572762 /* InhalerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF8EF2AFE397500572762 /* InhalerRepository.swift */; };
@@ -140,6 +142,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0B2486DE2B0DE54300FEAC8D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0B13B6592AE686B700576845 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		0B2AF8EB2AFE392A00572762 /* UpdateInhalerDose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInhalerDose.swift; sourceTree = "<group>"; };
@@ -268,6 +283,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB01C3CE2AD80A4D008C3160 /* Lottie in Frameworks */,
+				0B2486E42B0DE56600FEAC8D /* SwiftUIIntrospect in Frameworks */,
+				0B2486E92B0DE56600FEAC8D /* SwiftUIIntrospect-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +328,13 @@
 				D65637022AE0DF8F00C64FC1 /* WifiDetailsViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		0B2486DF2B0DE54E00FEAC8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		0B2AF8E82AFE37D800572762 /* View Model */ = {
@@ -756,6 +780,7 @@
 				AB7BEDAD2ACD4B780071BF10 /* PoofUITests */,
 				AB7BED912ACD4B770071BF10 /* Products */,
 				0B8D60792AD949140017445F /* Recovered References */,
+				0B2486DF2B0DE54E00FEAC8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -886,6 +911,7 @@
 				AB7BED8C2ACD4B770071BF10 /* Sources */,
 				AB7BED8D2ACD4B770071BF10 /* Frameworks */,
 				AB7BED8E2ACD4B770071BF10 /* Resources */,
+				0B2486DE2B0DE54300FEAC8D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -894,6 +920,8 @@
 			name = Poof;
 			packageProductDependencies = (
 				AB01C3CD2AD80A4D008C3160 /* Lottie */,
+				0B2486E32B0DE56600FEAC8D /* SwiftUIIntrospect */,
+				0B2486E82B0DE56600FEAC8D /* SwiftUIIntrospect-Static */,
 			);
 			productName = Poof;
 			productReference = AB7BED902ACD4B770071BF10 /* Poof.app */;
@@ -969,6 +997,7 @@
 			mainGroup = AB7BED872ACD4B770071BF10;
 			packageReferences = (
 				AB01C3CC2AD80A4D008C3160 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				0B67FF7D2B0DD73200C44F01 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = AB7BED912ACD4B770071BF10 /* Products */;
 			projectDirPath = "";
@@ -1469,6 +1498,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0B67FF7D2B0DD73200C44F01 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
 		AB01C3CC2AD80A4D008C3160 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -1480,6 +1517,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0B2486E32B0DE56600FEAC8D /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B67FF7D2B0DD73200C44F01 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+		0B2486E82B0DE56600FEAC8D /* SwiftUIIntrospect-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B67FF7D2B0DD73200C44F01 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = "SwiftUIIntrospect-Static";
+		};
 		AB01C3CD2AD80A4D008C3160 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AB01C3CC2AD80A4D008C3160 /* XCRemoteSwiftPackageReference "lottie-ios" */;
