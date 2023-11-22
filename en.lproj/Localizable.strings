@@ -10,22 +10,27 @@
 //"AiroPuff is an application designed to assist parents in monitoring their child's asthma condition." = "Airopuff merupakan aplikasi yang dirancang untuk membantu orang tua memantau kondisi asma anak.";
 //"Next" = "Berikutnya";
 
+// MARK: General
+"Batal" = "Cancel";
+"Memuat" = "Loading";
+"Selesai" = "Done";
+"Lewati" = "Skip";
+"Oke" = "Okay";
+"Simpan" = "Save";
+"Pilih" = "Select";
+"Iya" = "Yes";
+"Tidak" = "No";
+"Berikutnya" = "Next";
 
 // MARK: ONBOARDING
 "AiroPuff" = "AiroPuff";
-
-"Airopuff merupakan aplikasi yang dirancang untuk membantu orang tua memantau kondisi asma anak." = "AiroPuff is an application designed to assist parents in monitoring their child's asthma condition.";
-
-"Berikutnya" = "Next";
-
-"Sambungkan Inhaler Pintar Anda" = "Pair Your Smart Inhaler";
-
-"Inhaler pintar akan memantau pemakaian harian inhaler anda dan menyediakan informasi mengenai lingkungan sekitar anda." = "Our inhaler will monitor your daily puffs and provide you with your environtment information.";
-
+"AiroPuff adalah aplikasi yang dibuat untuk membantu masyarakat memantau kondisi asmanya." = "AiroPuff is an application designed to assist people in monitoring their asthma condition.";
+"Pasangkan Perangkat Airo ke Inhaler" = "Install your Airo device";
+"Pasangkan Airo ke bagian atas inhaler ventolin anda." = "Place Airo on top of your Ventolin inhaler.";
+"Sambungkan Perangkat Airo Anda" = "Pair Your Airo Device";
+"Airo akan memantau pemakaian harian inhaler anda dan menyediakan informasi mengenai lingkungan sekitar anda." = "Your Airo device will monitor your daily puffs and provide you with your environment information.";
 "Notifikasi Pengingat" = "Reminder Notification";
-
 "Mulai" = "Let’s Get Started";
-
 "Kami akan mengirimkan anda pengingat untuk obat harian dan notifikasi ketika inhaler pintar digunakan." = "We’ll send you daily medication reminders and alerts when smart inhaler is used.";
 
 // MARK: LOGIN
@@ -50,20 +55,20 @@
 "Email sudah terdaftar" = "Email already resgistered";
 
 // MARK: PAIRING
-"Sambungkan Perangkat Anda" = "Pair Your Device";
-"Sambungkan Inhaler Anda" = "Pair Your Inhaler";
-"Menyambungkan inhaler membantu kami untuk membuat analisis yang lebih baik." = "Connecting your inhaler helps us to improve our analysis.";
+"Sambungkan Perangkat Airo Anda" = "Pair your Airo Device";
+//"Sambungkan Inhaler Anda" = "Pair Your Inhaler";
+"Menyambungkan dengan perangkat Airo membantu kami untuk membuat analisis yang lebih baik." = "Connecting to your Airo device helps us improve our analysis.";
+"Sambungkan perangkat Airo anda untuk pengalaman lebih baik." = "Connect to your Airo device for a better experience.";
 "Mulai" = "Start Pairing";
 "Sambungkan ke Wi-Fi" = "Connect to Wi-Fi";
-"Buka setelan ponsel anda dan hubungkan ke Wi-Fi inhaler. Pastikan inhaler memiliki baterai yang cukup." = "Open your phone setting and connect to inhaler's Wi-Fi. Make sure it has sufficient battery.";
-"Memuat" = "Loading";
-"Pastikan inhaler anda berada dekat dengan anda." = "Please make sure that you have your inhaler near you.";
+"Buka setelan ponsel anda dan hubungkan ke Wi-Fi dari perangkat Airo. Kata sandi Wi-Fi dapat anda lihat pada kemasan." = "Open your phone setting and connect to the Airo device's Wi-Fi. Enter the password located on the box of your Airo device.";
+"Pastikan perangkat Airo anda berada dekat dengan anda." = "Please make sure that you have your Airo device near you.";
 "Coba Lagi" = "Try Again";
-"Menyambungkan" = "Pairing";
-"Mohon tunggu sebentar, kami sedang menyambungkan perangkat anda." = "Please wait for a moment, we are pairing it now.";
+"Menyambungkan..." = "Pairing...";
+"Mohon tunggu sebentar, kami sedang menyambungkan perangkat Airo anda." = "Please wait, we are attempting to pair with your Airo device.";
 "Tersambung" = "Paired";
-"Inhaler anda sudah tersambung dengan perangkat anda." = "We have successfully paired your inhaler!";
-"Pilih Wi-Fi untuk Inhaler" = "Choose a Wi-Fi for Inhaler";
+"Perangkat Airo anda sudah tersambung dengan ponsel Anda." = "We have successfully paired your inhaler!";
+"Pilih Wi-Fi untuk Perangkat Airo" = "Choose a Wi-Fi for Airo Device";
 "SSID" = "SSID";
 "Penyambungan Perangkat Gagal" = "Failed to Pair";
 "Kata Sandi" = "Password";
@@ -72,25 +77,17 @@
 "Bergabung" = "Join";
 "Tidak dapat terhubung ke Wi-Fi. Pastikan kembali SSID dan Kata Sandi anda" = "Unable to connect to Wi-Fi. Please recheck SSID and Password!";
 "Koneksi Hilang" = "Connection Lost";
-"Koneksi dengan inhaler terputus. Silahkan menghubungkan kembali." = "We can’t detect your inhaler. Please reconnect.";
-"Oke" = "Okay";
+"Koneksi dengan perangkat Airo anda terputus. Silahkan coba hubungkan kembali." = "We can’t detect your Airo device. Please reconnect.";
+"Sisa Dosis Inhaler" = "Remaining Inhaler Dosage";
+"Pilih Pemicu Asma" = "Select Your Irritants";
 
 // MARK: SheetAddData
-"Simpan" = "Save";
 "Dilacak pada" = "Tracked on";
-"Memperbaharui kondisi" = "Update condition";
+"Perbaharui Kondisi" = "Update condition";
 "puff terdeteksi" = "Puff detected";
-"Iya" = "Yes";
-"Tidak" = "No";
 "Dipicu oleh alergi anda?" = "Triggered by your irritants?";
-"Pilih" = "Select";
 "Skala sesak" = "Shortness of Breath";
 "Sepertinya anda belum mengisi semua catatan!" = "Uh-oh, it looks like you haven't filled all your notes!";
 "Ya, simpan perubahan" = "Yes, save changes";
 "Pastikan data yang diisi sudah sesuai" = "Make sure the data is correct";
 "Anda bisa membuat perubahan kembali di halaman Kalender" = "You can edit your notes later in the Calendar Tab";
-
-// MARK: SheetEditCalendar
-"Batal" = "Cancel";
-"Memuat" = "Loading";
-"Selesai" = "Done";

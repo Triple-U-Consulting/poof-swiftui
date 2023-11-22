@@ -19,7 +19,7 @@ struct DoseView: View {
             ZStack {
                 VStack (spacing: 0){
                     TextField(text: $remainingDose) {
-                        Text(verbatim: "Enter your remaining inhaler dose")
+                        Text(verbatim: "Enter your remaining inhaler dosage")
                     }
                     .focused($isInputActive)
                     .autocapitalization(.none)
@@ -58,7 +58,7 @@ struct DoseView: View {
             }
             .toolbar{
                 ToolbarItem(placement: .principal) {
-                    Component.NavigationTitle(text: "Masukkan Sisa Dosis Inhaler")
+                    Component.NavigationTitle(text: "Sisa Dosis Inhaler")
                 }
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
@@ -68,6 +68,7 @@ struct DoseView: View {
                     }
                 }
             }
+            // TODO: - Make sure background is right
             .background(.gray8)
             .navigationBarTitleDisplayMode(.inline)
         }

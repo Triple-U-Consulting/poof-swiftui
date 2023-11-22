@@ -26,8 +26,8 @@ struct ConnectToDeviceWifiView: View {
                     Component.DefaultText(text: "Sambungkan ke Wi-Fi")
                         .font(.systemSubheader)
                     
-                    Component.DefaultText(text: "Buka setelan ponsel dan hubungkan ke Wi-Fi inhaler. Kata sandi Wi-Fi dapat anda lihat pada kemasan.")
-                        .lineLimit(3...3)
+                    Component.DefaultText(text: "Buka setelan ponsel anda dan hubungkan ke Wi-Fi dari perangkat Airo. Kata sandi Wi-Fi dapat anda lihat pada kemasan.")
+                        .lineLimit(4...4)
                         .padding(.top, 12)
                         .frame(width: 295)
                     

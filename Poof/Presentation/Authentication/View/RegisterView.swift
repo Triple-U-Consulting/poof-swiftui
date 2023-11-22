@@ -57,6 +57,10 @@ struct RegisterView: View {
                         .padding(.leading, 30)
                         .textFieldStyle(.automatic)
                         .padding(.top, 8)
+                        .onSubmit {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            viewModel.register(email: email, password: password, confirmPassword: confirmPassword)
+                        }
                         
                         Component.CustomDivider(width: 342)
                     }

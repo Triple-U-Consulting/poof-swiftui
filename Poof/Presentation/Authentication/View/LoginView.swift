@@ -45,6 +45,10 @@ struct LoginView: View {
                         .padding(.leading, 30)
                         .textFieldStyle(.automatic)
                         .padding(.top, 8)
+                        .onSubmit {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            viewModel.login(email: "angela@gmail.com", password: "angelaadmin")
+                        }
                         
                         Component.CustomDivider(width: 342)
                     }
@@ -89,7 +93,7 @@ struct LoginView: View {
         }
         .onChange(of: viewModel.status, { _, newValue in
             if newValue == .success {
-                router.path.append(Page.TabBar)
+                router.path.append(Page.PairDevice)
             }
         })
     }

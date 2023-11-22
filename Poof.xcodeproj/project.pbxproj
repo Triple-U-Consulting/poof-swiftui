@@ -56,6 +56,8 @@
 		0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CB52AD7F037006A33AC /* GetKambuhDataById.swift */; };
 		0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */; };
 		0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */; };
+		0BF135BC2B0E5418009FD352 /* InstallPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF135BB2B0E5418009FD352 /* InstallPairingView.swift */; };
+		0BF135BE2B0E784E009FD352 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF135BD2B0E784E009FD352 /* SliderView.swift */; };
 		3F23D7BF2AF89BB200DF47AC /* GetKambuhByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23D7BE2AF89BB200DF47AC /* GetKambuhByDate.swift */; };
 		3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */; };
 		3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */; };
@@ -213,6 +215,8 @@
 		0BE97CB72AD7F6EB006A33AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerTabViewModel.swift; sourceTree = "<group>"; };
+		0BF135BB2B0E5418009FD352 /* InstallPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPairingView.swift; sourceTree = "<group>"; };
+		0BF135BD2B0E784E009FD352 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		3F23D7BE2AF89BB200DF47AC /* GetKambuhByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhByDate.swift; sourceTree = "<group>"; };
 		3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRequestDTO.swift; sourceTree = "<group>"; };
 		3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionViewModel.swift; sourceTree = "<group>"; };
@@ -486,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				AB7BEDC72ACD51000071BF10 /* PairDeviceView.swift */,
+				0BF135BB2B0E5418009FD352 /* InstallPairingView.swift */,
 				AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */,
 				AB01C3D12ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift */,
 				AB01C3D32ADD1FA3008C3160 /* LoadingPairingView.swift */,
@@ -728,6 +733,7 @@
 			children = (
 				3F5AC8242AFCB7A9006E2AF0 /* UpdateConditionView.swift */,
 				3F5A1ED22AFA17C600A3BB57 /* UpdateConditionCard.swift */,
+				0BF135BD2B0E784E009FD352 /* SliderView.swift */,
 			);
 			path = UpdateConditionFromDashboard;
 			sourceTree = "<group>";
@@ -864,12 +870,12 @@
 		AB7BEDC92ACD524A0071BF10 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D6809E502B0C298500054DFE /* Irritants */,
 				0B8D60832AD94AD80017445F /* Onboarding */,
 				0B8D607E2AD94A7E0017445F /* Authentication */,
 				0B8D60802AD94AA70017445F /* Pair Device */,
 				D6E6D6892ADFD84C000C1A94 /* Wifi Configuration */,
 				0B7617AC2AFF562B00AF4975 /* Input Dose */,
+				D6809E502B0C298500054DFE /* Irritants */,
 				0B8D608B2AD94B9F0017445F /* Home */,
 				0B8D607F2AD94A850017445F /* Inhaler Tab */,
 				AB6883F72AFA25B3004A6E45 /* Calendar Tab */,
@@ -1168,6 +1174,7 @@
 				0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */,
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
 				3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */,
+				0BF135BE2B0E784E009FD352 /* SliderView.swift in Sources */,
 				0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */,
 				0BBBD9D62AFD3E940075AE6D /* EditDataCard.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
@@ -1202,6 +1209,7 @@
 				0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */,
 				AB2F17A82B0D1AE20046E2F0 /* FormComponent.swift in Sources */,
 				D6809E522B0C29A600054DFE /* IrritantsView.swift in Sources */,
+				0BF135BC2B0E5418009FD352 /* InstallPairingView.swift in Sources */,
 				0BCD83BA2AE0E29600D111B0 /* UserRepositoryImpl.swift in Sources */,
 				0BE97CB62AD7F037006A33AC /* GetKambuhDataById.swift in Sources */,
 				3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */,

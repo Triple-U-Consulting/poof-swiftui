@@ -1,8 +1,9 @@
 {
   "data" : [
     {
-      "filename" : "pairing-loading.json",
-      "idiom" : "universal"
+      "filename" : "Animated Pairing.lottie.json",
+      "idiom" : "universal",
+      "universal-type-identifier" : "public.json"
     }
   ],
   "info" : {

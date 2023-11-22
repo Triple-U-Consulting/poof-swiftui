@@ -1,13 +1,13 @@
 //
-//  FailedPairingView.swift
+//  InstallPairingView.swift
 //  Poof
 //
-//  Created by Jonathan Evan Christian on 16/10/23.
+//  Created by Angela Christabel on 22/11/23.
 //
 
 import SwiftUI
 
-struct FailedPairingView: View {
+struct InstallPairingView: View {
     @Binding var pairProgress : PairDevicePage
     
     var body: some View {
@@ -15,22 +15,22 @@ struct FailedPairingView: View {
             VStack (spacing:0){
                 VStack (spacing:0) {
                     Spacer()
-                    LottieViewComponent(name: "pairing-failed", loopMode: .loop)
-                        .frame(width:358, height:172.69)
+                    LottieViewComponent(name: "pairing-install", loopMode: .loop)
+                        .frame(width:255, height:220)
                     Spacer()
                 }
                 
                 VStack (spacing:0) {
-                    Component.DefaultText(text: "Penyambungan Perangkat Gagal")
+                    Component.DefaultText(text: "Pasangkan Airo ke Inhaler")
                         .font(.systemSubheader)
                     
-                    Component.DefaultText(text: "Koneksi dengan perangkat Airo anda terputus. Silahkan coba hubungkan kembali.")
+                    Component.DefaultText(text: "Pasangkan Airo ke bagian atas inhaler ventolin anda.")
                         .lineLimit(3...3)
                         .padding(.top, 12)
                         .frame(width: 295)
                     
-                    Component.DefaultButton(text: "Coba Lagi", buttonLevel: .primary) {
-                        pairProgress = .connectToDeviceWifi
+                    Component.DefaultButton(text: "Berikutnya", buttonLevel: .primary) {
+                        pairProgress = .startPairing
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 88)
@@ -43,7 +43,7 @@ struct FailedPairingView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Component.NavigationTitle(text: "Sambungkan Perangkat Airo Anda")
+                    Component.NavigationTitle(text: "Pasangkan Airo ke Inhaler")
                 }
             }
         }
@@ -51,5 +51,5 @@ struct FailedPairingView: View {
 }
 
 #Preview {
-    FailedPairingView(pairProgress: .constant(PairDevicePage.failedPairing))
+    InstallPairingView(pairProgress: .constant(.installAiro))
 }

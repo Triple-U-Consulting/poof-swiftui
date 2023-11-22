@@ -20,7 +20,7 @@ struct OnboardingView: View {
     ]
     private var details : [String] = [
         "AiroPuff adalah aplikasi yang dibuat untuk membantu masyarakat memantau kondisi asmanya.",
-        "Inhaler pintar akan memantau penggunaan harian. Data akan tersinkronisasi otomatis saat aplikasi dibuka."
+        "Airo akan memantau pemakaian harian inhaler anda dan menyediakan informasi mengenai lingkungan sekitar anda."
     ]
     
     var body: some View {
