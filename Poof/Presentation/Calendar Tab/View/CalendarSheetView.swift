@@ -54,7 +54,7 @@ struct CalendarSheetView: View {
         }
         .frame(width: .infinity)
         .ignoresSafeArea()
-        .presentationDetents([.height(400), .large])
+        .presentationDetents([.height(500), .large])
         .presentationDragIndicator(.visible)
     }
 }

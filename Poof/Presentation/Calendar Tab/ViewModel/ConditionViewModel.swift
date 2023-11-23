@@ -16,6 +16,7 @@ class ConditionViewModel: ObservableObject {
     @Published var scale: [Int] = []
     @Published var trigger: [Bool] = []
     @Published var kambuhId: [Int] = []
+    @Published var showScale: [Bool] = []
     
     //@Published private(set) var error: String = ""
 
@@ -44,6 +45,7 @@ class ConditionViewModel: ObservableObject {
 extension ConditionViewModel {
     func getDateKeys() -> [Date] {
         let s = self.processedKambuhData.keys.sorted{ $0 < $1 }
+        print(s)
         return s
     }
     
@@ -57,9 +59,6 @@ extension ConditionViewModel {
         let data = processedKambuhData.values.flatMap{ $0 }
         
         for d in data {
-            print(d.scale)
-            print(d.trigger)
-            print(d.hasNotes())
             if !d.hasNotes() {
                 return true
             }
@@ -84,9 +83,10 @@ extension ConditionViewModel {
                     let groupedKambuhData = Dictionary(grouping: kambuhResults) { kambuh in
                         self.calendar.startOfDay(for: kambuh.start)
                     }
-                    
+                    print(groupedKambuhData)
                     DispatchQueue.main.async {
                         self.processedKambuhData = groupedKambuhData
+                        self.showScale = Array(repeating: false, count: groupedKambuhData.count)
                     }
                 }
                 .store(in: &cancellables)

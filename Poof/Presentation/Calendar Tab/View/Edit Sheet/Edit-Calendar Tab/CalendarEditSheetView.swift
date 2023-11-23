@@ -11,18 +11,16 @@ struct CalendarEditSheetView: View {
     @EnvironmentObject var vm: CalendarViewModel
     
     let index: Int
+    
     @State var showConfDialog: Bool = false
     @Binding var showSheet: Bool
     @Binding var showEditSheet: Bool
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack (alignment: .leading, spacing:0) {
-                
-                    EditDataCard(index: index, showSheet: $showSheet)
-                        .environmentObject(vm)
-                }
+            VStack (alignment: .leading, spacing:0) {
+//                EditDataCard(key: <#Date#>, idx: index, showSheet: $showSheet)
+//                    .environmentObject(vm)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
