@@ -13,6 +13,7 @@ struct UpdateConditionView: View {
     @State var showSecondAlert: Bool = false
     @Binding var showUpdateSheet: Bool
     @StateObject var vm: ConditionViewModel = ConditionViewModel()
+    @State private var showDeleteDataButton: Bool = false
     
     var body: some View {
         NavigationView {
@@ -28,7 +29,7 @@ struct UpdateConditionView: View {
                             
                             VStack(spacing: 12) {
                                 ForEach(0..<(vm.processedKambuhData[key]?.count ?? 0), id: \.self) { idx in
-                                    EditDataCardInhaler(key: key, idx: idx)
+                                    EditDataCardInhaler(key: key, idx: idx, showDeleteDataButton: $showDeleteDataButton)
                                         .environmentObject(vm)
                                 }
                             }
@@ -42,8 +43,8 @@ struct UpdateConditionView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Component.TextButton(text: "Delete", color: .red, action: {
-                        //delete
+                    Component.TextButton(text: showDeleteDataButton ? "Batal" : "Hapus", color: .red, action: {
+                        showDeleteDataButton.toggle()
                     })
                 }
                 

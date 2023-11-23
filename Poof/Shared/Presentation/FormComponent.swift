@@ -172,6 +172,24 @@ extension Component {
         }
     }
     
+    struct DeleteButton: View {
+        
+        var action: () -> Void
+        
+        var body: some View {
+            Button(action: action) {
+                VStack {
+                    Text(Image(systemName: "minus"))
+                        .font(.systemHeadline)
+                        .foregroundStyle(.white)
+                }
+                .frame(width: 30, height: 30)
+                .background(.red)
+                .clipShape(Circle())
+            }
+        }
+    }
+    
 }
 
 
