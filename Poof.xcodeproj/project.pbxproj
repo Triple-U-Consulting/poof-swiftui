@@ -30,8 +30,9 @@
 		0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE62E2AF8D7CF00FB8A28 /* HomepageRepository.swift */; };
 		0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */; };
 		0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */; };
+		0BB503DA2B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB503D92B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift */; };
 		0BBBD9D42AFCF35C0075AE6D /* CalendarEditSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */; };
-		0BBBD9D62AFD3E940075AE6D /* EditDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */; };
+		0BBBD9D62AFD3E940075AE6D /* EditDataCard+CalendarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D52AFD3E940075AE6D /* EditDataCard+CalendarTab.swift */; };
 		0BBBD9D82AFD45130075AE6D /* UpdateConditionFromCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */; };
 		0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */; };
 		0BCD83B62AE0E0D200D111B0 /* UpdateUserInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */; };
@@ -189,8 +190,9 @@
 		0BABE62E2AF8D7CF00FB8A28 /* HomepageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageRepository.swift; sourceTree = "<group>"; };
 		0BABE6302AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageRepositoryImpl.swift; sourceTree = "<group>"; };
 		0BABE6322AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDataResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		0BB503D92B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditDataCard+InhalerTab.swift"; sourceTree = "<group>"; };
 		0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditSheetView.swift; sourceTree = "<group>"; };
-		0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataCard.swift; sourceTree = "<group>"; };
+		0BBBD9D52AFD3E940075AE6D /* EditDataCard+CalendarTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditDataCard+CalendarTab.swift"; sourceTree = "<group>"; };
 		0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConditionFromCalendarView.swift; sourceTree = "<group>"; };
 		0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInhaler.swift; sourceTree = "<group>"; };
@@ -729,7 +731,8 @@
 		0BF135BF2B0EF687009FD352 /* Edit Card */ = {
 			isa = PBXGroup;
 			children = (
-				0BBBD9D52AFD3E940075AE6D /* EditDataCard.swift */,
+				0BBBD9D52AFD3E940075AE6D /* EditDataCard+CalendarTab.swift */,
+				0BB503D92B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift */,
 				0BF135BD2B0E784E009FD352 /* SliderView.swift */,
 			);
 			path = "Edit Card";
@@ -1180,7 +1183,7 @@
 				3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */,
 				0BF135BE2B0E784E009FD352 /* SliderView.swift in Sources */,
 				0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */,
-				0BBBD9D62AFD3E940075AE6D /* EditDataCard.swift in Sources */,
+				0BBBD9D62AFD3E940075AE6D /* EditDataCard+CalendarTab.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
 				AB2F17A02B0B47F70046E2F0 /* TermsAndConditionsView.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
@@ -1225,6 +1228,7 @@
 				D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */,
 				0B2AF8EC2AFE392A00572762 /* UpdateInhalerDose.swift in Sources */,
 				D63CF5332AF9BE3C00CCE0FD /* Analytics.swift in Sources */,
+				0BB503DA2B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift in Sources */,
 				D61C22B62AFA478B006B9058 /* FrequencyPickerView.swift in Sources */,
 				3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */,
 				3FFE00E52AFDD02A00069D48 /* CalendarMonthView.swift in Sources */,

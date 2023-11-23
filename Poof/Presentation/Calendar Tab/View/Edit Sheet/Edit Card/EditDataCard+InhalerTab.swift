@@ -1,19 +1,19 @@
 //
-//  CalendarEditSheetDetailView.swift
+//  EditDataCard.swift
 //  Poof
 //
-//  Created by Angela Christabel on 09/11/23.
+//  Created by Angela Christabel on 23/11/23.
 //
 
 import SwiftUI
 
-struct EditDataCard: View {
-    @EnvironmentObject private var vm: CalendarViewModel
+struct EditDataCardInhaler: View {
+    @EnvironmentObject private var vm: ConditionViewModel
     
     let key: Date
     let idx: Int
     
-    @Binding private(set) var showSheet: Bool
+//    @Binding private(set) var showSheet: Bool
     
     @State private var selectedIrritant: String = "Choose"
     @State private var skalaSesak: Double = 0

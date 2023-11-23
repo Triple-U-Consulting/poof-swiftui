@@ -19,8 +19,8 @@ struct CalendarEditSheetView: View {
     var body: some View {
         NavigationView {
             VStack (alignment: .leading, spacing:0) {
-//                EditDataCard(key: <#Date#>, idx: index, showSheet: $showSheet)
-//                    .environmentObject(vm)
+                EditDataCardCalendar(key: vm.currentDateSelected, idx: index)
+                    .environmentObject(vm)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
