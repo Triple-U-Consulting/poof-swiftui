@@ -73,6 +73,11 @@ struct APIEndpoints {
         return Endpoint(path: "data/update/condition", method: .put, bodyParametersEncodable: requestDTO)
     }
     
+    static func addKambuh(start_time: String, total_puff: Int, scale: String, trigger: String) -> Endpoint<MessageResponseDTO> {
+        let bodyParameters = KambuhRequestDTO(start_time: start_time, total_puff: total_puff, scale: scale, trigger: trigger)
+        return Endpoint(path: "data/add/kambuh/data", method: .post, bodyParametersEncodable: bodyParameters)
+        }
+    
     // MARK: - Inhaler
     static func updateUserInhalerId(id: String, token: String) -> Endpoint<MessageResponseDTO> {
         let bodyParameters = ["inhaler_id": id]

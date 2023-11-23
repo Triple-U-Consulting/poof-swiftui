@@ -134,4 +134,20 @@ extension KambuhRepositoryImpl: KambuhRepository {
             return Fail(error: Failure.fetchKambuhFailure).eraseToAnyPublisher()
         }
     }
+    
+    func addKambuh(start_time: String, total_puff: Int, scale: String, trigger: String) async -> AnyPublisher<String, Failure> {
+        let endpoint = APIEndpoints.addKambuh(start_time: start_time, total_puff: total_puff, scale: scale, trigger: trigger)
+        let results = await self.dataTransferService.request(with: endpoint)
+        
+        switch results {
+        case .success(let messageResponseDTOs):
+            return Just(messageResponseDTOs)
+                .setFailureType(to: Failure.self)
+                .map {
+                    $0.toDomain()
+                }.eraseToAnyPublisher()
+            case .failure(let error):
+                return Fail(error: error).eraseToAnyPublisher()
+            }
+    }
 }
