@@ -336,9 +336,12 @@ extension Formatter {
 }
 
 extension CalendarViewModel {
-    func deleteKambuhData(kambuh_id: Int){
+    func deleteKambuhData(index: Int){
+        
+        let kambuh_id = getCurrentKambuh(index: index)
+        
         Task {
-            await deleteKambuhData.execute(kambuh_id: kambuh_id)
+            await deleteKambuhData.execute(kambuh_id: kambuh_id.id)
                 .sink { completion in
                     switch completion {
                     case .finished:
