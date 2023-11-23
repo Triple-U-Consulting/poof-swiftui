@@ -10,12 +10,14 @@ import SwiftUI
 struct PairDeviceView: View {
     
     @EnvironmentObject var router: Router
-    @State private var pairProgress = PairDevicePage.startPairing
-    @State private var navigationTitleText: String = "Sambungkan Inhaler Anda"
+    @State private var pairProgress = PairDevicePage.installAiro
+    @State private var navigationTitleText: String = "Sambungkan Perangkat Airo Anda"
     
     var body: some View {
         VStack {
             switch pairProgress {
+            case .installAiro:
+                InstallPairingView(pairProgress: $pairProgress)
             case .startPairing:
                 StartPairingView(pairProgress: $pairProgress)
             case .connectToDeviceWifi:
@@ -38,6 +40,7 @@ struct PairDeviceView: View {
 }
 
 enum PairDevicePage {
+    case installAiro
     case startPairing
     case connectToDeviceWifi
     case loadingPairing

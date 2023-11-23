@@ -1,8 +1,9 @@
 {
   "data" : [
     {
-      "filename" : "pairing-paired.json",
-      "idiom" : "universal"
+      "filename" : "Success Animation.json",
+      "idiom" : "universal",
+      "universal-type-identifier" : "public.json"
     }
   ],
   "info" : {

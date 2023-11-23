@@ -26,7 +26,7 @@ struct SuccessPairingView: View {
                     Component.DefaultText(text: "Tersambung")
                         .font(.systemSubheader)
                     
-                    Component.DefaultText(text: "Inhaler anda sudah tersambung dengan ponsel anda.")
+                    Component.DefaultText(text: "Perangkat Airo anda sudah tersambung dengan ponsel Anda.")
                         .lineLimit(3...3)
                         .padding(.top, 12)
                         .frame(width: 295)
@@ -43,7 +43,7 @@ struct SuccessPairingView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Component.NavigationTitle(text: "Sambungkan Inhaler Anda")
+                    Component.NavigationTitle(text: "Sambungkan Perangkat Airo Anda")
                 }
             }
             .onAppear {

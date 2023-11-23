@@ -22,10 +22,10 @@ struct StartPairingView: View {
                 }
                 
                 VStack (spacing:0) {
-                    Component.DefaultText(text: "Sambungkan Inhaler Anda")
+                    Component.DefaultText(text: "Sambungkan Perangkat Airo Anda")
                         .font(.systemSubheader)
                     
-                    Component.DefaultText(text: "Sambungkan inhaler anda untuk pengalaman yang lebih baik.")
+                    Component.DefaultText(text: "Sambungkan perangkat Airo anda untuk pengalaman lebih baik.")
                         .lineLimit(3...3)
                         .padding(.top, 12)
                         .frame(width: 295)
@@ -44,7 +44,7 @@ struct StartPairingView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Component.NavigationTitle(text: "Sambungkan Inhaler Anda")
+                    Component.NavigationTitle(text: "Sambungkan Perangkat Airo Anda")
                 }
             }
         }

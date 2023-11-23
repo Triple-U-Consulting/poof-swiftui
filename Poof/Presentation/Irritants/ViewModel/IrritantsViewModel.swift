@@ -7,32 +7,32 @@
 
 import Foundation
 
-struct IrritansModel: Identifiable {
-    let id = UUID()
+struct IrritantsModel: Identifiable {
+    let id: String
     let unselected: String
     let selected: String
     var isSelected = false
 }
 
 class IrritantsViewModel: ObservableObject {
-    @Published var items: [IrritansModel]
+    @Published var items: [IrritantsModel]
     @Published var triggers: [String] = []
     
     init() {
         items = [
-            IrritansModel(unselected: "pollen-unselect", selected: "pollen-select", isSelected: false),
-            IrritansModel(unselected: "exercise-unselect", selected: "exercise-select", isSelected: false),
-            IrritansModel(unselected: "dust-unselect", selected: "dust-select", isSelected: false),
-            IrritansModel(unselected: "stress-unselect", selected: "stress-select", isSelected: false),
-            IrritansModel(unselected: "cold-unselect", selected: "cold-select", isSelected: false),
-            IrritansModel(unselected: "scents-unselect", selected: "scents-select", isSelected: false),
-            IrritansModel(unselected: "aqi-unselect", selected: "aqi-select", isSelected: false),
-            IrritansModel(unselected: "pet-unselect", selected: "pet-select", isSelected: false),
-            IrritansModel(unselected: "other-unselect", selected: "other-select", isSelected: false),
+            IrritantsModel(id: "Pollen", unselected: "pollen-unselect", selected: "pollen-select", isSelected: false),
+            IrritantsModel(id: "Exercise", unselected: "exercise-unselect", selected: "exercise-select", isSelected: false),
+            IrritantsModel(id: "Dust", unselected: "dust-unselect", selected: "dust-select", isSelected: false),
+            IrritantsModel(id: "Stress", unselected: "stress-unselect", selected: "stress-select", isSelected: false),
+            IrritantsModel(id: "Cold", unselected: "cold-unselect", selected: "cold-select", isSelected: false),
+            IrritantsModel(id: "Scents", unselected: "scents-unselect", selected: "scents-select", isSelected: false),
+            IrritantsModel(id: "Aqi", unselected: "aqi-unselect", selected: "aqi-select", isSelected: false),
+            IrritantsModel(id: "Pet", unselected: "pet-unselect", selected: "pet-select", isSelected: false),
+            IrritantsModel(id: "Other", unselected: "other-unselect", selected: "other-select", isSelected: false),
         ]
     }
     
-    func toggleSelection(for itemID: UUID) {
+    func toggleSelection(for itemID: String) {
         if let index = items.firstIndex(where: { $0.id == itemID }) {
             items[index].isSelected.toggle()
             let item = items[index]
@@ -49,5 +49,9 @@ class IrritantsViewModel: ObservableObject {
         for trigger in triggers {
             print(trigger)
         }
+    }
+    
+    func insertNewIrritant(_ item: String) {
+        self.items.append(IrritantsModel(id: item, unselected: "other-unselect", selected: "other-select", isSelected: true))
     }
 }

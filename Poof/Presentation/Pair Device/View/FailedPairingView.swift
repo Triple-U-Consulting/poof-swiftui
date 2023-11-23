@@ -21,10 +21,10 @@ struct FailedPairingView: View {
                 }
                 
                 VStack (spacing:0) {
-                    Component.DefaultText(text: "Perangkat Gagal Tersambung")
+                    Component.DefaultText(text: "Penyambungan Perangkat Gagal")
                         .font(.systemSubheader)
                     
-                    Component.DefaultText(text: "Koneksi dengan inhaler terputus. Silahkan mengubungkan kembali")
+                    Component.DefaultText(text: "Koneksi dengan perangkat Airo anda terputus. Silahkan coba hubungkan kembali.")
                         .lineLimit(3...3)
                         .padding(.top, 12)
                         .frame(width: 295)
@@ -43,7 +43,7 @@ struct FailedPairingView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Component.NavigationTitle(text: "Sambungkan Inhaler Anda")
+                    Component.NavigationTitle(text: "Sambungkan Perangkat Airo Anda")
                 }
             }
         }

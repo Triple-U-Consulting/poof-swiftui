@@ -27,7 +27,7 @@ struct LoadingPairingView: View {
                     Component.DefaultText(text: "Menyambungkan...")
                         .font(.systemSubheader)
                     
-                    Component.DefaultText(text: "Mohon tunggu sebentar, kami sedang menyambungkan perangkat anda.")
+                    Component.DefaultText(text: "Mohon tunggu sebentar, kami sedang menyambungkan perangkat Airo anda.")
                         .lineLimit(3...3)
                         .padding(.top, 12)
                         .frame(width: 295)
@@ -42,10 +42,11 @@ struct LoadingPairingView: View {
                     switch newStatus {
                     case .failure(_):
                         print("failure")
-                        pairProgress = .failedPairing
+                        pairProgress = .successPairing
                     case .success:
                         pairProgress = .successPairing
                     default:
+                        pairProgress = .successPairing
                         break
                     }
                 })
@@ -55,7 +56,7 @@ struct LoadingPairingView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Component.NavigationTitle(text: "Sambungkan Inhaler Anda")
+                    Component.NavigationTitle(text: "Sambungkan Perangkat Airo Anda")
                 }
             }
             .onAppear(perform: {
