@@ -14,11 +14,11 @@ struct CalendarMonthView: View {
     let currProgressDate: Date
     
 //    @Binding var dayDates: [Int]
+    @State private var datePicked: Date = Date()
     @State private var dayDates: [Int] = []
     @State private var showSheet = false
     @State private var showEditSheet = false
     @State private var showAddSheet = false
-    
     @State private var indexKambuh = 0
     
     @Binding var selectedDate: Date?
@@ -125,7 +125,7 @@ struct CalendarMonthView: View {
                 .interactiveDismissDisabled()
         })
         .sheet(isPresented: self.$showAddSheet, content: {
-            CalendarAddSheetView(showSheet: $showSheet, showAddSheet: $showAddSheet)
+            CalendarAddSheetView(datePicked: $datePicked, showSheet: $showSheet, showAddSheet: $showAddSheet)
                 .environmentObject(vm)
                 .interactiveDismissDisabled()
         })

@@ -9,16 +9,18 @@ import SwiftUI
 
 struct CalendarAddSheetView: View {
     
+    @Binding var datePicked: Date
     @Binding var showSheet: Bool
     @Binding var showAddSheet: Bool
-    @State var time: Date = Date()
     @State var showTimePicker: Bool = false
     @State var showSkalaSesak: Bool = false
-    
     @State var sprayCount: Int = 0
     @State var selectedIrritant: String = "Choose"
     @State var skalaSesak: Double = -1
     @State var noSkalaSesak: Bool = false
+    @StateObject private var vm = CalendarAddSheetViewModel()
+    let dateFormatter = DateFormatter()
+
     
     let labelSkalaSesak = [
         -2 : "Not Sure",
@@ -37,14 +39,14 @@ struct CalendarAddSheetView: View {
                     HStack {
                         Component.DefaultText(text: "Waktu")
                         Spacer()
-                        Component.TextWithBorder(text: "\(time.hourMinute)")
+                        Component.TextWithBorder(text: "\(vm.time.hourMinute)")
                             .onTapGesture {
                                 showTimePicker.toggle()
                             }
                     }
                     
                     if showTimePicker {
-                        DatePicker("", selection: $time, displayedComponents: DatePickerComponents.hourAndMinute)
+                        DatePicker("", selection: $vm.time, displayedComponents: DatePickerComponents.hourAndMinute)
                             .datePickerStyle(WheelDatePickerStyle())
                     }
                     
@@ -103,7 +105,10 @@ struct CalendarAddSheetView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Component.TextButton(text: "Simpan", action: {
+                        let datetimeyuhu = datePicked.fullDate + "T" + vm.time.fullTime + "Z"; print(datetimeyuhu)
                         //TODO: LOGIC SAVE
+                        vm.addKambuh(start_time: datetimeyuhu
+, total_puff: sprayCount, scale: labelSkalaSesak[Int(skalaSesak)]!, trigger: selectedIrritant)
                         
                         showAddSheet.toggle()
                         
@@ -124,5 +129,5 @@ struct CalendarAddSheetView: View {
 }
 
 #Preview {
-    CalendarAddSheetView(showSheet: .constant(true), showAddSheet: .constant(true))
+    CalendarAddSheetView(datePicked: .constant(Date()), showSheet: .constant(true), showAddSheet: .constant(true))
 }

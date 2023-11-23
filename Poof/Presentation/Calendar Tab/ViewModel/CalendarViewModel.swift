@@ -333,6 +333,24 @@ extension Formatter {
         formatter.dateFormat = "HH:mm"
         return formatter
     }()
+    
+    static let fullDateTime: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return formatter
+    }()
+    
+    static let fullDate: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    
+    static let fullTime: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss.SSS"
+        return formatter
+    }()
 }
 
 extension CalendarViewModel {
@@ -367,4 +385,9 @@ extension Date {
     var date: String         { return Formatter.date.string(from: self) }
     var year: String         { return Formatter.year.string(from: self) }
     var hourMinute: String   { return Formatter.hourMinute.string(from: self) }
+    var fullDateTime: String   { return Formatter.fullDateTime.string(from: self) }
+    var fullDate: String   { return Formatter.fullDate.string(from: self) }
+    var fullTime: String   { return Formatter.fullTime.string(from: self) }
+
+
 }
