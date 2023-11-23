@@ -247,6 +247,8 @@ struct Component {
                 .padding(.top, 8)
         }
     }
+    
+    
 }
 
 

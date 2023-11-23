@@ -14,6 +14,7 @@ struct CalendarSheetView: View {
     @Binding private(set) var showSheet: Bool
     @Binding private(set) var showEditSheet: Bool
     @Binding private(set) var showAddSheet: Bool
+    @State private var showDeleteDataButton: Bool = false
 
     var body: some View {
         NavigationView {
@@ -21,7 +22,7 @@ struct CalendarSheetView: View {
                 LazyVStack (alignment: .leading, spacing:0){
                     if vm.processedKambuhData[vm.currentDateSelected] != nil {
                         ForEach(vm.processedKambuhData[vm.currentDateSelected]!.indices, id:\.self) { idx in
-                            CalendarDataCard(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet)
+                            CalendarDataCard(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet, showDeleteDataButton: $showDeleteDataButton)
                                 .environmentObject(vm)
                         }
                     } else {
@@ -33,8 +34,8 @@ struct CalendarSheetView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Component.TextButton(text: "Hapus", color: .red, action: {
-                        //logic
+                    Component.TextButton(text: showDeleteDataButton ? "Batal" : "Hapus", color: .red, action: {
+                        showDeleteDataButton.toggle()
                     })
                 }
                 ToolbarItem(placement: .principal) {
@@ -68,10 +69,10 @@ struct CalendarDataCard: View {
     @Binding private(set) var bindingIndex: Int
     @Binding private(set) var showSheet: Bool
     @Binding private(set) var showEditSheet: Bool
+    @Binding var showDeleteDataButton: Bool
     
     var body: some View {
-        
-        VStack (spacing:0) {
+        ZStack {
             VStack (spacing:0) {
                 HStack (spacing:0) {
                     Text(Image(systemName: "clock"))
@@ -93,58 +94,70 @@ struct CalendarDataCard: View {
                             })
                         }
                 }
-                .padding(.all, 12)
-            }
-            .frame(width: 338)
-            .background(.primary3)
-            .clipShape(
-                .rect(
-                    topLeadingRadius: 10,
-                    bottomLeadingRadius: 0,
-                    bottomTrailingRadius: 0,
-                    topTrailingRadius: 10
+                .frame(width: 338)
+                .background(.primary3)
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 10,
+                        bottomLeadingRadius: 0,
+                        bottomTrailingRadius: 0,
+                        topTrailingRadius: 10
+                    )
                 )
-            )
-            
-            HStack (alignment: .top, spacing:0) {
-                VStack (alignment: .leading, spacing:0) {
-                    Component.DefaultText(text: "Penggunaan Inhaler")
-                        .font(.systemHeadline)
-                        .foregroundColor(.primary1)
-                        .padding(.top, 12)
-                    Component.DefaultText(text: "\(vm.getCurrentKambuhTotalPuff(idx: index)) Semprot")
-                        .padding(.top, 8)
-                    
-                    Component.DefaultText(text: "Skala Sesak")
-                        .font(.systemHeadline)
-                        .foregroundColor(.primary1)
-                        .padding(.top, 12)
-                    Component.DefaultText(text: "\(vm.getCurrentKambuhScale(idx: index))")
-                        .padding(.top, 8)
-                    
-                    Component.DefaultText(text: "Dipicu Oleh")
-                        .font(.systemHeadline)
-                        .foregroundColor(.primary1)
-                        .padding(.top, 12)
-                    Component.DefaultText(text: "Belum ada data")
-                        .padding(.top, 8)
-                        .padding(.bottom, 12)
-                }
-                .padding(.leading, 12)
                 
-                Spacer()
-            }
-            .frame(width: 338)
-            .background(.white)
-            .clipShape(
-                .rect(
-                    topLeadingRadius: 0,
-                    bottomLeadingRadius: 10,
-                    bottomTrailingRadius: 10,
-                    topTrailingRadius: 0
+                HStack (alignment: .top, spacing:0) {
+                    VStack (alignment: .leading, spacing:0) {
+                        Component.DefaultText(text: "Penggunaan Inhaler")
+                            .font(.systemHeadline)
+                            .foregroundColor(.primary1)
+                            .padding(.top, 12)
+                        Component.DefaultText(text: "\(vm.getCurrentKambuhTotalPuff(idx: index)) Semprot")
+                            .padding(.top, 8)
+                        
+                        Component.DefaultText(text: "Skala Sesak")
+                            .font(.systemHeadline)
+                            .foregroundColor(.primary1)
+                            .padding(.top, 12)
+                        Component.DefaultText(text: "\(vm.getCurrentKambuhScale(idx: index))")
+                            .padding(.top, 8)
+                        
+                        Component.DefaultText(text: "Dipicu Oleh")
+                            .font(.systemHeadline)
+                            .foregroundColor(.primary1)
+                            .padding(.top, 12)
+                        Component.DefaultText(text: "Belum ada data")
+                            .padding(.top, 8)
+                            .padding(.bottom, 12)
+                    }
+                    .padding(.leading, 12)
+                    
+                    Spacer()
+                }
+                .frame(width: 338)
+                .background(.white)
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 0,
+                        bottomLeadingRadius: 10,
+                        bottomTrailingRadius: 10,
+                        topTrailingRadius: 0
+                    )
                 )
-            )
-            .padding(.bottom, 24)
+                .padding(.bottom, 24)
+            }
+            
+            HStack {
+                Spacer()
+                VStack {
+                    if showDeleteDataButton {
+                        Component.DeleteButton {
+                            //TODO: logic delete button
+                        }
+                        .offset(x:12,y:-12)
+                    }
+                    Spacer()
+                }
+            }
         }
     }
 }

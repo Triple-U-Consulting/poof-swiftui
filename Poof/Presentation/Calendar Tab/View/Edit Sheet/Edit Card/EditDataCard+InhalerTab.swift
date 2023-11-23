@@ -19,6 +19,7 @@ struct EditDataCardInhaler: View {
     @State private var skalaSesak: Double = 0
     @State private var showSkalaSesak: Bool = false
     @State private var noSkalaSesak: Bool = false
+    @Binding var showDeleteDataButton: Bool
     
     var body: some View {
         VStack(spacing: 0) {
