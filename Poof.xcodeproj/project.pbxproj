@@ -43,7 +43,6 @@
 		0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* RegisterUser.swift */; };
 		0BD889442AFA28D200B70F39 /* IoTRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */; };
 		0BDF31722B0FA1E100AD0FD1 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDF31712B0FA1E100AD0FD1 /* SwiftUIIntrospect */; };
-		0BDF31742B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDF31732B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic */; };
 		0BDF31762B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDF31752B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static */; };
 		0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C912ACFF496006A33AC /* Kambuh.swift */; };
 		0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */; };
@@ -312,7 +311,6 @@
 			files = (
 				AB01C3CE2AD80A4D008C3160 /* Lottie in Frameworks */,
 				0BDF31722B0FA1E100AD0FD1 /* SwiftUIIntrospect in Frameworks */,
-				0BDF31742B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic in Frameworks */,
 				0BDF31762B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,7 +1000,6 @@
 			packageProductDependencies = (
 				AB01C3CD2AD80A4D008C3160 /* Lottie */,
 				0BDF31712B0FA1E100AD0FD1 /* SwiftUIIntrospect */,
-				0BDF31732B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic */,
 				0BDF31752B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static */,
 			);
 			productName = Poof;
@@ -1618,11 +1615,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0BDF31702B0FA1E100AD0FD1 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
-		};
-		0BDF31732B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BDF31702B0FA1E100AD0FD1 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = "SwiftUIIntrospect-Dynamic";
 		};
 		0BDF31752B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static */ = {
 			isa = XCSwiftPackageProductDependency;

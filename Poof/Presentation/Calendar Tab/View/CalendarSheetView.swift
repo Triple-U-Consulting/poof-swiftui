@@ -151,7 +151,7 @@ struct CalendarDataCard: View {
                 VStack {
                     if showDeleteDataButton {
                         Component.DeleteButton {
-                            vm.deleteKambuhData(kambuh_id: index)
+                            vm.deleteKambuhData(index: index)
                         }
                         .offset(x:12,y:-12)
                     }
