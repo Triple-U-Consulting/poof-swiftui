@@ -122,7 +122,7 @@ extension Component {
                         step: step,
                         minimumValueLabel: {
                             VStack {
-                                Image("MinimumLabelSlider")
+                                Image("formSliderMinimum")
                                     .resizable()
                                     .frame(width: 24, height: 25)
                                     .padding(.trailing, 0)
@@ -130,7 +130,7 @@ extension Component {
                         }(),
                         maximumValueLabel: {
                             VStack {
-                                Image("MaximumLabelSlider")
+                                Image("formSliderMaximum")
                                     .resizable()
                                     .frame(width: 24, height: 25)
                                     .padding(.leading, 0)

@@ -21,7 +21,7 @@ struct CalendarSheetView: View {
                 LazyVStack (alignment: .leading, spacing:0){
                     if vm.processedKambuhData[vm.currentDateSelected] != nil {
                         ForEach(vm.processedKambuhData[vm.currentDateSelected]!.indices, id:\.self) { idx in
-                            CalendarSheetDetailView(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet)
+                            CalendarDataCard(index: idx, bindingIndex: $index, showSheet: $showSheet, showEditSheet: $showEditSheet)
                                 .environmentObject(vm)
                         }
                     } else {
@@ -50,6 +50,7 @@ struct CalendarSheetView: View {
                     })
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
             .background(.gray7)
         }
         .frame(width: .infinity)
@@ -59,7 +60,7 @@ struct CalendarSheetView: View {
     }
 }
 
-struct CalendarSheetDetailView: View {
+struct CalendarDataCard: View {
     @EnvironmentObject private var vm: CalendarViewModel
     
     let index: Int
