@@ -58,7 +58,6 @@
 		0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */; };
 		0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */; };
 		0BF135BC2B0E5418009FD352 /* InstallPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF135BB2B0E5418009FD352 /* InstallPairingView.swift */; };
-		0BF135BE2B0E784E009FD352 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF135BD2B0E784E009FD352 /* SliderView.swift */; };
 		3F23D7BF2AF89BB200DF47AC /* GetKambuhByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23D7BE2AF89BB200DF47AC /* GetKambuhByDate.swift */; };
 		3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */; };
 		3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */; };
@@ -217,7 +216,6 @@
 		0BE97CBA2AD808F2006A33AC /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		0BEB44812AF1F09A00F4E614 /* InhalerTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerTabViewModel.swift; sourceTree = "<group>"; };
 		0BF135BB2B0E5418009FD352 /* InstallPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPairingView.swift; sourceTree = "<group>"; };
-		0BF135BD2B0E784E009FD352 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		3F23D7BE2AF89BB200DF47AC /* GetKambuhByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhByDate.swift; sourceTree = "<group>"; };
 		3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRequestDTO.swift; sourceTree = "<group>"; };
 		3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionViewModel.swift; sourceTree = "<group>"; };
@@ -733,7 +731,6 @@
 			children = (
 				0BBBD9D52AFD3E940075AE6D /* EditDataCard+CalendarTab.swift */,
 				0BB503D92B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift */,
-				0BF135BD2B0E784E009FD352 /* SliderView.swift */,
 			);
 			path = "Edit Card";
 			sourceTree = "<group>";
@@ -1181,7 +1178,6 @@
 				0BEB44822AF1F09A00F4E614 /* InhalerTabViewModel.swift in Sources */,
 				0B8007082AE13F3600ACBD71 /* IoTResponseDTO+Mapping.swift in Sources */,
 				3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */,
-				0BF135BE2B0E784E009FD352 /* SliderView.swift in Sources */,
 				0BABE6332AF8DA1C00FB8A28 /* HomeDataResponseDTO+Mapping.swift in Sources */,
 				0BBBD9D62AFD3E940075AE6D /* EditDataCard+CalendarTab.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,

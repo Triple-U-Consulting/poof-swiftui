@@ -38,8 +38,27 @@ struct EditDataCardCalendar: View {
             .background(.primary3)
             
             VStack(spacing: 12) {
-                SliderView(noSkalaSesak: $noSkalaSesak, key: key, idx: idx)
-                    .environmentObject(vm)
+                HStack {
+                    Component.DefaultText(text: "Skala Sesak")
+                    
+                    Spacer()
+                    Component.TextWithBorder(text: "\(vm.processedKambuhData[key]![idx].scale ?? 0)")
+                        .onTapGesture {
+                            withAnimation {
+                                showSkalaSesak.toggle()
+                            }
+                        }
+                }
+                
+                if showSkalaSesak {
+                    Component.FormSlider(
+                        value: Binding(
+                            get: { Double(vm.processedKambuhData[key]![idx].scale ?? 0) },
+                            set: { vm.processedKambuhData[key]![idx].scale = Int($0) }
+                        ),
+                        toggle: $noSkalaSesak
+                    )
+                }
                 
                 Divider()
                 
@@ -51,6 +70,7 @@ struct EditDataCardCalendar: View {
             }
             .padding(12)
         }
+        .frame(width: 338)
         .background(.white)
         .clipShape(
             RoundedRectangle(cornerRadius: 10)

@@ -10,6 +10,7 @@ import SwiftUI
 struct CalendarEditSheetView: View {
     @EnvironmentObject var vm: CalendarViewModel
     
+    let key: Date
     let index: Int
     
     @State var showConfDialog: Bool = false
@@ -19,9 +20,11 @@ struct CalendarEditSheetView: View {
     var body: some View {
         NavigationView {
             VStack (alignment: .leading, spacing:0) {
-                EditDataCardCalendar(key: vm.currentDateSelected, idx: index)
+                EditDataCardCalendar(key: key, idx: index)
                     .environmentObject(vm)
+                Spacer()
             }
+            .padding(.horizontal, 24)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Component.TextButton(text: "Batal", color: .red, action: {
@@ -53,7 +56,9 @@ struct CalendarEditSheetView: View {
             }, message: {
                 Text(NSLocalizedString("Pastikan data yang diisi sudah sesuai", comment: ""))
             })
+            .frame(width: .infinity)
             .background(.gray7)
+            .navigationBarTitleDisplayMode(.inline)
         }
         .ignoresSafeArea()
         .presentationDetents([.height(500), .large])

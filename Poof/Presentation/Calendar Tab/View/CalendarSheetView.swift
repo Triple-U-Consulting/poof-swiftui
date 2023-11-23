@@ -88,7 +88,6 @@ struct CalendarSheetDetailView: View {
                             self.showSheet.toggle()
                             
                             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
-                                print(vm.currentDateSelected)
                                 self.showEditSheet.toggle()
                             })
                         }

@@ -120,7 +120,7 @@ struct CalendarMonthView: View {
 //                .presentationContentInteraction(.scrolls)
         }
         .sheet(isPresented: self.$showEditSheet, content: {
-            CalendarEditSheetView(index: indexKambuh, showSheet: $showSheet, showEditSheet: $showEditSheet)
+            CalendarEditSheetView(key: vm.currentDateSelected, index: indexKambuh, showSheet: $showSheet, showEditSheet: $showEditSheet)
                 .environmentObject(vm)
                 .interactiveDismissDisabled()
         })
