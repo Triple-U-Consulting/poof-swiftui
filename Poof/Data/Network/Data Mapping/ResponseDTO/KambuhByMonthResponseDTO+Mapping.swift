@@ -15,11 +15,11 @@ extension KambuhByMonthResponseDTO {
     struct KambuhByMonthDTO: Decodable {
         let kambuh_id: Int
         let start_time: String
-        let end_time: String
+        let end_time: String?
         let total_puff: Int
-        let kambuh_interval: String
-        let scale: Int?
-        let trigger: Bool?
+        let kambuh_interval: String?
+        let scale: String?
+        let trigger: String?
     }
 }
 
@@ -37,8 +37,8 @@ extension KambuhByMonthResponseDTO.KambuhByMonthDTO {
     func toDomain() -> Kambuh {
         let formatter = DateFormatUtil()
         let startDate = formatter.stringToDate(string: start_time)
-        let endDate = formatter.stringToDate(string: end_time)
-        let lamaInt = Int64(kambuh_interval)!
+        let endDate = end_time != nil ? formatter.stringToDate(string: end_time!) : nil
+        let lamaInt = kambuh_interval != nil ? Int64(kambuh_interval!) : nil
         
         return .init(id: kambuh_id, start: startDate, end: endDate, totalPuff: total_puff, lamaKambuh: lamaInt, scale: scale, trigger: trigger)
     }

@@ -10,15 +10,15 @@ import Foundation
 struct Kambuh: Identifiable {
     let id: Int
     let start: Date
-    let end: Date
+    let end: Date?
     let totalPuff: Int
-    let lamaKambuh: Int64
-    var scale: Int?
-    var trigger: Bool?
+    let lamaKambuh: Int64?
+    var scale: String?
+    var trigger: String?
 }
 
 extension Kambuh {
     func hasNotes() -> Bool {
-        return (scale == nil && trigger == nil) ? false : true
+        return ((scale == nil || scale == "Pilih") && (trigger == nil || trigger == "Choose")) ? false : true
     }
 }

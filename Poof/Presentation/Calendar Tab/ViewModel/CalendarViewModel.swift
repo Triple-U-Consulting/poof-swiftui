@@ -19,6 +19,26 @@ class CalendarViewModel: ObservableObject {
     @Published var monthsInCalendar: [Date]
     @Published var message: String = ""
     
+    let labelSkalaSesak = [
+        -2 : "Not Sure",
+        -1 : "Pilih",
+        0 : "Fine",
+        1 : "Mild",
+        2 : "Moderate",
+        3 : "Severe",
+        4 : "Profound"
+    ]
+    
+    let rawLabelSkalaSesak = [
+        "Not Sure" : -2,
+        "Pilih" : -1,
+        "Fine" : 0,
+        "Mild" : 1,
+        "Moderate" : 2,
+        "Severe" : 3,
+        "Profound" : 4
+    ]
+    
     // MARK: - Sheet view
     @Published private(set) var currentDateSelected: Date
     
@@ -79,6 +99,7 @@ extension CalendarViewModel {
                     if groupedKambuhData.count > 0 {
                         DispatchQueue.main.async {
                             self.processedKambuhData = groupedKambuhData
+                            print("done reload data")
                         }
                     }
                 }
@@ -98,6 +119,27 @@ extension CalendarViewModel {
                     }
                 } receiveValue: { result in
                     print(result)
+                }
+                .store(in: &cancellables)
+        }
+    }
+    
+    func deleteKambuhData(index: Int){
+        
+        let kambuh = getCurrentKambuh(index: index)
+        
+        Task {
+            await deleteKambuhData.execute(kambuh_id: kambuh.id)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Deletted item")
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { message in
+                    print(message)
+                    self.message = message
                 }
                 .store(in: &cancellables)
         }
@@ -186,7 +228,7 @@ extension CalendarViewModel {
     func getCurrentKambuhScale(idx: Int) -> String {
         guard self.processedKambuhData[self.currentDateSelected] != nil else { return "No data recorded" }
         
-        return self.processedKambuhData[self.currentDateSelected]![idx].scale == nil ? "No data recorded" : "\(self.processedKambuhData[self.currentDateSelected]![idx].scale!) points of breathing difficulty"
+        return self.processedKambuhData[self.currentDateSelected]![idx].scale == nil ? "No data recorded" : "\(self.processedKambuhData[self.currentDateSelected]![idx].scale!) breathing difficulty"
     }
     
     func getCurrentKambuhTime(idx: Int) -> String {
@@ -351,29 +393,6 @@ extension Formatter {
         formatter.dateFormat = "HH:mm:ss.SSS"
         return formatter
     }()
-}
-
-extension CalendarViewModel {
-    func deleteKambuhData(index: Int){
-        
-        let kambuh_id = getCurrentKambuh(index: index)
-        
-        Task {
-            await deleteKambuhData.execute(kambuh_id: kambuh_id.id)
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        print("Deletted item")
-                    case .failure(let failure):
-                        print(failure)
-                    }
-                } receiveValue: { message in
-                    print(message)
-                    self.message = message
-                }
-                .store(in: &cancellables)
-        }
-    }
 }
 
 extension Date {

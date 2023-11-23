@@ -94,6 +94,7 @@ struct CalendarDataCard: View {
                             })
                         }
                 }
+                .padding(12)
                 .frame(width: 338)
                 .background(.primary3)
                 .clipShape(

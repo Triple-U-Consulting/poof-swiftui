@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CalendarAddSheetView: View {
+    @EnvironmentObject private var calendarVM: CalendarViewModel
     
-    @Binding var datePicked: Date
+    var datePicked: Date
     @Binding var showSheet: Bool
     @Binding var showAddSheet: Bool
     @State var showTimePicker: Bool = false
@@ -20,17 +21,6 @@ struct CalendarAddSheetView: View {
     @State var noSkalaSesak: Bool = false
     @StateObject private var vm = CalendarAddSheetViewModel()
     let dateFormatter = DateFormatter()
-
-    
-    let labelSkalaSesak = [
-        -2 : "Not Sure",
-        -1 : "Pilih",
-        0 : "Fine",
-        1 : "Mild",
-        2 : "Moderate",
-        3 : "Severe",
-        4 : "Profound"
-    ]
     
     var body: some View {
         NavigationView {
@@ -61,7 +51,7 @@ struct CalendarAddSheetView: View {
                     HStack {
                         Component.DefaultText(text: "Skala Sesak")
                         Spacer()
-                        Component.TextWithBorder(text: "\(labelSkalaSesak[Int(skalaSesak)]!)")
+                        Component.TextWithBorder(text: "\(vm.labelSkalaSesak[Int(skalaSesak)]!)")
                             .onTapGesture {
                                 showSkalaSesak.toggle()
                                 if skalaSesak == -1 {
@@ -108,7 +98,7 @@ struct CalendarAddSheetView: View {
                         let datetimeyuhu = datePicked.fullDate + "T" + vm.time.fullTime + "Z"; print(datetimeyuhu)
                         //TODO: LOGIC SAVE
                         vm.addKambuh(start_time: datetimeyuhu
-, total_puff: sprayCount, scale: labelSkalaSesak[Int(skalaSesak)]!, trigger: selectedIrritant)
+                                     , total_puff: sprayCount, scale: vm.labelSkalaSesak[Int(skalaSesak)]!, trigger: selectedIrritant)
                         
                         showAddSheet.toggle()
                         
@@ -123,11 +113,12 @@ struct CalendarAddSheetView: View {
         }
         .frame(width: .infinity)
         .ignoresSafeArea()
-        .presentationDetents([.height(500), .large])
+        .presentationDetents([.large, .large])
         .presentationDragIndicator(.visible)
     }
 }
 
 #Preview {
-    CalendarAddSheetView(datePicked: .constant(Date()), showSheet: .constant(true), showAddSheet: .constant(true))
+    CalendarAddSheetView(datePicked: Date(), showSheet: .constant(true), showAddSheet: .constant(true))
+        .environmentObject(CalendarViewModel())
 }

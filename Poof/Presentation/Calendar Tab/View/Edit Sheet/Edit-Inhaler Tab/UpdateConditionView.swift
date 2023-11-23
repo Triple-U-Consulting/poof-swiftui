@@ -29,7 +29,7 @@ struct UpdateConditionView: View {
                             
                             VStack(spacing: 12) {
                                 ForEach(0..<(vm.processedKambuhData[key]?.count ?? 0), id: \.self) { idx in
-                                    EditDataCardInhaler(key: key, idx: idx, showDeleteDataButton: $showDeleteDataButton)
+                                    EditDataCardInhaler(key: key, idx: idx, showDeleteDataButton: $showDeleteDataButton, showSheet: $showUpdateSheet)
                                         .environmentObject(vm)
                                 }
                             }

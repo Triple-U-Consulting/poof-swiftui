@@ -24,6 +24,26 @@ class CalendarAddSheetViewModel: ObservableObject {
     
     @Published var time: Date = Date()
     
+    let labelSkalaSesak = [
+        -2 : "Not Sure",
+        -1 : "Pilih",
+        0 : "Fine",
+        1 : "Mild",
+        2 : "Moderate",
+        3 : "Severe",
+        4 : "Profound"
+    ]
+    
+    let rawLabelSkalaSesak = [
+        "Not Sure" : -2,
+        "Pilih" : -1,
+        "Fine" : 0,
+        "Mild" : 1,
+        "Moderate" : 2,
+        "Severe" : 3,
+        "Profound" : 4
+    ]
+    
     // MARK: - Usecases
     private let addKambuh: AddKambuhDataUsecase
     
@@ -52,7 +72,7 @@ class CalendarAddSheetViewModel: ObservableObject {
                         print(self!.error)
                     }
                 } receiveValue: { message in
-                    print(message)
+                    print("add kambuh \(message)")
                     DispatchQueue.main.async {
                         self.message = message
                     }

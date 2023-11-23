@@ -18,6 +18,26 @@ class ConditionViewModel: ObservableObject {
     @Published var kambuhId: [Int] = []
     @Published var showScale: [Bool] = []
     
+    let labelSkalaSesak = [
+        -2 : "Not Sure",
+        -1 : "Pilih",
+        0 : "Fine",
+        1 : "Mild",
+        2 : "Moderate",
+        3 : "Severe",
+        4 : "Profound"
+    ]
+    
+    let rawLabelSkalaSesak = [
+        "Not Sure" : -2,
+        "Pilih" : -1,
+        "Fine" : 0,
+        "Mild" : 1,
+        "Moderate" : 2,
+        "Severe" : 3,
+        "Profound" : 4
+    ]
+    
     //@Published private(set) var error: String = ""
 
     private(set) var calendar = Calendar.current
@@ -29,15 +49,18 @@ class ConditionViewModel: ObservableObject {
     private let getKambuhDataByDate: GetKambuhDataByDateUseCase
     private let updateConditionKambuh: UpdateKambuhConditionUseCase
     private let getKambuhDataIfScaleOrTriggerIsNull: GetKambuhDataIfScaleAndTriggerIsNullUseCase
+    private let deleteKambuhData: DeleteKambuhDataUseCase
     
     init(
         getKambuhDataByDate: GetKambuhDataByDateUseCase = GetKambuhDataByDateImpl.shared,
         getKambuhDataIfScaleOrTriggerIsNull: GetKambuhDataIfScaleAndTriggerIsNullUseCase = GetKambuhDataIfScaleAndTriggerIsNullImpl.shared,
-        updateConditionKambuh: UpdateKambuhConditionUseCase = UpdateKambuhConditionImpl.shared
+        updateConditionKambuh: UpdateKambuhConditionUseCase = UpdateKambuhConditionImpl.shared,
+        deleteKambuhData: DeleteKambuhDataUseCase = DeleteKambuhDataImpl.shared
     ){
         self.getKambuhDataByDate = getKambuhDataByDate
         self.updateConditionKambuh = updateConditionKambuh
         self.getKambuhDataIfScaleOrTriggerIsNull = getKambuhDataIfScaleOrTriggerIsNull
+        self.deleteKambuhData = deleteKambuhData
     }
     
 }
@@ -113,4 +136,23 @@ extension ConditionViewModel {
         }
     }
     
+    func deleteKambuhData(key: Date, index: Int){
+        let kambuh = self.processedKambuhData[key]![index]
+        
+        Task {
+            await deleteKambuhData.execute(kambuh_id: kambuh.id)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Deletted item")
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { message in
+                    print(message)
+                    self.message = message
+                }
+                .store(in: &cancellables)
+        }
+    }
 }

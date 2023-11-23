@@ -49,7 +49,12 @@ struct CalendarEditSheetView: View {
             .confirmationDialog(NSLocalizedString("Pastikan data yang diisi sudah sesuai", comment: ""), isPresented: $showConfDialog, actions: {
                 Button {
                     vm.updateKambuhData()
-                    self.showSheet.toggle()
+                    
+                    self.showEditSheet.toggle()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
+                        self.showSheet.toggle()
+                    })
                 } label: {
                     Text(NSLocalizedString("Ya, simpan perubahan", comment: ""))
                 }
@@ -61,7 +66,7 @@ struct CalendarEditSheetView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .ignoresSafeArea()
-        .presentationDetents([.height(500), .large])
+        .presentationDetents([.large, .large])
         .presentationDragIndicator(.visible)
     }
 }

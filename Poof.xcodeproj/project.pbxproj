@@ -31,7 +31,6 @@
 		0BB503DA2B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB503D92B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift */; };
 		0BBBD9D42AFCF35C0075AE6D /* CalendarEditSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */; };
 		0BBBD9D62AFD3E940075AE6D /* EditDataCard+CalendarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D52AFD3E940075AE6D /* EditDataCard+CalendarTab.swift */; };
-		0BBBD9D82AFD45130075AE6D /* UpdateConditionFromCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */; };
 		0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */; };
 		0BCD83B62AE0E0D200D111B0 /* UpdateUserInhaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */; };
 		0BCD83B82AE0E26500D111B0 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83B72AE0E26500D111B0 /* UserRepository.swift */; };
@@ -196,7 +195,6 @@
 		0BB503D92B0F41EA0029A5D3 /* EditDataCard+InhalerTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditDataCard+InhalerTab.swift"; sourceTree = "<group>"; };
 		0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditSheetView.swift; sourceTree = "<group>"; };
 		0BBBD9D52AFD3E940075AE6D /* EditDataCard+CalendarTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditDataCard+CalendarTab.swift"; sourceTree = "<group>"; };
-		0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConditionFromCalendarView.swift; sourceTree = "<group>"; };
 		0BCD83B32AE0DCD300D111B0 /* PairInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInhaler.swift; sourceTree = "<group>"; };
 		0BCD83B72AE0E26500D111B0 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -740,7 +738,6 @@
 			isa = PBXGroup;
 			children = (
 				0BBBD9D32AFCF35C0075AE6D /* CalendarEditSheetView.swift */,
-				0BBBD9D72AFD45130075AE6D /* UpdateConditionFromCalendarView.swift */,
 			);
 			path = "Edit-Calendar Tab";
 			sourceTree = "<group>";
@@ -1233,7 +1230,6 @@
 				0B55DFEC2AFB7FBD007BACCE /* GetKambuhByMonth.swift in Sources */,
 				3FDAE0922AF4980100E0C696 /* UpdateKambuhCondition.swift in Sources */,
 				0BCD83B42AE0DCD300D111B0 /* PairInhaler.swift in Sources */,
-				0BBBD9D82AFD45130075AE6D /* UpdateConditionFromCalendarView.swift in Sources */,
 				AB7BEDC62ACD500C0071BF10 /* OnboardingView.swift in Sources */,
 				D65637212AE220D500C64FC1 /* WifiDetailsPopUpView.swift in Sources */,
 				0B2AF8EC2AFE392A00572762 /* UpdateInhalerDose.swift in Sources */,

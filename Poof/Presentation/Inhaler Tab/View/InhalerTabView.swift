@@ -212,7 +212,9 @@ struct InhalerTabView: View {
             .navigationBarTitleDisplayMode(.inline)
             .frame(width: userDevice.usableWidth)
             .background(.gray8)
-            .sheet(isPresented: $showUpdateSheet, content: {
+            .sheet(isPresented: $showUpdateSheet, onDismiss: {
+                vm.getData()
+            }, content: {
                 UpdateConditionView(showUpdateSheet: $showUpdateSheet)
                     .interactiveDismissDisabled()
                     .environmentObject(router)

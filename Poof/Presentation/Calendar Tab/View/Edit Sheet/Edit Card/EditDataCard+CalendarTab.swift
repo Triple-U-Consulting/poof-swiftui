@@ -42,7 +42,7 @@ struct EditDataCardCalendar: View {
                     Component.DefaultText(text: "Skala Sesak")
                     
                     Spacer()
-                    Component.TextWithBorder(text: "\(vm.processedKambuhData[key]![idx].scale ?? 0)")
+                    Component.TextWithBorder(text: "\(vm.processedKambuhData[key]![idx].scale ?? "Pilih")")
                         .onTapGesture {
                             withAnimation {
                                 showSkalaSesak.toggle()
@@ -53,8 +53,14 @@ struct EditDataCardCalendar: View {
                 if showSkalaSesak {
                     Component.FormSlider(
                         value: Binding(
-                            get: { Double(vm.processedKambuhData[key]![idx].scale ?? 0) },
-                            set: { vm.processedKambuhData[key]![idx].scale = Int($0) }
+                            get: {
+                                if let scale = vm.processedKambuhData[key]![idx].scale {
+                                    Double(vm.rawLabelSkalaSesak[scale]!)
+                                } else {
+                                    Double(-1)
+                                }
+                            },
+                            set: { vm.processedKambuhData[key]![idx].scale = vm.labelSkalaSesak[Int($0)] }
                         ),
                         toggle: $noSkalaSesak
                     )

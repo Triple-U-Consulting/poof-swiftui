@@ -98,6 +98,8 @@ final class InhalerTabViewModel: ObservableObject {
                         self.processedKambuhData = groupedKambuhData
                         if self.processedKambuhData.count > 0 {
                             self.hasDataToBeFilled = true
+                        } else {
+                            self.hasDataToBeFilled = false
                         }
                     }
                 }
