@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13B6592AE686B700576845 /* AuthViewModel.swift */; };
-		0B2486E42B0DE56600FEAC8D /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2486E32B0DE56600FEAC8D /* SwiftUIIntrospect */; };
-		0B2486E92B0DE56600FEAC8D /* SwiftUIIntrospect-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2486E82B0DE56600FEAC8D /* SwiftUIIntrospect-Static */; };
 		0B2AF8EC2AFE392A00572762 /* UpdateInhalerDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF8EB2AFE392A00572762 /* UpdateInhalerDose.swift */; };
 		0B2AF8EE2AFE396200572762 /* InhalerRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF8ED2AFE396200572762 /* InhalerRepositoryImpl.swift */; };
 		0B2AF8F02AFE397500572762 /* InhalerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF8EF2AFE397500572762 /* InhalerRepository.swift */; };
@@ -44,6 +42,9 @@
 		0BCD83C42AE138BA00D111B0 /* UserResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD83C32AE138BA00D111B0 /* UserResponseDTO+Mapping.swift */; };
 		0BD889432AFA28CC00B70F39 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B22AE0F866005011B3 /* RegisterUser.swift */; };
 		0BD889442AFA28D200B70F39 /* IoTRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D60A72ADD4C260017445F /* IoTRepositoryImpl.swift */; };
+		0BDF31722B0FA1E100AD0FD1 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDF31712B0FA1E100AD0FD1 /* SwiftUIIntrospect */; };
+		0BDF31742B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDF31732B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic */; };
+		0BDF31762B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDF31752B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static */; };
 		0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C912ACFF496006A33AC /* Kambuh.swift */; };
 		0BE97C962ACFF4A9006A33AC /* GetKambuhData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C952ACFF4A9006A33AC /* GetKambuhData.swift */; };
 		0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97C972ACFF4D0006A33AC /* KambuhRepository.swift */; };
@@ -170,7 +171,6 @@
 		0B2AF8EB2AFE392A00572762 /* UpdateInhalerDose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInhalerDose.swift; sourceTree = "<group>"; };
 		0B2AF8ED2AFE396200572762 /* InhalerRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerRepositoryImpl.swift; sourceTree = "<group>"; };
 		0B2AF8EF2AFE397500572762 /* InhalerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerRepository.swift; sourceTree = "<group>"; };
-		0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		0B55DFEB2AFB7FBD007BACCE /* GetKambuhByMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhByMonth.swift; sourceTree = "<group>"; };
 		0B55DFED2AFB82A5007BACCE /* KambuhByMonthResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KambuhByMonthResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		0B7617AF2AFF56B100AF4975 /* InhalerDoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerDoseViewModel.swift; sourceTree = "<group>"; };
@@ -228,8 +228,6 @@
 		3FDA76162AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhDataIfScaleAndTriggerIsNull.swift; sourceTree = "<group>"; };
 		3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateKambuhCondition.swift; sourceTree = "<group>"; };
 		3FDAE0932AF8705A00E0C696 /* ConditionRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionRequestDTO.swift; sourceTree = "<group>"; };
-		3FF77A5A2ACEC53A001F6CC2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		3FF77A5C2ACEC53F001F6CC2 /* Test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1.swift; sourceTree = "<group>"; };
 		3FFE00E42AFDD02A00069D48 /* CalendarMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthView.swift; sourceTree = "<group>"; };
 		AB01C3CA2AD809B7008C3160 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		AB01C3CF2ADD1A72008C3160 /* StartPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPairingView.swift; sourceTree = "<group>"; };
@@ -303,8 +301,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB01C3CE2AD80A4D008C3160 /* Lottie in Frameworks */,
-				0B2486E42B0DE56600FEAC8D /* SwiftUIIntrospect in Frameworks */,
-				0B2486E92B0DE56600FEAC8D /* SwiftUIIntrospect-Static in Frameworks */,
+				0BDF31722B0FA1E100AD0FD1 /* SwiftUIIntrospect in Frameworks */,
+				0BDF31742B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic in Frameworks */,
+				0BDF31762B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,16 +395,6 @@
 				0B8D60B32ADF9B450017445F /* UserDefaultsController.swift */,
 			);
 			path = "Persistent Storage";
-			sourceTree = "<group>";
-		};
-		0B8D60792AD949140017445F /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				3FF77A5A2ACEC53A001F6CC2 /* Test.swift */,
-				3FF77A5C2ACEC53F001F6CC2 /* Test1.swift */,
-				0B55DFE92AFA451A007BACCE /* CalendarViewModel.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		0B8D607A2AD949DD0017445F /* Failures */ = {
@@ -824,7 +813,6 @@
 				AB7BEDA32ACD4B780071BF10 /* PoofTests */,
 				AB7BEDAD2ACD4B780071BF10 /* PoofUITests */,
 				AB7BED912ACD4B770071BF10 /* Products */,
-				0B8D60792AD949140017445F /* Recovered References */,
 				0B2486DF2B0DE54E00FEAC8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -990,8 +978,9 @@
 			name = Poof;
 			packageProductDependencies = (
 				AB01C3CD2AD80A4D008C3160 /* Lottie */,
-				0B2486E32B0DE56600FEAC8D /* SwiftUIIntrospect */,
-				0B2486E82B0DE56600FEAC8D /* SwiftUIIntrospect-Static */,
+				0BDF31712B0FA1E100AD0FD1 /* SwiftUIIntrospect */,
+				0BDF31732B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic */,
+				0BDF31752B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static */,
 			);
 			productName = Poof;
 			productReference = AB7BED902ACD4B770071BF10 /* Poof.app */;
@@ -1067,7 +1056,7 @@
 			mainGroup = AB7BED872ACD4B770071BF10;
 			packageReferences = (
 				AB01C3CC2AD80A4D008C3160 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				0B67FF7D2B0DD73200C44F01 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				0BDF31702B0FA1E100AD0FD1 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = AB7BED912ACD4B770071BF10 /* Products */;
 			projectDirPath = "";
@@ -1578,7 +1567,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0B67FF7D2B0DD73200C44F01 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+		0BDF31702B0FA1E100AD0FD1 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
@@ -1597,14 +1586,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0B2486E32B0DE56600FEAC8D /* SwiftUIIntrospect */ = {
+		0BDF31712B0FA1E100AD0FD1 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B67FF7D2B0DD73200C44F01 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			package = 0BDF31702B0FA1E100AD0FD1 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
 		};
-		0B2486E82B0DE56600FEAC8D /* SwiftUIIntrospect-Static */ = {
+		0BDF31732B0FA1E100AD0FD1 /* SwiftUIIntrospect-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B67FF7D2B0DD73200C44F01 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			package = 0BDF31702B0FA1E100AD0FD1 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = "SwiftUIIntrospect-Dynamic";
+		};
+		0BDF31752B0FA1E100AD0FD1 /* SwiftUIIntrospect-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BDF31702B0FA1E100AD0FD1 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = "SwiftUIIntrospect-Static";
 		};
 		AB01C3CD2AD80A4D008C3160 /* Lottie */ = {
