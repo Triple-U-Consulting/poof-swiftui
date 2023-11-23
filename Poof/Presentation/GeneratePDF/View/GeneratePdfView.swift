@@ -10,8 +10,8 @@ import SwiftUI
 struct GeneratePdfView: View {
     
     @EnvironmentObject private var vm: PdfViewModel
-    @State private var now: Date = Date()
-    @State private var date: Date? = Date()
+    @EnvironmentObject private var router: Router
+    @State private var toDate: Date = Date()
     
     var body: some View {
         ZStack {
@@ -43,7 +43,7 @@ struct GeneratePdfView: View {
                                 Text("\(NSLocalizedString("From", comment: ""))")
                                     .font(.systemBodyText)
                                 
-                                Text("\(DateFormatUtil().dateToString(date: now, to: "dd-MM-yyyy"))")
+                                Text("\(DateFormatUtil().dateToString(date: vm.getFromQuarterDate(date: toDate), to: "dd-MM-yyyy"))")
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                             }
                             .padding(.bottom, -8)
@@ -54,14 +54,21 @@ struct GeneratePdfView: View {
                                 Text("\(NSLocalizedString("To", comment: ""))")
                                     .font(.systemBodyText)
                                 
-                                Component.DatePickerTextField(placeholder: "", date: $date)
-                                    .position(x: 366, y: 4)
-                                
+                                ZStack{
+                                    Component.DatePickerTextField(placeholder: "", date: $toDate)
+                                        .position(x: 362, y: 18)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .stroke(.primary1, lineWidth: 1)
+                                                .frame(width: 109, height: 32)
+                                                .position(x: 255, y: 18)
+                                        }
+                                }
                             }
                         }
                         
                         .padding()
-                        .frame(width: 362, height:  73)
+                        .frame(width: 362, height:  97)
                         .background(.white)
                         .clipShape(.rect(
                             bottomLeadingRadius: 10,
@@ -70,7 +77,7 @@ struct GeneratePdfView: View {
                         .padding(.top, -14)
                         
                         Component.DefaultButton(text: "Generate") {
-                            //
+                            router.path.append(Page.PdfPreview)
                         }
                         .padding(.top, 16)
                         
@@ -93,7 +100,6 @@ struct GeneratePdfView: View {
                     }
                     .toolbar(content: {
                         Component.TextButton(text: "Cancel", color: .red) {
-                            //
                         }
                     })
                 }
@@ -106,4 +112,5 @@ struct GeneratePdfView: View {
 #Preview {
     GeneratePdfView()
         .environmentObject(PdfViewModel())
+        .environmentObject(Router())
 }

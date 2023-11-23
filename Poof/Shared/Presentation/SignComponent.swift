@@ -77,7 +77,7 @@ extension Component {
         }()
         
         public var placeholder: String
-        @Binding public var date: Date?
+        @Binding public var date: Date
         
         func makeUIView(context: Context) -> UITextField {
             self.datePicker.datePickerMode = .date
@@ -100,9 +100,7 @@ extension Component {
             }
             
             self.helper.doneButtonTapped = {
-                if self.date == nil {
-                    self.date = self.datePicker.date
-                }
+                self.date = self.datePicker.date
                 self.textField.resignFirstResponder()
             }
             
@@ -110,9 +108,7 @@ extension Component {
         }
         
         func updateUIView(_ uiView: UITextField, context: Context) {
-            if let selectedDate = self.date {
-                uiView.text = self.dateFormatter.string(from: selectedDate)
-            }
+            uiView.text = self.dateFormatter.string(from: self.date)
         }
         
         class Helper {
@@ -129,7 +125,7 @@ extension Component {
         }
         
     }
-
+    
 }
 
 #Preview{

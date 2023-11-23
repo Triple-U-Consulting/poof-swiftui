@@ -71,6 +71,7 @@
 		3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */; };
 		3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */; };
 		3FB22F102B0B6AA300E9D63D /* ChartPdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB22F0F2B0B6AA300E9D63D /* ChartPdfView.swift */; };
+		3FB22F142B0E5AD000E9D63D /* GetQuarterAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB22F132B0E5AD000E9D63D /* GetQuarterAnalytics.swift */; };
 		3FDA76172AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA76162AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift */; };
 		3FDAE0922AF4980100E0C696 /* UpdateKambuhCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */; };
 		3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAE0932AF8705A00E0C696 /* ConditionRequestDTO.swift */; };
@@ -214,6 +215,7 @@
 		3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignComponent.swift; sourceTree = "<group>"; };
 		3F9BA85F2AE007A7001A2AE5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		3FB22F0F2B0B6AA300E9D63D /* ChartPdfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPdfView.swift; sourceTree = "<group>"; };
+		3FB22F132B0E5AD000E9D63D /* GetQuarterAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuarterAnalytics.swift; sourceTree = "<group>"; };
 		3FDA76162AFC9C740096EA7D /* GetKambuhDataIfScaleAndTriggerIsNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKambuhDataIfScaleAndTriggerIsNull.swift; sourceTree = "<group>"; };
 		3FDA76182AFCB4E30096EA7D /* CalendarMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthView.swift; sourceTree = "<group>"; };
 		3FDAE0912AF4980100E0C696 /* UpdateKambuhCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateKambuhCondition.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				0BCD83B52AE0E0D200D111B0 /* UpdateUserInhaler.swift */,
 				D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */,
 				D63CF5382AF9BF8A00CCE0FD /* GetAnalytics.swift */,
+				3FB22F132B0E5AD000E9D63D /* GetQuarterAnalytics.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -1154,6 +1157,7 @@
 				AB2E2C0A2AFA2ECB00F5F6FC /* ProfileTabView.swift in Sources */,
 				D65637072AE0E00100C64FC1 /* WifiDetailsView.swift in Sources */,
 				AB2E2C0C2AFA389A00F5F6FC /* CalendarTabView.swift in Sources */,
+				3FB22F142B0E5AD000E9D63D /* GetQuarterAnalytics.swift in Sources */,
 				3F8A5BBB2B05D2C200E65E14 /* PdfPreviewView.swift in Sources */,
 				0B7617B22AFF57D600AF4975 /* LoadingView.swift in Sources */,
 				ABE72E1F2AFE38AF008AF550 /* DoseView.swift in Sources */,

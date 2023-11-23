@@ -36,11 +36,6 @@ class PdfCreator: NSObject {
 // Draw the content
 extension PdfCreator {
     
-    private func addImage(image: UIImage, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
-        let imageRect = CGRect(x: x, y: y, width: width, height: height)
-        image.draw(in: imageRect)
-    }
-    
     private func addTitle(title: String, x: CGFloat, y: CGFloat, paddingVertical: CGFloat = 0, paddingHorizontal: CGFloat = 0, fontSize: CGFloat) {
         let paddingX: CGFloat = paddingVertical
         let paddingY: CGFloat = paddingHorizontal
@@ -94,7 +89,7 @@ extension PdfCreator {
         
         title.draw(in: textRect, withAttributes: attributes)
     }
-
+    
     private func addDivider(image: UIImage, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         let imageRect = CGRect(x: x, y: y, width: width, height: height)
         image.draw(in: imageRect)
@@ -112,21 +107,50 @@ extension PdfCreator {
         text.draw(in: summaryRect, withAttributes: attribute)
     }
     
-    private func addChartPdf(view: some View, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
-        let hostingController = UIHostingController(rootView: view)
-        hostingController.view.frame = CGRect(x: x, y: y, width: width, height: height)
-        
-        // Render the SwiftUI view to an image
-        let renderer = UIGraphicsImageRenderer(bounds: hostingController.view.bounds)
-        let image = renderer.image { _ in
-            hostingController.view.drawHierarchy(in: hostingController.view.bounds, afterScreenUpdates: true)
-        }
-        
-        // Draw the rendered image in the PDF context
+    private func addImage(image: UIImage, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         let imageRect = CGRect(x: x, y: y, width: width, height: height)
         image.draw(in: imageRect)
     }
     
+    //    private func addChartPdf() {
+    //        let pdfView = ChartPdfView().environmentObject(PdfViewModel())
+    ////        print(view)
+    //        let size = CGSize(width: 800, height: 372)
+    //        let hostingController = UIHostingController(rootView: pdfView)
+    //        let view = hostingController.view
+    //
+    //        print(view?.subviews as Any)
+    //
+    //        // Set the size directly when creating the hosting controller
+    //        view?.bounds = CGRect(origin: CGPoint(x: 59, y: 0), size: size)
+    //        view?.backgroundColor = .clear
+    //
+    //        // render image
+    //        let renderer = UIGraphicsImageRenderer(size: size)
+    //
+    //        let image = renderer.image { _ in
+    //            view?.drawHierarchy(in: hostingController.view.bounds, afterScreenUpdates: true)
+    //        }
+    //
+    //        let halfSize = CGSize(width: image.size.width * 0.7, height: image.size.height * 0.7)
+    //        let halfScale = UIScreen.main.scale * 0.7
+    //        let scaledImage = UIImage(cgImage: image.cgImage!, scale: halfScale, orientation: image.imageOrientation).scaled(to: halfSize)
+    //
+    //        let imageRect = CGRect(origin: CGPoint(x: 0, y: 200), size: halfSize)
+    //
+    //
+    //        if let data = image.pngData() {
+    //            let filename = getDocumentsDirectory().appendingPathComponent("hasilRender3.png")
+    //            try? data.write(to: filename)
+    //        }
+    //        scaledImage.draw(in: imageRect)
+    //    }
+    //
+    //
+    //    func getDocumentsDirectory() -> URL {
+    //        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    //        return paths[0]
+    //    }
 }
 
 // Show the data
@@ -145,15 +169,16 @@ extension PdfCreator {
                 addBlueTitle(title: "Berdasarkan Waktu", x: 39, y: 517)
                 addBlueTitle(title: "Skala Sesak", x: 266, y: 517)
                 addBlueTitle(title: "Pemicu", x: 39, y: 683)
-                addImage(image: UIImage(named: "usageIncrease")!, x: 120, y: 370, width: 10, height: 10)
-                addImage(image: UIImage(named: "usageDecrease")!, x: 202, y: 370, width: 10, height: 10)
-                addSubTitle(title: "Kenaikan", x: 132, y: 270, fontSize: 10)
-                addSubTitle(title: "Penurunan", x: 350, y: 270,  fontSize: 10)
-                let testView = Text("Hello, world")
-                addChartPdf(view: testView, x: 90, y: 250, width: 200, height: 40)
+                addImage(image: UIImage(named: "ChartPdfView")!, x: 39, y: 161, width: 518, height: 259)
+                addImage(image: UIImage(named: "ChartForegroundStyle")!, x: 212, y: 436, width: 170, height: 14)
+                addImage(image: UIImage(named: "SummaryChart")!, x: 39, y: 459, width: 518, height: 52)
+                addImage(image: UIImage(named: "TimeUsage")!, x: 39, y: 553, width: 214, height: 115)
+                addImage(image: UIImage(named: "ScalePdf")!, x: 269, y: 553, width: 291, height: 115)
+                addImage(image: UIImage(named: "TriggerPdf")!, x: 39, y: 716, width: 518, height: 52)
             }
             return data
         }
         return nil
     }
 }
+

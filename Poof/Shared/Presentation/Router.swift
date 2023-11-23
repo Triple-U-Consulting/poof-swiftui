@@ -23,5 +23,6 @@ enum Page {
     case PairDevice
     case WifiConfig
     case TabBar
+    case PdfPreview
     case InputDose
 }

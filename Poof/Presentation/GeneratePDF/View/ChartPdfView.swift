@@ -11,66 +11,81 @@ import Charts
 struct ChartPdfView: View {
     
     @EnvironmentObject var vm: PdfViewModel
+    @State var image: UIImage?
     
     var body: some View {
-        VStack{
+        GeometryReader { geo in
+            
             ScrollView {
-                Chart {
-                    ForEach(vm.pdfChartModel) {
-                        LineMark(
-                            x: .value("Week", $0.week),
-                            y: .value("puff", $0.totalPuff ?? 0)
-                        )
-                        .foregroundStyle(Color.Main.blueTextSecondary)
-                        .interpolationMethod(.monotone)
-                        .lineStyle(.init(lineWidth: 1.75))
-                        .symbol() {
-                            Circle()
-                                .fill(Color.Secondary.pdfSecondary)
-                                .frame(width: 10)
-                        }
-                        .symbolSize(30)
-                    }
-                }
-                .padding()
-               // .chartLegend(position: .bottom, alignment: .center)
-//                .chartForegroundStyleScale([
-//                    "Usage Increase": Color.Main.blueTextSecondary, "Usage Decrease": Color.Secondary.pdfSecondary
-//                ])
-                .chartXAxis {
-                    AxisMarks(position: .bottom) { value in
-                        AxisGridLine(centered: true, stroke: StrokeStyle(dash: [2]))
+//                Image(uiImage: image ?? UIImage())
+//                    .resizable()
+//    //                .frame(width: .infinity)
+//                    .scaledToFit()
+                
+                VStack {
+                    Chart {
+                        ForEach(vm.pdfChartModel) {
+                            LineMark(
+                                x: .value("Week", $0.week),
+                                y: .value("puff", $0.totalPuff ?? 0)
+                            )
                             .foregroundStyle(Color.Main.blueTextSecondary)
-                        AxisValueLabel(){
-                            if let week = value.as(String.self) {
-                                Text("\(week)")
-                                    .font(.system(size: 10))
+                            .interpolationMethod(.monotone)
+                            .lineStyle(.init(lineWidth: 1.75))
+                            .symbol() {
+                                Circle()
+                                    .fill(Color.Secondary.pdfSecondary)
+                                    .frame(width: 10)
+                            }
+                            .symbolSize(30)
+                        }
+                    }
+                    .padding()
+                   // .chartLegend(position: .bottom, alignment: .center)
+    //                .chartForegroundStyleScale([
+    //                    "Usage Increase": Color.Main.blueTextSecondary, "Usage Decrease": Color.Secondary.pdfSecondary
+    //                ])
+                    .chartXAxis {
+                        AxisMarks(position: .bottom) { value in
+                            AxisGridLine(centered: true, stroke: StrokeStyle(dash: [2]))
+                                .foregroundStyle(Color.Main.blueTextSecondary)
+                            AxisValueLabel(){
+                                if let week = value.as(String.self) {
+                                    Text("\(week)")
+                                        .font(.system(size: 10))
+                                }
                             }
                         }
                     }
-                }
-                .chartYAxis {
-                    AxisMarks(position: .leading, values: stride(from: 0, to: 22, by: 2).map{ $0 }) {
-                        AxisGridLine(centered: true)
-                            .foregroundStyle(Color.Main.blueTextSecondary)
-                        AxisValueLabel()
+                    .chartYAxis {
+                        AxisMarks(position: .leading, values: stride(from: 0, to: 22, by: 2).map{ $0 }) {
+                            AxisGridLine(centered: true)
+                                .foregroundStyle(Color.Main.blueTextSecondary)
+                            AxisValueLabel()
+                        }
                     }
-                }
-                .chartYAxisLabel(position: .leading) {
-                    VStack {
-                        Text("Inhaler Dose")
-                            .foregroundColor(Color.Main.blueTextSecondary)
-                            .frame(minWidth: 66, minHeight: 50)
-                        Divider()
+                    .chartYAxisLabel(position: .leading) {
+                        VStack {
+                            Text("Inhaler Dose")
+                                .foregroundColor(Color.Main.blueTextSecondary)
+                                .frame(minWidth: 66, minHeight: 50)
+                            Divider()
+                        }
+                        .rotationEffect(.degrees(180))
                     }
-                    .rotationEffect(.degrees(180))
+                    .chartPlotStyle { plotArea in
+                      plotArea
+    //                        .background(.blue.opacity(0.2))
+    //                        .border(Color.red, width: 2)
+                    }
+                    .frame(height: 300)
                 }
-                .chartPlotStyle { plotArea in
-                  plotArea
-//                        .background(.blue.opacity(0.2))
-//                        .border(Color.red, width: 2)
+                .frame(width: 734, height: 372)
+    //            .border(.red, width: 1)
+                .onAppear {
+                    print("local origin \(geo.frame(in: .local).origin)")
+                    print("global origin \(geo.frame(in: .global).origin)")
                 }
-                .frame(height: 300)
             }
         }
     }

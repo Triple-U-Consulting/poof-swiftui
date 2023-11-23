@@ -40,4 +40,22 @@ extension AnalyticsRepositoryImpl: AnalyticsRepository {
             return Fail(error: Failure.fetchAnalyticsFailure).eraseToAnyPublisher()
         }
     }
+    
+    func fetchQuarterKambuhData(start_date: Date) async -> AnyPublisher<[Analytics], Failure> {
+        let endpoint = APIEndpoints.getQuarterKambuhData(start_date: start_date )
+        let results = await self.dataTransferService.request(with: endpoint)
+        
+        switch results {
+        case .success(let analyticsResponseDTOs):
+            return Just(analyticsResponseDTOs)
+                .setFailureType(to: Failure.self)
+                .map {
+                    $0.toDomain()
+                }
+                .eraseToAnyPublisher()
+        case .failure(let error):
+            print(error)
+            return Fail(error: Failure.fetchAnalyticsFailure).eraseToAnyPublisher()
+        }
+    }
 }

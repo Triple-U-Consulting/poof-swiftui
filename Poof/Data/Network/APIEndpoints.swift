@@ -113,4 +113,12 @@ struct APIEndpoints {
         return Endpoint(path: "data/analytics", method: .get, queryParameters: queryParameters)
     }
 
+    static func getQuarterKambuhData(start_date: Date) -> Endpoint<AnalyticsResponseDTO> {
+        let start_date = DateFormatUtil().dateToString(date: start_date, to: "yyyy-MM-dd")
+        let queryParameter = ["start_date": start_date]
+        print(queryParameter)
+        
+        return Endpoint(path: "data/kambuh/3-month", method: .get, queryParameters: queryParameter)
+    }
+    
 }
