@@ -77,7 +77,6 @@ extension KambuhRepositoryImpl: KambuhRepository {
         }
     }
     
-    
     func fetchKambuhByMonthYear(date: Date) async -> AnyPublisher<[Kambuh], Failure> {
         let endpoint = APIEndpoints.getKambuhByMonthYear(date: date)
         let results = await self.dataTransferService.request(with: endpoint)
@@ -134,4 +133,23 @@ extension KambuhRepositoryImpl: KambuhRepository {
             return Fail(error: Failure.fetchKambuhFailure).eraseToAnyPublisher()
         }
     }
+    
+    func deleteKambuhData(kambuh_id: Int) async -> AnyPublisher<String, Failure> {
+        let endpoint = APIEndpoints.deleteKambuhData(kambuh_id: kambuh_id)
+        let results = await self.dataTransferService.request(with: endpoint)
+        
+        switch results{
+        case.success(let messageResponseDTO):
+            return Just(messageResponseDTO)
+                .setFailureType(to: Failure.self)
+                .map {
+                    $0.toDomain()
+                }
+                .eraseToAnyPublisher()
+        case .failure(let failure):
+            print(failure)
+            return Fail(error: Failure.deleteKambuhFailure).eraseToAnyPublisher()
+        }
+    }
+    
 }

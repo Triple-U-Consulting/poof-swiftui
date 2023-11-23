@@ -15,4 +15,5 @@ protocol KambuhRepository {
     func fetchKambuhByMonthYear(date: Date) async -> AnyPublisher<[Kambuh], Failure>
     func getKambuhIfScaleAndTriggerIsNull() async -> AnyPublisher<[Kambuh], Failure>
     func updateKambuhCondition(kambuh: [Kambuh]) async -> AnyPublisher<String, Failure>
+    func deleteKambuhData(kambuh_id: Int) async -> AnyPublisher<String, Failure>
 }

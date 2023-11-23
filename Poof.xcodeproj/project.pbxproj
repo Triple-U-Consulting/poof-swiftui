@@ -62,6 +62,8 @@
 		3F23D7C12AF8AFE400DF47AC /* DateRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */; };
 		3F5A1ED12AF9042D00A3BB57 /* ConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */; };
 		3F5AC8252AFCB7A9006E2AF0 /* UpdateConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AC8242AFCB7A9006E2AF0 /* UpdateConditionView.swift */; };
+		3F7719812B0F9D4500FB7963 /* DeleteRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7719802B0F9D4500FB7963 /* DeleteRequestDTO.swift */; };
+		3F7719832B0F9EF500FB7963 /* DeleteKambuhData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7719822B0F9EF500FB7963 /* DeleteKambuhData.swift */; };
 		3F9027B52AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */; };
 		3F9B44EF2AD28B3800D8787C /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */; };
 		3F9BA85E2AE00675001A2AE5 /* SignComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9BA85D2AE00675001A2AE5 /* SignComponent.swift */; };
@@ -220,6 +222,8 @@
 		3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRequestDTO.swift; sourceTree = "<group>"; };
 		3F5A1ED02AF9042D00A3BB57 /* ConditionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionViewModel.swift; sourceTree = "<group>"; };
 		3F5AC8242AFCB7A9006E2AF0 /* UpdateConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConditionView.swift; sourceTree = "<group>"; };
+		3F7719802B0F9D4500FB7963 /* DeleteRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRequestDTO.swift; sourceTree = "<group>"; };
+		3F7719822B0F9EF500FB7963 /* DeleteKambuhData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteKambuhData.swift; sourceTree = "<group>"; };
 		3F9027B22AE0F866005011B3 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		3F9027B42AE1112E005011B3 /* UserRegisterRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRegisterRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		3F9B44EE2AD28B3800D8787C /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
@@ -594,6 +598,7 @@
 				0BCD83BF2AE11B8400D111B0 /* UserLoginRequestDTO+Mapping.swift */,
 				3FDAE0932AF8705A00E0C696 /* ConditionRequestDTO.swift */,
 				3F23D7C02AF8AFE400DF47AC /* DateRequestDTO.swift */,
+				3F7719802B0F9D4500FB7963 /* DeleteRequestDTO.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -639,6 +644,7 @@
 				D6E6D6912ADFDC5D000C1A94 /* PostWifiDetails.swift */,
 				D63CF5382AF9BF8A00CCE0FD /* GetAnalytics.swift */,
 				D688570D2B0E04740096F5E3 /* GetSummary.swift */,
+				3F7719822B0F9EF500FB7963 /* DeleteKambuhData.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -1182,6 +1188,7 @@
 				0BBBD9D62AFD3E940075AE6D /* EditDataCard+CalendarTab.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
 				AB2F17A02B0B47F70046E2F0 /* TermsAndConditionsView.swift in Sources */,
+				3F7719812B0F9D4500FB7963 /* DeleteRequestDTO.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */,
 				AB01C3D42ADD1FA3008C3160 /* LoadingPairingView.swift in Sources */,
@@ -1209,6 +1216,7 @@
 				ABE72E1F2AFE38AF008AF550 /* DoseView.swift in Sources */,
 				0BE97C9C2ACFFA67006A33AC /* Failure.swift in Sources */,
 				0B8D60BB2AE0C0FC0017445F /* User.swift in Sources */,
+				3F7719832B0F9EF500FB7963 /* DeleteKambuhData.swift in Sources */,
 				0BE97CAB2ACFFD16006A33AC /* Endpoint.swift in Sources */,
 				AB2F17A82B0D1AE20046E2F0 /* FormComponent.swift in Sources */,
 				D6809E522B0C29A600054DFE /* IrritantsView.swift in Sources */,

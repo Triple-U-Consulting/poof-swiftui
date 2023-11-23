@@ -17,6 +17,7 @@ enum NoteStatus: Int8 {
 class CalendarViewModel: ObservableObject {
     @Published var processedKambuhData: [Date: [Kambuh]]
     @Published var monthsInCalendar: [Date]
+    @Published var message: String = ""
     
     // MARK: - Sheet view
     @Published private(set) var currentDateSelected: Date
@@ -26,6 +27,7 @@ class CalendarViewModel: ObservableObject {
     // MARK: - Usecases
     private let getKambuhByMonth: GetKambuhByMonthUsecase
     private let updateConditionKambuh: UpdateKambuhConditionUseCase
+    private let deleteKambuhData: DeleteKambuhDataUseCase
     
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
@@ -36,7 +38,8 @@ class CalendarViewModel: ObservableObject {
         currentDateSelected: Date = Date(),
         calendar: Calendar = Calendar.current,
         getKambuhByMonth: GetKambuhByMonthUsecase = GetKambuhByMonthImpl.shared,
-        updateConditionKambuh: UpdateKambuhConditionUseCase = UpdateKambuhConditionImpl.shared
+        updateConditionKambuh: UpdateKambuhConditionUseCase = UpdateKambuhConditionImpl.shared,
+        deleteKambuhData: DeleteKambuhDataUseCase = DeleteKambuhDataImpl.shared
     ) {
         self.processedKambuhData = processedKambuhData
         self.monthsInCalendar = monthsInCalendar
@@ -44,6 +47,7 @@ class CalendarViewModel: ObservableObject {
         self.calendar = calendar
         self.getKambuhByMonth = getKambuhByMonth
         self.updateConditionKambuh = updateConditionKambuh
+        self.deleteKambuhData = deleteKambuhData
     }
 }
 
@@ -329,6 +333,26 @@ extension Formatter {
         formatter.dateFormat = "HH:mm"
         return formatter
     }()
+}
+
+extension CalendarViewModel {
+    func deleteKambuhData(kambuh_id: Int){
+        Task {
+            await deleteKambuhData.execute(kambuh_id: kambuh_id)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Deletted item")
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                } receiveValue: { message in
+                    print(message)
+                    self.message = message
+                }
+                .store(in: &cancellables)
+        }
+    }
 }
 
 extension Date {

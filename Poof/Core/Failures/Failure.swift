@@ -19,6 +19,7 @@ enum NetworkError: Error {
 enum Failure: Error {
     // MARK: - Kambuh Failures
     case fetchKambuhFailure
+    case deleteKambuhFailure
     
     // MARK: - Connect to IoT Error
     case fetchInhalerIdFailure

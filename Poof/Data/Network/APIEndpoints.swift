@@ -73,6 +73,10 @@ struct APIEndpoints {
         return Endpoint(path: "data/update/condition", method: .put, bodyParametersEncodable: requestDTO)
     }
     
+    static func deleteKambuhData(kambuh_id: Int) -> Endpoint<MessageResponseDTO>{
+        return Endpoint(path: "data/delete/data/\(kambuh_id)", method: .delete)
+    }
+    
     // MARK: - Inhaler
     static func updateUserInhalerId(id: String, token: String) -> Endpoint<MessageResponseDTO> {
         let bodyParameters = ["inhaler_id": id]
