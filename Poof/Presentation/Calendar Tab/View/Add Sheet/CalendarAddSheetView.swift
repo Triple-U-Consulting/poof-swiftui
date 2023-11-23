@@ -17,8 +17,18 @@ struct CalendarAddSheetView: View {
     
     @State var sprayCount: Int = 0
     @State var selectedIrritant: String = "Choose"
-    @State var skalaSesak: Double = 0
+    @State var skalaSesak: Double = -1
     @State var noSkalaSesak: Bool = false
+    
+    let labelSkalaSesak = [
+        -2 : "Not Sure",
+        -1 : "Pilih",
+        0 : "Fine",
+        1 : "Mild",
+        2 : "Moderate",
+        3 : "Severe",
+        4 : "Profound"
+    ]
     
     var body: some View {
         NavigationView {
@@ -49,14 +59,24 @@ struct CalendarAddSheetView: View {
                     HStack {
                         Component.DefaultText(text: "Skala Sesak")
                         Spacer()
-                        Component.TextWithBorder(text: "Moderate")
+                        Component.TextWithBorder(text: "\(labelSkalaSesak[Int(skalaSesak)]!)")
                             .onTapGesture {
                                 showSkalaSesak.toggle()
+                                if skalaSesak == -1 {
+                                    skalaSesak = 0
+                                }
                             }
                     }
                     
                     if showSkalaSesak {
                         Component.FormSlider(value: $skalaSesak, toggle: $noSkalaSesak)
+                            .onChange(of: noSkalaSesak) { oldValue, newValue in
+                                if newValue == true { //if true
+                                    skalaSesak = -2
+                                } else {
+                                    skalaSesak = 0
+                                }
+                            }
                     }
                         
                     HStack {
@@ -93,6 +113,7 @@ struct CalendarAddSheetView: View {
                     })
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
             .background(.gray7)
         }
         .frame(width: .infinity)
