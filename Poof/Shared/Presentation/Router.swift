@@ -27,4 +27,6 @@ enum Page {
     case TabBar
     case InputDose 
     case InputTrigger
+    case PdfPreview
+    case GeneratePdf
 }

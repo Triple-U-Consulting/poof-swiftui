@@ -13,6 +13,7 @@ struct ContentView: View {
     @EnvironmentObject var userDevice: UserDevice
     @StateObject var conditionVM = ConditionViewModel()
     @StateObject var vm = PairingViewModel()
+    @StateObject var pdfVm = PdfViewModel()
     
     var body: some View {
         ZStack {
@@ -75,6 +76,16 @@ struct ContentView: View {
                             IrritantsView()
                                 .environmentObject(router)
                                 .navigationBarHidden(true)
+                        case Page.PdfPreview:
+                            PdfPreviewView()
+                                .environmentObject(router)
+                                .environmentObject(pdfVm)
+                                .navigationBarBackButtonHidden()
+                        case Page.GeneratePdf:
+                            GeneratePdfView()
+                                .environmentObject(pdfVm)
+                                .environmentObject(router)
+                                .navigationBarBackButtonHidden(true)
                         default:
                             VStack {
                                 Text("An error occured. Check ContentView")

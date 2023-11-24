@@ -99,7 +99,7 @@ struct AnalyticsFilterView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        print("Generated!")
+                        router.path.append(Page.GeneratePdf)
                     }label:{
                         Image("generate")
                             .padding(.trailing)

@@ -66,7 +66,6 @@ extension Component {
     }
     
     struct DatePickerTextField: UIViewRepresentable{
-        
         private let helper = Helper()
         private let textField = UITextField()
         private let datePicker = UIDatePicker()
@@ -77,11 +76,12 @@ extension Component {
         }()
         
         public var placeholder: String
-        @Binding public var date: Date?
+        @Binding public var date: Date
         
         func makeUIView(context: Context) -> UITextField {
             self.datePicker.datePickerMode = .date
             self.datePicker.preferredDatePickerStyle = .wheels
+            self.datePicker.maximumDate = Date()
             self.datePicker.addTarget(self.helper, action: #selector(self.helper.dateValueChanged), for: .valueChanged)
             self.textField.placeholder = self.placeholder
             self.textField.inputView = self.datePicker
@@ -99,9 +99,7 @@ extension Component {
             }
             
             self.helper.doneButtonTapped = {
-                if self.date == nil {
-                    self.date = self.datePicker.date
-                }
+                self.date = self.datePicker.date
                 self.textField.resignFirstResponder()
             }
             
@@ -109,9 +107,7 @@ extension Component {
         }
         
         func updateUIView(_ uiView: UITextField, context: Context) {
-            if let selectedDate = self.date {
-                uiView.text = self.dateFormatter.string(from: selectedDate)
-            }
+            uiView.text = self.dateFormatter.string(from: self.date)
         }
         
         class Helper {
@@ -126,7 +122,7 @@ extension Component {
                 self.doneButtonTapped?()
             }
         }
-        
+            
     }
 
 }

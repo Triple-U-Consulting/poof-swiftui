@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B049A4F2B103B5D00B495D5 /* PdfCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B049A4E2B103B5D00B495D5 /* PdfCreator.swift */; };
+		0B049A512B103B6200B495D5 /* PdfContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B049A502B103B6200B495D5 /* PdfContent.swift */; };
+		0B049A562B103BC700B495D5 /* PdfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B049A552B103BC700B495D5 /* PdfViewModel.swift */; };
+		0B049A582B103BE000B495D5 /* PdfPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B049A572B103BE000B495D5 /* PdfPreviewView.swift */; };
+		0B049A5A2B103BFB00B495D5 /* GeneratePdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B049A592B103BFB00B495D5 /* GeneratePdfView.swift */; };
+		0B049A5C2B103C6D00B495D5 /* PdfViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B049A5B2B103C6D00B495D5 /* PdfViewUI.swift */; };
 		0B13B65A2AE686B700576845 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13B6592AE686B700576845 /* AuthViewModel.swift */; };
 		0B2AF8EC2AFE392A00572762 /* UpdateInhalerDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF8EB2AFE392A00572762 /* UpdateInhalerDose.swift */; };
 		0B2AF8EE2AFE396200572762 /* InhalerRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF8ED2AFE396200572762 /* InhalerRepositoryImpl.swift */; };
@@ -170,6 +176,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B049A4E2B103B5D00B495D5 /* PdfCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfCreator.swift; sourceTree = "<group>"; };
+		0B049A502B103B6200B495D5 /* PdfContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfContent.swift; sourceTree = "<group>"; };
+		0B049A552B103BC700B495D5 /* PdfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewModel.swift; sourceTree = "<group>"; };
+		0B049A572B103BE000B495D5 /* PdfPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfPreviewView.swift; sourceTree = "<group>"; };
+		0B049A592B103BFB00B495D5 /* GeneratePdfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePdfView.swift; sourceTree = "<group>"; };
+		0B049A5B2B103C6D00B495D5 /* PdfViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewUI.swift; sourceTree = "<group>"; };
 		0B13B6592AE686B700576845 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		0B2AF8EB2AFE392A00572762 /* UpdateInhalerDose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInhalerDose.swift; sourceTree = "<group>"; };
 		0B2AF8ED2AFE396200572762 /* InhalerRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhalerRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -330,6 +342,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B049A522B103BB500B495D5 /* Generate PDF */ = {
+			isa = PBXGroup;
+			children = (
+				0B049A542B103BC100B495D5 /* View Model */,
+				0B049A532B103BBD00B495D5 /* View */,
+			);
+			path = "Generate PDF";
+			sourceTree = "<group>";
+		};
+		0B049A532B103BBD00B495D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B049A572B103BE000B495D5 /* PdfPreviewView.swift */,
+				0B049A592B103BFB00B495D5 /* GeneratePdfView.swift */,
+				0B049A5B2B103C6D00B495D5 /* PdfViewUI.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0B049A542B103BC100B495D5 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B049A552B103BC700B495D5 /* PdfViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		0B13B6582AE6869B00576845 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +691,8 @@
 				D63CF5322AF9BE3C00CCE0FD /* Analytics.swift */,
 				D68857092B0E038A0096F5E3 /* Summary.swift */,
 				0BABE62C2AF8D73B00FB8A28 /* HomeData.swift */,
+				0B049A4E2B103B5D00B495D5 /* PdfCreator.swift */,
+				0B049A502B103B6200B495D5 /* PdfContent.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -873,6 +914,7 @@
 		AB7BEDC92ACD524A0071BF10 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0B049A522B103BB500B495D5 /* Generate PDF */,
 				0B8D60832AD94AD80017445F /* Onboarding */,
 				0B8D607E2AD94A7E0017445F /* Authentication */,
 				0B8D60802AD94AA70017445F /* Pair Device */,
@@ -1152,6 +1194,7 @@
 				AB01C3D62ADD21D0008C3160 /* SuccessPairingView.swift in Sources */,
 				3FDAE0942AF8705A00E0C696 /* ConditionRequestDTO.swift in Sources */,
 				0BE97C922ACFF496006A33AC /* Kambuh.swift in Sources */,
+				0B049A582B103BE000B495D5 /* PdfPreviewView.swift in Sources */,
 				D68857102B0E04B30096F5E3 /* SummaryRepository.swift in Sources */,
 				D68857082B0E02AF0096F5E3 /* SummaryResponseDTO+Mapping.swift in Sources */,
 				D688570A2B0E038A0096F5E3 /* Summary.swift in Sources */,
@@ -1163,16 +1206,19 @@
 				0BE97CAF2AD00607006A33AC /* NetworkService.swift in Sources */,
 				0B7617B02AFF56B100AF4975 /* InhalerDoseViewModel.swift in Sources */,
 				D6E6D6942ADFE1F3000C1A94 /* WifiDetailsRepositoryImpl.swift in Sources */,
+				0B049A5A2B103BFB00B495D5 /* GeneratePdfView.swift in Sources */,
 				AB7BED962ACD4B770071BF10 /* ContentView.swift in Sources */,
 				AB7BED942ACD4B770071BF10 /* PoofApp.swift in Sources */,
 				0BE97C982ACFF4D0006A33AC /* KambuhRepository.swift in Sources */,
 				0B9576342AD93DFF0020F191 /* DateFormatUtil.swift in Sources */,
 				AB01C3D82ADD243F008C3160 /* FailedPairingView.swift in Sources */,
 				D6E6D6922ADFDC5D000C1A94 /* PostWifiDetails.swift in Sources */,
+				0B049A562B103BC700B495D5 /* PdfViewModel.swift in Sources */,
 				D63CF52F2AF7BE5400CCE0FD /* ChartView.swift in Sources */,
 				0B8007062AE13F2A00ACBD71 /* KambuhResponseDTO+Mapping.swift in Sources */,
 				AB01C3CB2AD809B7008C3160 /* LottieView.swift in Sources */,
 				AB7BEDE12ACD7E6C0071BF10 /* TabBarView.swift in Sources */,
+				0B049A5C2B103C6D00B495D5 /* PdfViewUI.swift in Sources */,
 				AB7BEDDF2ACD7A8A0071BF10 /* PairingViewModel.swift in Sources */,
 				0B8D60A62ADD4A9C0017445F /* IoTRepository.swift in Sources */,
 				AB30CCC42B0775E00083703B /* PrivacyPolicyView.swift in Sources */,
@@ -1189,6 +1235,7 @@
 				0BBBD9D62AFD3E940075AE6D /* EditDataCard+CalendarTab.swift in Sources */,
 				0BABE62F2AF8D7CF00FB8A28 /* HomepageRepository.swift in Sources */,
 				AB2F17A02B0B47F70046E2F0 /* TermsAndConditionsView.swift in Sources */,
+				0B049A4F2B103B5D00B495D5 /* PdfCreator.swift in Sources */,
 				3F7719812B0F9D4500FB7963 /* DeleteRequestDTO.swift in Sources */,
 				D65637012AE0D3CD00C64FC1 /* WifiDetailsRepository.swift in Sources */,
 				0BABE6312AF8D9BC00FB8A28 /* HomepageRepositoryImpl.swift in Sources */,
@@ -1198,6 +1245,7 @@
 				0BE97CBB2AD808F2006A33AC /* AppConfiguration.swift in Sources */,
 				0BE97CB42AD7DD03006A33AC /* APIEndpoints.swift in Sources */,
 				3F9BA8602AE007A7001A2AE5 /* RegisterView.swift in Sources */,
+				0B049A512B103B6200B495D5 /* PdfContent.swift in Sources */,
 				D61C22B22AF9D651006B9058 /* AnalyticsFilterView.swift in Sources */,
 				AB01C3D22ADD1A8D008C3160 /* ConnectToDeviceWifiView.swift in Sources */,
 				D63CF53D2AF9C6FD00CCE0FD /* AnalyticsViewModel.swift in Sources */,
