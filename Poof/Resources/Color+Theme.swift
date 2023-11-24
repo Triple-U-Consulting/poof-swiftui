@@ -18,7 +18,7 @@ extension Color {
         static let blueText = Color("blueText")
         static let blueTextSecondary = Color("blueTextSecondary")
         static let backgroundTitleCard = Color("backgroundTitleCard")
-        static let backgroundTitleReportCard = Color("backrgoundTitleReportCard")
+        static let backgroundTitleReportCard = Color("backgroundTitleReportCard")
     }
 }
 
