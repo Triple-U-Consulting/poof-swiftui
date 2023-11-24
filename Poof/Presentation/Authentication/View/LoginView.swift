@@ -47,7 +47,8 @@ struct LoginView: View {
                         .padding(.top, 8)
                         .onSubmit {
                             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                            viewModel.login(email: "angela@gmail.com", password: "angelaadmin")
+//                            viewModel.login(email: "angela@gmail.com", password: "angelaadmin")
+                            router.path.append(Page.PairDevice)
                         }
                         
                         Component.CustomDivider(width: 342)
@@ -65,7 +66,8 @@ struct LoginView: View {
                     
                     Component.DefaultButton(text: "Masuk") {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        viewModel.login(email: "angela@gmail.com", password: "angelaadmin")
+//                        viewModel.login(email: "angela@gmail.com", password: "angelaadmin")
+                        router.path.append(Page.PairDevice)
                     }
                     .padding(.top, 16)
                     .padding(.horizontal, 24)
